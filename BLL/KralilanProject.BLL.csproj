@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A32707C6-4CE5-40FB-8E0B-484DF6AAB005}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BLL</RootNamespace>
+    <AssemblyName>BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Iyzipay, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Iyzipay.2.1.19\lib\net45\Iyzipay.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="bildirimBll.cs" />
+    <Compile Include="Concrete\BildirimManager.cs" />
+    <Compile Include="Concrete\DopingKategoriManager.cs" />
+    <Compile Include="Concrete\DopingManager.cs" />
+    <Compile Include="Concrete\FirmaManager.cs" />
+    <Compile Include="Concrete\GuvenlikKodManager.cs" />
+    <Compile Include="Concrete\IlanFavoriManager.cs" />
+    <Compile Include="Concrete\IlanManager.cs" />
+    <Compile Include="Concrete\IlceManager.cs" />
+    <Compile Include="Concrete\IlManager.cs" />
+    <Compile Include="Concrete\MagazaManager.cs" />
+    <Compile Include="Concrete\MagazaTakipciManager.cs" />
+    <Compile Include="Concrete\MagazaTelefonManager.cs" />
+    <Compile Include="Concrete\MagazaTurManager.cs" />
+    <Compile Include="Concrete\MahalleManager.cs" />
+    <Compile Include="Concrete\OzellikManager.cs" />
+    <Compile Include="Concrete\ProjeManager.cs" />
+    <Compile Include="Concrete\KategoriManager.cs" />
+    <Compile Include="Concrete\KategoriTurManager.cs" />
+    <Compile Include="Concrete\KullaniciManager.cs" />
+    <Compile Include="Concrete\KullaniciTakipManager.cs" />
+    <Compile Include="Concrete\MagazaKategoriManager.cs" />
+    <Compile Include="Concrete\MagazaKullaniciManager.cs" />
+    <Compile Include="Concrete\IlanSayiManager.cs" />
+    <Compile Include="Concrete\OdemeManager.cs" />
+    <Compile Include="Concrete\ReklamManager.cs" />
+    <Compile Include="Concrete\SeciliDopingManager.cs" />
+    <Compile Include="Concrete\TelefonManager.cs" />
+    <Compile Include="Concrete\VergiDaireManager.cs" />
+    <Compile Include="Concrete\VerilenReklamManager.cs" />
+    <Compile Include="Concrete\ZiyaretciManager.cs" />
+    <Compile Include="Concrete\ZiyaretciProjeManager.cs" />
+    <Compile Include="EncryptHelper\EncryptHelper.cs" />
+    <Compile Include="EnumHelper\EnumHelper.cs" />
+    <Compile Include="ExternalClass\CategoriCS.cs" />
+    <Compile Include="ExternalClass\TextItemSearchCS.cs" />
+    <Compile Include="ExternalClass\detayDataType.cs" />
+    <Compile Include="ExternalClass\distCntDT.cs" />
+    <Compile Include="ExternalClass\dopingKategoriDT.cs" />
+    <Compile Include="ExternalClass\girilenDataType.cs" />
+    <Compile Include="ExternalClass\ilanDataType.cs" />
+    <Compile Include="ExternalClass\jsonintextDataType.cs" />
+    <Compile Include="ExternalClass\PaymentCS.cs" />
+    <Compile Include="ExternalClass\pplanDT.cs" />
+    <Compile Include="ExternalClass\projectDT.cs" />
+    <Compile Include="ExternalClass\provinCntDT.cs" />
+    <Compile Include="ExternalClass\resimDataType.cs" />
+    <Compile Include="ExternalClass\secilenDataType.cs" />
+    <Compile Include="ExternalClass\siparisDT.cs" />
+    <Compile Include="ExternalClass\SiteMapCS.cs" />
+    <Compile Include="dopingBll.cs" />
+    <Compile Include="dopingKategoriBll.cs" />
+    <Compile Include="firmalarBll.cs" />
+    <Compile Include="Formatter\Formatter.cs" />
+    <Compile Include="Formatter\HtmlFormat.cs" />
+    <Compile Include="Formatter\XmlFormat.cs" />
+    <Compile Include="guvenlikKodlariBll.cs" />
+    <Compile Include="ilanBll.cs" />
+    <Compile Include="ilanFavoriBll.cs" />
+    <Compile Include="ilBll.cs" />
+    <Compile Include="ilceBll.cs" />
+    <Compile Include="ImageZipperHelper\ImageZipperHelper.cs" />
+    <Compile Include="kategoriBll.cs" />
+    <Compile Include="kategoriTurBll.cs" />
+    <Compile Include="kullaniciBll.cs" />
+    <Compile Include="kullaniciTakipciBll.cs" />
+    <Compile Include="magazaBll.cs" />
+    <Compile Include="magazaKategoriBll.cs" />
+    <Compile Include="magazaKullaniciBll.cs" />
+    <Compile Include="magazaTakipciBll.cs" />
+    <Compile Include="magazaTelefonBll.cs" />
+    <Compile Include="magazaTurBll.cs" />
+    <Compile Include="mahalleBll.cs" />
+    <Compile Include="MailHelper\MailHelper.cs" />
+    <Compile Include="mesajBll.cs" />
+    <Compile Include="odemeBll.cs" />
+    <Compile Include="ozelliklerBll.cs" />
+    <Compile Include="PaymentHelper\IPayment.cs" />
+    <Compile Include="PaymentHelper\IyzicoPayment.cs" />
+    <Compile Include="PaymentHelper\MobilePayment.cs" />
+    <Compile Include="PaymentHelper\PaymentHelper.cs" />
+    <Compile Include="projelerBll.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PublicHelper\Tools.cs" />
+    <Compile Include="ReCaptchaHelper\ReCaptchaHelper.cs" />
+    <Compile Include="reklamBll.cs" />
+    <Compile Include="seciliDopingBll.cs" />
+    <Compile Include="Formatter\IFormatter.cs" />
+    <Compile Include="Formatter\JsonFormat.cs" />
+    <Compile Include="SecurityCodeHelper\SecurityCodeHelper.cs" />
+    <Compile Include="SMSHelper\SMSHelper.cs" />
+    <Compile Include="telefonBll.cs" />
+    <Compile Include="vergiDaireBll.cs" />
+    <Compile Include="verilenReklamBll.cs" />
+    <Compile Include="ziyaretciBll.cs" />
+    <Compile Include="ziyaretciprojeBll.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DAL\KralilanProject.DAL.csproj">
+      <Project>{1263822a-e357-4f74-8234-d71262c31eac}</Project>
+      <Name>KralilanProject.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KralilanProject.Entities\KralilanProject.Entities.csproj">
+      <Project>{9ec35e6b-e53d-483f-a7eb-a0b90a558cef}</Project>
+      <Name>KralilanProject.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KralilanProject.Interfaces\KralilanProject.Interfaces.csproj">
+      <Project>{51e1edd6-4053-4c35-8e25-dbf966c0968a}</Project>
+      <Name>KralilanProject.Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Abstract\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1263822A-E357-4F74-8234-D71262C31EAC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DAL</RootNamespace>
+    <AssemblyName>DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="HtmlAgilityPack, Version=1.4.9.5, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.4.9.5\lib\Net45\HtmlAgilityPack.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Iyzipay, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Iyzipay.2.1.14\lib\net45\Iyzipay.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstract\IBildirimlerDal.cs" />
+    <Compile Include="Abstract\IDopinglerDal.cs" />
+    <Compile Include="Abstract\IDopingKategorilerDal.cs" />
+    <Compile Include="Abstract\IFirmalarDal.cs" />
+    <Compile Include="Abstract\IGuvenlikKodlarDal.cs" />
+    <Compile Include="Abstract\IIlanSayilarDal.cs" />
+    <Compile Include="Abstract\IIllerDal.cs" />
+    <Compile Include="Abstract\IIlanlarDal.cs" />
+    <Compile Include="Abstract\IEntityRepository.cs" />
+    <Compile Include="Abstract\IIlanFavorilerDal.cs" />
+    <Compile Include="Abstract\IIlcelerDal.cs" />
+    <Compile Include="Abstract\IKategorilerDal.cs" />
+    <Compile Include="Abstract\IKategoriTurlerDal.cs" />
+    <Compile Include="Abstract\IKullanicilarDal.cs" />
+    <Compile Include="Abstract\IKullaniciTakipcilerDal.cs" />
+    <Compile Include="Abstract\IMagazalarDal.cs" />
+    <Compile Include="Abstract\IMagazaKategorilerDal.cs" />
+    <Compile Include="Abstract\IMagazaKullanicilarDal.cs" />
+    <Compile Include="Abstract\IMagazaTakipcilerDal.cs" />
+    <Compile Include="Abstract\IMagazaTelefonlarDal.cs" />
+    <Compile Include="Abstract\IMagazaTurlerDal.cs" />
+    <Compile Include="Abstract\IMahallelerDal.cs" />
+    <Compile Include="Abstract\IMesajlarDal.cs" />
+    <Compile Include="Abstract\IOdemelerDal.cs" />
+    <Compile Include="Abstract\IOzelliklerDal.cs" />
+    <Compile Include="Abstract\IProjelerDal.cs" />
+    <Compile Include="Abstract\IReklamlarDal.cs" />
+    <Compile Include="Abstract\ISeciliDopinglerDal.cs" />
+    <Compile Include="Abstract\ITelefonlarDal.cs" />
+    <Compile Include="Abstract\IVergiDairelerDal.cs" />
+    <Compile Include="Abstract\IVerilenReklamlarDal.cs" />
+    <Compile Include="Abstract\IZiyaretcilerDal.cs" />
+    <Compile Include="Abstract\IZiyaretcilerProjeDal.cs" />
+    <Compile Include="Concrete\LINQ\LTSBildirimlerDal.cs" />
+    <Compile Include="Concrete\LINQ\LTSDopinglerDal.cs" />
+    <Compile Include="Concrete\LINQ\LTSDopingKategorilerDal.cs" />
+    <Compile Include="Concrete\LINQ\LTSFirmalarDal.cs" />
+    <Compile Include="Concrete\LINQ\LTSGuvenlikKodlarDal.cs" />
+    <Compile Include="Concrete\LINQ\LTSIlanlarDal.cs" />
+    <Compile Include="Concrete\LINQ\LTSIlanFavorilerDal.cs" />
+    <Compile Include="Concrete\LINQ\LTSIlanSayilarDal.cs" />
+    <Compile Include="Concrete\LINQ\LTSIlcelerDal.cs" />
+    <Compile Include="Concrete\LINQ\LTSIllerDal.cs" />
+    <Compile Include="Concrete\LINQ\LTSKategorilerDal.cs" />
+    <Compile Include="Concrete\LINQ\LTSKategoriTurlerDal.cs" />
+    <Compile Include="Concrete\LINQ\LTSKullanicilarDal.cs" />
+    <Compile Include="Concrete\LINQ\LTSKullaniciTakipcilerDal.cs" />
+    <Compile Include="Concrete\LINQ\LTSMagazalarDal.cs" />
+    <Compile Include="Concrete\LINQ\LTSMagazaKategorilerDal.cs" />
+    <Compile Include="Concrete\LINQ\LTSMagazaKullanicilarDal.cs" />
+    <Compile Include="Concrete\LINQ\LTSMagazaTakipcilerDal.cs" />
+    <Compile Include="Concrete\LINQ\LTSMagazaTelefonlarDal.cs" />
+    <Compile Include="Concrete\LINQ\LTSMagazaTurlerDal.cs" />
+    <Compile Include="Concrete\LINQ\LTSMahallelerDal.cs" />
+    <Compile Include="Concrete\LINQ\LTSMesajlarDal.cs" />
+    <Compile Include="Concrete\LINQ\LTSOdemelerDal.cs" />
+    <Compile Include="Concrete\LINQ\LTSOzelliklerDal.cs" />
+    <Compile Include="Concrete\LINQ\LTSProjelerDal.cs" />
+    <Compile Include="Concrete\LINQ\LTSReklamlarDal.cs" />
+    <Compile Include="Concrete\LINQ\LTSSeciliDopinglerDal.cs" />
+    <Compile Include="Concrete\LINQ\LTSTelefonlarDal.cs" />
+    <Compile Include="Concrete\LINQ\LTSVergiDairelerDal.cs" />
+    <Compile Include="Concrete\LINQ\LTSVerilenReklamlarDal.cs" />
+    <Compile Include="Concrete\LINQ\LTSZiyaretcilerDal.cs" />
+    <Compile Include="Concrete\LINQ\LTSZiyaretcilerProjeDal.cs" />
+    <Compile Include="Enums\Enums.cs" />
+    <Compile Include="StrategyData.cs" />
+    <Compile Include="StrategyPhoto.cs" />
+    <Compile Include="ilan.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ilan.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="StrategyIyzicoCheckoutForm.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="toolkit.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="ilan.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>ilan.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ilan.dbml.layout">
+      <DependentUpon>ilan.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Concrete\ADONET\" />
+    <Folder Include="Concrete\EntityFramework\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KralilanProject.Entities\KralilanProject.Entities.csproj">
+      <Project>{9ec35e6b-e53d-483f-a7eb-a0b90a558cef}</Project>
+      <Name>KralilanProject.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KralilanProject.Service\KralilanProject.Services.csproj">
+      <Project>{9c77134e-f15a-49a8-8200-d584915a4359}</Project>
+      <Name>KralilanProject.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

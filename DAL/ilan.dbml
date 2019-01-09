@@ -1,0 +1,499 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ilanDB" Class="ilanDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=ilanDB;Integrated Security=True" SettingsObjectName="DAL.Properties.Settings" SettingsPropertyName="ilanDBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.bildirimler" Member="bildirimlers">
+    <Type Name="bildirimler">
+      <Column Name="bildirimId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="kimeId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="konu" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="mesaj" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="tarih" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="okunduMu" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="aliciSildiMi" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="kullanici_bildirimler" Member="kullanici" ThisKey="kimeId" OtherKey="kullaniciId" Type="kullanici" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ziyaretproje" Member="ziyaretprojes">
+    <Type Name="ziyaretproje">
+      <Column Name="gid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="gip" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="gpid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="gtarih" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="gtip" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.doping" Member="dopings">
+    <Type Name="doping">
+      <Column Name="dopingId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="dopingAdi" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="doping_dopingKategori" Member="dopingKategoris" ThisKey="dopingId" OtherKey="dopingId" Type="dopingKategori" />
+    </Type>
+  </Table>
+  <Table Name="dbo.dopingKategori" Member="dopingKategoris">
+    <Type Name="dopingKategori">
+      <Column Name="dopingKategoriId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="kategoriId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="dopingId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="dopingSureId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fiyat" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="dopingKategori_seciliDoping" Member="seciliDopings" ThisKey="dopingKategoriId" OtherKey="dopingKategoriId" Type="seciliDoping" />
+      <Association Name="doping_dopingKategori" Member="doping" ThisKey="dopingId" OtherKey="dopingId" Type="doping" IsForeignKey="true" />
+      <Association Name="kategori_dopingKategori" Member="kategori" ThisKey="kategoriId" OtherKey="kategoriId" Type="kategori" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.firmalar" Member="firmalars">
+    <Type Name="firmalar">
+      <Column Name="firmaid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="fadi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="feposta" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ftelefon" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ffaks" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="fadres" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="fwebsite" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="fhakkinda" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="flogo" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="fsilindimi" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ftarih" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="fkullanicid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="firmalar_projeler" Member="projelers" ThisKey="firmaid" OtherKey="pfirmaid" Type="projeler" />
+      <Association Name="kullanici_firmalar" Member="kullanici" ThisKey="fkullanicid" OtherKey="kullaniciId" Type="kullanici" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.geriBildirim" Member="geriBildirims">
+    <Type Name="geriBildirim">
+      <Column Name="geriBildirimId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="kullaniciId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="geriBildirim" Member="geriBildirim1" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="tarih" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Association Name="kullanici_geriBildirim" Member="kullanici" ThisKey="kullaniciId" OtherKey="kullaniciId" Type="kullanici" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.guvenlikKodlari" Member="guvenlikKodlaris">
+    <Type Name="guvenlikKodlari">
+      <Column Name="guvenlikKodId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="cepTelefonu" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="guvenlikKodu" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="tarih" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ilan" Member="ilans">
+    <Type Name="ilan">
+      <Column Name="ilanId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ilanTurId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="kategoriId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="fiyat" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="fiyatTurId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="kullaniciId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ilId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ilceId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="mahalleId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="baslik" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="aciklama" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="baslangicTarihi" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="bitisTarihi" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="magazaId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ziyaretci" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="onay" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="numaraYayinlansinMi" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="pasifMi" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="silindiMi" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="fiyatiDustu" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="satildiMi" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="koordinat" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="girilenOzellik" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="secilenOzellik" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="resim" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ilat" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ilng" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="ilan_ilanFavori" Member="ilanFavoris" ThisKey="ilanId" OtherKey="ilanId" Type="ilanFavori" />
+      <Association Name="ilan_ilanSikayet" Member="ilanSikayets" ThisKey="ilanId" OtherKey="ilanId" Type="ilanSikayet" />
+      <Association Name="ilan_mesajlar" Member="mesajlars" ThisKey="ilanId" OtherKey="ilanId" Type="mesajlar" />
+      <Association Name="ilan_seciliDoping" Member="seciliDopings" ThisKey="ilanId" OtherKey="ilanId" Type="seciliDoping" />
+      <Association Name="ilceler_ilan" Member="ilceler" ThisKey="ilceId" OtherKey="ilceId" Type="ilceler" IsForeignKey="true" />
+      <Association Name="iller_ilan" Member="iller" ThisKey="ilId" OtherKey="ilId" Type="iller" IsForeignKey="true" />
+      <Association Name="kategori_ilan" Member="kategori" ThisKey="kategoriId" OtherKey="kategoriId" Type="kategori" IsForeignKey="true" />
+      <Association Name="kullanici_ilan" Member="kullanici" ThisKey="kullaniciId" OtherKey="kullaniciId" Type="kullanici" IsForeignKey="true" />
+      <Association Name="magaza_ilan" Member="magaza" ThisKey="magazaId" OtherKey="magazaId" Type="magaza" IsForeignKey="true" />
+      <Association Name="mahalleler_ilan" Member="mahalleler" ThisKey="mahalleId" OtherKey="mahalleId" Type="mahalleler" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ilanFavori" Member="ilanFavoris">
+    <Type Name="ilanFavori">
+      <Column Name="kullaniciId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ilanId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="ilan_ilanFavori" Member="ilan" ThisKey="ilanId" OtherKey="ilanId" Type="ilan" IsForeignKey="true" />
+      <Association Name="kullanici_ilanFavori" Member="kullanici" ThisKey="kullaniciId" OtherKey="kullaniciId" Type="kullanici" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ilanSayi" Member="ilanSayis">
+    <Type Name="ilanSayi">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="kategoriId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ustKategoriId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="turId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="sayi" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="kategori_ilanSayi" Member="kategori" ThisKey="kategoriId" OtherKey="kategoriId" Type="kategori" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ilanSikayet" Member="ilanSikayets">
+    <Type Name="ilanSikayet">
+      <Column Name="ilanSikayetId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ilanId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="kullaniciId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="sikayetTurId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Tarih" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="aciklama" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="ilan_ilanSikayet" Member="ilan" ThisKey="ilanId" OtherKey="ilanId" Type="ilan" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ilanUcret" Member="ilanUcrets">
+    <Type Name="ilanUcret">
+      <Column Name="ilanUcretId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="kategoriId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ucret" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="kategori_ilanUcret" Member="kategori" ThisKey="kategoriId" OtherKey="kategoriId" Type="kategori" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ilceler" Member="ilcelers">
+    <Type Name="ilceler">
+      <Column Name="ilceId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ilId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ilceAdi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="ilceler_ilan" Member="ilans" ThisKey="ilceId" OtherKey="ilceId" Type="ilan" />
+      <Association Name="ilceler_magaza" Member="magazas" ThisKey="ilceId" OtherKey="ilceId" Type="magaza" />
+      <Association Name="ilceler_mahalleler" Member="mahallelers" ThisKey="ilceId" OtherKey="ilceId" Type="mahalleler" />
+      <Association Name="ilceler_projeler" Member="projelers" ThisKey="ilceId" OtherKey="pilce" Type="projeler" />
+      <Association Name="iller_ilceler" Member="iller" ThisKey="ilId" OtherKey="ilId" Type="iller" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.iller" Member="illers">
+    <Type Name="iller">
+      <Column Name="ilId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ilAdi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="iller_ilan" Member="ilans" ThisKey="ilId" OtherKey="ilId" Type="ilan" />
+      <Association Name="iller_ilceler" Member="ilcelers" ThisKey="ilId" OtherKey="ilId" Type="ilceler" />
+      <Association Name="iller_kullanici" Member="kullanicis" ThisKey="ilId" OtherKey="ilId" Type="kullanici" />
+      <Association Name="iller_magaza" Member="magazas" ThisKey="ilId" OtherKey="ilId" Type="magaza" />
+      <Association Name="iller_projeler" Member="projelers" ThisKey="ilId" OtherKey="pil" Type="projeler" />
+      <Association Name="iller_vergiDaire" Member="vergiDaires" ThisKey="ilId" OtherKey="ilId" Type="vergiDaire" />
+      <Association Name="iller_verilenReklam" Member="verilenReklams" ThisKey="ilId" OtherKey="ilId" Type="verilenReklam" />
+    </Type>
+  </Table>
+  <Table Name="dbo.kategori" Member="kategoris">
+    <Type Name="kategori">
+      <Column Name="kategoriId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ustKategoriId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="kategoriAdi" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="kategori_dopingKategori" Member="dopingKategoris" ThisKey="kategoriId" OtherKey="kategoriId" Type="dopingKategori" />
+      <Association Name="kategori_ilan" Member="ilans" ThisKey="kategoriId" OtherKey="kategoriId" Type="ilan" />
+      <Association Name="kategori_ilanSayi" Member="ilanSayis" ThisKey="kategoriId" OtherKey="kategoriId" Type="ilanSayi" />
+      <Association Name="kategori_ilanUcret" Member="ilanUcrets" ThisKey="kategoriId" OtherKey="kategoriId" Type="ilanUcret" />
+      <Association Name="kategori_kategoriOzellikDeger" Member="kategoriOzellikDegers" ThisKey="kategoriId" OtherKey="kategoriId" Type="kategoriOzellikDeger" />
+      <Association Name="kategori_kategoriTur" Member="kategoriTurs" ThisKey="kategoriId" OtherKey="kategoriId" Type="kategoriTur" />
+      <Association Name="kategori_magazaKategori" Member="magazaKategoris" ThisKey="kategoriId" OtherKey="kategoriId" Type="magazaKategori" />
+      <Association Name="kategori_magazaTur" Member="magazaTurs" ThisKey="kategoriId" OtherKey="kategoriId" Type="magazaTur" />
+    </Type>
+  </Table>
+  <Table Name="dbo.kategoriOzellikDeger" Member="kategoriOzellikDegers">
+    <Type Name="kategoriOzellikDeger">
+      <Column Name="kategoriId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ozellikDegerId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="kategori_kategoriOzellikDeger" Member="kategori" ThisKey="kategoriId" OtherKey="kategoriId" Type="kategori" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.kategoriTur" Member="kategoriTurs">
+    <Type Name="kategoriTur">
+      <Column Name="kategoriId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="turId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="kategori_kategoriTur" Member="kategori" ThisKey="kategoriId" OtherKey="kategoriId" Type="kategori" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.kullanici" Member="kullanicis">
+    <Type Name="kullanici">
+      <Column Name="kullaniciId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="kullaniciAdSoyad" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="sifre" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="tarayici" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sonGirisTarihi" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ipAdres" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="kredi" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="rol" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="online" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="dogumTarihi" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="cinsiyetId" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="egitimDurumuId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="meslekId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="tckimlikNo" Type="System.String" DbType="NVarChar(11)" CanBeNull="true" />
+      <Column Name="ilId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ilceId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="mahalleId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="profilResim" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="silindiMi" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="kullanici_bildirimler" Member="bildirimlers" ThisKey="kullaniciId" OtherKey="kimeId" Type="bildirimler" />
+      <Association Name="kullanici_firmalar" Member="firmalars" ThisKey="kullaniciId" OtherKey="fkullanicid" Type="firmalar" />
+      <Association Name="kullanici_geriBildirim" Member="geriBildirims" ThisKey="kullaniciId" OtherKey="kullaniciId" Type="geriBildirim" />
+      <Association Name="kullanici_ilan" Member="ilans" ThisKey="kullaniciId" OtherKey="kullaniciId" Type="ilan" />
+      <Association Name="kullanici_ilanFavori" Member="ilanFavoris" ThisKey="kullaniciId" OtherKey="kullaniciId" Type="ilanFavori" />
+      <Association Name="kullanici_kullaniciTakip" Member="kullaniciTakips" ThisKey="kullaniciId" OtherKey="kullaniciId" Type="kullaniciTakip" />
+      <Association Name="kullanici_log" Member="logs" ThisKey="kullaniciId" OtherKey="kullaniciId" Type="log" />
+      <Association Name="kullanici_magazaKullanici" Member="magazaKullanicis" ThisKey="kullaniciId" OtherKey="kullaniciId" Type="magazaKullanici" />
+      <Association Name="kullanici_magazaTakip" Member="magazaTakips" ThisKey="kullaniciId" OtherKey="kullaniciId" Type="magazaTakip" />
+      <Association Name="kullanici_mesajlar" Member="mesajlars" ThisKey="kullaniciId" OtherKey="kullaniciId" Type="mesajlar" />
+      <Association Name="kullanici_odeme" Member="odemes" ThisKey="kullaniciId" OtherKey="kullaniciId" Type="odeme" />
+      <Association Name="kullanici_projeler" Member="projelers" ThisKey="kullaniciId" OtherKey="pkullanicid" Type="projeler" />
+      <Association Name="kullanici_telefonlar" Member="telefonlars" ThisKey="kullaniciId" OtherKey="kullaniciId" Type="telefonlar" />
+      <Association Name="kullanici_verilenReklam" Member="verilenReklams" ThisKey="kullaniciId" OtherKey="kullaniciId" Type="verilenReklam" />
+      <Association Name="iller_kullanici" Member="iller" ThisKey="ilId" OtherKey="ilId" Type="iller" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.kullaniciTakip" Member="kullaniciTakips">
+    <Type Name="kullaniciTakip">
+      <Column Name="takipciId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="kullaniciId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="kullanici_kullaniciTakip" Member="kullanici" ThisKey="kullaniciId" OtherKey="kullaniciId" Type="kullanici" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[log]" Member="logs">
+    <Type Name="log">
+      <Column Name="logId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="kullaniciId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="islemId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="tarih" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="aciklama" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="kullanici_log" Member="kullanici" ThisKey="kullaniciId" OtherKey="kullaniciId" Type="kullanici" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.magaza" Member="magazas">
+    <Type Name="magaza">
+      <Column Name="magazaId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="magazaKategoriId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="magazaTurId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="magazaAdi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="magazaLogo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="baslangicTarihi" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="bitisTarihi" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ilId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ilceId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="mahalleId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="vergiNo" Type="System.String" DbType="NVarChar(11)" CanBeNull="true" />
+      <Column Name="vergiDaireId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="krediSayisi" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="onay" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="pasifMi" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="kurumsalMi" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="silindiMi" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="aciklama" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="magaza_ilan" Member="ilans" ThisKey="magazaId" OtherKey="magazaId" Type="ilan" />
+      <Association Name="magaza_magazaKullanici" Member="magazaKullanicis" ThisKey="magazaId" OtherKey="magazaId" Type="magazaKullanici" />
+      <Association Name="magaza_magazaTakip" Member="magazaTakips" ThisKey="magazaId" OtherKey="magazaId" Type="magazaTakip" />
+      <Association Name="magaza_magazaTelefon" Member="magazaTelefons" ThisKey="magazaId" OtherKey="magazaId" Type="magazaTelefon" />
+      <Association Name="ilceler_magaza" Member="ilceler" ThisKey="ilceId" OtherKey="ilceId" Type="ilceler" IsForeignKey="true" />
+      <Association Name="iller_magaza" Member="iller" ThisKey="ilId" OtherKey="ilId" Type="iller" IsForeignKey="true" />
+      <Association Name="magazaKategori_magaza" Member="magazaKategori" ThisKey="magazaKategoriId" OtherKey="magazaKategoriId" Type="magazaKategori" IsForeignKey="true" />
+      <Association Name="magazaTur_magaza" Member="magazaTur" ThisKey="magazaTurId" OtherKey="magazaTurId" Type="magazaTur" IsForeignKey="true" />
+      <Association Name="mahalleler_magaza" Member="mahalleler" ThisKey="mahalleId" OtherKey="mahalleId" Type="mahalleler" IsForeignKey="true" />
+      <Association Name="vergiDaire_magaza" Member="vergiDaire" ThisKey="vergiDaireId" OtherKey="vergiDaireId" Type="vergiDaire" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.magazaKategori" Member="magazaKategoris">
+    <Type Name="magazaKategori">
+      <Column Name="magazaKategoriId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="magazaPaketId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="kategoriId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="paketSureId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fiyat" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="magazaKategori_magaza" Member="magazas" ThisKey="magazaKategoriId" OtherKey="magazaKategoriId" Type="magaza" />
+      <Association Name="kategori_magazaKategori" Member="kategori" ThisKey="kategoriId" OtherKey="kategoriId" Type="kategori" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.magazaKullanici" Member="magazaKullanicis">
+    <Type Name="magazaKullanici">
+      <Column Name="magazaId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="kullaniciId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="rol" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="kullanici_magazaKullanici" Member="kullanici" ThisKey="kullaniciId" OtherKey="kullaniciId" Type="kullanici" IsForeignKey="true" />
+      <Association Name="magaza_magazaKullanici" Member="magaza" ThisKey="magazaId" OtherKey="magazaId" Type="magaza" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.magazaTakip" Member="magazaTakips">
+    <Type Name="magazaTakip">
+      <Column Name="magazaId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="kullaniciId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="kullanici_magazaTakip" Member="kullanici" ThisKey="kullaniciId" OtherKey="kullaniciId" Type="kullanici" IsForeignKey="true" />
+      <Association Name="magaza_magazaTakip" Member="magaza" ThisKey="magazaId" OtherKey="magazaId" Type="magaza" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.magazaTelefon" Member="magazaTelefons">
+    <Type Name="magazaTelefon">
+      <Column Name="magazaTelefonId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="magazaId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="telefon" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="telefonTur" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="magaza_magazaTelefon" Member="magaza" ThisKey="magazaId" OtherKey="magazaId" Type="magaza" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.magazaTur" Member="magazaTurs">
+    <Type Name="magazaTur">
+      <Column Name="magazaTurId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="kategoriId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="turId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="magazaTur_magaza" Member="magazas" ThisKey="magazaTurId" OtherKey="magazaTurId" Type="magaza" />
+      <Association Name="kategori_magazaTur" Member="kategori" ThisKey="kategoriId" OtherKey="kategoriId" Type="kategori" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.mahalleler" Member="mahallelers">
+    <Type Name="mahalleler">
+      <Column Name="mahalleId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ilceId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="mahalleAdi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="mahalleler_ilan" Member="ilans" ThisKey="mahalleId" OtherKey="mahalleId" Type="ilan" />
+      <Association Name="mahalleler_magaza" Member="magazas" ThisKey="mahalleId" OtherKey="mahalleId" Type="magaza" />
+      <Association Name="ilceler_mahalleler" Member="ilceler" ThisKey="ilceId" OtherKey="ilceId" Type="ilceler" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.mesajlar" Member="mesajlars">
+    <Type Name="mesajlar">
+      <Column Name="mesajId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ilanId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="kimeId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="kullaniciId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="mesaj" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="tarih" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="okunduMu" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="gonderenSildiMi" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="aliciSildiMi" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="ilan_mesajlar" Member="ilan" ThisKey="ilanId" OtherKey="ilanId" Type="ilan" IsForeignKey="true" />
+      <Association Name="kullanici_mesajlar" Member="kullanici" ThisKey="kullaniciId" OtherKey="kullaniciId" Type="kullanici" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.mesajtelefon" Member="mesajtelefons">
+    <Type Name="mesajtelefon">
+      <Column Name="mesajtelefonId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="mesajtelefon" Member="mesajtelefon1" Type="System.String" DbType="NVarChar(11)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.odeme" Member="odemes">
+    <Type Name="odeme">
+      <Column Name="odemeId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="kullaniciId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="odemeTutar" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="tarih" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="islemId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="odemeTipId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="basariliMi" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="kartNo" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="siparis" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="kullanici_odeme" Member="kullanici" ThisKey="kullaniciId" OtherKey="kullaniciId" Type="kullanici" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ozellikler" Member="ozelliklers">
+    <Type Name="ozellikler">
+      <Column Name="ozellikId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ozellikAdi" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="ozellikTipi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ozellikDeger" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="kategoriId" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="sayisalMi" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="filtredeMi" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="detaydaMı" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.projeler" Member="projelers">
+    <Type Name="projeler">
+      <Column Name="projeid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="padi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="phakkinda" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="peposta" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ptelefon" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="pfaks" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="padres" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="pwebsite" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="pbilgiler" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="pil" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="pilce" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="pkoordinat" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="pgaleri" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="pvaziyetplan" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="pkatplan" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="pozellik" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="pfirmaid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="plat" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="plng" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ptarih" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="psatistami" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ponay" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="psilindmi" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="pkullanicid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="firmalar_projeler" Member="firmalar" ThisKey="pfirmaid" OtherKey="firmaid" Type="firmalar" IsForeignKey="true" />
+      <Association Name="ilceler_projeler" Member="ilceler" ThisKey="pilce" OtherKey="ilceId" Type="ilceler" IsForeignKey="true" />
+      <Association Name="iller_projeler" Member="iller" ThisKey="pil" OtherKey="ilId" Type="iller" IsForeignKey="true" />
+      <Association Name="kullanici_projeler" Member="kullanici" ThisKey="pkullanicid" OtherKey="kullaniciId" Type="kullanici" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.reklam" Member="reklams">
+    <Type Name="reklam">
+      <Column Name="reklamId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="reklamTurId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="reklamKonumuId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fiyat" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="reklam_verilenReklam" Member="verilenReklams" ThisKey="reklamId" OtherKey="reklamId" Type="verilenReklam" />
+    </Type>
+  </Table>
+  <Table Name="dbo.seciliDoping" Member="seciliDopings">
+    <Type Name="seciliDoping">
+      <Column Name="seciliDopingId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ilanId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="dopingKategoriId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="baslangicTarihi" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="bitisTarihi" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="pasifMi" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="onay" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="dopingKategori_seciliDoping" Member="dopingKategori" ThisKey="dopingKategoriId" OtherKey="dopingKategoriId" Type="dopingKategori" IsForeignKey="true" />
+      <Association Name="ilan_seciliDoping" Member="ilan" ThisKey="ilanId" OtherKey="ilanId" Type="ilan" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.telefonlar" Member="telefonlars">
+    <Type Name="telefonlar">
+      <Column Name="telefonId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="kullaniciId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="telefon" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="telefonTur" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="kullanici_telefonlar" Member="kullanici" ThisKey="kullaniciId" OtherKey="kullaniciId" Type="kullanici" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vergiDaire" Member="vergiDaires">
+    <Type Name="vergiDaire">
+      <Column Name="vergiDaireId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ilId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="vergiDairesi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="vergiDaire_magaza" Member="magazas" ThisKey="vergiDaireId" OtherKey="vergiDaireId" Type="magaza" />
+      <Association Name="iller_vergiDaire" Member="iller" ThisKey="ilId" OtherKey="ilId" Type="iller" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.verilenReklam" Member="verilenReklams">
+    <Type Name="verilenReklam">
+      <Column Name="verilenReklamId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="reklamId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="kullaniciId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="reklamAdi" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="reklamResim" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ilId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="baslangicTarihi" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="bitisTarihi" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="reklamLink" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="pasifMi" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="onay" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="iller_verilenReklam" Member="iller" ThisKey="ilId" OtherKey="ilId" Type="iller" IsForeignKey="true" />
+      <Association Name="kullanici_verilenReklam" Member="kullanici" ThisKey="kullaniciId" OtherKey="kullaniciId" Type="kullanici" IsForeignKey="true" />
+      <Association Name="reklam_verilenReklam" Member="reklam" ThisKey="reklamId" OtherKey="reklamId" Type="reklam" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ziyaretci" Member="ziyaretcis">
+    <Type Name="ziyaretci">
+      <Column Name="ziyaretciId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ipAdres" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ilanId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="sonGirisTarihi" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>

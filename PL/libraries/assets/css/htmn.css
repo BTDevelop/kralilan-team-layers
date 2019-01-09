@@ -1,0 +1,161 @@
+html,body{width: 100%;height:100%;}
+body{padding: 0;margin: 0;font-family: "Trebuchet MS";font-size: 12px;color: #333;}
+a, a:active, a:focus{outline: none;}
+a:hover{text-decoration: none;}
+.header{box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3), 0 1px #f7f7f7 inset;min-height: 89px;}
+.header .header-div{padding: 10px;}
+.header-menu.header-div{padding-top: 30px;font-weight: 700;}
+.header a{color: #333;margin-right:10px;}
+.header a:last-child{margin-right: 0;}
+.header-menu.header-div i{margin-right: 5px;font-size: 16px;}
+.header-menu.header-div a:hover{color:#d43f3a;}
+.header .header-menu.header-div .header-btn{color:#fff;font-size: 12px;padding: 3px 8px;position: relative;top:-3px;}
+.header .header-menu.header-div .header-btn:hover{background-color:#0E826B;color:#FFF;border-color: #18A086; }
+.map-area{position: relative;overflow: hidden;width: 100%;height: 100%;}
+.left-list{background:#fff;height: 100%;width: 285px;overflow: hidden;position: absolute;left: 0;top:0;border-right:1px solid #dbdbdb;z-index: 1;}
+.right-list{background:#fff;height: 100%;width: 285px;overflow: hidden;position: absolute;right: 0;top:0;border-left:1px solid #dbdbdb;z-index: 1;}
+.slide-a{padding:0 2px;position: absolute;top:10%;text-align: center;background:rgba(66, 66, 66, 1);border:1px solid #3f3f3f;color:#FFF;cursor: pointer;font-size:26px;line-height: normal;z-index: 1;}
+.slide-a-right:after{content: "\f101";position: relative;top:-2px;font-family: FontAwesome;}
+.slide-a-right.kapali:after{content: "\f100";position: relative;top:-2px;}
+.slide-a-right{right:285px;border-radius: 2px 0 0 2px;}
+.slide-a-left{left:285px;border-radius: 0 2px 2px 0;}
+.slide-a-left:after{content: "\f100";position: relative;top:-2px;font-family: FontAwesome;}
+.slide-a-left.kapali:after{content: "\f101";position: relative;top:-2px;}
+.harita-blok{width: 100%;height: 100%;padding-top: 5px;}
+.scroll-blok{width: 100%;height: 100%;overflow-y: auto;padding: 5px}
+.harita-blok .nav-tabs{border-bottom: 1px solid #0E826B;}
+.harita-blok .nav-tabs li a{color:#0E826B;padding: 6px;}
+.harita-blok .nav-tabs li.active a{background-color: #0E826B;color:#FFF;}
+.harita-blok .nav-tabs li a:hover{border-color:#0E826B;}
+.harita-blok .tab-content{padding: 5px 0;}
+#filter{background-color: #0E826B;border-color: #18A086;}
+#legend {width:100%;bottom:-38px;background: #FFF;text-align: center;left:0 ;position: absolute;z-index: 1;border-top:1px solid #0E836C;}
+#legend div{display: inline-block;padding: 10px 5px;}
+#legend #open-legend{position: absolute;left: 0;top:-19px;text-align: center;width: 100%;display: inline-block;padding: 0;line-height: normal;}
+#legend #open-legend span{cursor: pointer;color: #0E836C;}
+#legend #open-legend span:before{font-family: FontAwesome;background-color: #fff;border-top:1px solid #0E836C;border-left: 1px solid #0E836C;border-right: 1px solid #0E836C;font-size: 18px;padding: 2px 5px 0;}
+#legend #open-legend.off span:before{content:"\f102";}
+#legend #open-legend.on span:before{content:"\f103";}
+.color {border-radius: 18px;height: 18px;width: 18px;margin-right: 3px;float: left;}
+.sahibinden {background: #FF0000;}
+.icradan { background: #FF8000;}
+.belediyeden {background: #7F00FF;}
+.izaleden {background: #FF00FF;}
+.hazinedens {background: #00FF00;}
+.bankadan {background: #FFFF00;}
+.kamudan {background: # ;}
+.emlakcidan {background: #0000FF;}
+.insattan {background: #00FF80;}
+.ozellesmeden {background: #FF007F;}
+.hazindend {background: #00FFFF;}
+.tab-pane ul{padding: 0;margin: 0;}
+.tab-pane ul li{list-style: none;display: block;}
+.tab-pane ul li a{display: block;padding: 5px;}
+.tab-pane ul.list-1 li a{display: table;width: 100%;height:100px;text-align: left;color:#333;border-bottom:1px solid #ccc;transition: 0.4s;}
+.tab-pane ul.list-1 li a:hover{background-color: #eee;}
+.list-1 li a div{display: table-cell;width:68%;padding: 0 1%;vertical-align: middle;line-height: normal;text-align:center;}
+.list-1 li a div div.firma{display: block;width: 100%;font-weight: 700;font-size: 14px;padding: 3px 0;}
+.list-1 li a div div.firmasehir{display: block;width: 100%;}
+.list-1 li a div img{max-width:100%;width:auto;/*height: 150px;*/}
+.list-1 li a div strong{font-size: 13px;}
+.tab-pane ul.list-2 li a{display: table;width: 100%;height:100px;text-align: left;color:#333;border-bottom:1px solid #dbdbdb;transition: 0.4s;}
+.tab-pane ul.list-2 li a:hover{background-color: #eee;}
+.list-2 li a div{display: table-cell;padding: 0 1%;vertical-align: middle;line-height: normal;}
+.list-2 li a div:first-child{width:80px;}
+.list-2 li a div:first-child img{width:100%;}
+.list-2 li a div strong.title{font-size: 14px;display: block;}
+.list-2 li a div .proje-firma{padding: 5px 0;color: #515050;font-size: 11px;display: block;}
+.list-2 li a div .list-size{font-size: 11px;padding: 5px 0;}
+.list-2 li a div .list-price{font-size: 14px;color:#000080;font-weight: 700;padding-top: 5px;display: block;}
+.list-2 li a span i{margin-right: 3px;color: #515050;font-size: 14px;}
+.list-btn{background-color: #eee;border:1px solid #ccc;padding: 1px 3px;margin-right: 2px;}
+#marker-tooltip { display: none;position:absolute;background-color: rgba(176,21,0,0.8);padding: 3px 6px;color: #fff;border-radius: 4px;}
+.gm-style-iw {max-width: 350px !important;top: 15px !important;left: 0px !important;background-color: #fff;box-shadow: 0 1px 6px rgba(178, 178, 178, 0.6);border-radius: 3px;}
+.gm-style-iw div{width:100%;}
+.gm-style-iw div.info-content{width:100%;}
+.gm-style img{width: 100%;}
+#info-container {width: 100% !important;}
+#info-container .info-content {display: table;width: 100%;margin-right: 1px;padding: 10px;max-height: 140px;overflow-y: auto;overflow-x: hidden;}
+.gm-style-iw #info-container .info-left{width:36%;display:table-cell;vertical-align:middle;}
+.gm-style-iw #info-container .info-right{display: table-cell;vertical-align: middle;width: 64%;padding-left: 20px;}
+#info-container .info-baslik{font-weight: 700;}
+#info-container .info-price{ color: #000080;display: block;font-size: 14px;font-weight: 700;padding-top: 5px;margin-bottom: 8px;}
+#info-container .info-left .list-btn{width:100%;}
+#info-container .info-detay{padding-top: 5px;}
+
+@media (max-width: 768px){
+.header .header-div{padding: 5px;text-align: center;}
+.header .header-menu.header-div{padding: 3px 0 0;}
+.header .header-menu.header-div .header-btn{top:0;padding: 0;}
+.logo{height: 50px;}
+.left-list,.right-list{width: 70%;}
+.slide-a-left{left: 70%;}
+.slide-a-right{right: 70%;}
+.harita-blok .nav-tabs li a{padding: 6px 2px;}
+.gm-style-iw{max-width:242px !important;z-index:99;}
+}
+ .list-btn {
+    /*/width: 100%;*/
+    /*position: absolute;*/
+    /*top: 85px;*/
+    /*left: 9px;*/
+    /*width: 100px;*/
+    background-color: #eee;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    text-indent: 5px;
+    /*padding-top: 1px;*/
+    font-size: 11px;
+    line-height: 20px;
+    /*height: 20px;*/
+    box-shadow: 0 1px 0 #f5f5f5 inset;
+    text-align:center;
+}
+
+ 
+        .gm-style-iw {
+            -webkit-animation-name: _ibani_5955;
+            -webkit-animation-duration: 0.5s;
+            -webkit-animation-iteration-count: 1;
+        }
+
+        @-webkit-keyframes _ibani_5955 {
+            from {
+                -webkit-transform: scale(0);
+            }
+
+            50% {
+                -webkit-transform: scale(1.2);
+            }
+
+            90% {
+                -webkit-transform: scale(0.95);
+            }
+
+            to {
+                -webkit-transform: scale(1);
+            }
+        }
+        .gm-style-iw {
+            -webkit-animation-duration: 0.5s;
+            -webkit-animation-iteration-count: 1;
+        }
+
+        @-webkit-keyframes _ibani_5955 {
+            from {
+                -webkit-transform: scale(0);
+            }
+
+            50% {
+                -webkit-transform: scale(1.2);
+            }
+
+            90% {
+                -webkit-transform: scale(0.95);
+            }
+
+            to {
+                -webkit-transform: scale(1);
+            }
+        }

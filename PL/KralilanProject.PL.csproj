@@ -1,0 +1,1575 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{89ECA242-8E93-443D-A342-83C112A54BAD}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PL</RootNamespace>
+    <AssemblyName>PL</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PublishDatabaseSettings>
+      <Objects>
+      </Objects>
+    </PublishDatabaseSettings>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Iyzipay, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Iyzipay.2.1.14\lib\net45\Iyzipay.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MessagingToolkit.QRCode, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>C:\Users\huso\Documents\Visual Studio 2015\Projects\kralilanLayers\packages\MessagingToolkit.QRCode.1.3.0\lib\MessagingToolkit.QRCode.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.0.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.0.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.0.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.0.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.0.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.0.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.5.8\lib\net45\NLog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Unity.Abstractions, Version=3.3.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Abstractions.3.3.0\lib\net47\Unity.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Unity.Container, Version=5.8.6.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Container.5.8.6\lib\net47\Unity.Container.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="404.aspx" />
+    <Content Include="arama-sonuclari.aspx" />
+    <Content Include="cep-aktivasyon.aspx" />
+    <Content Include="default.aspx" />
+    <Content Include="Endpoint\BildirimService.asmx" />
+    <Content Include="Endpoint\IlanService.asmx" />
+    <Content Include="Endpoint\IlceService.asmx" />
+    <Content Include="Endpoint\IlService.asmx" />
+    <Content Include="Endpoint\KategoriService.asmx" />
+    <Content Include="Endpoint\KullaniciService.asmx" />
+    <Content Include="Endpoint\MagazaService.asmx" />
+    <Content Include="Endpoint\MahalleService.asmx" />
+    <Content Include="Endpoint\ProjeService.asmx" />
+    <Content Include="Endpoint\SeciliDopingService.asmx" />
+    <Content Include="Endpoint\VergiDaireService.asmx" />
+    <Content Include="eposta-aktivasyon.aspx" />
+    <Content Include="giris-yap.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="hakkimizda.aspx" />
+    <Content Include="harita\kral-harita.aspx" />
+    <Content Include="ilan-bilgi-detay.aspx" />
+    <Content Include="ilan-bulunamadi.aspx" />
+    <Content Include="ilan-detay.aspx" />
+    <Content Include="ilan-doping.aspx" />
+    <Content Include="ilan-duzenle.aspx" />
+    <Content Include="ilan-form.aspx" />
+    <Content Include="ilan-liste-test.aspx" />
+    <Content Include="ilan-liste.aspx" />
+    <Content Include="ilan-tamam.aspx" />
+    <Content Include="iletisim.aspx" />
+    <Content Include="iyzi-odeme.aspx" />
+    <Content Include="kategori-sec.aspx" />
+    <Content Include="kategori-secimi.aspx" />
+    <Content Include="kategoriler.aspx" />
+    <Content Include="kredi-al.aspx" />
+    <Content Include="kurumsal-sozlesme.aspx" />
+    <Content Include="kurumsal-yazdir.aspx" />
+    <Content Include="magaza-ac.aspx" />
+    <Content Include="magaza-basarili.aspx" />
+    <Content Include="magaza-fiyatları.aspx" />
+    <Content Include="magaza-odeme.aspx" />
+    <Content Include="magaza-profil.aspx" />
+    <Content Include="management\anaYonetim\bolgeYonetimi\bolge.aspx" />
+    <Content Include="management\anaYonetim\bolgeYonetimi\duzenle.ascx" />
+    <Content Include="management\anaYonetim\bolgeYonetimi\ekle.ascx" />
+    <Content Include="management\anaYonetim\bolgeYonetimi\ilceduzenle.ascx" />
+    <Content Include="management\anaYonetim\bolgeYonetimi\ilceekle.ascx" />
+    <Content Include="management\anaYonetim\bolgeYonetimi\ilcelistele.ascx" />
+    <Content Include="management\anaYonetim\bolgeYonetimi\listele.ascx" />
+    <Content Include="management\anaYonetim\bolgeYonetimi\mahalleduzenle.ascx" />
+    <Content Include="management\anaYonetim\bolgeYonetimi\mahalleekle.ascx" />
+    <Content Include="management\anaYonetim\bolgeYonetimi\mahallelistele.ascx" />
+    <Content Include="management\anaYonetim\ilanYonetimi\duzenle.ascx" />
+    <Content Include="management\anaYonetim\ilanYonetimi\ekle.ascx" />
+    <Content Include="management\anaYonetim\ilanYonetimi\ilan-kategori.ascx" />
+    <Content Include="management\anaYonetim\ilanYonetimi\ilan-verildi.ascx" />
+    <Content Include="management\anaYonetim\ilanYonetimi\ilan.aspx" />
+    <Content Include="management\anaYonetim\ilanYonetimi\listele.ascx" />
+    <Content Include="management\anaYonetim\kategoriYonetimi\duzenle.ascx" />
+    <Content Include="management\anaYonetim\kategoriYonetimi\ekle.ascx" />
+    <Content Include="management\anaYonetim\kategoriYonetimi\kategoriler.aspx" />
+    <Content Include="management\anaYonetim\kategoriYonetimi\listele.ascx" />
+    <Content Include="management\anaYonetim\kullaniciYonetimi\duzenle.ascx" />
+    <Content Include="management\anaYonetim\kullaniciYonetimi\ekle.ascx" />
+    <Content Include="management\anaYonetim\kullaniciYonetimi\kullanici.aspx" />
+    <Content Include="management\anaYonetim\kullaniciYonetimi\listele.ascx" />
+    <Content Include="management\anaYonetim\magazaYonetimi\duzenle-icerik.ascx" />
+    <Content Include="management\anaYonetim\magazaYonetimi\duzenle.ascx" />
+    <Content Include="management\anaYonetim\magazaYonetimi\ekle.ascx" />
+    <Content Include="management\anaYonetim\magazaYonetimi\icerik.ascx" />
+    <Content Include="management\anaYonetim\magazaYonetimi\kategori-secimi.ascx" />
+    <Content Include="management\anaYonetim\magazaYonetimi\kullanici-listele.ascx" />
+    <Content Include="management\anaYonetim\magazaYonetimi\listele.ascx" />
+    <Content Include="management\anaYonetim\magazaYonetimi\magaza-tipi.ascx" />
+    <Content Include="management\anaYonetim\magazaYonetimi\magaza.aspx" />
+    <Content Include="management\anaYonetim\magazaYonetimi\odeme.ascx" />
+    <Content Include="management\anaYonetim\ozelAlanYonetimi\alanduzenle.ascx" />
+    <Content Include="management\anaYonetim\ozelAlanYonetimi\alanekle.ascx" />
+    <Content Include="management\anaYonetim\ozelAlanYonetimi\alanlistele.ascx" />
+    <Content Include="management\anaYonetim\ozelAlanYonetimi\duzenle.ascx" />
+    <Content Include="management\anaYonetim\ozelAlanYonetimi\ekle.ascx" />
+    <Content Include="management\anaYonetim\ozelAlanYonetimi\listele.ascx" />
+    <Content Include="management\anaYonetim\ozelAlanYonetimi\özelalan.aspx" />
+    <Content Include="management\anaYonetim\projeYonetimi\duzenle.ascx" />
+    <Content Include="management\anaYonetim\projeYonetimi\firma-duzenle.ascx" />
+    <Content Include="management\anaYonetim\projeYonetimi\firma-listele.ascx" />
+    <Content Include="management\anaYonetim\yardimIcerikYonetimi\ekle.ascx" />
+    <Content Include="management\anaYonetim\yardimIcerikYonetimi\icerikkategoriekle.ascx" />
+    <Content Include="management\anaYonetim\yardimIcerikYonetimi\listele.ascx" />
+    <Content Include="management\anaYonetim\yardimIcerikYonetimi\yardimicerikkategori.ascx" />
+    <Content Include="management\anaYonetim\yardimIcerikYonetimi\yardımicerik.aspx" />
+    <Content Include="management\araclar\araclar.aspx" />
+    <Content Include="management\araclar\gelenkutusu.ascx" />
+    <Content Include="management\araclar\gonderilen-kutusu.ascx" />
+    <Content Include="management\araclar\mesajgonder.ascx" />
+    <Content Include="management\araclar\mesajoku.ascx" />
+    <Content Include="management\detayli-arama.aspx" />
+    <Content Include="management\diger\404.ascx" />
+    <Content Include="management\diger\500.ascx" />
+    <Content Include="management\diger\diger.aspx" />
+    <Content Include="management\genelAyarlar\genelayarlar.aspx" />
+    <Content Include="management\genelAyarlar\magaza-ucret-ayar.ascx" />
+    <Content Include="management\genelAyarlar\magaza-ucretleri.ascx" />
+    <Content Include="management\genelAyarlar\odeme-fatura.ascx" />
+    <Content Include="management\genelAyarlar\odemeler.ascx" />
+    <Content Include="management\genelAyarlar\odeme-fatura-yazdir.aspx" />
+    <Content Include="management\genelAyarlar\vitrin-ucret-ayar.ascx" />
+    <Content Include="management\genelAyarlar\vitrin-ucretleri.ascx" />
+    <Content Include="management\profil.aspx" />
+    <Content Include="management\takvim.aspx" />
+    <Content Include="mobile-site.aspx" />
+    <Content Include="neden-magaza.aspx" />
+    <Content Include="odeme.aspx" />
+    <Content Include="management\anaYonetim\projeYonetimi\listele.ascx" />
+    <Content Include="management\anaYonetim\projeYonetimi\proje.aspx" />
+    <Content Include="management\anaYonetim\reklamYonetimi\duzenle.ascx" />
+    <Content Include="management\anaYonetim\reklamYonetimi\ekle.ascx" />
+    <Content Include="management\anaYonetim\reklamYonetimi\listele.ascx" />
+    <Content Include="management\anaYonetim\reklamYonetimi\reklam.aspx" />
+    <Content Include="management\default.aspx" />
+    <Content Include="packages.config" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="profil\anasayfa.ascx" />
+    <Content Include="profil\bildirim-oku.ascx" />
+    <Content Include="profil\cep-telefonu.ascx" />
+    <Content Include="profil\eposta.ascx" />
+    <Content Include="profil\favori-ilan.ascx" />
+    <Content Include="profil\favori-magaza.ascx" />
+    <Content Include="profil\favori-satici.ascx" />
+    <Content Include="profil\hesap-dondur.ascx" />
+    <Content Include="profil\ilan.ascx" />
+    <Content Include="profil\kisisel-bilgiler.ascx" />
+    <Content Include="profil\magaza-icerigi.ascx" />
+    <Content Include="profil\magaza-ilan-durum.ascx" />
+    <Content Include="profil\magaza-kullanicilar.ascx" />
+    <Content Include="profil\magaza-odemeler.ascx" />
+    <Content Include="profil\magaza-profil.ascx" />
+    <Content Include="profil\magaza-vitrini.ascx" />
+    <Content Include="profil\magaza-yayinda-olmayan.ascx" />
+    <Content Include="profil\magaza-yayinda.ascx" />
+    <Content Include="profil\mesaj-oku.ascx" />
+    <Content Include="profil\odemeler.ascx" />
+    <Content Include="profil\profil.aspx" />
+    <Content Include="profil\projeler.ascx" />
+    <Content Include="profil\sifre-degistir.ascx" />
+    <Content Include="proje-basarili.aspx" />
+    <Content Include="proje-detay.aspx" />
+    <Content Include="proje-ekle.aspx" />
+    <Content Include="proje-firma.aspx" />
+    <Content Include="proje-onizle.aspx" />
+    <Content Include="proje-sepet.aspx" />
+    <Content Include="projeler-filtrele.aspx" />
+    <Content Include="projeler.aspx" />
+    <Content Include="sartlar-ve-kosullar.aspx" />
+    <Content Include="satici-profil.aspx" />
+    <Content Include="libraries\dropzone\basic.css" />
+    <Content Include="libraries\dropzone\basic.min.css" />
+    <Content Include="libraries\dropzone\dropzone-amd-module.js" />
+    <Content Include="libraries\dropzone\dropzone-amd-module.min.js" />
+    <Content Include="libraries\dropzone\dropzone.css" />
+    <Content Include="libraries\dropzone\dropzone.js" />
+    <Content Include="libraries\dropzone\dropzone.min.css" />
+    <Content Include="libraries\dropzone\dropzone.min.js" />
+    <Content Include="services\ki_api.asmx" />
+    <Content Include="services\ki_operation.asmx" />
+    <Content Include="sifremi-unuttum.aspx" />
+    <Content Include="sikca-sorulan-sorular.aspx" />
+    <Content Include="sitemap.aspx" />
+    <Content Include="sysLogin\syslock.aspx" />
+    <Content Include="sysLogin\syslogin.aspx" />
+    <Content Include="management\admin.Master" />
+    <Content Include="sysLogin\yonlendir.aspx" />
+    <Content Include="uyelik-sozlesmesi.aspx" />
+    <Content Include="vitrin-tanitim.aspx" />
+    <Content Include="kategori-test.aspx" />
+    <Content Include="yazdir.aspx" />
+    <Content Include="yeni-sifre.aspx" />
+    <Content Include="general-upload.ashx" />
+    <None Include="Properties\PublishProfiles\profile1.pubxml" />
+    <None Include="Properties\PublishProfiles\profile3.pubxml" />
+    <None Include="Properties\PublishProfiles\profile4.pubxml" />
+    <Content Include="upload.ashx" />
+    <Content Include="services\ki_ai.ashx" />
+    <Content Include="services\ki-generalupload.ashx" />
+    <Content Include="site.Master" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="scripts\ai.0.22.9-build00167.js" />
+    <Content Include="scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="uye-ol.aspx" />
+    <Content Include="vitrin-listele.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="404.aspx.cs">
+      <DependentUpon>404.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="404.aspx.designer.cs">
+      <DependentUpon>404.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="arama-sonuclari.aspx.cs">
+      <DependentUpon>arama-sonuclari.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="arama-sonuclari.aspx.designer.cs">
+      <DependentUpon>arama-sonuclari.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cep-aktivasyon.aspx.cs">
+      <DependentUpon>cep-aktivasyon.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cep-aktivasyon.aspx.designer.cs">
+      <DependentUpon>cep-aktivasyon.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Endpoint\BildirimService.asmx.cs">
+      <DependentUpon>BildirimService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Endpoint\IlanService.asmx.cs">
+      <DependentUpon>IlanService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Endpoint\IlceService.asmx.cs">
+      <DependentUpon>IlceService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Endpoint\IlService.asmx.cs">
+      <DependentUpon>IlService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Endpoint\KategoriService.asmx.cs">
+      <DependentUpon>KategoriService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Endpoint\KullaniciService.asmx.cs">
+      <DependentUpon>KullaniciService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Endpoint\MagazaService.asmx.cs">
+      <DependentUpon>MagazaService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Endpoint\MahalleService.asmx.cs">
+      <DependentUpon>MahalleService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Endpoint\ProjeService.asmx.cs">
+      <DependentUpon>ProjeService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Endpoint\SeciliDopingService.asmx.cs">
+      <DependentUpon>SeciliDopingService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Endpoint\VergiDaireService.asmx.cs">
+      <DependentUpon>VergiDaireService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="eposta-aktivasyon.aspx.cs">
+      <DependentUpon>eposta-aktivasyon.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="eposta-aktivasyon.aspx.designer.cs">
+      <DependentUpon>eposta-aktivasyon.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="general-upload.ashx.cs">
+      <DependentUpon>general-upload.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="giris-yap.aspx.cs">
+      <DependentUpon>giris-yap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="giris-yap.aspx.designer.cs">
+      <DependentUpon>giris-yap.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="hakkimizda.aspx.cs">
+      <DependentUpon>hakkimizda.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="hakkimizda.aspx.designer.cs">
+      <DependentUpon>hakkimizda.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="harita\kral-harita.aspx.cs">
+      <DependentUpon>kral-harita.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="harita\kral-harita.aspx.designer.cs">
+      <DependentUpon>kral-harita.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ilan-bilgi-detay.aspx.cs">
+      <DependentUpon>ilan-bilgi-detay.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ilan-bilgi-detay.aspx.designer.cs">
+      <DependentUpon>ilan-bilgi-detay.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ilan-bulunamadi.aspx.cs">
+      <DependentUpon>ilan-bulunamadi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ilan-bulunamadi.aspx.designer.cs">
+      <DependentUpon>ilan-bulunamadi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ilan-detay.aspx.cs">
+      <DependentUpon>ilan-detay.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ilan-detay.aspx.designer.cs">
+      <DependentUpon>ilan-detay.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ilan-doping.aspx.cs">
+      <DependentUpon>ilan-doping.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ilan-doping.aspx.designer.cs">
+      <DependentUpon>ilan-doping.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ilan-duzenle.aspx.cs">
+      <DependentUpon>ilan-duzenle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ilan-duzenle.aspx.designer.cs">
+      <DependentUpon>ilan-duzenle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ilan-form.aspx.cs">
+      <DependentUpon>ilan-form.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ilan-form.aspx.designer.cs">
+      <DependentUpon>ilan-form.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ilan-liste-test.aspx.cs">
+      <DependentUpon>ilan-liste-test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ilan-liste-test.aspx.designer.cs">
+      <DependentUpon>ilan-liste-test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ilan-liste.aspx.cs">
+      <DependentUpon>ilan-liste.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ilan-liste.aspx.designer.cs">
+      <DependentUpon>ilan-liste.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ilan-tamam.aspx.cs">
+      <DependentUpon>ilan-tamam.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ilan-tamam.aspx.designer.cs">
+      <DependentUpon>ilan-tamam.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iletisim.aspx.cs">
+      <DependentUpon>iletisim.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iletisim.aspx.designer.cs">
+      <DependentUpon>iletisim.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Insfrastructure\NinjectControllerFactory.cs" />
+    <Compile Include="iyzi-odeme.aspx.cs">
+      <DependentUpon>iyzi-odeme.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iyzi-odeme.aspx.designer.cs">
+      <DependentUpon>iyzi-odeme.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="kategori-sec.aspx.cs">
+      <DependentUpon>kategori-sec.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="kategori-sec.aspx.designer.cs">
+      <DependentUpon>kategori-sec.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="kategori-secimi.aspx.cs">
+      <DependentUpon>kategori-secimi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="kategori-secimi.aspx.designer.cs">
+      <DependentUpon>kategori-secimi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="kategoriler.aspx.cs">
+      <DependentUpon>kategoriler.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="kategoriler.aspx.designer.cs">
+      <DependentUpon>kategoriler.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="kredi-al.aspx.cs">
+      <DependentUpon>kredi-al.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="kredi-al.aspx.designer.cs">
+      <DependentUpon>kredi-al.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="kurumsal-sozlesme.aspx.cs">
+      <DependentUpon>kurumsal-sozlesme.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="kurumsal-sozlesme.aspx.designer.cs">
+      <DependentUpon>kurumsal-sozlesme.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="kurumsal-yazdir.aspx.cs">
+      <DependentUpon>kurumsal-yazdir.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="kurumsal-yazdir.aspx.designer.cs">
+      <DependentUpon>kurumsal-yazdir.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="magaza-ac.aspx.cs">
+      <DependentUpon>magaza-ac.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="magaza-ac.aspx.designer.cs">
+      <DependentUpon>magaza-ac.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="magaza-basarili.aspx.cs">
+      <DependentUpon>magaza-basarili.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="magaza-basarili.aspx.designer.cs">
+      <DependentUpon>magaza-basarili.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="magaza-fiyatları.aspx.cs">
+      <DependentUpon>magaza-fiyatları.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="magaza-fiyatları.aspx.designer.cs">
+      <DependentUpon>magaza-fiyatları.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="magaza-odeme.aspx.cs">
+      <DependentUpon>magaza-odeme.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="magaza-odeme.aspx.designer.cs">
+      <DependentUpon>magaza-odeme.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="magaza-profil.aspx.cs">
+      <DependentUpon>magaza-profil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="magaza-profil.aspx.designer.cs">
+      <DependentUpon>magaza-profil.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="management\admin.Master.cs">
+      <DependentUpon>admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\admin.Master.designer.cs">
+      <DependentUpon>admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\bolgeYonetimi\bolge.aspx.cs">
+      <DependentUpon>bolge.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\bolgeYonetimi\bolge.aspx.designer.cs">
+      <DependentUpon>bolge.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\bolgeYonetimi\duzenle.ascx.cs">
+      <DependentUpon>duzenle.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\bolgeYonetimi\duzenle.ascx.designer.cs">
+      <DependentUpon>duzenle.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\bolgeYonetimi\ekle.ascx.cs">
+      <DependentUpon>ekle.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\bolgeYonetimi\ekle.ascx.designer.cs">
+      <DependentUpon>ekle.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\bolgeYonetimi\ilceduzenle.ascx.cs">
+      <DependentUpon>ilceduzenle.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\bolgeYonetimi\ilceduzenle.ascx.designer.cs">
+      <DependentUpon>ilceduzenle.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\bolgeYonetimi\ilceekle.ascx.cs">
+      <DependentUpon>ilceekle.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\bolgeYonetimi\ilceekle.ascx.designer.cs">
+      <DependentUpon>ilceekle.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\bolgeYonetimi\ilcelistele.ascx.cs">
+      <DependentUpon>ilcelistele.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\bolgeYonetimi\ilcelistele.ascx.designer.cs">
+      <DependentUpon>ilcelistele.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\bolgeYonetimi\listele.ascx.cs">
+      <DependentUpon>listele.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\bolgeYonetimi\listele.ascx.designer.cs">
+      <DependentUpon>listele.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\bolgeYonetimi\mahalleduzenle.ascx.cs">
+      <DependentUpon>mahalleduzenle.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\bolgeYonetimi\mahalleduzenle.ascx.designer.cs">
+      <DependentUpon>mahalleduzenle.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\bolgeYonetimi\mahalleekle.ascx.cs">
+      <DependentUpon>mahalleekle.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\bolgeYonetimi\mahalleekle.ascx.designer.cs">
+      <DependentUpon>mahalleekle.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\bolgeYonetimi\mahallelistele.ascx.cs">
+      <DependentUpon>mahallelistele.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\bolgeYonetimi\mahallelistele.ascx.designer.cs">
+      <DependentUpon>mahallelistele.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\ilanYonetimi\duzenle.ascx.cs">
+      <DependentUpon>duzenle.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\ilanYonetimi\duzenle.ascx.designer.cs">
+      <DependentUpon>duzenle.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\ilanYonetimi\ekle.ascx.cs">
+      <DependentUpon>ekle.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\ilanYonetimi\ekle.ascx.designer.cs">
+      <DependentUpon>ekle.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\ilanYonetimi\ilan-kategori.ascx.cs">
+      <DependentUpon>ilan-kategori.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\ilanYonetimi\ilan-kategori.ascx.designer.cs">
+      <DependentUpon>ilan-kategori.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\ilanYonetimi\ilan-verildi.ascx.cs">
+      <DependentUpon>ilan-verildi.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\ilanYonetimi\ilan-verildi.ascx.designer.cs">
+      <DependentUpon>ilan-verildi.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\ilanYonetimi\ilan.aspx.cs">
+      <DependentUpon>ilan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\ilanYonetimi\ilan.aspx.designer.cs">
+      <DependentUpon>ilan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\ilanYonetimi\listele.ascx.cs">
+      <DependentUpon>listele.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\ilanYonetimi\listele.ascx.designer.cs">
+      <DependentUpon>listele.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\kategoriYonetimi\duzenle.ascx.cs">
+      <DependentUpon>duzenle.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\kategoriYonetimi\duzenle.ascx.designer.cs">
+      <DependentUpon>duzenle.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\kategoriYonetimi\ekle.ascx.cs">
+      <DependentUpon>ekle.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\kategoriYonetimi\ekle.ascx.designer.cs">
+      <DependentUpon>ekle.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\kategoriYonetimi\kategoriler.aspx.cs">
+      <DependentUpon>kategoriler.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\kategoriYonetimi\kategoriler.aspx.designer.cs">
+      <DependentUpon>kategoriler.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\kategoriYonetimi\listele.ascx.cs">
+      <DependentUpon>listele.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\kategoriYonetimi\listele.ascx.designer.cs">
+      <DependentUpon>listele.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\kullaniciYonetimi\duzenle.ascx.cs">
+      <DependentUpon>duzenle.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\kullaniciYonetimi\duzenle.ascx.designer.cs">
+      <DependentUpon>duzenle.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\kullaniciYonetimi\ekle.ascx.cs">
+      <DependentUpon>ekle.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\kullaniciYonetimi\ekle.ascx.designer.cs">
+      <DependentUpon>ekle.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\kullaniciYonetimi\kullanici.aspx.cs">
+      <DependentUpon>kullanici.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\kullaniciYonetimi\kullanici.aspx.designer.cs">
+      <DependentUpon>kullanici.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\kullaniciYonetimi\listele.ascx.cs">
+      <DependentUpon>listele.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\kullaniciYonetimi\listele.ascx.designer.cs">
+      <DependentUpon>listele.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\magazaYonetimi\duzenle-icerik.ascx.cs">
+      <DependentUpon>duzenle-icerik.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\magazaYonetimi\duzenle-icerik.ascx.designer.cs">
+      <DependentUpon>duzenle-icerik.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\magazaYonetimi\duzenle.ascx.cs">
+      <DependentUpon>duzenle.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\magazaYonetimi\duzenle.ascx.designer.cs">
+      <DependentUpon>duzenle.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\magazaYonetimi\ekle.ascx.cs">
+      <DependentUpon>ekle.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\magazaYonetimi\ekle.ascx.designer.cs">
+      <DependentUpon>ekle.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\magazaYonetimi\icerik.ascx.cs">
+      <DependentUpon>icerik.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\magazaYonetimi\icerik.ascx.designer.cs">
+      <DependentUpon>icerik.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\magazaYonetimi\kategori-secimi.ascx.cs">
+      <DependentUpon>kategori-secimi.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\magazaYonetimi\kategori-secimi.ascx.designer.cs">
+      <DependentUpon>kategori-secimi.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\magazaYonetimi\kullanici-listele.ascx.cs">
+      <DependentUpon>kullanici-listele.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\magazaYonetimi\kullanici-listele.ascx.designer.cs">
+      <DependentUpon>kullanici-listele.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\magazaYonetimi\listele.ascx.cs">
+      <DependentUpon>listele.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\magazaYonetimi\listele.ascx.designer.cs">
+      <DependentUpon>listele.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\magazaYonetimi\magaza-tipi.ascx.cs">
+      <DependentUpon>magaza-tipi.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\magazaYonetimi\magaza-tipi.ascx.designer.cs">
+      <DependentUpon>magaza-tipi.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\magazaYonetimi\magaza.aspx.cs">
+      <DependentUpon>magaza.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\magazaYonetimi\magaza.aspx.designer.cs">
+      <DependentUpon>magaza.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\magazaYonetimi\odeme.ascx.cs">
+      <DependentUpon>odeme.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\magazaYonetimi\odeme.ascx.designer.cs">
+      <DependentUpon>odeme.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\ozelAlanYonetimi\alanduzenle.ascx.cs">
+      <DependentUpon>alanduzenle.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\ozelAlanYonetimi\alanduzenle.ascx.designer.cs">
+      <DependentUpon>alanduzenle.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\ozelAlanYonetimi\alanekle.ascx.cs">
+      <DependentUpon>alanekle.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\ozelAlanYonetimi\alanekle.ascx.designer.cs">
+      <DependentUpon>alanekle.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\ozelAlanYonetimi\alanlistele.ascx.cs">
+      <DependentUpon>alanlistele.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\ozelAlanYonetimi\alanlistele.ascx.designer.cs">
+      <DependentUpon>alanlistele.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\ozelAlanYonetimi\duzenle.ascx.cs">
+      <DependentUpon>duzenle.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\ozelAlanYonetimi\duzenle.ascx.designer.cs">
+      <DependentUpon>duzenle.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\ozelAlanYonetimi\ekle.ascx.cs">
+      <DependentUpon>ekle.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\ozelAlanYonetimi\ekle.ascx.designer.cs">
+      <DependentUpon>ekle.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\ozelAlanYonetimi\listele.ascx.cs">
+      <DependentUpon>listele.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\ozelAlanYonetimi\listele.ascx.designer.cs">
+      <DependentUpon>listele.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\ozelAlanYonetimi\özelalan.aspx.cs">
+      <DependentUpon>özelalan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\ozelAlanYonetimi\özelalan.aspx.designer.cs">
+      <DependentUpon>özelalan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\projeYonetimi\duzenle.ascx.cs">
+      <DependentUpon>duzenle.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\projeYonetimi\duzenle.ascx.designer.cs">
+      <DependentUpon>duzenle.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\projeYonetimi\firma-duzenle.ascx.cs">
+      <DependentUpon>firma-duzenle.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\projeYonetimi\firma-duzenle.ascx.designer.cs">
+      <DependentUpon>firma-duzenle.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\projeYonetimi\firma-listele.ascx.cs">
+      <DependentUpon>firma-listele.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\projeYonetimi\firma-listele.ascx.designer.cs">
+      <DependentUpon>firma-listele.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\yardimIcerikYonetimi\ekle.ascx.cs">
+      <DependentUpon>ekle.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\yardimIcerikYonetimi\ekle.ascx.designer.cs">
+      <DependentUpon>ekle.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\yardimIcerikYonetimi\icerikkategoriekle.ascx.cs">
+      <DependentUpon>icerikkategoriekle.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\yardimIcerikYonetimi\icerikkategoriekle.ascx.designer.cs">
+      <DependentUpon>icerikkategoriekle.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\yardimIcerikYonetimi\listele.ascx.cs">
+      <DependentUpon>listele.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\yardimIcerikYonetimi\listele.ascx.designer.cs">
+      <DependentUpon>listele.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\yardimIcerikYonetimi\yardimicerikkategori.ascx.cs">
+      <DependentUpon>yardimicerikkategori.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\yardimIcerikYonetimi\yardimicerikkategori.ascx.designer.cs">
+      <DependentUpon>yardimicerikkategori.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\yardimIcerikYonetimi\yardımicerik.aspx.cs">
+      <DependentUpon>yardımicerik.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\yardimIcerikYonetimi\yardımicerik.aspx.designer.cs">
+      <DependentUpon>yardımicerik.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="management\araclar\araclar.aspx.cs">
+      <DependentUpon>araclar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\araclar\araclar.aspx.designer.cs">
+      <DependentUpon>araclar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="management\araclar\gelenkutusu.ascx.cs">
+      <DependentUpon>gelenkutusu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\araclar\gelenkutusu.ascx.designer.cs">
+      <DependentUpon>gelenkutusu.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\araclar\gonderilen-kutusu.ascx.cs">
+      <DependentUpon>gonderilen-kutusu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\araclar\gonderilen-kutusu.ascx.designer.cs">
+      <DependentUpon>gonderilen-kutusu.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\araclar\mesajgonder.ascx.cs">
+      <DependentUpon>mesajgonder.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\araclar\mesajgonder.ascx.designer.cs">
+      <DependentUpon>mesajgonder.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\araclar\mesajoku.ascx.cs">
+      <DependentUpon>mesajoku.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\araclar\mesajoku.ascx.designer.cs">
+      <DependentUpon>mesajoku.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\detayli-arama.aspx.cs">
+      <DependentUpon>detayli-arama.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\detayli-arama.aspx.designer.cs">
+      <DependentUpon>detayli-arama.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="management\diger\404.ascx.cs">
+      <DependentUpon>404.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\diger\404.ascx.designer.cs">
+      <DependentUpon>404.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\diger\500.ascx.cs">
+      <DependentUpon>500.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\diger\500.ascx.designer.cs">
+      <DependentUpon>500.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\diger\diger.aspx.cs">
+      <DependentUpon>diger.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\diger\diger.aspx.designer.cs">
+      <DependentUpon>diger.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="management\genelAyarlar\genelayarlar.aspx.cs">
+      <DependentUpon>genelayarlar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\genelAyarlar\genelayarlar.aspx.designer.cs">
+      <DependentUpon>genelayarlar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="management\genelAyarlar\magaza-ucret-ayar.ascx.cs">
+      <DependentUpon>magaza-ucret-ayar.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\genelAyarlar\magaza-ucret-ayar.ascx.designer.cs">
+      <DependentUpon>magaza-ucret-ayar.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\genelAyarlar\magaza-ucretleri.ascx.cs">
+      <DependentUpon>magaza-ucretleri.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\genelAyarlar\magaza-ucretleri.ascx.designer.cs">
+      <DependentUpon>magaza-ucretleri.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\genelAyarlar\odeme-fatura.ascx.cs">
+      <DependentUpon>odeme-fatura.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\genelAyarlar\odeme-fatura.ascx.designer.cs">
+      <DependentUpon>odeme-fatura.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\genelAyarlar\odemeler.ascx.cs">
+      <DependentUpon>odemeler.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\genelAyarlar\odemeler.ascx.designer.cs">
+      <DependentUpon>odemeler.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\genelAyarlar\odeme-fatura-yazdir.aspx.cs">
+      <DependentUpon>odeme-fatura-yazdir.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\genelAyarlar\odeme-fatura-yazdir.aspx.designer.cs">
+      <DependentUpon>odeme-fatura-yazdir.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="management\genelAyarlar\vitrin-ucret-ayar.ascx.cs">
+      <DependentUpon>vitrin-ucret-ayar.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\genelAyarlar\vitrin-ucret-ayar.ascx.designer.cs">
+      <DependentUpon>vitrin-ucret-ayar.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\genelAyarlar\vitrin-ucretleri.ascx.cs">
+      <DependentUpon>vitrin-ucretleri.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\genelAyarlar\vitrin-ucretleri.ascx.designer.cs">
+      <DependentUpon>vitrin-ucretleri.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\profil.aspx.cs">
+      <DependentUpon>profil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\profil.aspx.designer.cs">
+      <DependentUpon>profil.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="management\takvim.aspx.cs">
+      <DependentUpon>takvim.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\takvim.aspx.designer.cs">
+      <DependentUpon>takvim.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile-site.aspx.cs">
+      <DependentUpon>mobile-site.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile-site.aspx.designer.cs">
+      <DependentUpon>mobile-site.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="neden-magaza.aspx.cs">
+      <DependentUpon>neden-magaza.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="neden-magaza.aspx.designer.cs">
+      <DependentUpon>neden-magaza.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="odeme.aspx.cs">
+      <DependentUpon>odeme.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="odeme.aspx.designer.cs">
+      <DependentUpon>odeme.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\projeYonetimi\listele.ascx.cs">
+      <DependentUpon>listele.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\projeYonetimi\listele.ascx.designer.cs">
+      <DependentUpon>listele.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\projeYonetimi\proje.aspx.cs">
+      <DependentUpon>proje.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\projeYonetimi\proje.aspx.designer.cs">
+      <DependentUpon>proje.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\reklamYonetimi\duzenle.ascx.cs">
+      <DependentUpon>duzenle.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\reklamYonetimi\duzenle.ascx.designer.cs">
+      <DependentUpon>duzenle.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\reklamYonetimi\ekle.ascx.cs">
+      <DependentUpon>ekle.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\reklamYonetimi\ekle.ascx.designer.cs">
+      <DependentUpon>ekle.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\reklamYonetimi\listele.ascx.cs">
+      <DependentUpon>listele.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\reklamYonetimi\listele.ascx.designer.cs">
+      <DependentUpon>listele.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\reklamYonetimi\reklam.aspx.cs">
+      <DependentUpon>reklam.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\reklamYonetimi\reklam.aspx.designer.cs">
+      <DependentUpon>reklam.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="management\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="profil\anasayfa.ascx.cs">
+      <DependentUpon>anasayfa.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="profil\anasayfa.ascx.designer.cs">
+      <DependentUpon>anasayfa.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="profil\bildirim-oku.ascx.cs">
+      <DependentUpon>bildirim-oku.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="profil\bildirim-oku.ascx.designer.cs">
+      <DependentUpon>bildirim-oku.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="profil\cep-telefonu.ascx.cs">
+      <DependentUpon>cep-telefonu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="profil\cep-telefonu.ascx.designer.cs">
+      <DependentUpon>cep-telefonu.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="profil\eposta.ascx.cs">
+      <DependentUpon>eposta.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="profil\eposta.ascx.designer.cs">
+      <DependentUpon>eposta.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="profil\favori-ilan.ascx.cs">
+      <DependentUpon>favori-ilan.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="profil\favori-ilan.ascx.designer.cs">
+      <DependentUpon>favori-ilan.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="profil\favori-magaza.ascx.cs">
+      <DependentUpon>favori-magaza.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="profil\favori-magaza.ascx.designer.cs">
+      <DependentUpon>favori-magaza.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="profil\favori-satici.ascx.cs">
+      <DependentUpon>favori-satici.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="profil\favori-satici.ascx.designer.cs">
+      <DependentUpon>favori-satici.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="profil\hesap-dondur.ascx.cs">
+      <DependentUpon>hesap-dondur.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="profil\hesap-dondur.ascx.designer.cs">
+      <DependentUpon>hesap-dondur.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="profil\ilan.ascx.cs">
+      <DependentUpon>ilan.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="profil\ilan.ascx.designer.cs">
+      <DependentUpon>ilan.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="profil\kisisel-bilgiler.ascx.cs">
+      <DependentUpon>kisisel-bilgiler.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="profil\kisisel-bilgiler.ascx.designer.cs">
+      <DependentUpon>kisisel-bilgiler.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="profil\magaza-icerigi.ascx.cs">
+      <DependentUpon>magaza-icerigi.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="profil\magaza-icerigi.ascx.designer.cs">
+      <DependentUpon>magaza-icerigi.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="profil\magaza-ilan-durum.ascx.cs">
+      <DependentUpon>magaza-ilan-durum.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="profil\magaza-ilan-durum.ascx.designer.cs">
+      <DependentUpon>magaza-ilan-durum.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="profil\magaza-kullanicilar.ascx.cs">
+      <DependentUpon>magaza-kullanicilar.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="profil\magaza-kullanicilar.ascx.designer.cs">
+      <DependentUpon>magaza-kullanicilar.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="profil\magaza-odemeler.ascx.cs">
+      <DependentUpon>magaza-odemeler.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="profil\magaza-odemeler.ascx.designer.cs">
+      <DependentUpon>magaza-odemeler.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="profil\magaza-profil.ascx.cs">
+      <DependentUpon>magaza-profil.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="profil\magaza-profil.ascx.designer.cs">
+      <DependentUpon>magaza-profil.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="profil\magaza-vitrini.ascx.cs">
+      <DependentUpon>magaza-vitrini.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="profil\magaza-vitrini.ascx.designer.cs">
+      <DependentUpon>magaza-vitrini.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="profil\magaza-yayinda-olmayan.ascx.cs">
+      <DependentUpon>magaza-yayinda-olmayan.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="profil\magaza-yayinda-olmayan.ascx.designer.cs">
+      <DependentUpon>magaza-yayinda-olmayan.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="profil\magaza-yayinda.ascx.cs">
+      <DependentUpon>magaza-yayinda.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="profil\magaza-yayinda.ascx.designer.cs">
+      <DependentUpon>magaza-yayinda.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="profil\mesaj-oku.ascx.cs">
+      <DependentUpon>mesaj-oku.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="profil\mesaj-oku.ascx.designer.cs">
+      <DependentUpon>mesaj-oku.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="profil\odemeler.ascx.cs">
+      <DependentUpon>odemeler.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="profil\odemeler.ascx.designer.cs">
+      <DependentUpon>odemeler.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="profil\profil.aspx.cs">
+      <DependentUpon>profil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="profil\profil.aspx.designer.cs">
+      <DependentUpon>profil.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="profil\projeler.ascx.cs">
+      <DependentUpon>projeler.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="profil\projeler.ascx.designer.cs">
+      <DependentUpon>projeler.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="profil\sifre-degistir.ascx.cs">
+      <DependentUpon>sifre-degistir.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="profil\sifre-degistir.ascx.designer.cs">
+      <DependentUpon>sifre-degistir.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="proje-basarili.aspx.cs">
+      <DependentUpon>proje-basarili.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="proje-basarili.aspx.designer.cs">
+      <DependentUpon>proje-basarili.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="proje-detay.aspx.cs">
+      <DependentUpon>proje-detay.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="proje-detay.aspx.designer.cs">
+      <DependentUpon>proje-detay.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="proje-ekle.aspx.cs">
+      <DependentUpon>proje-ekle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="proje-ekle.aspx.designer.cs">
+      <DependentUpon>proje-ekle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="proje-firma.aspx.cs">
+      <DependentUpon>proje-firma.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="proje-firma.aspx.designer.cs">
+      <DependentUpon>proje-firma.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="proje-onizle.aspx.cs">
+      <DependentUpon>proje-onizle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="proje-onizle.aspx.designer.cs">
+      <DependentUpon>proje-onizle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="proje-sepet.aspx.cs">
+      <DependentUpon>proje-sepet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="proje-sepet.aspx.designer.cs">
+      <DependentUpon>proje-sepet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="projeler-filtrele.aspx.cs">
+      <DependentUpon>projeler-filtrele.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="projeler-filtrele.aspx.designer.cs">
+      <DependentUpon>projeler-filtrele.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="projeler.aspx.cs">
+      <DependentUpon>projeler.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="projeler.aspx.designer.cs">
+      <DependentUpon>projeler.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sartlar-ve-kosullar.aspx.cs">
+      <DependentUpon>sartlar-ve-kosullar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sartlar-ve-kosullar.aspx.designer.cs">
+      <DependentUpon>sartlar-ve-kosullar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="satici-profil.aspx.cs">
+      <DependentUpon>satici-profil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="satici-profil.aspx.designer.cs">
+      <DependentUpon>satici-profil.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="services\ki-generalupload.ashx.cs">
+      <DependentUpon>ki-generalupload.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="services\ki_ai.ashx.cs">
+      <DependentUpon>ki_ai.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="services\ki_api.asmx.cs">
+      <DependentUpon>ki_api.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="services\ki_operation.asmx.cs">
+      <DependentUpon>ki_operation.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="sifremi-unuttum.aspx.cs">
+      <DependentUpon>sifremi-unuttum.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sifremi-unuttum.aspx.designer.cs">
+      <DependentUpon>sifremi-unuttum.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sikca-sorulan-sorular.aspx.cs">
+      <DependentUpon>sikca-sorulan-sorular.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sikca-sorulan-sorular.aspx.designer.cs">
+      <DependentUpon>sikca-sorulan-sorular.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site.Master.cs">
+      <DependentUpon>site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site.Master.designer.cs">
+      <DependentUpon>site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="sitemap.aspx.cs">
+      <DependentUpon>sitemap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sitemap.aspx.designer.cs">
+      <DependentUpon>sitemap.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sysLogin\syslock.aspx.cs">
+      <DependentUpon>syslock.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sysLogin\syslock.aspx.designer.cs">
+      <DependentUpon>syslock.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sysLogin\syslogin.aspx.cs">
+      <DependentUpon>syslogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sysLogin\syslogin.aspx.designer.cs">
+      <DependentUpon>syslogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sysLogin\yonlendir.aspx.cs">
+      <DependentUpon>yonlendir.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sysLogin\yonlendir.aspx.designer.cs">
+      <DependentUpon>yonlendir.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="upload.ashx.cs">
+      <DependentUpon>upload.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="uye-ol.aspx.cs">
+      <DependentUpon>uye-ol.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="uye-ol.aspx.designer.cs">
+      <DependentUpon>uye-ol.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="uyelik-sozlesmesi.aspx.cs">
+      <DependentUpon>uyelik-sozlesmesi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="uyelik-sozlesmesi.aspx.designer.cs">
+      <DependentUpon>uyelik-sozlesmesi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="vitrin-listele.aspx.cs">
+      <DependentUpon>vitrin-listele.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vitrin-listele.aspx.designer.cs">
+      <DependentUpon>vitrin-listele.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="vitrin-tanitim.aspx.cs">
+      <DependentUpon>vitrin-tanitim.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vitrin-tanitim.aspx.designer.cs">
+      <DependentUpon>vitrin-tanitim.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="kategori-test.aspx.cs">
+      <DependentUpon>kategori-test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="kategori-test.aspx.designer.cs">
+      <DependentUpon>kategori-test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="yazdir.aspx.cs">
+      <DependentUpon>yazdir.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="yazdir.aspx.designer.cs">
+      <DependentUpon>yazdir.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="yeni-sifre.aspx.cs">
+      <DependentUpon>yeni-sifre.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="yeni-sifre.aspx.designer.cs">
+      <DependentUpon>yeni-sifre.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="email-temp\" />
+    <Folder Include="management\anaYonetim\sayfaYonetimi\" />
+    <Folder Include="management\bootstrap\" />
+    <Folder Include="management\build\" />
+    <Folder Include="management\dist\" />
+    <Folder Include="management\libraries\ajax\" />
+    <Folder Include="management\libraries\assets\" />
+    <Folder Include="management\libraries\doc\" />
+    <Folder Include="management\libraries\images\" />
+    <Folder Include="management\plugins\" />
+    <Folder Include="sm\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\KralilanProject.BLL.csproj">
+      <Project>{a32707c6-4ce5-40fb-8e0b-484df6aab005}</Project>
+      <Name>KralilanProject.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\KralilanProject.DAL.csproj">
+      <Project>{1263822a-e357-4f74-8234-d71262c31eac}</Project>
+      <Name>KralilanProject.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KralilanProject.Entities\KralilanProject.Entities.csproj">
+      <Project>{9EC35E6B-E53D-483F-A7EB-A0B90A558CEF}</Project>
+      <Name>KralilanProject.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KralilanProject.Interfaces\KralilanProject.Interfaces.csproj">
+      <Project>{51E1EDD6-4053-4C35-8E25-DBF966C0968A}</Project>
+      <Name>KralilanProject.Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>60923</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:51758/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

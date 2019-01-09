@@ -1,0 +1,584 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 19.75, 44.25" name="ilan">
+  <DataContextMoniker Name="/ilanDataContext" />
+  <nestedChildShapes>
+    <classShape Id="c34cb60c-3f22-4f05-ac6a-8753b6201f87" absoluteBounds="6.25, 31, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/ilanDataContext/bildirimler" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cf7cdda3-8b96-44ce-8a42-c48b7a1a8eea" absoluteBounds="6.265, 31.46, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="cc25c12e-34f7-45f9-a361-519c4200a1aa" absoluteBounds="0.75, 1.5, 2, 1.7708968098958333">
+      <DataClassMoniker Name="/ilanDataContext/ziyaretproje" />
+      <nestedChildShapes>
+        <elementListCompartment Id="532b4c01-016a-485d-b863-ff8e952c04dd" absoluteBounds="0.765, 1.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ced03bfa-7f04-4351-9417-2dcc3339fc33" absoluteBounds="12, 19.875, 2, 1.1939925130208309">
+      <DataClassMoniker Name="/ilanDataContext/doping" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4d62543f-b63e-4173-944b-2b556010e6fc" absoluteBounds="12.015, 20.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5dabff11-a880-4407-a1c7-5ef757eedfc2" absoluteBounds="14.75, 19.625, 2, 1.7708968098958309">
+      <DataClassMoniker Name="/ilanDataContext/dopingKategori" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a47ec239-6e9f-42b3-a8ec-02966cc0e342" absoluteBounds="14.765, 20.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fedffd9d-9408-4223-b873-085c6603f000" absoluteBounds="6.25, 40.875, 2, 3.1170068359375023">
+      <DataClassMoniker Name="/ilanDataContext/firmalar" />
+      <nestedChildShapes>
+        <elementListCompartment Id="db0f6038-8ec4-42f2-bdaf-b21d02e41c14" absoluteBounds="6.265, 41.335, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bcc73e3e-0265-416a-8755-613320193adc" absoluteBounds="6.25, 23.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/ilanDataContext/geriBildirim" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9959cb0d-bab2-4550-9d1f-a2e7c5bc3220" absoluteBounds="6.265, 24.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d8e37374-20c0-4e17-9340-af2e222c1ac8" absoluteBounds="0.75, 4.5, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/ilanDataContext/guvenlikKodlari" />
+      <nestedChildShapes>
+        <elementListCompartment Id="357cb1da-fda2-4ef6-ba2d-eb3085c72183" absoluteBounds="0.765, 4.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9529e3a4-bde2-4042-bc2a-efedb8f1cb44" absoluteBounds="11.75, 22.5, 2, 6.0015283203125023">
+      <DataClassMoniker Name="/ilanDataContext/ilan" />
+      <nestedChildShapes>
+        <elementListCompartment Id="58500434-f2cf-4412-b198-7f4c323cc713" absoluteBounds="11.765, 22.96, 1.9700000000000002, 5.4415283203125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="78dae402-177a-4786-a238-ae271f0c0b92" absoluteBounds="17.5, 27.375, 2, 1.1939925130208309">
+      <DataClassMoniker Name="/ilanDataContext/ilanFavori" />
+      <nestedChildShapes>
+        <elementListCompartment Id="502f6897-f0b6-47dd-8ea2-9eb187ca4076" absoluteBounds="17.515, 27.835, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5197566f-9b76-497d-a6b8-b107cdf77237" absoluteBounds="6.25, 0.75, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/ilanDataContext/ilanSayi" />
+      <nestedChildShapes>
+        <elementListCompartment Id="76f573ae-54e7-479c-b0b9-413af5971fb8" absoluteBounds="6.265, 1.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="22007ac4-018d-4dc4-8f48-f8d4349f7807" absoluteBounds="14.5, 26.5, 2, 1.9631982421875023">
+      <DataClassMoniker Name="/ilanDataContext/ilanSikayet" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c5b3c778-df51-4c15-a674-e3ec694b33f6" absoluteBounds="14.515, 26.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="51d9767a-6af4-401a-a9fa-e085a5049322" absoluteBounds="6.25, 3.625, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/ilanDataContext/ilanUcret" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4aca110b-41e7-4d75-b6ac-68887f6ac23b" absoluteBounds="6.265, 4.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="387094bd-2236-4499-9e28-2c8eed98b559" absoluteBounds="3.5, 17.625, 2, 1.3862939453125023">
+      <DataClassMoniker Name="/ilanDataContext/ilceler" />
+      <nestedChildShapes>
+        <elementListCompartment Id="abcbcfc6-73c5-46cd-8ce2-ea97f07e5739" absoluteBounds="3.515, 18.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c9a5272e-3b1e-4200-a9ba-52a301f2fd0c" absoluteBounds="0.75, 28.375, 2, 1.1939925130208309">
+      <DataClassMoniker Name="/ilanDataContext/iller" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bb8b4c39-375c-468d-8ebb-1546939d91e1" absoluteBounds="0.765, 28.835, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="79afc58d-063f-45fb-b49c-7a21525136b9" absoluteBounds="3.5, 11.875, 2, 1.3862939453124987">
+      <DataClassMoniker Name="/ilanDataContext/kategori" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3a6b3c0e-53ae-4e89-89cf-190f65b7b987" absoluteBounds="3.515, 12.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ee834176-b01f-4ec0-8fc0-0f9cd35f2778" absoluteBounds="6.25, 8.75, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/ilanDataContext/kategoriOzellikDeger" />
+      <nestedChildShapes>
+        <elementListCompartment Id="50a0fbb1-45e2-4343-8206-bed14f13089a" absoluteBounds="6.265, 9.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bde1cc0e-fab3-411f-ae21-c6a8df2fcf25" absoluteBounds="6.25, 6.625, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/ilanDataContext/kategoriTur" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2a1f06cc-77e2-49f8-b53c-908c7475dd05" absoluteBounds="6.265, 7.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="51d72286-0a9d-459c-b228-9fb5339aa6e3" absoluteBounds="3.5, 28.75, 2, 4.6554182942708309">
+      <DataClassMoniker Name="/ilanDataContext/kullanici" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b66d15df-e46b-4c2b-9bcf-7fd641e2218e" absoluteBounds="3.515, 29.21, 1.9700000000000002, 4.095418294270833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="826112e2-09c4-44e8-8a0b-59ab2efcfb83" absoluteBounds="6.25, 21.875, 2, 1.1939925130208309">
+      <DataClassMoniker Name="/ilanDataContext/kullaniciTakip" />
+      <nestedChildShapes>
+        <elementListCompartment Id="355e8823-b808-4c66-895a-b440d2d38f61" absoluteBounds="6.265, 22.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9f74a70c-765f-4d31-944d-ee32af4e4845" absoluteBounds="6.25, 28.5, 2, 1.7708968098958309">
+      <DataClassMoniker Name="/ilanDataContext/log" />
+      <nestedChildShapes>
+        <elementListCompartment Id="14819e96-c0cd-44d2-86b7-f7f8ba2e33e8" absoluteBounds="6.265, 28.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="48e34ebb-f680-4189-8bfc-f71cb06f6bbb" absoluteBounds="9, 21.375, 2, 4.2708154296875023">
+      <DataClassMoniker Name="/ilanDataContext/magaza" />
+      <nestedChildShapes>
+        <elementListCompartment Id="de378368-98aa-4f3f-858d-446a1964543c" absoluteBounds="9.015, 21.835, 1.9700000000000002, 3.7108154296875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9f9bb81a-11fd-41f7-899e-e9985f6ce1f6" absoluteBounds="6.25, 11.75, 2, 1.7708968098958344">
+      <DataClassMoniker Name="/ilanDataContext/magazaKategori" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ea8f4194-f311-43a2-a99d-311fd0523c4a" absoluteBounds="6.265, 12.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3267bc6e-8ad6-4ea1-859f-d15fd28f8ede" absoluteBounds="14.75, 29.75, 2, 1.3862939453125023">
+      <DataClassMoniker Name="/ilanDataContext/magazaKullanici" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5ab2f9b5-287e-4437-881c-091420848fd1" absoluteBounds="14.765, 30.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f54f295e-b06d-4c3b-9ae8-e48f82fc9746" absoluteBounds="14.75, 23.75, 2, 1.1939925130208309">
+      <DataClassMoniker Name="/ilanDataContext/magazaTakip" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ebfe039c-b284-442d-be18-71d7f8585f9b" absoluteBounds="14.765, 24.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7b47032b-9f7f-4ef1-b305-7334d5daa17b" absoluteBounds="11.75, 29.875, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/ilanDataContext/magazaTelefon" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7d7c6930-82c4-4de9-a25f-08bb91eff3cb" absoluteBounds="11.765, 30.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="be69f0bf-18c2-414a-91f7-60fa643c2231" absoluteBounds="6.25, 14.625, 2, 1.3862939453124987">
+      <DataClassMoniker Name="/ilanDataContext/magazaTur" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b3f01c30-582a-4649-bf36-191780e78f55" absoluteBounds="6.265, 15.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3714388d-d577-4ed4-9429-49ad46402630" absoluteBounds="6.25, 17.625, 2, 1.3862939453125023">
+      <DataClassMoniker Name="/ilanDataContext/mahalleler" />
+      <nestedChildShapes>
+        <elementListCompartment Id="dce92769-d7a1-4b02-a6a9-9523fbdb13de" absoluteBounds="6.265, 18.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ab2be60f-47ae-4aad-bc85-4fdc9471b215" absoluteBounds="17.5, 29.625, 2, 2.5401025390625058">
+      <DataClassMoniker Name="/ilanDataContext/mesajlar" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e63d7cc6-049f-483f-9a5a-a005dc790aae" absoluteBounds="17.515, 30.085, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b41a89a1-6488-4d17-87c6-0cf2ad46fd5d" absoluteBounds="0.75, 7.5, 2, 1.1939925130208353">
+      <DataClassMoniker Name="/ilanDataContext/mesajtelefon" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5610a6e3-3b5f-4beb-bb72-a7c40fcd7b9d" absoluteBounds="0.765, 7.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6ff062f6-de17-47bb-9d15-189450288c23" absoluteBounds="6.25, 33.875, 2, 2.5401025390625023">
+      <DataClassMoniker Name="/ilanDataContext/odeme" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a41ec953-7b70-414e-9b6f-2982d18c1c6a" absoluteBounds="6.265, 34.335, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="972b2342-f5f5-4918-93f2-a6ef156afb95" absoluteBounds="8.75, 1.5, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/ilanDataContext/ozellikler" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e6b98dd0-3d77-4f07-a41e-80f2f32bce35" absoluteBounds="8.765, 1.96, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4dacc835-80a0-4f53-860b-413c5aaa88e5" absoluteBounds="9, 28, 2, 5.4246240234374987">
+      <DataClassMoniker Name="/ilanDataContext/projeler" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6f0b576d-6abc-4327-bebc-af9534c166a9" absoluteBounds="9.015, 28.46, 1.9700000000000002, 4.8646240234375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="cd79474c-1ace-4380-b6c7-9d67b1a4c48c" absoluteBounds="6.5, 38.125, 2, 1.5785953776041595">
+      <DataClassMoniker Name="/ilanDataContext/reklam" />
+      <nestedChildShapes>
+        <elementListCompartment Id="75c7ff90-9cd9-4a0a-8c80-30582354fb39" absoluteBounds="6.515, 38.585, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b5c7481f-11bb-450d-b33d-ec0ecf2abe60" absoluteBounds="17.5, 24.375, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/ilanDataContext/seciliDoping" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e6f9ff9a-6875-4f5a-b7bb-0766784108ff" absoluteBounds="17.515, 24.835, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="59d863a3-0718-4277-ae46-d867fd3fb458" absoluteBounds="6.25, 26.125, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/ilanDataContext/telefonlar" />
+      <nestedChildShapes>
+        <elementListCompartment Id="04b2340e-40c2-46b8-a4fc-cfc9202268b1" absoluteBounds="6.265, 26.585, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d7adb40a-1703-4136-a330-82354355646c" absoluteBounds="3.5, 19.75, 2, 1.3862939453125023">
+      <DataClassMoniker Name="/ilanDataContext/vergiDaire" />
+      <nestedChildShapes>
+        <elementListCompartment Id="777860d7-38a1-4f06-b41e-86314cc2212a" absoluteBounds="3.515, 20.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3ee3015e-cdfd-431e-af3a-57a9b0fbd425" absoluteBounds="9.25, 34.375, 2, 2.9247054036458309">
+      <DataClassMoniker Name="/ilanDataContext/verilenReklam" />
+      <nestedChildShapes>
+        <elementListCompartment Id="93c2099b-d733-448b-aa93-b8046136a6ab" absoluteBounds="9.265, 34.835, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="38ee3210-c4ab-48fc-9716-45e7d9d5c07b" absoluteBounds="0.75, 9.5, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/ilanDataContext/ziyaretci" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fc65b357-3e9a-4101-8f49-5272b3769063" absoluteBounds="0.765, 9.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(14 : 20.4719962565104); (14.75 : 20.4719962565104)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ilanDataContext/doping/doping_dopingKategori" />
+      <nodes>
+        <classShapeMoniker Id="ced03bfa-7f04-4351-9417-2dcc3339fc33" />
+        <classShapeMoniker Id="5dabff11-a880-4407-a1c7-5ef757eedfc2" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(13.75 : 28.4661427049279); (14.125 : 28.8411427049279); (14.125 : 28.9439925130208); (17.125 : 28.9439925130208); (17.5 : 28.5689925130208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ilanDataContext/ilan/ilan_ilanFavori" />
+      <nodes>
+        <classShapeMoniker Id="9529e3a4-bde2-4042-bc2a-efedb8f1cb44" />
+        <classShapeMoniker Id="78dae402-177a-4786-a238-ae271f0c0b92" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(13.75 : 27.4815991210938); (14.5 : 27.4815991210938)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ilanDataContext/ilan/ilan_ilanSikayet" />
+      <nodes>
+        <classShapeMoniker Id="9529e3a4-bde2-4042-bc2a-efedb8f1cb44" />
+        <classShapeMoniker Id="22007ac4-018d-4dc4-8f48-f8d4349f7807" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 19.0112939453125); (5.69107443490112 : 19.2023683802136 : JumpStart); (5.80892556509888 : 19.3202195104114 : JumpEnd); (5.875 : 19.3862939453125); (9.11978791666666 : 19.3862939453125 : JumpStart); (9.28645458333333 : 19.3862939453125 : JumpEnd); (9.38541416666667 : 19.3862939453125 : JumpStart); (9.55208083333333 : 19.3862939453125 : JumpEnd); (9.91666666666667 : 19.3862939453125 : JumpStart); (10.0833333333333 : 19.3862939453125 : JumpEnd); (10.4479191666667 : 19.3862939453125 : JumpStart); (10.6145858333333 : 19.3862939453125 : JumpEnd); (11.375 : 19.3862939453125); (11.375 : 22.125); (11.75 : 22.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ilanDataContext/ilceler/ilceler_ilan" />
+      <nodes>
+        <classShapeMoniker Id="387094bd-2236-4499-9e28-2c8eed98b559" />
+        <classShapeMoniker Id="9529e3a4-bde2-4042-bc2a-efedb8f1cb44" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.75 : 28.375); (1.75 : 25.8854077148438); (2.19791916666667 : 25.8854077148438 : JumpStart); (2.36458583333333 : 25.8854077148438 : JumpEnd); (2.46354541666667 : 25.8854077148438 : JumpStart); (2.63021208333333 : 25.8854077148438 : JumpEnd); (4.41666666666667 : 25.8854077148438 : JumpStart); (4.58333333333333 : 25.8854077148438 : JumpEnd); (5.21354541666667 : 25.8854077148438 : JumpStart); (5.38021208333333 : 25.8854077148438 : JumpEnd); (5.79166666666667 : 25.8854077148438 : JumpStart); (5.95833333333333 : 25.8854077148438 : JumpEnd); (11.1239512595152 : 25.8854077148438 : JumpStart); (11.4198496954127 : 25.8854077148438 : JumpEnd); (11.75 : 25.8854077148438)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ilanDataContext/iller/iller_ilan" />
+      <nodes>
+        <classShapeMoniker Id="c9a5272e-3b1e-4200-a9ba-52a301f2fd0c" />
+        <classShapeMoniker Id="9529e3a4-bde2-4042-bc2a-efedb8f1cb44" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.2812525 : 28.375); (2.2812525 : 18.3181469726563); (3.5 : 18.3181469726563)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ilanDataContext/iller/iller_ilceler" />
+      <nodes>
+        <classShapeMoniker Id="c9a5272e-3b1e-4200-a9ba-52a301f2fd0c" />
+        <classShapeMoniker Id="387094bd-2236-4499-9e28-2c8eed98b559" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 12.5681469726562); (6 : 12.5681469726562); (6 : 13.7708968098958); (9.38541416666667 : 13.7708968098958 : JumpStart); (9.55208083333333 : 13.7708968098958 : JumpEnd); (15.75 : 13.7708968098958); (15.75 : 19.625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ilanDataContext/kategori/kategori_dopingKategori" />
+      <nodes>
+        <classShapeMoniker Id="79afc58d-063f-45fb-b49c-7a21525136b9" />
+        <classShapeMoniker Id="5dabff11-a880-4407-a1c7-5ef757eedfc2" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 12.9459724589844); (5.75 : 12.9459724589844); (5.75 : 19.625); (5.79166666666667 : 19.625 : JumpStart); (5.95833333333333 : 19.625 : JumpEnd); (9.11978791666666 : 19.625 : JumpStart); (9.28645458333333 : 19.625 : JumpEnd); (9.38541416666667 : 19.625 : JumpStart); (9.55208083333333 : 19.625 : JumpEnd); (9.91666666666667 : 19.625 : JumpStart); (10.0833333333333 : 19.625 : JumpEnd); (10.4479191666667 : 19.625 : JumpStart); (10.6145858333333 : 19.625 : JumpEnd); (11.2916666666667 : 19.625 : JumpStart); (11.4583333333333 : 19.625 : JumpEnd); (11.75 : 19.625); (11.75 : 22.125); (11.7916691666667 : 22.125 : JumpStart); (11.9583358333333 : 22.125 : JumpEnd); (12.781252 : 22.125); (12.781252 : 22.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ilanDataContext/kategori/kategori_ilan" />
+      <nodes>
+        <classShapeMoniker Id="79afc58d-063f-45fb-b49c-7a21525136b9" />
+        <classShapeMoniker Id="9529e3a4-bde2-4042-bc2a-efedb8f1cb44" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.5 : 11.875); (4.5 : 1.63544840494792); (6.25 : 1.63544840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ilanDataContext/kategori/kategori_ilanSayi" />
+      <nodes>
+        <classShapeMoniker Id="79afc58d-063f-45fb-b49c-7a21525136b9" />
+        <classShapeMoniker Id="5197566f-9b76-497d-a6b8-b107cdf77237" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.0312525 : 11.875); (5.0312525 : 4.31814697265625); (6.25 : 4.31814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ilanDataContext/kategori/kategori_ilanUcret" />
+      <nodes>
+        <classShapeMoniker Id="79afc58d-063f-45fb-b49c-7a21525136b9" />
+        <classShapeMoniker Id="51d9767a-6af4-401a-a9fa-e085a5049322" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.9687475 : 11.875); (3.9687475 : 9.34699625651042); (4.41666666666667 : 9.34699625651042 : JumpStart); (4.58333333333333 : 9.34699625651042 : JumpEnd); (4.94791916666667 : 9.34699625651042 : JumpStart); (5.11458583333333 : 9.34699625651042 : JumpEnd); (5.21354541666667 : 9.34699625651042 : JumpStart); (5.38021208333333 : 9.34699625651042 : JumpEnd); (6.25 : 9.34699625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ilanDataContext/kategori/kategori_kategoriOzellikDeger" />
+      <nodes>
+        <classShapeMoniker Id="79afc58d-063f-45fb-b49c-7a21525136b9" />
+        <classShapeMoniker Id="ee834176-b01f-4ec0-8fc0-0f9cd35f2778" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.29687875 : 11.875); (5.29687875 : 7.22199625651042); (6.25 : 7.22199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ilanDataContext/kategori/kategori_kategoriTur" />
+      <nodes>
+        <classShapeMoniker Id="79afc58d-063f-45fb-b49c-7a21525136b9" />
+        <classShapeMoniker Id="bde1cc0e-fab3-411f-ae21-c6a8df2fcf25" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 32.0777498372396); (6.25 : 32.0777498372396)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ilanDataContext/kullanici/kullanici_bildirimler" />
+      <nodes>
+        <classShapeMoniker Id="51d72286-0a9d-459c-b228-9fb5339aa6e3" />
+        <classShapeMoniker Id="c34cb60c-3f22-4f05-ac6a-8753b6201f87" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.5 : 33.4054182942708); (4.5 : 42.4335034179688); (6.25 : 42.4335034179688)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ilanDataContext/kullanici/kullanici_firmalar" />
+      <nodes>
+        <classShapeMoniker Id="51d72286-0a9d-459c-b228-9fb5339aa6e3" />
+        <classShapeMoniker Id="fedffd9d-9408-4223-b873-085c6603f000" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.5 : 28.75); (4.5 : 24.5392976888021); (5.21354541666667 : 24.5392976888021 : JumpStart); (5.38021208333333 : 24.5392976888021 : JumpEnd); (5.79166666666667 : 24.5392976888021 : JumpStart); (5.95833333333333 : 24.5392976888021 : JumpEnd); (6.25 : 24.5392976888021)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ilanDataContext/kullanici/kullanici_geriBildirim" />
+      <nodes>
+        <classShapeMoniker Id="51d72286-0a9d-459c-b228-9fb5339aa6e3" />
+        <classShapeMoniker Id="bcc73e3e-0265-416a-8755-613320193adc" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.0312525 : 28.75); (5.0312525 : 27.8517976888021); (5.21354541666667 : 27.8517976888021 : JumpStart); (5.38021208333333 : 27.8517976888021 : JumpEnd); (5.79166666666667 : 27.8517976888021 : JumpStart); (5.95833333333333 : 27.8517976888021 : JumpEnd); (8.66666666666667 : 27.8517976888021 : JumpStart); (8.83333333333333 : 27.8517976888021 : JumpEnd); (11.2916666666667 : 27.8517976888021 : JumpStart); (11.5833333333333 : 27.8517976888021 : JumpEnd); (11.75 : 27.8517976888021)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ilanDataContext/kullanici/kullanici_ilan" />
+      <nodes>
+        <classShapeMoniker Id="51d72286-0a9d-459c-b228-9fb5339aa6e3" />
+        <classShapeMoniker Id="9529e3a4-bde2-4042-bc2a-efedb8f1cb44" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.968748 : 28.75); (3.968748 : 28.2219962565104); (4.41666666666667 : 28.2219962565104 : JumpStart); (4.58333333333333 : 28.2219962565104 : JumpEnd); (4.68229291666667 : 28.2219962565104 : JumpStart); (4.84895958333333 : 28.2219962565104 : JumpEnd); (4.94791916666667 : 28.2219962565104 : JumpStart); (5.11458583333333 : 28.2219962565104 : JumpEnd); (5.21354541666667 : 28.2219962565104 : JumpStart); (5.38021208333333 : 28.2219962565104 : JumpEnd); (5.79166666666667 : 28.2219962565104 : JumpStart); (5.95833333333333 : 28.2219962565104 : JumpEnd); (8.75 : 28.2219962565104); (8.75 : 27.5); (11.2916666666667 : 27.5 : JumpStart); (11.4583333333333 : 27.5 : JumpEnd); (11.5 : 27.5); (11.5 : 28.7515283203125); (13.884358974359 : 28.7515283203125 : JumpStart); (14.1187189487179 : 28.7515283203125 : JumpEnd); (17.125 : 28.7515283203125); (17.125 : 27.9407442565104); (17.5 : 27.9407442565104)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ilanDataContext/kullanici/kullanici_ilanFavori" />
+      <nodes>
+        <classShapeMoniker Id="51d72286-0a9d-459c-b228-9fb5339aa6e3" />
+        <classShapeMoniker Id="78dae402-177a-4786-a238-ae271f0c0b92" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 29.1594962565104); (3.5 : 29.1594962565104)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ilanDataContext/iller/iller_kullanici" />
+      <nodes>
+        <classShapeMoniker Id="c9a5272e-3b1e-4200-a9ba-52a301f2fd0c" />
+        <classShapeMoniker Id="51d72286-0a9d-459c-b228-9fb5339aa6e3" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.29687875 : 28.75); (5.29687875 : 22.4719962565104); (5.79166666666667 : 22.4719962565104 : JumpStart); (5.95833333333333 : 22.4719962565104 : JumpEnd); (6.25 : 22.4719962565104)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ilanDataContext/kullanici/kullanici_kullaniciTakip" />
+      <nodes>
+        <classShapeMoniker Id="51d72286-0a9d-459c-b228-9fb5339aa6e3" />
+        <classShapeMoniker Id="826112e2-09c4-44e8-8a0b-59ab2efcfb83" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 29.5104484049479); (5.79166666666667 : 29.5104484049479 : JumpStart); (5.95833333333333 : 29.5104484049479 : JumpEnd); (6.25 : 29.5104484049479)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ilanDataContext/kullanici/kullanici_log" />
+      <nodes>
+        <classShapeMoniker Id="51d72286-0a9d-459c-b228-9fb5339aa6e3" />
+        <classShapeMoniker Id="9f74a70c-765f-4d31-944d-ee32af4e4845" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11 : 24.1041602148438); (11.4166666666667 : 24.1041602148438 : JumpStart); (11.5833333333333 : 24.1041602148438 : JumpEnd); (11.75 : 24.1041602148438)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ilanDataContext/magaza/magaza_ilan" />
+      <nodes>
+        <classShapeMoniker Id="48e34ebb-f680-4189-8bfc-f71cb06f6bbb" />
+        <classShapeMoniker Id="9529e3a4-bde2-4042-bc2a-efedb8f1cb44" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 18.9771687866587); (5.69037515865385 : 19.1675439453125); (9.11978791666666 : 19.1675439453125 : JumpStart); (9.28645458333333 : 19.1675439453125 : JumpEnd); (9.38541416666667 : 19.1675439453125 : JumpStart); (9.55208083333333 : 19.1675439453125 : JumpEnd); (10 : 19.1675439453125); (10 : 21.375)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ilanDataContext/ilceler/ilceler_magaza" />
+      <nodes>
+        <classShapeMoniker Id="387094bd-2236-4499-9e28-2c8eed98b559" />
+        <classShapeMoniker Id="48e34ebb-f680-4189-8bfc-f71cb06f6bbb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.2187475 : 28.375); (1.2187475 : 23.4094962565104); (2.19791916666667 : 23.4094962565104 : JumpStart); (2.36458583333333 : 23.4094962565104 : JumpEnd); (2.46354541666667 : 23.4094962565104 : JumpStart); (2.63021208333333 : 23.4094962565104 : JumpEnd); (5.21354541666667 : 23.4094962565104 : JumpStart); (5.38021208333333 : 23.4094962565104 : JumpEnd); (5.79166666666667 : 23.4094962565104 : JumpStart); (5.95833333333333 : 23.4094962565104 : JumpEnd); (9 : 23.4094962565104)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ilanDataContext/iller/iller_magaza" />
+      <nodes>
+        <classShapeMoniker Id="c9a5272e-3b1e-4200-a9ba-52a301f2fd0c" />
+        <classShapeMoniker Id="48e34ebb-f680-4189-8bfc-f71cb06f6bbb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 12.6354484049479); (9.4687475 : 12.6354484049479); (9.4687475 : 21.375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ilanDataContext/magazaKategori/magazaKategori_magaza" />
+      <nodes>
+        <classShapeMoniker Id="9f9bb81a-11fd-41f7-899e-e9985f6ce1f6" />
+        <classShapeMoniker Id="48e34ebb-f680-4189-8bfc-f71cb06f6bbb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 12.1590734863281); (6.25 : 12.1590734863281)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ilanDataContext/kategori/kategori_magazaKategori" />
+      <nodes>
+        <classShapeMoniker Id="79afc58d-063f-45fb-b49c-7a21525136b9" />
+        <classShapeMoniker Id="9f9bb81a-11fd-41f7-899e-e9985f6ce1f6" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.031252 : 33.4054182942708); (5.031252 : 33.6554182942708); (5.21354516666667 : 33.6554182942708 : JumpStart); (5.38021183333333 : 33.6554182942708 : JumpEnd); (9.01041666666667 : 33.6554182942708 : JumpStart); (9.17708333333333 : 33.6554182942708 : JumpEnd); (14.375 : 33.6554182942708); (14.375 : 30.4431469726563); (14.75 : 30.4431469726563)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ilanDataContext/kullanici/kullanici_magazaKullanici" />
+      <nodes>
+        <classShapeMoniker Id="51d72286-0a9d-459c-b228-9fb5339aa6e3" />
+        <classShapeMoniker Id="3267bc6e-8ad6-4ea1-859f-d15fd28f8ede" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11 : 25.5488913527644); (11.4375 : 25.9863913527644); (11.4375 : 29.375); (14.375 : 29.375); (14.75 : 29.75)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ilanDataContext/magaza/magaza_magazaKullanici" />
+      <nodes>
+        <classShapeMoniker Id="48e34ebb-f680-4189-8bfc-f71cb06f6bbb" />
+        <classShapeMoniker Id="3267bc6e-8ad6-4ea1-859f-d15fd28f8ede" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.76562625 : 28.75); (4.76562625 : 25.9583154296875); (5.21354541666667 : 25.9583154296875 : JumpStart); (5.38021208333333 : 25.9583154296875 : JumpEnd); (5.79166666666667 : 25.9583154296875 : JumpStart); (5.95833333333333 : 25.9583154296875 : JumpEnd); (11.196858974359 : 25.9583154296875 : JumpStart); (11.3635256410256 : 25.9583154296875 : JumpEnd); (11.5 : 25.9583154296875); (11.5 : 22.25); (11.7916691666667 : 22.25 : JumpStart); (11.9583358333333 : 22.25 : JumpEnd); (12.6979186666667 : 22.25 : JumpStart); (12.8645853333333 : 22.25 : JumpEnd); (14.375 : 22.25); (14.375 : 24.3469962565104); (14.75 : 24.3469962565104)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ilanDataContext/kullanici/kullanici_magazaTakip" />
+      <nodes>
+        <classShapeMoniker Id="51d72286-0a9d-459c-b228-9fb5339aa6e3" />
+        <classShapeMoniker Id="f54f295e-b06d-4c3b-9ae8-e48f82fc9746" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11 : 23.1458276074219); (11.4166666666667 : 23.1458276074219 : JumpStart); (11.5833333333333 : 23.1458276074219 : JumpEnd); (11.625 : 23.1458276074219); (11.625 : 22.375); (11.7916691666667 : 22.375 : JumpStart); (11.9583358333333 : 22.375 : JumpEnd); (12.6979186666667 : 22.375 : JumpStart); (12.8645853333333 : 22.375 : JumpEnd); (14.2916666666667 : 22.375 : JumpStart); (14.4583333333333 : 22.375 : JumpEnd); (15.75 : 22.375); (15.75 : 23.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ilanDataContext/magaza/magaza_magazaTakip" />
+      <nodes>
+        <classShapeMoniker Id="48e34ebb-f680-4189-8bfc-f71cb06f6bbb" />
+        <classShapeMoniker Id="f54f295e-b06d-4c3b-9ae8-e48f82fc9746" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(10.9676923076923 : 25.6458154296875); (11.375 : 26.0531231219952); (11.375 : 30.6642976888021); (11.75 : 30.6642976888021)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ilanDataContext/magaza/magaza_magazaTelefon" />
+      <nodes>
+        <classShapeMoniker Id="48e34ebb-f680-4189-8bfc-f71cb06f6bbb" />
+        <classShapeMoniker Id="7b47032b-9f7f-4ef1-b305-7334d5daa17b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 15.3181469726562); (9.38541416666667 : 15.3181469726562 : JumpStart); (9.55208083333333 : 15.3181469726562 : JumpEnd); (10.5312525 : 15.3181469726562); (10.5312525 : 21.375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ilanDataContext/magazaTur/magazaTur_magaza" />
+      <nodes>
+        <classShapeMoniker Id="be69f0bf-18c2-414a-91f7-60fa643c2231" />
+        <classShapeMoniker Id="48e34ebb-f680-4189-8bfc-f71cb06f6bbb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.5 : 13.2612939453125); (4.5 : 15.3181469726562); (5.66666666666667 : 15.3181469726562 : JumpStart); (5.83333333333333 : 15.3181469726562 : JumpEnd); (6.25 : 15.3181469726562)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ilanDataContext/kategori/kategori_magazaTur" />
+      <nodes>
+        <classShapeMoniker Id="79afc58d-063f-45fb-b49c-7a21525136b9" />
+        <classShapeMoniker Id="be69f0bf-18c2-414a-91f7-60fa643c2231" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 18.3181469726563); (9.38541416666667 : 18.3181469726563 : JumpStart); (9.55208083333333 : 18.3181469726563 : JumpEnd); (10.4479191666667 : 18.3181469726563 : JumpStart); (10.6145858333333 : 18.3181469726563 : JumpEnd); (11.8750025 : 18.3181469726563); (11.8750025 : 22.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ilanDataContext/mahalleler/mahalleler_ilan" />
+      <nodes>
+        <classShapeMoniker Id="3714388d-d577-4ed4-9429-49ad46402630" />
+        <classShapeMoniker Id="9529e3a4-bde2-4042-bc2a-efedb8f1cb44" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 18.6959729589844); (9.20312125 : 18.6959729589844); (9.20312125 : 21.375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ilanDataContext/mahalleler/mahalleler_magaza" />
+      <nodes>
+        <classShapeMoniker Id="3714388d-d577-4ed4-9429-49ad46402630" />
+        <classShapeMoniker Id="48e34ebb-f680-4189-8bfc-f71cb06f6bbb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 18.259701283729); (5.66666666666667 : 18.259701283729 : JumpStart); (5.83333333333333 : 18.259701283729 : JumpEnd); (6.25 : 18.259701283729)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ilanDataContext/ilceler/ilceler_mahalleler" />
+      <nodes>
+        <classShapeMoniker Id="387094bd-2236-4499-9e28-2c8eed98b559" />
+        <classShapeMoniker Id="3714388d-d577-4ed4-9429-49ad46402630" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(13.7176923076923 : 28.5015283203125); (14.0926923076923 : 28.8765283203125); (17.109130859375 : 28.8765283203125 : JumpStart); (17.2757975260417 : 28.8765283203125 : JumpEnd); (18.5 : 28.8765283203125); (18.5 : 29.625)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ilanDataContext/ilan/ilan_mesajlar" />
+      <nodes>
+        <classShapeMoniker Id="9529e3a4-bde2-4042-bc2a-efedb8f1cb44" />
+        <classShapeMoniker Id="ab2be60f-47ae-4aad-bc85-4fdc9471b215" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.968748 : 33.4054182942708); (3.968748 : 33.7371240234375); (4.41666666666667 : 33.7371240234375 : JumpStart); (4.58333333333333 : 33.7371240234375 : JumpEnd); (4.68229266666667 : 33.7371240234375 : JumpStart); (4.84895933333333 : 33.7371240234375 : JumpEnd); (5.21354516666667 : 33.7371240234375 : JumpStart); (5.38021183333333 : 33.7371240234375 : JumpEnd); (9.01041666666667 : 33.7371240234375 : JumpStart); (9.17708333333333 : 33.7371240234375 : JumpEnd); (17.125 : 33.7371240234375); (17.125 : 30.8950512695313); (17.5 : 30.8950512695313)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ilanDataContext/kullanici/kullanici_mesajlar" />
+      <nodes>
+        <classShapeMoniker Id="51d72286-0a9d-459c-b228-9fb5339aa6e3" />
+        <classShapeMoniker Id="ab2be60f-47ae-4aad-bc85-4fdc9471b215" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.2968785 : 33.4054182942708); (5.2968785 : 35.1450512695313); (6.25 : 35.1450512695313)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ilanDataContext/kullanici/kullanici_odeme" />
+      <nodes>
+        <classShapeMoniker Id="51d72286-0a9d-459c-b228-9fb5339aa6e3" />
+        <classShapeMoniker Id="6ff062f6-de17-47bb-9d15-189450288c23" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 42.4335034179688); (9.09375 : 42.4335034179688); (9.09375 : 33.4246240234375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ilanDataContext/firmalar/firmalar_projeler" />
+      <nodes>
+        <classShapeMoniker Id="fedffd9d-9408-4223-b873-085c6603f000" />
+        <classShapeMoniker Id="4dacc835-80a0-4f53-860b-413c5aaa88e5" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.46587584134615 : 19.0112939453125); (5.69107443490112 : 19.2364925388675 : JumpStart); (5.80892556509888 : 19.3543436690652 : JumpEnd); (5.875 : 19.4204181039663); (5.875 : 30.6354484049479); (9 : 30.6354484049479)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ilanDataContext/ilceler/ilceler_projeler" />
+      <nodes>
+        <classShapeMoniker Id="387094bd-2236-4499-9e28-2c8eed98b559" />
+        <classShapeMoniker Id="4dacc835-80a0-4f53-860b-413c5aaa88e5" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 28.40625); (3.61978816666667 : 28.40625 : JumpStart); (3.78645483333333 : 28.40625 : JumpEnd); (3.88541466666667 : 28.40625 : JumpStart); (4.05208133333333 : 28.40625 : JumpEnd); (4.41666666666667 : 28.40625 : JumpStart); (4.58333333333333 : 28.40625 : JumpEnd); (4.68229291666667 : 28.40625 : JumpStart); (4.84895958333333 : 28.40625 : JumpEnd); (4.94791916666667 : 28.40625 : JumpStart); (5.11458583333333 : 28.40625 : JumpEnd); (5.21354541666667 : 28.40625 : JumpStart); (5.38021208333333 : 28.40625 : JumpEnd); (5.79166666666667 : 28.40625 : JumpStart); (5.95833333333333 : 28.40625 : JumpEnd); (9 : 28.40625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ilanDataContext/iller/iller_projeler" />
+      <nodes>
+        <classShapeMoniker Id="c9a5272e-3b1e-4200-a9ba-52a301f2fd0c" />
+        <classShapeMoniker Id="4dacc835-80a0-4f53-860b-413c5aaa88e5" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 33.311708984375); (9 : 33.311708984375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ilanDataContext/kullanici/kullanici_projeler" />
+      <nodes>
+        <classShapeMoniker Id="51d72286-0a9d-459c-b228-9fb5339aa6e3" />
+        <classShapeMoniker Id="4dacc835-80a0-4f53-860b-413c5aaa88e5" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(16.75 : 20.5104484049479); (18.5 : 20.5104484049479); (18.5 : 24.375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ilanDataContext/dopingKategori/dopingKategori_seciliDoping" />
+      <nodes>
+        <classShapeMoniker Id="5dabff11-a880-4407-a1c7-5ef757eedfc2" />
+        <classShapeMoniker Id="b5c7481f-11bb-450d-b33d-ec0ecf2abe60" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(13.75 : 25.7219962565104); (17.5 : 25.7219962565104)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ilanDataContext/ilan/ilan_seciliDoping" />
+      <nodes>
+        <classShapeMoniker Id="9529e3a4-bde2-4042-bc2a-efedb8f1cb44" />
+        <classShapeMoniker Id="b5c7481f-11bb-450d-b33d-ec0ecf2abe60" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.7031215 : 28.75); (3.7031215 : 26.9142976888021); (4.41666666666667 : 26.9142976888021 : JumpStart); (4.58333333333333 : 26.9142976888021 : JumpEnd); (4.68229291666667 : 26.9142976888021 : JumpStart); (4.84895958333333 : 26.9142976888021 : JumpEnd); (5.21354541666667 : 26.9142976888021 : JumpStart); (5.38021208333333 : 26.9142976888021 : JumpEnd); (5.79166666666667 : 26.9142976888021 : JumpStart); (5.95833333333333 : 26.9142976888021 : JumpEnd); (6.25 : 26.9142976888021)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ilanDataContext/kullanici/kullanici_telefonlar" />
+      <nodes>
+        <classShapeMoniker Id="51d72286-0a9d-459c-b228-9fb5339aa6e3" />
+        <classShapeMoniker Id="59d863a3-0718-4277-ae46-d867fd3fb458" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 20.4431469726563); (5.79166666666667 : 20.4431469726563 : JumpStart); (5.95833333333333 : 20.4431469726563 : JumpEnd); (9.11978791666666 : 20.4431469726563 : JumpStart); (9.28645458333333 : 20.4431469726563 : JumpEnd); (9.38541416666667 : 20.4431469726563 : JumpStart); (9.55208083333333 : 20.4431469726563 : JumpEnd); (9.73437375 : 20.4431469726563); (9.73437375 : 21.375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ilanDataContext/vergiDaire/vergiDaire_magaza" />
+      <nodes>
+        <classShapeMoniker Id="d7adb40a-1703-4136-a330-82354355646c" />
+        <classShapeMoniker Id="48e34ebb-f680-4189-8bfc-f71cb06f6bbb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.54687875 : 28.375); (2.54687875 : 20.4431469726563); (3.5 : 20.4431469726563)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ilanDataContext/iller/iller_vergiDaire" />
+      <nodes>
+        <classShapeMoniker Id="c9a5272e-3b1e-4200-a9ba-52a301f2fd0c" />
+        <classShapeMoniker Id="d7adb40a-1703-4136-a330-82354355646c" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.75 : 29.5689925130208); (1.75 : 36.8886539713542); (4.41666666666667 : 36.8886539713542 : JumpStart); (4.58333333333333 : 36.8886539713542 : JumpEnd); (9.01041666666667 : 36.8886539713542 : JumpStart); (9.17708333333333 : 36.8886539713542 : JumpEnd); (9.25 : 36.8886539713542)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ilanDataContext/iller/iller_verilenReklam" />
+      <nodes>
+        <classShapeMoniker Id="c9a5272e-3b1e-4200-a9ba-52a301f2fd0c" />
+        <classShapeMoniker Id="3ee3015e-cdfd-431e-af3a-57a9b0fbd425" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.765626 : 33.4054182942708); (4.765626 : 36.6518757552083); (9.01041666666667 : 36.6518757552083 : JumpStart); (9.17708333333333 : 36.6518757552083 : JumpEnd); (9.25 : 36.6518757552083)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ilanDataContext/kullanici/kullanici_verilenReklam" />
+      <nodes>
+        <classShapeMoniker Id="51d72286-0a9d-459c-b228-9fb5339aa6e3" />
+        <classShapeMoniker Id="3ee3015e-cdfd-431e-af3a-57a9b0fbd425" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.40625 : 38.125); (8.40625 : 37.1254321875); (9.01041666666667 : 37.1254321875 : JumpStart); (9.17708333333333 : 37.1254321875 : JumpEnd); (9.25 : 37.1254321875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ilanDataContext/reklam/reklam_verilenReklam" />
+      <nodes>
+        <classShapeMoniker Id="cd79474c-1ace-4380-b6c7-9d67b1a4c48c" />
+        <classShapeMoniker Id="3ee3015e-cdfd-431e-af3a-57a9b0fbd425" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

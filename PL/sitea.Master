@@ -1,0 +1,829 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="sitea.Master.cs" Inherits="PL.site" %>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="tr" xml:lang="tr">
+<head runat="server">
+    <title>kralilan: En Ucuz Sahibinden Satılık Daire Kiralık Ev, Emlak İlanları</title>
+    <meta http-equiv="Content-Language" content="tr" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Tüm kamu kurumlarından, sahibinden satılık ev kiralık daire arsa tarla bağ bahçe villa iş yeri plaza ilanlarını takip etme ve haritadan görme imkanı sitemizde" />
+    <meta name="keywords" content="sahibinden,satılık,kiralık,ucuz,emlak,daire,plaza,ev" />
+    <meta name="author" content="kralian.com development" />
+    <meta name="google-site-verification" content="gbU4UNxHbBsUcELtHVxxjVlXoYJ9zneG8BWQqOsPHoI" />
+    <meta name="robots" content="index, follow" />
+    <meta name="copyright" content="© 2015 kralilan.com" />
+    <meta name="robots" content="all" />
+    <meta charset="utf-8" />
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#16A085" />
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#16A085" />
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="#16A085" />
+    <meta name="revisit-after" content="1 Days" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/upload/default-images/apple-touch-icon-144-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/upload/default-images/apple-touch-icon-114-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/upload/default-images/apple-touch-icon-72-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" href="/upload/default-images/apple-touch-icon-57-precomposed.png" />
+    <link rel="shortcut icon" href="/libraries/assets/ico/favicon.png" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+    <link href="/libraries/assets/css/style.css" rel="stylesheet" />
+    <link href="/libraries/assets/css/ki-general-style.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="metalog" runat="server">
+    </asp:ContentPlaceHolder>
+    <asp:ContentPlaceHolder ID="styles" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form runat="server" id="form1">
+        <div id="wrapper">
+            <div class="header">
+                <nav class="navbar navbar-site navbar-default" role="navigation">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+                                <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span
+                                    class="icon-bar"></span><span class="icon-bar"></span>
+                            </button>
+                            <a href="/" title="kralilan.com">
+                                <img style="padding: 11px;" src="/upload/default-images/apple-touch-icon-57-precomposed.png" alt="kralilan.com logo" /></a>
+                        </div>
+                        <div class="navbar-collapse collapse">
+                            <ul class="nav navbar-nav navbar-right" runat="server" id="userPanel" visible="false">
+                                <li>
+                                    <a href="/secure/bildirimlerim/">
+                                        <i class="icon icon-bell-1"></i>
+                                        <span class="label label-danger" runat="server" id="span1"></span>
+                                    </a>
+                                </li>
+                                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <span>
+                                        <asp:Label Text="text" runat="server" ID="lblUserName" /></span> <i class="icon-user fa"></i><i
+                                            class=" icon-down-open-big fa"></i></a>
+                                    <ul class="dropdown-menu user-menu">
+                                        <li>
+                                            <a href="/secure/benim-sayfam/"><i class="icon-home"></i>Benim Sayfam</a>
+                                        </li>
+                                        <li>
+                                            <a href="/secure/ilanlarim/"><i class="icon-th-thumb"></i>İlanlarım </a></li>
+                                        <li>
+                                            <a href="/secure/favori-ilanlarim/"><i class="icon-heart"></i>Favorilerim </a>
+                                        </li>
+                                        <li>
+                                            <asp:LinkButton ID="LinkButton1" runat="server" OnClick="Cikis_Click"><i class="glyphicon glyphicon-off"></i>Çıkış</asp:LinkButton></li>
+                                    </ul>
+                                </li>
+                                <li class="postadd">
+                                    <a href="/kategori-secimini-yap/" class="btn btn-success-ki " style="font-size: 14px; padding-right: 140px;"><i class="icon icon-plus"></i>&nbsp;Ücretsiz İlan Ver</a>
+                                </li>
+                                <li class="postadd" runat="server" visible="false" id="project">
+                                    <a href="/projeler/ekle/" type="button" class="btn btn-danger" style="font-weight: 700; font-size: 14px; padding-right: 100px;"><i class="fa fa-circle"></i>&nbsp;Proje Yayınla</a>
+                                </li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right" runat="server" id="visitorPanel">
+                                <li>
+                                    <a title="Giriş Yap" href="/giris-yap/"><i class="icon icon-login"></i>&nbsp;Giriş Yap</a></li>
+                                <li>
+                                    <a title="Üye Ol" href="/kayit/"><i class="icon icon-user-add"></i>&nbsp;Üye Ol</a></li>
+                                <li class="postadd">
+                                    <a href="/giris-yap/" type="button" class="btn btn-success-ki" style="font-size: 14px; padding-right: 140px;"><i class="icon icon-plus"></i>&nbsp;Ücretsiz İlan Ver</a>
+                                </li>
+                                <li class="postadd" runat="server" visible="false" id="project1">
+                                    <a href="/giris-yap/" type="button" class="btn btn-danger" style="font-weight: 700; font-size: 14px; padding-right: 100px;"><i class="fa fa-circle"></i>&nbsp;Proje Yayınla</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!--/.nav-collapse -->
+                    </div>
+                    <!-- /.container-fluid -->
+                </nav>
+            </div>
+            <!-- /.header -->
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+            <footer>
+                <div class="footer-content" style="border-bottom: 1px solid rgba(0,0,0,0.1); border-top: 1px solid rgba(0,0,0,0.1); font-size: 14px; padding: 40px 0; color: #333; background: #f5f5f5;">
+                    <div class="container">
+                        <!-- tab content -->
+                        <div class="row">
+                            <ul class="nav nav-pills nav-stacked col-md-2">
+                                <li class="active"><a href="#tab_a" data-toggle="pill">Satılık</a></li>
+                                <li class=""><a href="#tab_b" data-toggle="pill">Kiralık</a></li>
+                                <li class=""><a href="#tab_c" data-toggle="pill">Sahibinden</a></li>
+                                <li class=""><a href="#tab_d" data-toggle="pill">İcradan</a></li>
+                                <li class=""><a href="#tab_e" data-toggle="pill">Bankadan</a></li>
+                                <li class=""><a href="#tab_f" data-toggle="pill">Belediyeden</a></li>
+                                <li class=""><a href="#tab_g" data-toggle="pill">Hazineden</a></li>
+                                <li class=""><a href="#tab_h" data-toggle="pill">Haritada Ara</a></li>
+                            </ul>
+                            <div class="tab-content col-md-10">
+                                <div id="tab_a" class="tab-pane active">
+                                    <div class="col-lg-3 col-md-2 col-sm-2 col-xs-6">
+                                        <div class="footer-col">
+                                            <p class="footer-title">Daire</p>
+                                            <ul class="list-unstyled footer-nav">
+                                                <li><a title="İstanbul Satılık Daire" href="/liste/satilik/1/konut/2/#/istanbul/_objectdata_U2FsdGVkX1+mNJ9aSqc/DehDUaB40IWM+dukEQamotKY9nIQjamymdwymszzJhUT3QQVOxcXaT1jqEoHzZtH/nR4HkNwy+WLzNeJQKthihSn7Yqhl8Ny4J2lpoFDLaG+pYgBUPGYtq/0+EA073V0NbscjCxcRzidCZ6ft8VnrgkCeqUcB4ouxSaZ6WZ0upLc">İstanbul Satılık Daire</a></li>
+                                                <li><a title="Ankara Satılık Daire" href="/liste/satilik/1/konut/2/#/ankara/_objectdata_U2FsdGVkX18sdzpuV+b3mUqdDBActsy89OjOvKGJaLMJdewDwqDba+S3hSKI1ag4UMDrobs6EWB1rL1FmVczK9XIP6vi4aN72JzCW5DAfDEeX5hgiRjtwhwJy0GjIYdDOza6frMV5RvEddN2mpFsIPWYTOOAU9u070R0oH0lM/yB6cVM9GFmGHGTohOOrQh2">Ankara Satılık Daire</a></li>
+                                                <li><a title="İzmir Satılık Daire" href="/liste/satilik/1/konut/2/#/izmir/_objectdata_U2FsdGVkX19lzhF5amrqFebraFEms4zWe0w4jyp+OqgmvGfsBqq+k6fQhr+oCcpLiF85PDO9CHZIu1w83IzVnx5VBsC2FLyxLp8bVCKhrF0fua/TvmJ6iU+d/nPkwMVVAWM/gkwmW5uEX5IiOlCeLPI2ugVu8PC/76ACqQL+b+k/AM16J3iZa/5WRsgDPgtG">İzmir Satılık Daire</a></li>
+                                                <li><a title="Bursa Satılık Daire" href="/liste/satilik/1/konut/2/#/bursa/_objectdata_U2FsdGVkX1+WbSKlyUlKm26NAGLMFRBMzKnCcwwdkg5+C3LEgA/m0q/dop3D4eutEpFq0/yCMy7POik+ErKTak3MhLucZGX3hn7h7WFPZttKRmhr6/Vank2nD2EypPrWspGs671KeDV7ugwU737SeNlzeXpH3bqHje0fkWFfk9Ub+yWhtW70haG9sfpeA36c">Bursa Satılık Daire</a></li>
+                                                <li><a title="Antalya Satılık Daire" href="/liste/satilik/1/konut/2/#/antalya/_objectdata_U2FsdGVkX19KPPADtDr2302faCtumiYgTAjxfM6zEnRGgyiDG/exukwFsVaz+ubX1o5ywtYT+/daFEe24WHRSvJU83980+pExslMo2qwEcat78EmcN8bzw1msjWFRdRSWvrGzlCew2eWw/ar+y1dcDzvEB7g1Y2gw4oa3zzS85koMB/mZ7SGX+O3m4MDLlbD">Antalya Satılık Daire</a></li>
+                                                <li><a title="Adana Satılık Daire" href="/liste/satilik/1/konut/2/#/adana/_objectdata_U2FsdGVkX1/DzOJakLZlo/jZi74mweg6g0qlDicJ45Y6xlglUQLcbOzDyDRveRMcsYb1eEWG2f9K8F7DWscXu6wAUXsd2Q81RdfCpZxx6enNRhuwUYnqhMyTlFKkEM1TV8khpJNz6fljDezNFTqBnZqD6O92AUzctUE2ZxwVRluYalBW7KQn/BP1zDCAndzl">Adana Satılık Daire</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-2 col-sm-2 col-xs-6">
+                                        <div class="footer-col">
+                                            <p class="footer-title">İşyeri</p>
+                                            <ul class="list-unstyled footer-nav">
+                                                <li><a title="İstanbul Satılık İşyeri" href="/liste/satilik/1/isyeri/3/#/istanbul/_objectdata_U2FsdGVkX19Fj4G/yFpzS+PQpHt2Gs61sosgMOP345IDQ3fN5W8xqWjJqRsz0BBhmheq8nN0i2XPSwUGPV72q/jDQBiprsOSarvORtwptVzolj/m24ugf6b5aqflDa1jAyQvxDWYLZeY0jz1o3C5dE+bnRxOkBbypVbf8ebfWc6AE8Lqn5szPSjiftnmZof7">İstanbul Satılık İşyeri</a></li>
+                                                <li><a title="Ankara Satılık İşyeri" href="/liste/satilik/1/isyeri/3/#/ankara/_objectdata_U2FsdGVkX19srZZssv3vBZqkwnzTAc4V2pi1rDImmT8V0SkGcibr7Bd1CLxr0kAJ27+RsglQHndoRJeTuCAIm17RXZhlVim4lK6c4cSk3XER9Wj/+nyw5qjLTD9EnbAsaHYeMQWDxsxp5ZUflmkFa/pfKi9Nb2umeKgg2S6bcVgc9TCjxYt0GW68/DaY6psw">Ankara Satılık İşyeri</a></li>
+                                                <li><a title="İzmir Satılık İşyeri" href="/liste/satilik/1/isyeri/3/#/izmir/_objectdata_U2FsdGVkX1/RvDzfpY++ejIAnkQ1Ag+nCBv4K8KHuNkhCg8rL6d9GMiGfrr0pW8VtDntac3y1wqcTkOvTzaCXlAkAr3xRdTnoux6HGZCp8xj9iotrzormFQGCl4VnYyquOH9vMV5SYsKyGjdbXBHYyJzmJ+nhf575idqGI8zdJE/kyL7drmATAWYirEaVAaE">İzmir Satılık İşyeri</a></li>
+                                                <li><a title="Bursa Satılık İşyeri" href="/liste/satilik/1/isyeri/3/#/bursa/_objectdata_U2FsdGVkX1+nrfXASLyGycH0OsfJDZi06QezCw07shIu9so1+qQ0HWHYorVNRJn+g0a82xbjH0XilRFBM8yubPX2XSumkERzhyHk87MgCuEsZY6Q00miyuMhyYCDCps1M6actSW1oAHE+rbLZKK8p8HH6b08sKpG9KEtGI+eW0oK5E3IyXuZEKR62eFdXx4Q">Bursa Satılık İşyeri</a></li>
+                                                <li><a title="Antalya Satılık İşyeri" href="/liste/satilik/1/isyeri/3/#/antalya/_objectdata_U2FsdGVkX1+/LCrsQFWjtr1Lg6TpIgQ3nGKkn5ZYqKwb0MvmonTfLA8sX6wSe5S/pJ1AjO0rnSMvKa+/f/i0dGQybokibmoOngIbClxvOJsnio+jeMQRqf5Oo6GOqHVAlMDxoD0JRzzeX5ONkSbygGg4nkCrlkmqGkBXtJTc9LRC251tHqb49TC9ekyWqp5E">Antalya Satılık İşyeri</a></li>
+                                                <li><a title="Adana Satılık İşyeri" href="/liste/satilik/1/isyeri/3/#/adana/_objectdata_U2FsdGVkX19KWAaQLGuOZsys3xJ4NhuSujkmtGNG6JH7KB+YdFeDAarV4IgUDqM+yf7MzGRAV5jGOdCx2pDUdVz8cpaYKT1n4q4oPymtVdjQ8DeHEJZKAioJNtEIs+adEwyre6mrgNR+h7wdPjziPAL3gvcftWxSB4+VpitqTBJVNZi5piBDBzp2LAdXsSAM">Adana Satılık İşyeri</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-2 col-sm-2 col-xs-6">
+                                        <div class="footer-col">
+                                            <p class="footer-title">Arsa</p>
+                                            <ul class="list-unstyled footer-nav">
+                                                <li><a title="İstanbul Satılık Arsa" href="/liste/satilik/1/arsa/4/#/istanbul/_objectdata_U2FsdGVkX1/BGZ8rlHfJ6OZkhV/RmoFzG6rU0AQcGxwCynbd2ucKQ15sOciET7pnLRaHAP3DrjGwuz7Dl5YimmnAAGdqxv2BPHSv41Xd0oueH3xcAQzmfTKy+Jr3xGTuXZzjwr74oVRaL8HXnptzk5nRlguI+SZ4ywDlgRjluBFaEbjU2xhGiWq3AEl+peR7H6bOVppV4xJVURTAEme9EOztVUIegfvVjuuDtY3qTZEOga+Ci1Uty1g7EzFOo38Nqmr917fD94aqMmE29BLVNoWCxgHdzWKPieyDZ7jhkcdAat5KvV+tmLLLDkjljXdp">İstanbul Satılık Arsa</a></li>
+                                                <li><a title="Ankara Satılık Arsa" href="/liste/satilik/1/arsa/4/#/ankara/_objectdata_U2FsdGVkX19p8W3zpcV+TeEGC19BpQG/7rUD2eg07od7MXFX6Axda/hzMoZ6DvgU+fZUmptJrTllnDf2yVa7mJp4jFT/i2p/ymDmnRh/PErMVTmyVhWnNqrq9enIjXijRSf523mEWw7R20+GBac+Mr9lhl8Lu9JAlTeKbPhYWYuCx4qtAbVO8/Whem997foh5cktEdrn7kowqkZk5l5PSZG+3Td/qXDAWZQF93Xy9DtLMJXeYuBKjj4zURe2XsuMG3burp3U3NCUUQHc5dsrrMyWme+DOoRNfszJGyk+sdJ72KWXHI/0Z2p9m4+WEBtg">Ankara Satılık Arsa</a></li>
+                                                <li><a title="İzmir Satılık Arsa" href="/liste/satilik/1/arsa/4/#/izmir/_objectdata_U2FsdGVkX19mC+AWrwNGCm1mwXRtWf1D0cbVlhoO0d8b6AyXpLHhMjRMUi+Nceoz9X/kVQsa7epVLyo4sKLpxmYAgMrmA1cGg5lP7vc8ELG+4vp88QteVbAjUiZeYftueGsh7ZGXjQ8tEvuEi6DqvCYr8iHyB29QUCtfufmUN9E5caIYXq9VDTMjm05A8UoWSA40jtQqsgt6X+dU3HYhCk7mUwKRl1hgWBFfnkyx4QPoerh+DsBrohA/novjPw3otPzqZTC/BN1pvgXgPWmPWpBWZavttRvHL7fhi4nU9ImG3DOWUaFgkMxLkCj+Oost">İzmir Satılık Arsa</a></li>
+                                                <li><a title="Bursa Satılık Arsa" href="/liste/satilik/1/arsa/4/#/bursa/_objectdata_U2FsdGVkX188i5m9VT8/0RdLoOr6/TwIO46EfXso4XdAyws4EXnWQFRTVTZNvXot777P7A9OhOuTceu2mYaQ096enIz0CecjgNW7ndA5/Kl20bqPuLr43zyeAb1BS1t+M17luJLR7LuklIm+ZjrMPF/9/KATaBy9qJWErr0WxwFhK6f0nYhq0dMdXUr++5DdC1/O8ZroV4qL5pY7co5NWkjD8VQc56/ESMHc3sW4sEjPMbeoDtGkTWUVlKowSP+9zCCd+st8f5dp+y+PohyVlRG2nDa/9mQxRvadgIYEAKRsyB5PtbtZD2Rl58/AWgNp">Bursa Satılık Arsa</a></li>
+                                                <li><a title="Antalya Satılık Arsa" href="/liste/satilik/1/arsa/4/#/antalya/_objectdata_U2FsdGVkX19kcWh1j0j8WVm3zSSRzcFFbDodAuSaM8p0xY5EsNWGeJyX30U+36K1SPRmKqvIGVEbpWzDroRrBIWnMY7Gf6sHK3Ns6JKJpwOrFAdt8OlWSUfGixpOk1tTR2e3VU+EZcWcSNsCEWN2RA3a9p+SJprIDTXaGjZnWJVQt/qzUijApNnnR5gE7cCXJ3kx0HD3cm4roQhomf+8G4xLRk/iV1zzjjpEDn3rnRnelDBp+vwdYQhunFYVcZygoIlJYgfYo8iEfOVsum949LtZbmCN43mZOhd6R/rwxsyVSWehRIkcT5IgInQ2PaXy">Antalya Satılık Arsa</a></li>
+                                                <li><a title="Adana Satılık Arsa" href="/liste/satilik/1/arsa/4/#/adana/_objectdata_U2FsdGVkX1+ygUvoUehaZX/uGj+dYlG6VJzRE/jMCv62N3TZqDCeksQ9Y7RUkPGJBEnzMuWxKaP/vQR/VqQO+QKYm7tAwIV/nj4YDJWbRtSrTRV4fTCwRvEQ0oqta0QKbfqD/0eaw4ypIBiERUylazxgukhGEVa9NhaPkN2cmZrdafJlogoVz6r+bQmt3xmuTJs8q6TQAi58iOo+oP6yo8OmJ1+P4oEAARGzi81NTvoc0D/UsTnEZTbo384938haxmDfiwS0h6Cgr7A6NHbZjlPpi0OSL+TXDuBz0Yj7GFDVlr7i6LFpPzU4/IKS2Tcq">Adana Satılık Arsa</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-2 col-sm-2 col-xs-6">
+                                        <div class="footer-col">
+                                            <p class="footer-title">Bina</p>
+                                            <ul class="list-unstyled footer-nav">
+                                                <li><a title="İstanbul Satılık Bina" href="/liste/satilik/1/bina/5/#/istanbul/_objectdata_U2FsdGVkX19FGXZunr+kD2ahq09T6+SCj+OjULTeCKOcrwcuDQtDDJE7Nxru42iON0QIuP2HQVrzkgz7eipV1auNUpb4HJIXavV7RCmI57dejXtM9bP93iupNZqoCHlUpJz8xFttN2k706Lu+WKcAiriLoZMDQG9y+RXOebUpbE69Zoux5Nj59SiPt1xF79kb5Wj4l4N6EFu9m564mVAfEfOyzgYhiY0H8OF06juWyPNVydchwhscPkt3Mit7TA2wMlZiUrJHezUdO5iYIwKZA==">İstanbul Satılık Bina</a></li>
+                                                <li><a title="Ankara Satılık Bina" href="/liste/satilik/1/bina/5/#/ankara/_objectdata_U2FsdGVkX19H989Kq6oq0pw/GAjmSrvMjOAmeqMddRBVmVSAsL8B+lkWuGSicYdYfvlbhppOQbayaJsXxf3kMvgqmlR/WPciBG5mY9s5BXVaEwBhW88mT7HpmqTJNH42C0Q2hQ4awjtT3ibiZutUQp4OSK/KF01jvs/yNiJVW5a82DgfzVlwq5pJoLVvjIWWkfjV2FplA9T9SiR65B7yBM1kWBeT7/Gdp1fF04bR0VoKsoHdbBYp1VoYP7D+fPXQ7+mP/QiG1CzlJl98HS6YxQ==">Ankara Satılık Bina</a></li>
+                                                <li><a title="İzmir Satılık Bina" href="/liste/satilik/1/bina/5/#/izmir/_objectdata_U2FsdGVkX19QWwVRURZD7BD3fmIMdpxcT/X1Q0uXNcYUlExGJc8a0EV4xS7XTAB8l9Pw+tWT4jJiiHLtDZIVVu23Mlx2yhSUjiDuFuOM1B2EvH+zgROHhHfdSGvTDmQPy1mVFBCqRDnbnsN816GRQ2RLWkl2lMDcgGR4Qn1CGMCfEYsmV1yLkD7rYJ0/5xSLshXVkcVMolehwZ25dojCaRrAVxnfRGI3lzQhpEoZ9zEuGvyAB9sOY3Oo0FiS0GT5vQLZH3JeMnU0PeVajRHTnQ==">İzmir Satılık Bina</a></li>
+                                                <li><a title="Bursa Satılık Bina" href="/liste/satilik/1/bina/5/#/bursa/_objectdata_U2FsdGVkX19iDTMsmjLSq/lID2fLJEu1vhjGAYhdrd/aPQiz9hfbA0zT1J9voz6jgooYwstlsAOkIKT7mWkJeWVWkiWJykNiIyzNmq+ZWtLnx+MtNKv4zWu/fgGroiD67FUlBwgqq7B+jBTDU0vxmr/0lP4DycQlKKaF6Jnmn2MofnpQ0feRXuQhA94n8tQ2JWz2B1cU4Ohx5wK3+/bXBd+oG9i/dCyGZ9BXBHGYF7Wl+bhsg17rhwCdAtUZwZf2tafAC9Kxz5DYUFyI+Y2LZw==">Bursa Satılık Bina</a></li>
+                                                <li><a title="Antalya Satılık Bina" href="/liste/satilik/1/bina/5/#/antalya/_objectdata_U2FsdGVkX1+sjQ39P1TZXqDvn+mq8p0AJL2dQwryB/VLhAPI1PtDOz0cSLktfQ2WOlu/ccKlL78VurI4K0u7fhCjioytNrujjxb1SiWRo7mlkcmuDsn+fj/3frR/9qAP+i1z1NvZoAhwZUyMCjdrssewMKEXjv+M3RLG+RsG1T/iaJnfhQPo3ebdHXoIZr/WcWqC+wpORlhBGwu/r68lW4b5eZiRwn+QsrV9B6A4pLciP7ARAvBaCLj4dw1+viVLYMawkpuFdkihHS35RbQU1g==">Antalya Satılık Bina</a></li>
+                                                <li><a title="Adana Satılık Bina" href="/liste/satilik/1/bina/5/#/adana/_objectdata_U2FsdGVkX1+x7uCuXR7jwfqtJOhY0P3U1tCe4C4Q/j2rXRmjpJxfbnxwDrvf49HNO1/9ubllct1gNSP4ZyVGph75i9WpV1uJf2fNmTexNmn7uaYfvOXjgCh9fnLo0/mhlz2Gs1oopTV4Ix1ajWYFl3DHZ3tEOwysTtmn7i3tsTk/B/dsoZ/VzYubzuDbHvqviyOzZPWRHrF+8Z3S4TwanNshJoLiU7cdCr6wZGpsdbs1wPVj67jgAhIflssm/FPAr6dljop0ciDGqeWapgxkGw==">Adana Satılık Bina</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="tab_b">
+                                    <div class="col-lg-3 col-md-2 col-sm-2 col-xs-6">
+                                        <div class="footer-col">
+                                            <p class="footer-title">Daire</p>
+                                            <ul class="list-unstyled footer-nav">
+                                                <li><a title="İstanbul Kiralık Daire" href="/liste/kiralik/2/daire/8/#/istanbul/_objectdata_U2FsdGVkX19JXqcZSon/mExNTpIDcS7rUmq4SV/jHlFBJ5/j0SgiZC0btxYC0zTSUxt0K6BQqLhLOiQjMT8F9mcIjctzI7T1kCRtRocJ8ikfCfMnXitPo0+gunNCwcdBW/ZdaTxmI2GAoFoipXYe4GiR/NP7scqxW2Hr6HBGpz3ePBloHKBl6srALKbkdnHPgEIoarsNRzqBUOnSMjgJdiWkchUnEJqJxNRMiiRjneA=">İstanbul Kiralık Daire</a></li>
+                                                <li><a title="Ankara Kiralık Daire" href="/liste/kiralik/2/daire/8/#/ankara/_objectdata_U2FsdGVkX19VGa0RxtfygNCKoFIGIznog2UcUPH1bwGZ+wUTFXgmH52ZhaHkqH4DshbVc4FbKTpjwur3M9qV/ImpFKvzFWFiBp3vftXt3rPile9523FtEtTkb3Cm1vwBowj+Xvf93T+rCA8XK61eIA/8ZbHplDvWAVKS+emOFTrrrTnxDQYwwkTSGnhjnxnNlVeU0U6eTEu9PXgQGf9a8SY+4/P3CFQAVWznOPmxsCs=">Ankara Kiralık Daire</a></li>
+                                                <li><a title="İzmir Kiralık Daire" href="/liste/kiralik/2/daire/8/#/izmir/_objectdata_U2FsdGVkX19MIQVAQxgkVWlCwXF9hNEXszDLWSTmNoiACF6zM2/TGH3YjJi7iD+1vxndNksNvaqp9XIyAbzbSdlTT7F6SEn4WwZsww3FqcOyX6KybCZBYFz+/aKc52dktRgGCEVPpoLEubRwxvFk17ObDfQ83MdhS7e4RNwkhwTYKLxpr2pLBW+8GNmwqCvZvSy/Yym4CNbtoBxl3HoaaOfG/RGkfJbJDQH+IVL/8R4=">İzmir Kiralık Daire</a></li>
+                                                <li><a title="Bursa Kiralık Daire" href="/liste/kiralik/2/daire/8/#/bursa/_objectdata_U2FsdGVkX19XDFTdUCLeJJu/pBdBNePxFLVlvUQ/e2nOZqWBA8PNMY6A7LFL04d0xLsM0s+CZ5VP4TN2w1NfKHvwAgQM/BEQqo71TlqUItDcgnal/Kt4Y8IGJ2kPSRz8ktdkDbip3o/zHVvozSyE/tsm8vX7sDjVpWnBNiNyIbO2ggBAuOZpF0oGN45AJxtbaM9A082CSMm7tVjNjbfQZNU17iseopdPrxPTurxBswc=">Bursa Kiralık Daire</a></li>
+                                                <li><a title="Antalya Kiralık Daire" href="/liste/kiralik/2/daire/8/#/antalya/_objectdata_U2FsdGVkX1+3X5lCn4TUUB90Jww7OE1p/SZuCdc2Y+bVDMhosaDI2yQLiA+BZw99v5g0YZ/TJsdyD4WTkSTib2t0oeMEgGSkhvlgswiHLSsog7ohFNg7lm+4KlmcLEQ6TDAReSZzHJp21k+AzPANW3/+KdEcRJEz34szdAWlrqZEFBEV16LFS3jxzfznZo41ivMgjVztzPbBCvIqWKAP3Lwf11zox9Srm982z6Hnctw=">Antalya Kiralık Daire</a></li>
+                                                <li><a title="Adana Kiralık Daire" href="/liste/kiralik/2/daire/8/#/adana/_objectdata_U2FsdGVkX1/IxRCiTVO7JNNAZSeHHYFExTLickMsQmC02XiOhmrd/IthQvxDWPS1cqvx3ngcC4Yzg5tSL/0w+EPqAZNOWHk1ub4dKKl5LDYdpGJ5vQGJ7kn7rgUyoW73y5UQXxf7/q+xSllgz7MVQp7EzgOOUnGaaO7xtJLQAASsKvpLa/31GCrmRfCd6/cOONV3TlNxACW3VX4wCQQX1h+QMqIsu5Iegoy3x90Cbk4=">Adana Kiralık Daire</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-2 col-sm-2 col-xs-6">
+                                        <div class="footer-col">
+                                            <p class="footer-title">İşyeri</p>
+                                            <ul class="list-unstyled footer-nav">
+                                                <li><a title="İstanbul Kiralık İşyeri" href="/liste/kiralik/2/isyeri/3/#/istanbul/_objectdata_U2FsdGVkX19v+q8ebhtv50LAngLwHvYuis0/pVtAwNuWkD74xOvUBK7dC6DbncYsKrmea0rX6Y21MntuOvJthgH6AGm/ihBPVROVX7gsHPr0k0LbXsIecCjtW2rJTPPmpHSRAKt3Lh5+KQiOa0Pv73+4kgB82UcbNdh4VqhN0VrBRd5WMWdQA3bz/RCc/knP">İstanbul Kiralık İşyeri</a></li>
+                                                <li><a title="Ankara Kiralık İşyeri" href="/liste/kiralik/2/isyeri/3/#/ankara/_objectdata_U2FsdGVkX19GV+D4pJUcH0O2AgE0wNRQRpU/QDI6qTMSq4KFnA+SAQk2XnW13j/z789C7lcf/lp8xh+Lxzq3N3zje6k1WuJ5dRXDhBj+Z4p+WtfAoos2RFvMFZECuqCdvzJII6xlTrGT7xVxau1NSfuv6D8HS7oMtVL9V3heeMVuVp9nC9ikgjBMb4uOx0B9">Ankara Kiralık İşyeri</a></li>
+                                                <li><a title="İzmir Kiralık İşyeri" href="/liste/kiralik/2/isyeri/3/#/izmir/_objectdata_U2FsdGVkX185QAf5avoKCUxvLgoPdGKDgegW3gfF89h32coeigq/7r8Zli/iQ0GlZdu657WfS3YRmkpqggn6hiDNMCT0r6y4y/GdZrCYwyebVQ6p4xC560J9RhGlJcoJiMECm3YqAJs1yEj5rdAzBkCtnU18udU6A6xXlw8WUZqsMVJEj+FeeGjprCE370KC">İzmir Kiralık İşyeri</a></li>
+                                                <li><a title="Bursa Kiralık İşyeri" href="/liste/kiralik/2/isyeri/3/#/bursa/_objectdata_U2FsdGVkX1/BdPBZXl2+hgfrSVuwiQzVqt8Ip3dM3vdkS0+6BCm5SKKVXtMqGJkubEKnBqHksUNJmB7J0CApO5anCwnLgvFPJT556q/HkQp/fInvw6iiIOyyhkT3Pb25J2qW6GDSTZD9wFXjijp+EMsqbGy/dJWwjlLqcI//9qy6oUUnichO6hKUrJzqnQ5Y">Bursa Kiralık İşyeri</a></li>
+                                                <li><a title="Antalya Kiralık İşyeri" href="/liste/kiralik/2/isyeri/3/#/antalya/_objectdata_U2FsdGVkX1/EHIC8YyjHWBBCGQBOei7hVVNSdmMmtfG8U/XuNR34UhjWr0DWd2KZgcjfP8WZPA4E8OMNu74fJh25E0UhsmaS6AMTwh/ejV8TSUrH51iYZg2ZA0ne9vfS7nXNUIFFgjv92GEE5PJy+opLMnpAL9JphKzxohsMBT7LxdFAT7z8PDll991xEnpg">Antalya Kiralık İşyeri</a></li>
+                                                <li><a title="Adana Kiralık İşyeri" href="/liste/kiralik/2/isyeri/3/#/adana/_objectdata_U2FsdGVkX1+4mdTXOuYYc5FsEM8J9y8S+0inyZ/oEk3Rnys2+l91blvx6a9FH8T4Ttij9o2/uoxEV4Zaf1Kkp6o+ImgKIRWAse8PXfnE/PMsU98s9UxDOP7yFbeybCGmUOhQlX6j4rrYEQ5jpuqh6/0eqz/mVTzz5aI5rbDXcXRRnuX5EBMCbExRQo6kGIEA">Adana Kiralık İşyeri</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-2 col-sm-2 col-xs-6">
+                                        <div class="footer-col">
+                                            <p class="footer-title">Arsa</p>
+                                            <ul class="list-unstyled footer-nav">
+                                                <li><a title="İstanbul Kiralık Arsa" href="/liste/kiralik/2/arsa/4/#/istanbul/_objectdata_U2FsdGVkX19C29DZYOPjswf1DhqfUXjRaAmd73WMV7m/Qj77EWlu8mxDMc8xm6ybsUw+sd0zjYzRz83nAN+NJjjXmilr62Z5TuQ+5AyxwoS5EyjXsTZGD1wTmhCalW402RM/DGcLGz6SooOuKaRXRmNz2aZhQxwgIwdwde0vUS8928bf+YX66jp8TXcbx+N65u/KUtGvIy1OWBExvw8bXjFkqE57li3A4Ip3YM52s3Bag8Ton6InrS8RbUhUyCvI+cCZ6l2PDamGPGecOJ/6uYkzMqFTtb2NyL3nSImpt6h/T5NX/fWfXQGzwaOLStPC">İstanbul Kiralık Arsa</a></li>
+                                                <li><a title="Ankara Kiralık Arsa" href="/liste/kiralik/2/arsa/4/#/ankara/_objectdata_U2FsdGVkX19m11dVUB17xNAYqk3FL6vSAR/6asN0+X4BX97dXODfwL2gHyAbJ0cW1uXfT0bdR5Fd7Fqq1kL/Ns4ihE5cwMOSXIcNTqjEaxkockQYgrZ2vnzE6RZPmp8OEq9tcavvBnMxwPDdWUHACSf8CqTlihdmZfre1E5PN8k+vclpck+b6zWJj7DXvCIiY4viGLNQhD/z/kiaUvP3+AaqVxmK3Xhb1Dl/+XqKryyjCbn1lnDCv1rObQDiPxHKLWKaAtpe6V7NotJVVwvhGalcBXcQ3ffDGeYMt6eCoi86pok7lFNQFcbC2vnWihka">Ankara Kiralık Arsa</a></li>
+                                                <li><a title="İzmir Kiralık Arsa" href="/liste/kiralik/2/arsa/4/#/izmir/_objectdata_U2FsdGVkX1/JYsJjo+dxvyg6u/2ZZciNZRqvoRxTFP4mzYR7MWPV/D+ADw4gesLAUgV12GJBGt0sKiSw6q7OYGayVaifFScC9/18hoJflFQCol6z3HOt8qY4G8XVOcneqqYuY7/DCbyunuIUTkMvK6A1Z5yz/WxZXUTTlfWEmmYoiJdGY6ZuaohQ4cM6qs9UbKSO5BB+s4IhGEpJoHA6AHdFO9LaZw1FFm+imdMjaHpRQ3Iy85qNJlOUtrSJm8S2XxgZvWeF+qrPndVT1Rx0Alj42txxV8euKz5FEH/ia5OPQ8Hxi4rjuEgjqkZHNQbo">İzmir Kiralık Arsa</a></li>
+                                                <li><a title="Bursa Kiralık Arsa" href="/liste/kiralik/2/arsa/4/#/bursa/_objectdata_U2FsdGVkX19K1mQUONmleiZ7IIvuPuTBnZNKdhdMPi+b0Owzw4l3ZsLecy6+nHZDzshDIjc9f0SE6F+eO8W+wxafgMa3BUNKH7vBUIclHVI5fY6SHZNpC9RL34QwsvKFTVlin8q4vLXlX95LOH779H0L7JbFWKdsEP0TOqY/wBj48fwD1mnfEVJxKETjAgteL1B0/Nm7QCaS84y4QpnVOO+AeI1TrLDKu3romYVQnkupsMVhh9jGqpnqzMRxjbVe4slJ1Fkd7NnZcuwNKpGEM4mr65+iK4HPQpzTZtzRKjbzA9J2OeDkbY9AzNX9oPcS">Bursa Kiralık Arsa</a></li>
+                                                <li><a title="Antalya Kiralık Arsa" href="/liste/kiralik/2/arsa/4/#/antalya/_objectdata_U2FsdGVkX18veBAdaJSqkZlryMGeb5+aPGyc7GXng1e/2XhoIoHzxZu9R/jXb/EgryKWAfnZjpeHPRBr6rGumf5iKKTQukc4I7N0NFly2iZXhFDY5Qo9ZbNYwu2TK4/MMjZ3twXINh6SMAhRT4srdAdyguXRu/+G8YOQR/D2TJOcsAB+x7iH2EtUcYHN0sMDs24ZPUs1Ig7osxr650vToJH2Kera+z+hPqsj5v0iAokEdlsVJthCbuPoz9ABJU3zGFcKEZm2JJzN5goJYACJmGKz2RzOqpexrMxEwr6m5aCZmGAvW125uYMeRVgxzkow">Antalya Kiralık Arsa</a></li>
+                                                <li><a title="Adana Kiralık Arsa" href="/liste/kiralik/2/arsa/4/#/adana/_objectdata_U2FsdGVkX1/IErMGMKtRSYb1RRYIxDpr4poegvdmPOMcO9515bpFCArP464gqxuvrX/lBXFWfDtQIbPpGgrnPlzAo6WxYUG5FpLQ08YwjB27G8nKi6M2NLd6uMf+4E5svtLRdlCUl0eNh9mIEWzkwl1qr6wqhx7EmKPeUqEFbgSlxlRWRHAAcJbg/4O0ve3peFKeLl+qzARUAT6e/dkhP/0hHPW4C5mNFERAFC/3ioMnDqZYhEgcMSY+zDy0/fQXv2aRMrYcWvDyc7gMgO6BI3+9k8pWIkkeWDHBKsVCnOAJm/wlWgD+1a1+xKkOy699">Adana Kiralık Arsa</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-2 col-sm-2 col-xs-6">
+                                        <div class="footer-col">
+                                            <p class="footer-title">Bina</p>
+                                            <ul class="list-unstyled footer-nav">
+                                                <li><a title="İstanbul Kiralık Bina" href="/liste/kiralik/2/bina/5/#/istanbul/_objectdata_U2FsdGVkX1/SVXBNuExbK/nDM5ZE8Vxk3xeOoT6yrue0L5MkcjJu2PNPBbkND8KppdUhSXhncsdysoQUFGAg+eb1Ls3bnanWCXiPbsx6lpKXOrTte1eveCRuwEM5A6Pac2Aq8xyNJ46KnhknIBLPq2EOsZu9dVLANAQn9kyjp0zaSiGEanEkiiM4MoqoXdcuIEsa6VNs4ok/kU2AwZo9Kp3A1WP4QKWK/riAup+QXu9UPKzE2/Z/2aZF4ajRcOPr24PEr3CWJU30xrn2B2r9GQ==">İstanbul Kiralık Bina</a></li>
+                                                <li><a title="Ankara Kiralık Bina" href="/liste/kiralik/2/bina/5/#/ankara/_objectdata_U2FsdGVkX1+hPRpUuRlCWllSO7sRmU4iEHRGk5UYer/0UAn7MmH0nCsX5nMnExjF5WTThFCh7f7hYmfiGjYreDOHL0ynLxVxGC60c6PnHVd2vtFG9ik5RQXg+rd+r8niUDjFy2ofohslzl1JjPVTHYAk6KcjgRDHRMomPEWLSH53gsGttn0YpI938IskFDLqdm76v1tNPD2ffBHkP185R2WA3ZqCMEQkkATyR4bwkxEVkUoLlzvXj9FlIwPe5LG7//bfVdUTvNHeB9djif6qqw==">Ankara Kiralık Bina</a></li>
+                                                <li><a title="İzmir Kiralık Bina" href="/liste/kiralik/2/bina/5/#/izmir/_objectdata_U2FsdGVkX1+acTQRW9i+9R1KWdKyiGwk4r7WPY9zfSAcHvzhFOGQnest8gGJeuvpZGNWF6Z/m+JCPm69hM51vOPErtR04j7GMbhsCdsUgr3U8Os2KhpxSfe3NeEx8cErO4R7dX8K4FHINOm0dMWnfPTdHA1Ln+z/xXD/+xSlP3dyFvXqK3gAh6vUlvKsx3KgLehF3aH3JJBMErz9nOkoK65qsHRMD/3qGEpUTSaf6hrQr+7jDWaa4NtN4q6O3+LZIwKGyKSU5IrT0LmkSqvv3w==">İzmir Kiralık Bina</a></li>
+                                                <li><a title="Bursa Kiralık Bina" href="/liste/kiralik/2/bina/5/#/bursa/_objectdata_U2FsdGVkX19Dp8ggp+G4Zu3XhsBsWMDc2uZUl2t2Op6KdrTqxHMeA+/M8gEqOmEX6zj9i4NLtVNSLwT1LN1cedAa2trS/+24QXlVCvbq2U5Dmyz2FFIxnSu1WkDctWrS6a4qTnv/HzIM8xXiJZlxoegzjfjkyMPesNC6c7Ox5MdazhGxUT3gMRDP41yqnAOm9ixiR4rlcxOARqftg4eeclWz5mkyTq2OELNXTN9OqTW5yiZvrN8OGG4FhClvfdvG/r2o6r6z+vQcQmPziAvVbw==">Bursa Kiralık Bina</a></li>
+                                                <li><a title="Antalya Kiralık Bina" href="/liste/kiralik/2/bina/5/#/antalya/_objectdata_U2FsdGVkX1+gLQ5WSBIbQJEakCPbIOauiVxw7i3HvwnCqZ/YojMqo+v5O5SXksx+AJRDroyM594gegbAT/u+PVBRDKcLCNMKBKvOi32ZDvqndGzlfS9eRexT2EuWTx5qpYDvgOwFxe2PqQwey/pjvrGLa4m5on2fg5fZ92/U3sjgS+mBOXo4AQfBUMPdz2HKkHPgY4u3ChmlNtfOYk/weJtJmcsjdQaohZV0tX2c5s91hO5Okclxf6FZAHh9rDKfvqHvRHzhTw74prfwL6Jvdw==">Antalya Kiralık Bina</a></li>
+                                                <li><a title="Adana Kiralık Bina" href="/liste/kiralik/2/bina/5/#/adana/_objectdata_U2FsdGVkX1+45fJhwwRc2j9Amygoa9PrIasRwadGttSKGZUNYJ1bZn6d8HJM8/k7YpiXHyfDslPS+z13yeA8McZpakRN/rpzM39TRAnGMYsIowPbxiNjIa8z3NzsSX2sFWTjnPUASdqCVNLVvrUl6py/0ZgrMbw+IOP7qa1yW0SVECsG0S1Ddee+ijM6A+24UiXuiQcWEjXZBjkG0x9jDco5nqE/AaJW3Fhdw+eALHl6WiXbT50eE7s/8xFmPtPVV1zhY8w0p/iRmrpq4IReVA==">Adana Kiralık Bina</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="tab_c">
+                                    <div class="col-lg-3 col-md-2 col-sm-2 col-xs-6">
+                                        <div class="footer-col">
+                                            <p class="footer-title">Daire</p>
+                                            <ul class="list-unstyled footer-nav">
+                                                <li><a title="Sahibinden İstanbul Satılık Daire" href="/liste/satilik/1/daire/8/#/istanbul/sahibinden/_objectdata_U2FsdGVkX18tU3YfXZu7iOHLNX402U+7pAbftlM9dgt5tTCV0l1MerA/Q+CfA6b/Nfka3Pfh57DryV0kTWlQlizT/OaBQiqqqK5FxPrIBbLfRlyveE+YWVTbawc+jKpcEn2vxMcddCM9slr9PQypMM5XJg1QLCykNkFXjuG8pCnHUIZialDQ2Lju2YhtKpIDLJwKd5dmpqCExJscqqsYKh3bnptSjkZFAoHvPIN7cVQ=">İstanbul Satılık Daire</a></li>
+                                                <li><a title="Sahibinden Ankara Satılık Daire" href="/liste/satilik/1/daire/8/#/ankara/sahibinden/_objectdata_U2FsdGVkX1+WOIL/WtcPAKyXhp8Ys7xCY+i8Gw48Ly96qq5mdgxe30SIiQI3K6M0F+I6FSkUJdtxzkWzETCobnFzNevAZ226e+jhIm/5CNscEMISBaqxdck9oS6k2uE16VQIWfof8LtYCjo/d70mzg1dnfwMu5vnOSc0GwrBHdvLNT3VTZeWzb4Kp2/5GqQwyneUivpnMuvssstqaCl14GGLM8DNFS5Pur9WeQyFEho=">Ankara Satılık Daire</a></li>
+                                                <li><a title="Sahibinden İzmir Satılık Daire" href="/liste/satilik/1/daire/8/#/izmir/sahibinden/_objectdata_U2FsdGVkX19wIOuwXjHLJ0nV07STUm4f6W/2ezSz9a/RPGQkavho97i9tItmBkDDUW++9uBMhQsd71lysOtjB7g19UU79nlBfu+mivXqK0jqU9SyK/Euh4DB3CEI9MCuQQ7+ystU23nhVeYxwXHANaLJ7nWNy6KvMbUcm1r9xV2kCnKQ1aT+Iupx435ryFRusW7GsFMIxiiqBC9D4byM4MigkrBTI9LGmAdmLKqGnR0=">İzmir Satılık Daire</a></li>
+                                                <li><a title="Sahibinden Bursa Satılık Daire" href="/liste/satilik/1/daire/8/#/bursa/sahibinden/_objectdata_U2FsdGVkX19RgjcDoDB1HGa1BbXg6gEDTarTTf/EcXYM/IPBklFWfRJ6ACnuxmqp26VD2NDM2kZMNiTWvgMtJUD5RgXuk36XeLQmU7c6BbomYFarYfv+YE1ZytcpVhwKUtG99t4P+DOQnoqnciueuHUKWWujc3yJq0TISjTWaKrswIqvgWJBWcIHWhtZ/OUS7tvp9AD47xrolKxuhF25wQiUiii1EZLlV/ovCyS57oA=">Bursa Satılık Daire</a></li>
+                                                <li><a title="Sahibinden Antalya Satılık Daire" href="/liste/satilik/1/daire/8/#/antalya/sahibinden/_objectdata_U2FsdGVkX18v/5wfLvvXpbVPO2OPS1ScRcYckvGTeYtxgqZGKeLNrng6iKgZbH3LqmkAKL3ZFRHrFIFPq1rVsk+Ez3UdaB9V0XrfK8t9m0H+iFQTMaxYCinZar2Bgrds7CgPi/jkusA+V2TM22Z/ryXRIkErWjvdDJIyMGcdqCScb+lCa5vI49rpIdKK7YPEC49ZVFh004FOs5gayVjpBoeATMYBkaRIIagfUsm/kgs=">Antalya Satılık Daire</a></li>
+                                                <li><a title="Sahibinden Adana Satılık Daire" href="/liste/satilik/1/daire/8/#/adana/sahibinden/_objectdata_U2FsdGVkX1+qGv3dMwQRIE5x5maeN/d16LOumw6ObfawSKzW5HsvsISHrXZ7OeduTm1n9eb1NV9tQHnKR1vI2GrawRklTjk60XeBdVGwjQYPHAjGqTTQBxqFeFVoxnvsUlS4vLmRGa3ThXrEXu1aiLqjgZ0ExmiYeaX3O6IwIdVHJ130pNaDv2IH1Fl8kOroFNdXLEa2px8h9m4RAJFzU+6pVSU7EEYOm8iCj5C6mnI=">Adana Satılık Daire</a></li>
+                                                <li><a title="Sahibinden İstanbul Kiralık Daire" href="/liste/kiralik/2/daire/8/#/istanbul/sahibinden/_objectdata_U2FsdGVkX19gy8YekCL1SL4lj3xvbjWQysF3c5JbzR0Sww/V0Q2lANER1dCe7SKxzT2YHFNFj7lzdkB4ewOSxKRBAUp1joQc1V5TfcelyJCodoIx8MjYw2748Qaqy7qYtvDsSPynZ9I6ExuMiNcP//tSVlUvYJM2zFVR3cDOcOJNUhWj68foZ5zz2I1hR4/RHZpm5V6cAQvvyANNjel4pbjeS+Uia/nOPT8DzUHS08M=">İstanbul Kiralık Daire</a></li>
+                                                <li><a title="Sahibinden Ankara Kiralık Daire" href="/liste/kiralik/2/daire/8/#/ankara/sahibinden/_objectdata_U2FsdGVkX1+9FGImzafSsS4DVOSLoT/uZ9dn0NOjj6aWZA9yAlh2gW2kMYw/SlZIzXSG6v1BjVhNyhXPvGPxayhC4yvraYnXpAfDhZDenqM6Hfcf23knuU5SsNLXQauiYsGKG4KBge36KpGyaWvMPgC8DR800d+bg+dIZsXaPkKAxlzTEtf46fHh4tkfFr/defiDC8ei0cSLcaQT4uWpyINzYCnjgiR5ts5BfIDB4q0=">Ankara Kiralık Daire</a></li>
+                                                <li><a title="Sahibinden İzmir Kiralık Daire" href="/liste/kiralik/2/daire/8/#/izmir/sahibinden/_objectdata_U2FsdGVkX184mSREq+HUXZwLZ4U1fWESDzCixfgLC0M1TGysb4naqR7n6bSkb57WcT+clfzm5nB0w9RgvpGPwv210OldXAwKg0dy9CKK157+d4olbb7FrZEnknT99mSZ/obr/2T0V+AukYTnDRQJZ8vwK/f9yL5oyFpCOS0QwpV0lNbPDXMVPL2O0/VIVBbyWb/VeQDOoRYRffRfGlpEKS+sEjDAfodKuOgiVF0EFDI=">İzmir Kiralık Daire</a></li>
+                                                <li><a title="Sahibinden Bursa Kiralık Daire" href="/liste/kiralik/2/daire/8/#/bursa/sahibinden/_objectdata_U2FsdGVkX18xXcbaMc+3iMGWSkoozj5OQYDINTxuXV1o1F+lpnKbNd4k0VkQagIJxDCcsddCnUBU1nx0ZBKcm3SLrRru5i+0zkg9otCznGNtZph/OJOEjc168w7XgM5rJVAyJaEHbqxRYxZofXgpIc7tuzoa2zRaIQZGT/ZpL/NbWoauft/0tPaYptobgGTRxN3g02DLOR1JzDWBhNqziGtytDNIquzHHz5HOboipqo=">Bursa Kiralık Daire</a></li>
+                                                <li><a title="Sahibinden Antalya Kiralık Daire" href="/liste/kiralik/2/daire/8/#/antalya/sahibinden/_objectdata_U2FsdGVkX1/RocEnYsi9l0m6oE24aWp1AuZK7fZey9zzkKLrVoK/GH1bI/HsnFmpuw3d4MDoy7x1rdb2yUJWF19cplvmumUBe4lz+J52VUUtSKAr1poy7/+N+AzPDPBr6f4xgNNvuDo/zczFAsmQiYpM3MTZxiAyA8Fkjleeegi9UJuVWpHExfk9oGva+jLbpkE12TNNhoTG8i6GkdK/fN4m6tU5bd/mSYF9AQpYfc8=">Antalya Kiralık Daire</a></li>
+                                                <li><a title="Sahibinden Adana Kiralık Daire" href="/liste/kiralik/2/daire/8/#/adana/sahibinden/_objectdata_U2FsdGVkX1+1MbCR0qQ6ddV9pf+7jVqREw8tc6q2dpj0KTtXJiqhIwewqw2wHGO9OXU5QGyk1G9PJ2qzzlDnwuReC1aSqEF2FZ7wQoPT4ADXau+7Z482D89ht0oADq3FvJq8hRyQe3A/BU4Up20hBHHMIWgo8YNS02QQa4FscN3N8YZ1kKLkXiLnPUf4VuwgWWNRvg0KK03m5KMdnSnUTI3MiLV0ZkqMg8iISe24EgA=">Adana Kiralık Daire</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-2 col-sm-2 col-xs-6">
+                                        <div class="footer-col">
+                                            <p class="footer-title">İşyeri</p>
+                                            <ul class="list-unstyled footer-nav">
+                                                <li><a title="Sahibinden İstanbul Satılık İşyeri" href="/liste/satilik/1/isyeri/3/#/istanbul/sahibinden/_objectdata_U2FsdGVkX19mb6WxUDhe1yACRJAH8WUt0X0Hx2DMrijbgK49TWancCABNew8CCm3lZilM/BiFWhoEmCA4yDu6bR1OEI5T2DcjQbGqbSY4/zAbYq9goGT+mYdnapuGKTMf/JwfOnXrbik2UOnr8hwCmmd48cNbOTHUHSQIpzGq7XwtmZnEzKNPMbOOWfa56gR">İstanbul Satılık İşyeri</a></li>
+                                                <li><a title="Sahibinden Ankara Satılık İşyeri" href="/liste/satilik/1/isyeri/3/#/ankara/sahibinden/_objectdata_U2FsdGVkX187nS32SQWiRQY7p15n0HdKlitpOD5Qqw/DgVrEN3lHkG+gOU0MFBXmIX97re69o/ZOghqYD5ojQE7t5FVJIvOlQffkekcrqV9BzIf0RyAbDHYi/JFuLc4KAlQWz/469ZMGJd/4UNuGNe6/7eCS1Zrfj5/5c/oX9Df/gUbPYp95J11+9Mg5rFXV">Ankara Satılık İşyeri</a></li>
+                                                <li><a title="Sahibinden İzmir Satılık İşyeri" href="/liste/satilik/1/isyeri/3/#/izmir/sahibinden/_objectdata_U2FsdGVkX1+XWMoXSAXvh28BKj3mw6WXqrOofCLyD4Bd6Odp+0iGul+EgoSnPOZT5my3WYOVOJnt7Pw2YS5tJexkFHxfnUB4J4c+m70uPp0OhfqBBR9HQFyjCwx1/LZ7fRU0IIYBGaduRTbZK3+u3L4y3iZRimRE2+Sts0QGkciHslj2qaUEbCEFBV94vffu">İzmir Satılık İşyeri</a></li>
+                                                <li><a title="Sahibinden Bursa Satılık İşyeri" href="/liste/satilik/1/isyeri/3/#/bursa/sahibinden/_objectdata_U2FsdGVkX19bqF3DXrrZXZ9ii8gGw3GBJUO0mnamfMiKcDHK5BLzxFW7YTbVnb01sONylt3cPWbYh8pgPF/YVSAawrPf5e6FhaaD2YWM4YTp2gXEVEKZBw50KGPa6nnayo8+i4zhYQ3+Un5XdmO9VD3JR1K6ItV5tzvYOd59plH1NVetMwNdB+j/GUMxTa2k">Bursa Satılık İşyeri</a></li>
+                                                <li><a title="Sahibinden Antalya Satılık İşyeri" href="/liste/satilik/1/isyeri/3/#/antalya/sahibinden/_objectdata_U2FsdGVkX1++by65zXH/XSIGuNhZ0T4/dYCsWylM1NJ7G3W7eaGp+SSEHGzIS2sDfr545mw8t9nUFgRMgYdtIsNTrZZHknYrYXTqdtMLYY1twme2LptafrcRGrKYjAwYw+h2QGHc/Mt1XFwltEuZDbHW2NHUCrTnbeUPliBAF5/kieW9e0FuBb0GwF6fPQ7C">Antalya Satılık İşyeri</a></li>
+                                                <li><a title="Sahibinden Adana Satılık İşyeri" href="/liste/satilik/1/isyeri/3/#/adana/sahibinden/_objectdata_U2FsdGVkX19U8A5bW6skVqgYYHwfpVG5vu9esfSFKlXZmRNeUAMSO/XuadOXhHwwzaCToewP7xAW1yCxaaW3zn/pVds/tI7MJr1kHx6ryZNWUhMCyUG1gXba41mYu/Enx/jq9Gnf0Z4Wr5EHYMVgGXWrZQtlcpBRbq/H6SFPHXmsJVpedl+IhRaYUiLoWKfp">Adana Satılık İşyeri</a></li>
+                                                <li><a title="Sahibinden İstanbul Kiralık İşyeri" href="/liste/kiralik/2/isyeri/3/#/istanbul/sahibinden/_objectdata_U2FsdGVkX1+oIXoQlxOvGJ+2EWejsqLALb6X7zmdG0syjFwcLZeW4FVWIim8nYfSmJlH9+cG/y2n0zJJouAXL60+BWvBpeEUYGK05bEkblnaa/It9gdaQS1BnL8YWA32QBe/X2OcsAh83h32GkpBcCVbgmdHPdRSj2SGjn9c6khuqc1QdgvybqyO9f08Lh40">İstanbul Kiralık İşyeri</a></li>
+                                                <li><a title="Sahibinden Ankara Kiralık İşyeri" href="/liste/kiralik/2/isyeri/3/#/ankara/sahibinden/_objectdata_U2FsdGVkX1+uO+jSw42tQV1sy4LlIzPF6lK31Bf6oHxV4b9rDUjqDOweb20NvoaRxQ7rqQRXxxiNdL57PF3aobFjS9kanzIGEibvL5yGv8lux1rKlLEOs+C+/EtEXY4s77DvoLw5bUjbw2ZYH2m7062whbjiPpnrn6poKvgawXo7HAThoIcjxYh9z076Pfhn">Ankara Kiralık İşyeri</a></li>
+                                                <li><a title="Sahibinden İzmir Kiralık İşyeri" href="/liste/kiralik/2/isyeri/3/#/izmir/sahibinden/_objectdata_U2FsdGVkX1+308COv4Sc2sWVTqNoWck66rqDBzSMgNzns6uQEMXF5m/fQyL69prOL6y/uwp7Cfc6Lo8APwIRAaF9OkenLoD8f4Fd2sd/fTOXLpM5kDR7pCLq48L560XpXoServbwotnxP9UBeVCOjWPhAfSD6VtkJTvbZ36M9aqsKwB8n7We7FtOzXfJJCR1">İzmir Kiralık İşyeri</a></li>
+                                                <li><a title="Sahibinden Bursa Kiralık İşyeri" href="/liste/kiralik/2/isyeri/3/#/bursa/sahibinden/_objectdata_U2FsdGVkX1+e3YORwKBAYVin77GcO1gCLVdAx2Bc0jwAX5E6EfipJJkq0XVTXeWXGHAVji2uL7sMZ9jTo0Rl9SgBMlg/IlZxYK22T1mK/7xHioMGUSJYP+CY71SLbqaPSw5zdKF6v6V43LDnW/XqLBRjgtgBbq+nF9xL40zb+vlOa37mTyGOG9VIkn6B9cl5">Bursa Kiralık İşyeri</a></li>
+                                                <li><a title="Sahibinden Antalya Kiralık İşyeri" href="/liste/kiralik/2/isyeri/3/#/antalya/sahibinden/_objectdata_U2FsdGVkX19Msgi+siJD2sS7ndmSaB6lWAKhCCBwNjzCCdUsm/DHawrGTMdT4MrpikBErI/QozALrzzCqm+gYOgkKYtinA2VBDUzaMDPc/jh4D524JqqWoWXLGLH8cJIwlj+QKLlUQkDn5LNB5qeNpP9ST0wvGCzBJlGklPfxpvKNjg/2iqrCZ7TL5bjchnm">Antalya Kiralık İşyeri</a></li>
+                                                <li><a title="Sahibinden Adana Kiralık İşyeri" href="/liste/kiralik/2/isyeri/3/#/adana/sahibinden/_objectdata_U2FsdGVkX19GCjQ6mJoYm1LkRkuVhpQnZxT/rNYK9AT8bjhof3oXEdOZzOdo7gH8oSii6zJQx7RGP95grl7THkCf0l5pigf00lYqK7To5GaQjC73mf0dsCBPXkFNO3yuMowpA8uWDQ8VpEdMdgzIiOuO4DPoc4hrrItO1iS3p5n58gi1jeIm2CvhNJJGSaPe">Adana Kiralık İşyeri</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-2 col-sm-2 col-xs-6">
+                                        <div class="footer-col">
+                                            <p class="footer-title">Arsa</p>
+                                            <ul class="list-unstyled footer-nav">
+                                                <li><a title="Sahibinden İstanbul Satılık Arsa" href="/liste/satilik/1/arsa/4/#/istanbul/sahibinden/_objectdata_U2FsdGVkX18z22xqQP4x46wz3iupl9uYAXQWYcatNjxWK36r2Bd8p7WI0uD5L6kPX7s6aX2nETbsb/szOPiqiFygRlUjuQB+DAGQwe3+QNC/B4Hoiqi7Vu7vUtPVdv/iVT8hVYWCx4oaMmbVosY6drX16sMWv7vPgJ/MA/3pbJ0MwF4TRUQ3AAI7LZjhl9nvbk5/z3sdDzanLtuAy6ppFin/Au9gc7LB097MKIbjvz18SH/V1Y/U9ozQFpT9at/jwnZOO0aWcb5fs3pyUZzep5nhBLDuPfTO8TfA1+Ep+Lu1OKiOm1XrHlp6nrxrNkYT">İstanbul Satılık Arsa</a></li>
+                                                <li><a title="Sahibinden Ankara Satılık Arsa" href="/liste/satilik/1/arsa/4/#/ankara/sahibinden/_objectdata_U2FsdGVkX1+QoHJCadaZmxtcp47vlI3eundhGp2dZ3RgnZ/pRh3wISU180MvoB1vdZO+QYO60EZD84cqd/5l8WW/yW0vEn1vzKx9vaQ+XifPJehnOEzTQ65o8qLcQkVKmNCA1Yu2XuxE+n7418+NdHYsVAgP5Kyyt8j/CyAKoM2SUW4agwTzBKPMFYTHz4jXjHhuk5Cj1NBb8iIIGjOUtLVp3G8IUkIzvYuFKJcnkBABmhPIT7dCfmwd7xS+X9GfCxnq12txP6WB3SORCAy/v/W0A8f66NSVBUpltmalooHf345B3KojnIigonOpj9cd">Ankara Satılık Arsa</a></li>
+                                                <li><a title="Sahibinden İzmir Satılık Arsa" href="/liste/satilik/1/arsa/4/#/izmir/sahibinden/_objectdata_U2FsdGVkX19BiHwlrsEVAeeNnOxcZ2N1P9+m3SGk581jXA49P6xCYuurS1FJUaPP1St3Rs1UXkcwFSN9T4ckJnFDkQG5S9dnPeOhqzLPuuB+TUYm/oKTQbNuOIvl6qNubydYRPOYHKOefn2TNcz1Hs9cBR7LZO7DBOLtAfYtoFMoHwu1t5h9T+58RT4X9j60vL9igQGB92MWutDhzUUg4usgP/OO406eHUxgETAoTLBR52ROPiY4bvJz69Wyan7cbmuTVcI2OXEh6MO7TdW0S6gnBa8pv8xAHhFIBIsaK/Buv23hx7EyDaAhEc2R8AEZ">İzmir Satılık Arsa</a></li>
+                                                <li><a title="Sahibinden Bursa Satılık Arsa" href="/liste/satilik/1/arsa/4/#/bursa/sahibinden/_objectdata_U2FsdGVkX19v9+UCxR6EuDBk/bLdKjYQH121wspwdzffoXSfmqYtMDuKn7eus/8cBeHDNB7xsIQHcy1Nok/QDq7gwvKtNkag67uHSW34PRUQqbidkTWHdGkhW5azB9Qsw/Vcy5Nw82TZ0Cr4dE76HntbrqfFSP9x7cQlz5ZtFC5ECp/V0+DkAamqAWvSUbFj/V32Yn67ivPHZr6bf15VSN148/PY7VpJdiwcmHkZKpAhIdtdZ+Bv/rF8yngdaHw6nioTs0hf1ycz0JqlxWcalnmWej8qxrqkZK2Hmd4BvxND5Tp8aUhmTvb64W0Q+/1w">Bursa Satılık Arsa</a></li>
+                                                <li><a title="Sahibinden Antalya Satılık Arsa" href="/liste/satilik/1/arsa/4/#/antalya/sahibinden/_objectdata_U2FsdGVkX1/LDxnISghgfXfrqouYCdyEynbOhmiib/jF3xzsGA+bMX9AVsECEUH+6U4JH/Exc6qp0cpxEHpm7Ub68iMlLpxvRFa9tgEjBia1h6JBfxPWSiJqDh9gdoNxP1s4KH9DggUYbzL0Lcmnimv4WVe1hVLLViUfCua7hxtG4zw1kpQjRA2tParr4aTR33looFOZGGezhDhqwAj4Rye+TJA1naEQPd3orajjOkB1Iy6rDXbg3wDonwVmSW30N2WJA9GQoGUpCnZb+KpuVJD34SWIs6dEy0kkC7vD+s1PVoGLApz8nZNWrzx4Bd/9">Antalya Satılık Arsa</a></li>
+                                                <li><a title="Sahibinden Adana Satılık Arsa" href="/liste/satilik/1/arsa/4/#/adana/sahibinden/_objectdata_U2FsdGVkX1/Ch35KMkvr5Bh5IDonFokIMMDXsX9Kll2YF2rh9GpOtOwguvnNczNEzY5Ez06AHCggxnQ3NDlnZrvX43IYPxcqV3BYIMBucS/9uOFy6YOxX15BShOGeoK8RB+SKnhRHhIgbl/5OEGIGRKpHx9FzwLD6oHOtP0hgNM3XJI7aTqzKO4TSCCUa9JDD3gvi6E2GBhI8h7cEBHkVrS4pvCvCx5wFouO3/oM+QbzoN0DYDk9sUzNuwakq64iBVFekXABUHIHeU6oViZO/ANlZ3L/GvuxerAK/j++0vAIPec2m/vATxcDOPpAy6Nf">Adana Satılık Arsa</a></li>
+                                                <li><a title="Sahibinden İstanbul Kiralık Arsa" href="/liste/kiralik/2/arsa/4/#/istanbul/sahibinden/_objectdata_U2FsdGVkX19qzblKY/Wt1yR4nDLxVuJujVOSjVN56VshsGoiz9+DqQ88Z9k8cKqw3mEpDPXg0q08K3ZQyxa8gm8prJB7r1gQBcTHSK3dfNSjkq/0HNPYFEJoi4DThxRGXgwyfYXzB9qtjidIRvxKXmD/yGsFw+bcyNuRhq39iP6u5ZoabLmUBwDGIVksUDcp8wthayPRWr2IONHY+u91Li2APql+wFABMBTUMyFQRekC/M8JDL+hO+c5OrRP04Z8dyco/LLqf3qhhhsX6Gvj3KdM9tq6afWsUx3T1Rte6D6hfrziMJsQeqe5Ob0zOYst">İstanbul Kiralık Arsa</a></li>
+                                                <li><a title="Sahibinden Ankara Kiralık Arsa" href="/liste/kiralik/2/arsa/4/#/ankara/sahibinden/_objectdata_U2FsdGVkX1/BkEznPmfRaPQR5jtvjY7bYS+9pcs4VXGtddFZa+rtkhUxQDrqHdn9CONSOeWSOVPLx7eXIOH8xDOYZdN3nJxE8BK3w8VcLPAQcrP6BGfxwHbbWU204XskSpeAUdSBn1gBku0tuWGlk4kTDTIqp/dVg4qi8ZmJRO4JOydbNjNGDojmWDd8mrIVfm465vF0qtoi7oA2jB2HhH6P9Ml23BsiPDmqqW2t2sOid5UgQ1Wtlry5vwE3gWvv/hyIQDE3tAVvgrbJ/vCuqMKHcCXyv8wl9T2rP92xcIlM2nHN4MEMcUdDDs/Od7Et">Ankara Kiralık Arsa</a></li>
+                                                <li><a title="Sahibinden İzmir Kiralık Arsa" href="/liste/kiralik/2/arsa/4/#/izmir/sahibinden/_objectdata_U2FsdGVkX19qGZUeRaIw/hUsKAT8CbZiyvsGacedpKNsWbZgXSPDL5pgC4oKtVHKoKq8z9BwVXI5q7d3Di1x110gH70g5zIzpLcLyvBl/KMyqvnp53U8SJkZvr3uzMgDBEn3uvC/6wp7N5RUxCPSYswUDv+jAaM/PiWFpxPw/RAh0xkUOyU2K852Y/62k1Gh53JGv0HOK49mc0Qf0dDzCIkSs6EyIfyCcXxI9FFB3AGY/ZwP1sQxLj4cpicP2wwsu1DHESAl+J8fTA0pAtt2sv2QY2LCjNh+LqvnRhTJyiSw0/kJ5Py5iKd/6c41mlM+">İzmir Kiralık Arsa</a></li>
+                                                <li><a title="Sahibinden Bursa Kiralık Arsa" href="/liste/kiralik/2/arsa/4/#/bursa/sahibinden/_objectdata_U2FsdGVkX1+yTWQStvQqweGlLrv2t2RvwA1LeDTQMXVAtX3b0GRrqAhCSWTWoK2NhQR8r+OOfQNSblarPv0eH+pNvUvnUZSY7+LxIrqBRuRyPDQrZ17GusVAB2RtX+QtYJ1zuAAJMP2zc7+U73R3GX37zSBsSKCKNBzxfLYOvNQqJZiLqcAhR1nihAfw53T50WoPqKaoaS8hfH1Z0AxMUfBEyDIsmv/Ah3MJs8qbVGhBfgDx4u/gXH/stUknAEoyTl4AG1uX+BEZSI4VWToTLU6o32wcv0AuJdZaX5pe6Z+Rzr+TSuRcV1uByMbE2ec/">Bursa Kiralık Arsa</a></li>
+                                                <li><a title="Sahibinden Antalya Kiralık Arsa" href="/liste/kiralik/2/arsa/4/#/antalya/sahibinden/_objectdata_U2FsdGVkX1+a0a5MNd58tOeL4vvj+vQpQNdzBxbKDrfWRTa5Lgbky3jBJ4QjzJc7tHY9l4upfVjVkMQg8pRMNvrlDOwenZV9sAtUrG7oB3lkstPxwIf16Phz52G2Rz1SEH9wm3xNciBYtEuAv1enNQQnqTYvf/PaWlp6bSex7a0ePgiBkIl+ClF2ncglFlyKMZyETGpU35PPHlPGZBZEmBPOWX2nABF4yyg+qK+MLl7f96R2I/b4QuXKmp2YRiTdzCMvVYnDFEH9wcQ1yN7toUle16dYSP6Z7p8tHbrv5C8xNBhlOTXInOdjeJ7kzY5g">Antalya Kiralık Arsa</a></li>
+                                                <li><a title="Sahibinden Adana Kiralık Arsa" href="/liste/kiralik/2/arsa/4/#/adana/sahibinden/_objectdata_U2FsdGVkX182/NR0y7udMvk9CFNViCpAX+G5VbisZZEeyC6b02grcJBuxFv+NbGFIVBMDF32IuJkxPTUKJwjjh9Oq6QLRtszKRdo+rEaArnKq27Of0lZdFSyT/b+BTw7j0Isyuc0MAy7GnAfGCSyJkjPZUDQ1NxMZpPNtWavuPLFJxutWoF7Zpo5SnMSI9jjrf4k/kfnog+I8BRQSuj3CsOKQe9kAPy9xV044H2MNYFcHUVy0aqugGMLGPlITDKVbwlx6Tml1yba7UIFTryFhQ5rUXy9Bjj+TueEP6zKEXP3cBWfwMzfh/9aKzTi4Qe1">Adana Kiralık Arsa</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-2 col-sm-2 col-xs-6">
+                                        <div class="footer-col">
+                                            <p class="footer-title">Bina</p>
+                                            <ul class="list-unstyled footer-nav">
+                                                <li><a title="Sahibinden İstanbul Satılık Bina" href="/liste/satilik/1/bina/5/#/istanbul/sahibinden/_objectdata_U2FsdGVkX1816xyLTYrMhorF+ibTx1+AmBHdf8ltNtJAxLVlQsfJA+yn/oAtX9vj/Wr0AhYX72U7Sb1SfW5D75hfldnadICZWlhVf+yJt4UFF/OyZScCu/354dhDyJ1w51WVSi+dS2GdbJLED5nbf7WvVNIaQFtVzAbxJhrpbyQWvF3D2K9zuwtP4i1VtXEAnqru3KyLQd0mPEtc7d1zHpygJwGPhFPjp4ALPaA+na44p9vNvxsbhHhgpF1tUSRzQamA69g94GehseO4H5ImBA==">İstanbul Satılık Bina</a></li>
+                                                <li><a title="Sahibinden Ankara Satılık Bina" href="/liste/satilik/1/bina/5/#/ankara/sahibinden/_objectdata_U2FsdGVkX19CCps4ma46NozWg+OdnlJduaEHfX+vQLhe6ku2sFQV0xEo0eq8LjJKc6Ec7daGJ0+yedhbJkDqUV4DP7E9aeS3HAxgAxXnd0iKy3UtYsZaGz/9fQE31EhxZvqfW+EcDBpdR0ZSYXYt4GiH1bwxYl5baBk7QZEamTy9dMI9SjBArQKibQY8zTvmQ+PjajasDR83gQZTbcicpS5/8VNtoaxuaB7xttoqonqiSw8m+KJ1j1ljXGFhgHW+WcqtCZ160Dbx+jmQ6Us/lg==">Ankara Satılık Bina</a></li>
+                                                <li><a title="Sahibinden İzmir Satılık Bina" href="/liste/satilik/1/bina/5/#/izmir/sahibinden/_objectdata_U2FsdGVkX1+mhDs8mwNm+HhqGd+PIvr5UDe3/9nUUQiIdyrkzlaDkvPUBM5kCpGeyyoFYNRRAsx/vzMEnxTqG20eRjsR7SIuFZ5/7UyolYItP5Fcwl/GthaMCcGx4QDvt5YdquhpctldFxB8NXstu6NOQCbr1bxgWBe7HGV3N/Jd3M20C7xt0i2iZcvtPHFbd4M8glaos5O11GA+PyrO6mf9oRbs4jVhmc4DZgNRkHWbdiX3PgcVHNaG0gl99QJhlF94Dw3eSH+Mgb96xaNgOg==">İzmir Satılık Bina</a></li>
+                                                <li><a title="Sahibinden Bursa Satılık Bina" href="/liste/satilik/1/bina/5/#/bursa/sahibinden/_objectdata_U2FsdGVkX1/KXLlINkkSn3Mu7QURmzG57PywnazWpdcCo6XDbzIsQmOO1x7ppqAlF2hsb0Q45irTkZl6efpF6XAK7OvK0RIBRCS17/ND2wVCgzLcThbw27hDUA6ZXKNQ4GQYQP4P8CWbMH2hBeMPAeBghqI7BQsmgESWUtfojfSOVt/vB7M8FZ+QSuEOl1gKDisqcwHFTiYbhqshlEY2Tu6IpK+FoixlOxVOipYui/C56PQcYqkDRunuv82tk8scbJSGI/yQyc5v8Y6Wq76h9Q==">Bursa Satılık Bina</a></li>
+                                                <li><a title="Sahibinden Antalya Satılık Bina" href="/liste/satilik/1/bina/5/#/antalya/sahibinden/_objectdata_U2FsdGVkX1+YdiFvvvGg0TFMnWrMZe+tRPhU4APM17Lttl6HGHhXCJx/TsD2WVRZHiMC/fvyxqHMObFBndxMk7Jot8oUPyHlYzcIFaVGUnFAGyAWuVsDFauLtERfM1KzhrFiDHwxkFvMVd18KJG312EuVZOVDwe9zv2I9P6sSM5BTGtSQfOShrdt3PN1bseW0RuL0xOwMfWgZVIBvWENv+gx7DwOVIgBojjQsvNoiZ6u4O3kUteNKEn0A11jUpfeCMUG1s837ClglAQWWipawQ==">Antalya Satılık Bina</a></li>
+                                                <li><a title="Sahibinden Adana Satılık Bina" href="/liste/satilik/1/bina/5/#/adana/sahibinden/_objectdata_U2FsdGVkX19mBXW6zKTcKrSNEcAC5WJIQE9iIzEozSQwKiuwsLOfsMPwQIMLzZozDUzX75sAxNPa1F+gAUIMlsmZWovpl5CzklDZzagR6KYj51lRCQaV0NtA2H23JHRgtlOMI+X9bnuakV2Qg/DSNa3gNRdT63p8gnZDK+YC8ATUyH4/ymBYw7ZBvQb2cGLE4yQzAs7S9vZIu2+y6QXr5cumxcUS92EZp6DR3ZI4GuqHu8dbyZpQtL5pdu2helmtRvINXLakYERNY3XxPZj8SA==">Adana Satılık Bina</a></li>
+                                                <li><a title="Sahibinden İstanbul Kiralık Bina" href="/liste/kiralik/2/bina/5/#/istanbul/sahibinden/_objectdata_U2FsdGVkX1875awTwl7iHn39+vUCU1tlTXs+qxnizyTORifdE7jmqszHyPoONCReqL+7/4ccMXtqGy5a1NpvYu8IdyaXbtUJR8dbAHSXvPH8No0H/dSDqjfMh6kuraRHm1oiFB4xlvP8G/ojCf9pixBtZhOiCOfHLQfADipczujV//AKOk/PlVvWdgPhFarCI+8Z6iFXwVcYg3lTH1Lo5Utd/IwJZBGCl5iWzstEhnYQG56CxZw6NHem+TS7pLV2LUUs5ujXFftHSC53J38P6g==">İstanbul Kiralık Bina</a></li>
+                                                <li><a title="Sahibinden Ankara Kiralık Bina" href="/liste/kiralik/2/bina/5/#/ankara/sahibinden/_objectdata_U2FsdGVkX1/Cmox2cGd+ia6NGBFbsoP9kdFQe1wZRLdec+bT4Tvp7sRcxypBaBEzzaIMr4/yX0Z66SwSDtBtaQ0zZUzpGfpHzwQjpwNwJu8BbEAj84rs78fgwKdc3IRvr/AMw1Ndm+ckLHmtieqwlKrbISXF4UMqcPivJ/MZOzALj4wdNV9HPUKxO1hx/6H23HHtALjF4zy7x+pb1fOxLDC1YrEL2ok9EK9gb8tZ9bevlgPuSHEXOz0bP59YPmrlSh/ZN2p2x9JToCOm8Oj0HQ==">Ankara Kiralık Bina</a></li>
+                                                <li><a title="Sahibinden İzmir Kiralık Bina" href="/liste/kiralik/2/bina/5/#/izmir/sahibinden/_objectdata_U2FsdGVkX1+3/oCTtK3L0B4VcWw1grsTLZltVKZbix73/qr8RBlxs48KLWb2+2K8e3FxRC5y4DZyQtLpmDsLjA7BQS0LNV4mYUAv/TxI8WvVsYjGr+YaOrbLyj6JDcCySemfBr5Y+8mkK2N1ONTN1Kw1XpJkMODjlU9pFfbkyJpRWu00LnhE52gJJknhfeW1kEAeUF8wmjriSw2Gsjn32AQaFD1QUxseZfftGp+bCqlZEUrn6OC8RXJcJWK9RZIwoKJhcE+ybJzDCPh8TsOw0A==">İzmir Kiralık Bina</a></li>
+                                                <li><a title="Sahibinden Bursa Kiralık Bina" href="/liste/kiralik/2/bina/5/#/bursa/sahibinden/_objectdata_U2FsdGVkX19O43oGR42eiZzuAsyMu+M8yHKIKDMK3CxU0lu0YmxLR9GRebP2kBaIXTaF1gf4qZjS+MLZNaxLG0qE1TkLV8egD1FOmCyNl2dHgJhMWsgZjGeWVL5O/Z+LwvWw2yxQ3xuxBuLgvZdsDq/uNZV75cPoiP6pA/JramjS02U2gpOa6rAeWIUHm21P14Wkpt910p8GPg/kJuy9zZTYSO+p7OKHWVXhZMP976jBJ/8d9FQR6qOQbWoTEvvaeZkaAQj9wNcddmA14L5lzQ==">Bursa Kiralık Bina</a></li>
+                                                <li><a title="Sahibinden Antalya Kiralık Bina" href="/liste/kiralik/2/bina/5/#/antalya/sahibinden/_objectdata_U2FsdGVkX1+vU3Aukqu0yK1t8qHolk8m5PtzT/nUgckW7KWcrCEvwQ+e9umzbPWCWG6pEFvKz26Pw0Ve76jVtFjyvqvcrVNW6OkEmo0asWpbG2JY/mgpsE9PPO6TYmzb70W1HOt3p7jBA5EJf2p4a/UxmstEGmV9JFCQzheixF3GjjmOxnaYjK0rdCsIBYxlmRAMl9vqKqjyjsXZmNSHirhnr5wVEgq78Ynx46vI/V4lZdW17ntmJNCBE95C/10OY+X63AFaFQIbLgmB2RIybg==">Antalya Kiralık Bina</a></li>
+                                                <li><a title="Sahibinden Adana Kiralık Bina" href="/liste/kiralik/2/bina/5/#/adana/sahibinden/_objectdata_U2FsdGVkX1+oxgn4nsyCCaofXGFeg4e9lcTfo5FYzQh2pJ9XTmg5rUreb7u+eRZdZ8EFEMu2QdUMxiHlBFYMQsVWhB4xkf7koyzc0nhLoLUHC8BCz9+NnI/sD94MnMU/c3cCJp5tE1xFQVSgaR6TwV6QoUuhs3a68AZVuwPC6iOHwevMqe/tbtLreArJ71GsHMclm8yuI0rh4WQlsEm0IkyMLTIm3SDZXnAZzAEeOYVPAJP0SgJoJJ3+fFQmr3TciY9yEDhkF9NwWISwffSGOA==">Adana Kiralık Bina</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="tab_d">
+                                    <div class="col-lg-3 col-md-2 col-sm-2 col-xs-6">
+                                        <div class="footer-col">
+                                            <p class="footer-title">Daire</p>
+                                            <ul class="list-unstyled footer-nav">
+                                                <li><a title="İcradan İstanbul Satılık Daire" href="/liste/satilik/1/daire/8/#/istanbul/icradan/_objectdata_U2FsdGVkX1+xT75jUG/v8AT0ENOZn2xl00sRTbfNGtjoJvVznOnNv9IiHTVPrCaiSBsUpBsagQcaURLhxV7k24/OkqpSPHvKR1GbHENWG7R+HJDrYRif3F+QQQ41xk6E+d+pmxOUvDQ4V01sBbKeLgqrdQwkXD1V/tKVblbDSC2lRVMvccb4U8b+o5eXwsWLm5HZ+kbY0ARcdC1ah+4FiyBmjQSPKCagbHXaD6Z6xQg=">İstanbul Satılık Daire</a></li>
+                                                <li><a title="İcradan Ankara Satılık Daire" href="/liste/satilik/1/daire/8/#/ankara/icradan/_objectdata_U2FsdGVkX19gnx6HYznah0L5rVgsR9nAbYWoqfKMnI1lGp9Ibtra96C+2K0RHyr49f/6AwTgvfyTpyz25jAUAaIsiXO1phr/h0Q7hkP0JmYHziz9vVZ9icj6MCuxgVIF7hFkzo8qxEoJg1d8uKBhK7jDQ1Eomp3Wp0itsrh6PlFPYwlybR9LB2mFqQV6g1X0whDaU2YmzHX7Ifjoh/iK7vL6AcMvutqVZG/yH4b4Ank=">Ankara Satılık Daire</a></li>
+                                                <li><a title="İcradan İzmir Satılık Daire" href="/liste/satilik/1/daire/8/#/izmir/icradan/_objectdata_U2FsdGVkX1+TccHruCvCpBZqm+rqtxxFNtailxy7bFHYaUXqJve3FO42ztj2yHANLn9dPSXr9/MweiCZdwzHbIVnw1JsPYtBT/7YWaBwRUfvxuTowGAeNUaiTak1O+Z06D/EBiymzqoUFfN9ns9TAwJ6DkKtL74MEclLXgw3bklQ2orhOKwbGslFgj0UI5aPp1CQyw5EtDK0Rza87rSlCQpbwSPLgk4Q+ZaeJyMDpJg=">İzmir Satılık Daire</a></li>
+                                                <li><a title="İcradan Bursa Satılık Daire" href="/liste/satilik/1/daire/8/#/bursa/icradan/_objectdata_U2FsdGVkX1+q3MF+OkV7+9Df69c+60RcFHU7bFS/ltiBEJVdw5NZNa0BwARs+WbMVV6DZC5eD5PWUSCiP6uEMJNR+z3WibvhZYYN9P8Lqba5STPTmHKI65/HXql0Lal3HMoOVFt+B00F+q+cdFVEEkxaLEPj03khNcUF4aWHPN0N4dkzxB7GhlCvwSGL1fSKMTUS62asJ1W1jQcZvsyfxdWyLltxau/MAYUH3HwGnEc=">Bursa Satılık Daire</a></li>
+                                                <li><a title="İcradan Antalya Satılık Daire" href="/liste/satilik/1/daire/8/#/antalya/icradan/_objectdata_U2FsdGVkX19GnOD4ztZ52Z4mimbW6zUkvGwgLi2YySGJpzJxdf+VUOnKhHE5C0iPoZ8DegZVY3e873CABD/KgYfPLMo7B0m/DaUc3Du4QRiWX7aUJuGQ6M+MD36uwOxNhBraNq0uDeTqszKvY2fBJSr+MdfAevjWa/zbTck8TyoFI5eKGFu8f4/yRG6xcDwHeTgpKeA2dxCJ5UZOQbhoB97zAPLq4QYSn2mrGDh7ysU=">Antalya Satılık Daire</a></li>
+                                                <li><a title="İcradan Adana Satılık Daire" href="/liste/satilik/1/daire/8/#/adana/icradan/_objectdata_U2FsdGVkX19mYmMzO68D9yGoX0AypIYom5sYYtciKX5C60B/a1agDbg/aKVJYvkjZQdWHKaBC7/uINl8lF3cElGL9la4Y4t6Hzcl2fD0XqORDjh4XcC1+Ayq0I4ipnf48Gyk4J1AyfUh/uzF3U/vdKbwvSsevIAzdlPM7366FNOcLD15+2cSAh+8+Vd+wPJb/tixetV2owfRHFgQWRtchEwh6uK16HBThpV6vgroKG0=">Adana Satılık Daire</a></li>
+                                                <li><a title="İcradan İstanbul Kiralık Daire" href="/liste/kiralik/2/daire/8/#/istanbul/icradan/_objectdata_U2FsdGVkX19I0L45rfOLXHadLeegDcknv27GmQNU8v5i7JPVqcbyLQ7B3nY/nA6XHxwis+UZm8ZMfm8ncq82m08jePmVhs02rf2YGLVjd90ajavaTQ68VnrUmLPZulmm0FMMI76P1FNRiCXVPtlKBfnqj+aYSRZBnfPRBmUETySx2Q7NxJyDeiERiQFbTwFUsX6OjhgTromisDtrBqMXe6rVuVBQbczg9REnimSG6bs=">İstanbul Kiralık Daire</a></li>
+                                                <li><a title="İcradan Ankara Kiralık Daire" href="/liste/kiralik/2/daire/8/#/ankara/icradan/_objectdata_U2FsdGVkX18q6rEGwRCZfZndSF5MkN9vfkUQHJbLNnWftM9ffJkLwEeBuOUrCGfmDIjEdAKi+goTAiI2GnImawGm0l13qkd5NNCGTClCRZ9ngsdv6GntmQ/Rha8ECLbMOLzveRDZLyMA/G2ZK5zJwJ0pK76poVgyWjuVinzGzsOk/UHHZj9Eug6/iu3Fqf8+TdWFaY+5NxRfOyh7ofWlFCZSp2KWLtD6tc0fevsZlsc=">Ankara Kiralık Daire</a></li>
+                                                <li><a title="İcradan İzmir Kiralık Daire" href="/liste/kiralik/2/daire/8/#/izmir/icradan/_objectdata_U2FsdGVkX19Fq193lBMz4RJ58jXa4vaROt59JXXIOdG0pWtakd97BaFOOPaFgR1K5jzlD/ZBCxng6NjkucKWty99y9m8ZKlotZjh5Iw0rs9//Okp+jZSmS0WaJY/v2ccwlv8UeXan0aZu0UMIyU6aqZ/E0BOdUf2XdnLP8JJHhZoVlrgeJPbP0lJ2t+HjJ0rylg5dKzdKFRZcuASpDMfKHsAhYRh2s7DVMHdsW9QCcs=">İzmir Kiralık Daire</a></li>
+                                                <li><a title="İcradan Bursa Kiralık Daire" href="/liste/kiralik/2/daire/8/#/bursa/icradan/_objectdata_U2FsdGVkX19rP8s5sZ8bb0luvJSzFd5j2kwU2kBSbqesZsF9qJOuRVXfU9aae23iNiVyWjeWdhgMhuUuoRXAiWjLtgSS/cN9F2/C9ef6Pn8soD0+vXv73rzcRpdZ833yr5kdkdtMHrfMPFDTm64iXeFogvELYS9xhg/6Z6alNti7pkFScAce7eDzuFlh99exzWjYQORQmWlgrsXsHxlLR+K2PbDhnLEdn3Myylx/fIs=">Bursa Kiralık Daire</a></li>
+                                                <li><a title="İcradan Antalya Kiralık Daire" href="/liste/kiralik/2/daire/8/#/antalya/icradan/_objectdata_U2FsdGVkX1+21rqIZczzpyCmy0YbVoadV+SHNwgd1Ut7WmrbzWyc63R1qYVGfUHjDIGuS2gSDAM3G4J6e00SNLO31uun1OVf8OTDEu2YR4MF9Ehklc8Sr/bBDt0yjZmEEs5UPYoaOkaluId4ixMGsKMjDiCP7XCf6j9nxRtaqxry93YzOOu8/INylKubF6NW8FkTyPlnSU9KyEChwil3e9EBKrr39nh6yL5sC2jJDns=">Antalya Kiralık Daire</a></li>
+                                                <li><a title="İcradan Adana Kiralık Daire" href="/liste/kiralik/2/daire/8/#/adana/icradan/_objectdata_U2FsdGVkX1+vb5kbLq6KhSoeeW8Q5RvXhwn1uOKOUyHHWjjFI4hGqzympOIX9jLBktvXMBainTJkFu+tL6zbl6rgVSpQTE9lZdWS2e6WBf0dwScJwT1n5UdKNLKxiFMkGZu4H4oSj9Ox/bCuRPSglA6Mh2Mdzcjb8I4J3EspCnGLlORtgQtvy8YVEVI4trTjkmi6pVnLza251K7IOFHb1V0g3RSIVztLJNZCWmwHy9c=">Adana Kiralık Daire</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-2 col-sm-2 col-xs-6">
+                                        <div class="footer-col">
+                                            <p class="footer-title">İşyeri</p>
+                                            <ul class="list-unstyled footer-nav">
+                                                <li><a title="İcradan İstanbul Satılık İşyeri" href="/liste/satilik/1/isyeri/3/#/istanbul/icradan/_objectdata_U2FsdGVkX1+rOuUFnrjUzeOETBkRWfujAMqkQZtCHb6ZErjSVqA/gFf7D6DbwxoURnF9oH59J8w5H3pyF7XLWAS2TH4D361AbYsuIHmTnXoYdaMrq1zjOxYC2Nl7VvFKVFNhUX7Lvs9tZ4gE/4cWczybtBwoQl+QnI1VHuW1grBVGBTY61CX0GGQ6LWG/JZC">İstanbul Satılık İşyeri</a></li>
+                                                <li><a title="İcradan Ankara Satılık İşyeri" href="/liste/satilik/1/isyeri/3/#/ankara/icradan/_objectdata_U2FsdGVkX19LO/bZnx2Wx4WFfEQvSD+kX3/PKQi9dNQ9yG3ym4MdtSacg1ljFpGzGheYPBMVd2GpNYItZC7GiQYPHZUzMF9CD4GsYoUSIaNfQy+okzM8s+RRTPDT4QE0aFnXvHBtY5ERTEv2l1dL7NRKQbRzfV+dMo1g+hQBslGWo06YegsQGL2i3hbaRnYq">Ankara Satılık İşyeri</a></li>
+                                                <li><a title="İcradan İzmir Satılık İşyeri" href="/liste/satilik/1/isyeri/3/#/izmir/icradan/_objectdata_U2FsdGVkX19dakIHWe54Zr0KrMQIkQYeyQeXnOhXvgNX6RBc7EvlhDRrHV6wnAnJC2jx9Y3/gsb8xpear3LrQl69N7qN62ElO00ynkBXznlGGQF/os0FFtLaJNvvcTD1zoAQsIYMwo/scBzV7m4z8JocE0nFgmJYf6xK2MY8zONYHasm0ko0NOBbq5PkN4Bn">İzmir Satılık İşyeri</a></li>
+                                                <li><a title="İcradan Bursa Satılık İşyeri" href="/liste/satilik/1/isyeri/3/#/bursa/icradan/_objectdata_U2FsdGVkX19ImiQeT6EpVqRT5efV+4FmTtfidrAh03rgACI6qe+sPsIpCT4Gi24Sf6V7FbwqWIvcgk7tYTYB8/xuw/5hsWEchxgEszUi5Tz3cWIe69+OLGi2IMIID1B6tjz4T9V+4bxdswFNPBUSUiJJnZeL6cIuQ6LOLtM5Jt7Wkd3i9k1fH5UiQ7zecXlV">Bursa Satılık İşyeri</a></li>
+                                                <li><a title="İcradan Antalya Satılık İşyeri" href="/liste/satilik/1/isyeri/3/#/antalya/icradan/_objectdata_U2FsdGVkX1+gSJeioCi0+27ve/ALQDs9/2gEE9C3Sxxu9JsH5YYhbZyAgjwCbeLhhAFhJ+pInwcRjuFpsfcyBiSB5mQrGGEobvLxiIY4a/1yp75VCOIl3Mt16EDcbNHdFjpEW+5nPODprmguWE0IC+xslnbVxXXjqdCQBvX99Ti8mwIs9GGlWoeOuqx+T1N6">Antalya Satılık İşyeri</a></li>
+                                                <li><a title="İcradan Adana Satılık İşyeri" href="/liste/satilik/1/isyeri/3/#/adana/icradan/_objectdata_U2FsdGVkX1/KjJoVSYjZy0egSqzLMPR1zeJrJoUMzEpk9d+IySGpfuiPUfDHwNdNss6PisDbMCWHACfJ/c8zW0l6mfFLrHASQfQ7saMvBEcYIAz6sFapB8EIEIv2TJW10MjWD943Pnb5AoTRtlbDyFyPJ2zZcYO8Moc31giK4YfIM5ouHwIYH+VPdLYL/KBB">Adana Satılık İşyeri</a></li>
+                                                <li><a title="İcradan İstanbul Kiralık İşyeri" href="/liste/kiralik/2/isyeri/3/#/istanbul/icradan/_objectdata_U2FsdGVkX1+l6l8Za9ZlQiuuIHYzPfc3V5MqKm4QkrXEW18UbajQ4z832B5ioAKUvH9EIT4hSnwOI01TtHXFOJQ8YzP5uUGdbWNr++Xgb3GEIKos8dPKjl0Tz2KAwSxZ8MuZMwrS2x5maSIB03vf1uEY8DhAHTjHOiahSET7JkNgV3XvYJi9kf0Q5Ma5dgxr">İstanbul Kiralık İşyeri</a></li>
+                                                <li><a title="İcradan Ankara Kiralık İşyeri" href="/liste/kiralik/2/isyeri/3/#/ankara/icradan/_objectdata_U2FsdGVkX18vHfQbuA053nHrVN4eSxab35WwF1NVqkOhpy5+cX0aBEJfZhEWO82QD6vkL9fBtZOX9b9AO9Ry87eCln927glHXqdVRjMYnhRPt+Eh51HVkpF21DUo2MZXCTH1+Qkqquuu1NZOL83wYvBo8hRSPL1sM3Jy/YlfAT6UShOiGJdL/rlMU+r4OTdH">Ankara Kiralık İşyeri</a></li>
+                                                <li><a title="İcradan İzmir Kiralık İşyeri" href="/liste/kiralik/2/isyeri/3/#/izmir/icradan/_objectdata_U2FsdGVkX188SQFHStx0ujl2lEZ8Bmqr3WYy5y4SgiuHoMHvTzXCT2eKJE3h2AGDNsT2e0dbsZFiuVv/uholGJIA2VfL+lXlh6kc9iVWrelqQg5z5urv5aFxFK1Eif1/IXqCAQzpjXHQqWn+khV+8nKl5KTreH8EQH221SG+XXQElsm9jjrOtNr4/fMjugyX">İzmir Kiralık İşyeri</a></li>
+                                                <li><a title="İcradan Bursa Kiralık İşyeri" href="/liste/kiralik/2/isyeri/3/#/bursa/icradan/_objectdata_U2FsdGVkX19s8reRZmZQ8uaTiJyCvfPu+2rBeytELebAQMd6uC3Pilwlactn4ank2iEwAF1mJkz7W+cd0E8BNEu1cxoL9adfjeEWItVD7XU+AR/9W7HDlpUaEIU6mIeX6EP+EiL4NtKfkUwyVT2BaV0k25+pKOGZfGgbwYg4clNak7lxgRX5cI6yyDfPHWDZ">Bursa Kiralık İşyeri</a></li>
+                                                <li><a title="İcradan Antalya Kiralık İşyeri" href="/liste/kiralik/2/isyeri/3/#/antalya/icradan/_objectdata_U2FsdGVkX19Yu4DQwqZDrd8mzRArFYRjMhWIzT5nVEp/Su593fvoW4nirbiucCcel/eMAtD8I/gN7HDhgeIhZ2CcMe8r4GhII6R7eE1y6WDeZ2hl/fBkF0q2ArZ/o8duDtXwyeTqrTu3OOjyky4rBdWlMTKWALAp0AF+snXILf82L35uGguF7gCuEJaMcnh8">Antalya Kiralık İşyeri</a></li>
+                                                <li><a title="İcradan Adana Kiralık İşyeri" href="/liste/kiralik/2/isyeri/3/#/adana/icradan/_objectdata_U2FsdGVkX19w6KzgwHmAAK0kFFySMRtw5+4uA6RTEF9Vl3uvSvzjKg0O0iOK7BZnyiZWciXajLIA3K7fJx4XfXd1TUP0Edm7XWqP2n5pRovl4aJmfoPeLL1AiDCf/qrXerUBWY+6+e1ymiE66exFcfvWbJ+mToJEU+ydJwk4ThpRvgGeiVd9r5GB4Yi2bEuU">Adana Kiralık İşyeri</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-2 col-sm-2 col-xs-6">
+                                        <div class="footer-col">
+                                            <p class="footer-title">Arsa</p>
+                                            <ul class="list-unstyled footer-nav">
+                                                <li><a title="İcradan İstanbul Satılık Arsa" href="/liste/satilik/1/arsa/4/#/istanbul/icradan/_objectdata_U2FsdGVkX1+seXBRPJVSGac3nli5zO3FqchLDbV9/XH5/Nv7elVvdnnl1FTCXJVTCiiiAAOlee+lc0wRrOFBEwlgVPZIWLt5ZtMMy9UTfH9e54H6g8C3MxiO0i7V7hbgSimKOiL4ktByApHl0WJoZMHtfMw5VGyBy4ZxE/4uvG9z25iu5e8bZD3v5JRfZ1xLU7pRlEhxV5hMAgeYd8j1hbtR81SmFiCAShdGuQXZrJ+eGLlc8Kdq1R6oo/G2C04L+4JQqS27y8SVgZEuNd0smn1VzB8IsHtrWUFdgunl8NSrrbcMCx7JTBlVpyT8IcTw">İstanbul Satılık Arsa</a></li>
+                                                <li><a title="İcradan Ankara Satılık Arsa" href="/liste/satilik/1/arsa/4/#/ankara/icradan/_objectdata_U2FsdGVkX19kR7U/bpRrdhLmGbPUD/BTiEpSacWLjExjguI5Kc8fPftTgji5qFq4g+3KG5D9Uy3DzF1BySEg/tV95Ok3SrRNZrG1HA69zgup54s+q5mOpKsN6ZNvn9GXf11/rouukc0BuWxL0runapY/cJIYdk6HZMj4RC1cNXsYOjN+U9WT9EFSHCUUehukvcgxLT3+9WFW9Ll4VMYf6PWjuPcwSYCFUnn1a9OMlljCT4/44f7kcW9r/m3Tz6Jz0VnNPlgn58ppo4XvDxsta9vH+7VFz7EuNU138OCT6SNWDxk+ZqtjipJTUuI1UJGb">Ankara Satılık Arsa</a></li>
+                                                <li><a title="İcradan İzmir Satılık Arsa" href="/liste/satilik/1/arsa/4/#/izmir/icradan/_objectdata_U2FsdGVkX1/AWRMiXx8wXJm1fwuku/ZSFBHaVGOKqzHgEzXHRcmSgd+aii85byvVn6kvv1iZDeIfj8ewZWwz14k6kaZ+eEicKDwDuBSMsq1HsvKb8sm73v5EmTXV4yYVZGq8UU5F7/DdwoYqbvWPdbboQrZFVfioH/VnuPMSeDsBScow3AqObvEYY4d0L72bnrf5Heofqd3ucN6MmBFGV/2ZDWKnW/WHB1pM2HRYP93FafEfLXuEMWxtA8iyj4sbm0Yqh2YiYVbxD6Yhj1zUcghwDu4pSrIQiPYA3wuq8qbW92SSiiV9YU9KnMaDaEpe">İzmir Satılık Arsa</a></li>
+                                                <li><a title="İcradan Bursa Satılık Arsa" href="/liste/satilik/1/arsa/4/#/bursa/icradan/_objectdata_U2FsdGVkX1+WZyTAw267kLlh/BTUzzYf0slB9GqDKWfY/pKWnvtrYM/WcwpM41VVwnV74VZWOFr/T887+QCsqkth9xdj+9VhU5kgwvMdEiP4tj8LOl3K0Fi8miacjjsecosgacQ3kmNVT/JV3tWxGSRFSUwnDM18XTH41dORZHTkwcoSSR3hjs+VakBXFn7wLXSfEIPMGoe+4F9QNfuaowNxEzzGei7tSCzIhqibxpoTqHBBzynx1VD3mBfrpQ3NqyqMFVG3dRs5dLPq6MX65z7K3z4B6+ozwa5ZwgJFYSW26u7MtSYkBaXvkV7dfoGI">Bursa Satılık Arsa</a></li>
+                                                <li><a title="İcradan Antalya Satılık Arsa" href="/liste/satilik/1/arsa/4/#/antalya/icradan/_objectdata_U2FsdGVkX1+mHovyRaq/ZLwVsOHHMetznaaWETuq3+cJ6deRKuEm2bNYQPf8pXB0Lc/ESH+fa13/raaN/BKeLGhXVK+SWV8+ZbHCh7R0UhvTgUZsN7aRTRdoFLEag5JmPkzvVpJQwsThaTcx4ZnV0ehfjRCfNLxd58d8h9mu13CQ7UkFuwYZ2m21CXFYCo++pO4xXD2aAYxd4bOZiWtvy5aMPvQ95ev2YRP7dMezYCjY1wv1N7IWf6I7RuMaMGCM4U/MSGhbT/9XdVYPeYZKH2M9LLJokSNmfTpZ0bqDPydezG+4NV/1x3ekjE1hBVNh">Antalya Satılık Arsa</a></li>
+                                                <li><a title="İcradan Adana Satılık Arsa" href="/liste/satilik/1/arsa/4/#/adana/icradan/_objectdata_U2FsdGVkX1/QtCbprMRG0wCZ3DjSpKSYyvD8llcfi3KQY7iK77gBpYsuwUK8oQdz4SSFKXolp6kZys+EIiQcqpopOPNmg5pMVOchOnvOHjabUhplkvKWO4YCW0quCPep52RqRHxlGGcURFNLOUqM7rOYZ+huqgtuCaN94ps0nt7QTFSI9PPvqjCQx82/W95fthqFDpg5KZi7I/vFkar3zzpaRwviMB85u6mNAvP06M40bDqCkYIZEnjWCxTm4bMIJBtVI0e/+R8RSNJzmGRp9s2+ScWoEY9JF65x1eVokSz+ra5ZkcLG6s6DhH4iIni9">Adana Satılık Arsa</a></li>
+                                                <li><a title="İcradan İstanbul Kiralık Arsa" href="/liste/kiralik/2/arsa/4/#/istanbul/icradan/_objectdata_U2FsdGVkX18snj2wTjL5MqclusuJtvGogS78m/urpx9nIF5tZV3ePdIKzDE51rQ7mOFxL0n4p+NUKisztzSQe5gShFm4+jcNG2Go+m2bFvL3Vj0qFEgbetuSUz6gtqHxmVn1OcP/yUBXJCiszeP/vFtpMJViPSHs2DaZJUgZppo2WGLyo+swQvzrYKER95C6qRcHFBFs7TS0lzevRvvvVae6xmcsNFEsBO7E7g7WMB7ecbM0nXBTnTZ7IyqRtJCEtQbEBpL/idj9VDttHsgDX+9U6rl42i3Wq8zQyrpdEo4ZoaAALJVA5R/hduntr+lE">İstanbul Kiralık Arsa</a></li>
+                                                <li><a title="İcradan Ankara Kiralık Arsa" href="/liste/kiralik/2/arsa/4/#/ankara/icradan/_objectdata_U2FsdGVkX19WUY1CqBulvqYOHjw22TWateDzkGvnIHcByGXm2Ra8eHQcC3b8wPmo67Brb6gsSXpLB+GZ6SerFirI7nTyzXABOyuvsUBsrQisT3PYrd20nAJ9QLzGh79i0htx2OC/22Xta+ALJ/xEM6rCFHamk5wNzQz7Mffl/oDxhWUak+mZGQAGs2pYdIBocxJJgvGMQxCl2eGh8Pu+qDhaYXRU3WVFxexx5cpelRgH98g87JfVtKHOF2iqoSEcfUfCTQmNzD6wxvD0xDdoms8aIZp5dT3lA37k4vJ6e8Ux84AVX6vlIEeKwbHaaA2I">Ankara Kiralık Arsa</a></li>
+                                                <li><a title="İcradan İzmir Kiralık Arsa" href="/liste/kiralik/2/arsa/4/#/izmir/icradan/_objectdata_U2FsdGVkX18rW4DlSObdfHqn4x4ZKrWlHXCjjDDLEVFXGPsU9FgEuceqney91qnEsWe8hJuWOpoFOqgJCWozlTGVrBfYXzLBbxE3tyF2ZDcsY37YHHukpKJCJDDeuqx3sE+rShBX4l2rao1ouGgrR5rJq+QkZEKD+MQHYpQ1+dHn+X8rs2UCUPFx45ldT+DEPdRlrN39SpsfC3UlOlWqSCrrud+T0b7qsfZKRKKPF5vDLNTZdMq4iYB2103vJoEhYY7hPtGywMeVdf+R/bm/A9XUePCm3mfzwcqGP5qBKOiQaErR5DQ/p4G+axuNi//P">İzmir Kiralık Arsa</a></li>
+                                                <li><a title="İcradan Bursa Kiralık Arsa" href="/liste/kiralik/2/arsa/4/#/bursa/icradan/_objectdata_U2FsdGVkX19nzAcavc/2rJ5ODO2lBOLG3IfJihTNfErUnkhZm12itgpdAaijse0uilZH+cvGa9Gd/dWc3ZOwBeVSQtTjgXUIHwnziROkdjKKMOVHZa3ZIG3v60Tit4/ZdvgLsDJXsFT+Y14x1RuONiDj1GyPJeXFgh7yPrTy46swZUTW1HPbUBOKzIzNVzMWPjg8M1NMaailYPfBjJ1RJQpDEylXGz+5WHl9IvuYZmTf3WM74Og/8yHvcgUCh0VMTAyq2olcfVK9ieMIEDLT7WiT+KNRcA1gI/w0zYcN6DnIQRQNLHmnXJgn65h/of7S">Bursa Kiralık Arsa</a></li>
+                                                <li><a title="İcradan Antalya Kiralık Arsa" href="/liste/kiralik/2/arsa/4/#/antalya/icradan/_objectdata_U2FsdGVkX1+xydm5UdR4tDbLmVkcdxom4r/eNlLIVePU+Ez3eaYDiSkx0KViIQFCK5JT/UkU+1x3N9UA2TBleFdOygNfmkLD8qh91FYv12UPdfar7c4/d1CrU+yKubpSPjC+y6KIc2LxPCaYUkwjvGxXXwVrVLr7v7Hl3cmXSxFLjQ6RmFosGkNEWJp6bv5bDddfBRLHTpK8DkG3MLYEfAPZpUXtNE0jHQrXaga24YGipLmOt7QJyRuxarJXUKDFcBFVrNIpdLgdU7tn1wibO7xLfblZ/ZNh/jXgmXYu906CpKNOlnNH6yxlzK0ayDnl">Antalya Kiralık Arsa</a></li>
+                                                <li><a title="İcradan Adana Kiralık Arsa" href="/liste/kiralik/2/arsa/4/#/adana/icradan/_objectdata_U2FsdGVkX19jyV8qnAXtb/BAyxQhqtKVW4RAPyzjkQzHmWYqWZV5Jcoif98ZLtuyPw6wuJy6aNyl60DcBFefqlfjjROSZtmL6iB986j5JVad1ks+4muDbpGUHmhcwY9w2tNWJ8qMnx4y+wcUYkzF3Lf0amnNibOXovPpVOa9yheS7g6lJBD9pSMe9fnzPyN4RC09Q+fPAm0yej7cRGplv9qCwodZw0Xtaz9wQJ91T3/zz1Z5EGPMuFqF9/LsE4bCZNPuDnyvCf8ULAR1s6fPuQ121jjvB6LMgMpSEHMeSP9M1juhc16rn3RO02ZY711v">Adana Kiralık Arsa</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-2 col-sm-2 col-xs-6">
+                                        <div class="footer-col">
+                                            <p class="footer-title">Bina</p>
+                                            <ul class="list-unstyled footer-nav">
+                                                <li><a title="İcradan İstanbul Satılık Bina" href="/liste/satilik/1/bina/5/#/istanbul/icradan/_objectdata_U2FsdGVkX1+QQSjeyFpFJ2xSCOnyjRY+OqdxHL4feamv88Rq5w0lYllVXQ7KZVZ3RZu+IgkHhEpyTbQFHLtIqBLvqSmlIGZodcuMQhudUq/uGbu/gzSDt05N7Hxp/3JiBKR6ztTi8+OWmKVltSc5PEyxy50kL8M+6L+W5ADwvQ4soPaDwhi3xkhyMkYIby9IYP0t+f08+E4vtxS4Wr/ksN17we5yQrnTWHVT765rqACkJWRQb15crFLVDY7lgQAxx0WFVpEesKI3A9O1H3GKCA==">İstanbul Satılık Bina</a></li>
+                                                <li><a title="İcradan Ankara Satılık Bina" href="/liste/satilik/1/bina/5/#/ankara/icradan/_objectdata_U2FsdGVkX19s6TDemPedMIdBiTiUI8rcZVrU4mgvG0FMjV3qLEa+Wimnw6uiA6+d89h3qGzmt8TkcRpHWZhkBibih/ooKJ+cEhms5NARgXtZu9bolTU3FayVMTbzQZUSxdrjG/YKdRWvD+qhYXerUDc8ba7RjRbkHRWzV2yYC68DWJe3ehk1NYzSfE5r9GTMH+QUoWcy2a2m0kVgcF27fXLiCqOHAkrgBYnaI4MymsCZXc1AC4VtvLap2USAtN+9ngAysOBRkiq8ZfAXJeaJQA==">Ankara Satılık Bina</a></li>
+                                                <li><a title="İcradan İzmir Satılık Bina" href="/liste/satilik/1/bina/5/#/izmir/icradan/_objectdata_U2FsdGVkX18sTAIINxh4zYDP4R6I3s9N1I7f37npDRS0h777DaVxG7nsFGKcR8pTpL4YfKFLKtJAZ1Tks8TPwZ+KSg609xaBbZiJShMRobExBiI25UWHY93ngPBQ05rO8LTmimgydvC4fIHGMDadUlj0ESlN982QGmRESMoQJO2Pnr/1lXakJ/Q3ZGtTVD7rD9DPn6+VjEudksmucmQS9nZScjvuLYjGUHjHvAK3b4sEsrNGlUjIJNw9kApUYoRSsv2/bfOvYCMRBvXjJ9TiSQ==">İzmir Satılık Bina</a></li>
+                                                <li><a title="İcradan Bursa Satılık Bina" href="/liste/satilik/1/bina/5/#/bursa/icradan/_objectdata_U2FsdGVkX19P24g3b+6xZYHOcDQcSvBm/eDK/w7bUqSlpHiHbsv+WzH/YHit+xPTv6wJFhxHwrFXAnfOC2GlLOv1NUHu/fDtYUUN0mGYQem3HLRfrJ69rv45bNAj55K1yu6p2CF/Y4t8yZzyabTy1DWtGbavvjHWRWZtnoyQQSXsgxfYh2jiQY37+fbO0PGliKUmmWMAVQj3GjQuIq/jj1GCgEvm04216WXwgLoWOaDZ4cV8QX0Ku3tW1abBOshZKlPNoWUp2fgMcySPAQREZw==">Bursa Satılık Bina</a></li>
+                                                <li><a title="İcradan Antalya Satılık Bina" href="/liste/satilik/1/bina/5/#/antalya/icradan/_objectdata_U2FsdGVkX19KpCJpL3/h1OsAGy5SJF3gQP+w18hPtadKRWkhw2QJ9Dvj1HLTFGIFsSCfjDodSCo+98Wg7ahzmJcK59V+4LH1ayntL2OTsYXh8EcOX71SouWNtei1QB/+YsOKA6ODTH2epuEDuS3qCXOr1IGMoT579/YSWPlSVdBsUTt1xGpKdwKQPhhVgTwefzArzcL6k2oW90bra+PiHrumGFDlgyaBWvx4eKbWYD9q7NIwEHnqMhNFs3nyC6won/oIU+JUdOvKNRhmnanKCA==">Antalya Satılık Bina</a></li>
+                                                <li><a title="İcradan Adana Satılık Bina" href="/liste/satilik/1/bina/5/#/adana/icradan/_objectdata_U2FsdGVkX19Up4bepaxGMJTqP15qvayXTlrsgHJdohVu+Bfqgkg0gH59rfKJtgBS5mwry5kRdtuJvqDceXasDK+NC38A+MWg8DMBjBhw7u95CkDH/n/9AwzbAR4JAKculA9pmTQsQvoxEv7GDLsPuhMzOcXZPdKk+kxNrrYYu1HY6l+Z2N4+MTAMV1Zz9jgWP/HdaRPoIy+psJAM95puJuU+kxhFqdgKIJ1VdazOQ1jY3Mk9OR5rL/MIgk00/Pexgf9uukgeP9v0JW83kLDM+w==">Adana Satılık Bina</a></li>
+                                                <li><a title="İcradan İstanbul Kiralık Bina" href="/liste/kiralik/2/bina/5/#/istanbul/icradan/_objectdata_U2FsdGVkX19fCQJf1N0WoWIpZLgBWfSZze2ULxdQn1GJgFRN4R3QOl42aSpDCF4eky4M4j30hbjw4S5uyOhFsSXLxJ8olVFILTSi9oj3nPwaJrGQLr2k1TIa8EIqsdBZ4lDF3TjNHEk3yJSBx+RfiPaTcBi1bfQ+b7aReKWGL2Q8WqdlB+ABJilsNMYAtr5tjlc/VrF7Xzh3XZPDDOzEN+wIfEaORSuVloVtaAq9/qCREDXuU9z1ibLWBSIuT57Ls8xPNzsSJL5INWY9y2635Q==">İstanbul Kiralık Bina</a></li>
+                                                <li><a title="İcradan Ankara Kiralık Bina" href="/liste/kiralik/2/bina/5/#/ankara/icradan/_objectdata_U2FsdGVkX19rpysnu/NqXmrBe5egVQTSwsD6QnIbv1lXCUhgAjSxlTijqO3hmr5NMebOE/6xnKerfL2czBl5+emRkTthnLYGuEp3IAW7UO3MiJFNtTiSMbhcwEmsX1mFpF7sHTU8aBvAvqK2Hu9E2G4LsLvL8KV9FyMAjdScQrclS6AtDaSY0TmQb4h5TuvFniSra31RlH26Bj9tiNdAJAIe2bRq350Lk+tmn7xoAt1lfWoPaCvbyKKj4Rvgh7uWZKuTcrj10VxOuCyZ/BaoLA==">Ankara Kiralık Bina</a></li>
+                                                <li><a title="İcradan İzmir Kiralık Bina" href="/liste/kiralik/2/bina/5/#/izmir/icradan/_objectdata_U2FsdGVkX18+Lfo/xyfAIcMXK/a8z8s3rGKOyM7G5EBFD/d2mKuEK2dR6Sm4SnEncZRh+HLhAbaXG0o37d6Y2VauBTe+sbVTB/Q7QDfwwV3ztg5kKWw8zHVO7q9ASvi5EUxC1NBZOFweHj31uo3kG02ZSk9HG7F5qSg+yFeUyTx4RU1x6wSpp3wY3qZqT87a42pbGV+bs2hthW+F4H8CLPsPrd4vNul3gYH0GOH7rtv6EF2+/Zxeg4C/bY+wZWVZP46gv7b7X20vBBawObGoGQ==">İzmir Kiralık Bina</a></li>
+                                                <li><a title="İcradan Bursa Kiralık Bina" href="/liste/kiralik/2/bina/5/#/bursa/icradan/_objectdata_U2FsdGVkX1+UEvd0NgU9XINTsfOFsKtDVBeJdySSToFd/NYbSzJRfBDRRbQ6wWHDB0c8z4/O6K8VpzpVkTKrBk3Fh6Z+ewQHPqTjz+IceT0I2dHfDf6sDxCjfDKKWHniiQO7xAecneuXdODaGRpfzs2GFq5QGlWDLtfbqMPRXqdXaPpFjKL98crhsfQajSCwJv/8JDZlJs50PUCHwD3BllJHMfAJtSEhVll4tB1XZb2mv9aMJgvYPYJZD5Xkr9KJd1ZiJij+kJCAqNx9DJZyCw==">Bursa Kiralık Bina</a></li>
+                                                <li><a title="İcradan Antalya Kiralık Bina" href="/liste/kiralik/2/bina/5/#/antalya/icradan/_objectdata_U2FsdGVkX19iG5FfXc3kxEyYj+8HGS5FQLza1a+Z2Q5lZT+Id53/gXHHZcGWdU8WqH4s0oa+yuWZ8qk+WPAOQNgPtLlPH1dacwf4N1U+5/bvrQQ4LjV72DLx4Sz0M+cpqJ1haF33H3ZFLrazvyMcKoxNJYXxdXECqPYFZyNIY/kSQ8ZiO43bfMEMhtTMAVsv6+jED0YS1gFT8C6ryQG1FMDtSJNlTAeqJFo2gFHcfQtZuYpc7iarRCNSrTzi0TIXAqoBR1F/uMu7TAj7pkgMkw==">Antalya Kiralık Bina</a></li>
+                                                <li><a title="İcradan Adana Kiralık Bina" href="/liste/kiralik/2/bina/5/#/adana/icradan/_objectdata_U2FsdGVkX1+gdl0HLzQA54KJodWhvhklUxvPifYq84KLvtYFMJKZKmo/0YUWHmHY5zUE/lyS9lZgYVjtHumv1ntemmG8TSsgijpQKOLVY8Lc2APuj7qZP0VlydRrjxd8Cp52/j/L4/nA9KVEMe5vjPr1gzcdDRUq6zTKZX5q+FVaF3SA0xEf1Pt06NRtnLMnQ48v1HTQWRJ1vdQ2A4sNZyxBesCino4IgieGnOwJibnnxMKdR73iExF34hEqDkrIimyOCDtxBh5IxBVpENv2+g==">Adana Kiralık Bina</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="tab_e">
+                                    <div class="col-lg-3 col-md-2 col-sm-2 col-xs-6">
+                                        <div class="footer-col">
+                                            <p class="footer-title">Daire</p>
+                                            <ul class="list-unstyled footer-nav">
+                                                <li><a title="Bankadan İstanbul Satılık Daire" href="/liste/satilik/1/daire/8/#/istanbul/bankadan/_objectdata_U2FsdGVkX19wDH7nvRNnxbGI95WF1tHAoxdoKSQxdkM8QQUCVYTz/ieapjZNkbq15/EA1JxmI74j19OvxNcojHJCpxZQzGAs2Vr//YD8/l+R1jV5l7F59ussZO6ST+3g9plPBCfb558wawqHAMtgGeeEw9CaTkyVtgr8nSMc9S7KedJhcUffSJUN5nAjU7X9VQjCb2cWqeyjDhJmzk+Lg0GJKUMCggnQTPp/G6K6Bug=">İstanbul Satılık Daire</a></li>
+                                                <li><a title="Bankadan Ankara Satılık Daire" href="/liste/satilik/1/daire/8/#/ankara/bankadan/_objectdata_U2FsdGVkX1/GC+k5qU0Qa6Kzh7Vgr+g4tUOBTwqU0eAN8VQj//gzhq8UBTSinfw8Y8Luo64d+ViFgPik28H5fx6N1KThM9XxS0cEwo8C/PcAz5EAGC197jfTz3RZihChxYHL/c3uQ9/X9ETDvOs4v9OLTuLwwWYqntnqXpPa7zcNN4BYTaU0m6Bl7a0XNYTeJhHYuFjmKsvpzeshDwdWzlR7+/smCAtz8WJ6syYgaCQ=">Ankara Satılık Daire</a></li>
+                                                <li><a title="Bankadan İzmir Satılık Daire" href="/liste/satilik/1/daire/8/#/izmir/bankadan/_objectdata_U2FsdGVkX19F9Tzpp4WND9ZyxVWJUmFw0lgTV66EK/Pfl8634TDVJ99P/DOxh93tINjoo6OPfmpvtuSRSd/VrHsR1f8RunPqoz5DH9Ca+h1UwzNmoMNnd0oIrI9/R6h47QCZcV+PR6tNI6jcnrJ3hysFGCib/419eNth+v0lpeqUM6OetSwWOBXQ9uBcb6rzPDvMzULR/kzrkZbY48Augc3h160vbXNuzBzdsNsX03Y=">İzmir Satılık Daire</a></li>
+                                                <li><a title="Bankadan Bursa Satılık Daire" href="/liste/satilik/1/daire/8/#/bursa/bankadan/_objectdata_U2FsdGVkX19c+GW5OaXvbCKey40ebyKWead/Zt4FQwpwouBgrFojCbyrxRcLe+62mAwtuEOgT9bQRj1b+1VNWoa5Hyi9UoTU4D5cfNgiJaJktKdAF3GgnydmCLF2aTon0FgtfFLmETH3ZYvFOBpj0zbvRU1Bpwzr3Jc5Qg3MWTw99UTJ5/YPQh3k3IfaXU0pVhzlRklxtCRJ7A0L0PuS0Z47dabzAgGllprOhL7VzzI=">Bursa Satılık Daire</a></li>
+                                                <li><a title="Bankadan Antalya Satılık Daire" href="/liste/satilik/1/daire/8/#/antalya/bankadan/_objectdata_U2FsdGVkX1+vPbP/t7XXgXPqN3x+zxxBiEasRU2QYglfC3fhjMRBil+Q9FJemVKrPFazUB2FMaDXFoMSyngS6WuBkYtsM3GRH6eM/61zEALFQHqZ1JgaCFmNMznFddBMEpfqtsCNE7MkiWUOclZ+ZSOcWHZYPb3U/S9XCYwZLAf4FCMsXUFCqpvFY2P6od/kMnDJ/FRE1rcWflTN5n3SsfW6zF4kit8xwFVL1PgkktU=">Antalya Satılık Daire</a></li>
+                                                <li><a title="Bankadan Adana Satılık Daire" href="/liste/satilik/1/daire/8/#/adana/bankadan/_objectdata_U2FsdGVkX1+fLjFuLBKeDrBYkIqsw1buSlD6qKwbrkziFjxricyGMcBh/ROhcQqvQnsm8sFQ9SB4n2VckvOpT86q+gNnexXtb24PjqMR1r+dWp5mycs2QjyoV4nsiutELqZp7S6OJ+GJkmaBXi1hGczjYEIVB2zswZ5FVIEZxVppjb9GfLxlriVa/uY9sywL/7vrfxgck3cSokbL1Gg2zT5yX6DIdKUVwgjwN2PZQDo=">Adana Satılık Daire</a></li>
+                                                <li><a title="Bankadan İstanbul Kiralık Daire" href="/liste/kiralik/2/daire/8/#/istanbul/bankadan/_objectdata_U2FsdGVkX1+fufbFoWDrnk98wb146akJi8UXyBJTzMOVOMAMH8CftgJrQBMd5PVl6aUtKA5e0Vdc0oceBLSoPCQc2Xu7wi+ihWoABs0Iaf7VV1WSmVMaA2IZSj//vwXAVCy8eeyTTr7zG3jRsmXe9yQRVutgc1P/3VHcTS0uKeaRke01oqtTbecmMbZgZ4a0Zs64UL6koxMx0KtE5Og3KZriwNtwLctuc0BwRz/BMbY=">İstanbul Kiralık Daire</a></li>
+                                                <li><a title="Bankadan Ankara Kiralık Daire" href="/liste/kiralik/2/daire/8/#/ankara/bankadan/_objectdata_U2FsdGVkX1+UPjNYtqaFeI5vxVl6HGsW/hdr2OXTLsGjv7Mp8aR61aNlyuLZ4N8RblcLBQ4KJyb0gzkJrpnPgzlA8HA6G/DlBvCy8AFYhFbGiPIvc8X8fAwdC5a9X2qvNY68+xjjiD+saaXRZj/9s7n+TBHm/RmJ4+LYSyNgMjLHyX2adQrvi43bQg7LONXESxJlKlOJ23xdvs6vcUhS6tUW+MkVLnHqszyoYdlLHZU=">Ankara Kiralık Daire</a></li>
+                                                <li><a title="Bankadan İzmir Kiralık Daire" href="/liste/kiralik/2/daire/8/#/izmir/bankadan/_objectdata_U2FsdGVkX18yr035aw+6zVvE9lvcHhgCYB31cbfteR+BQQPQAA6aZ8oUxPeTANUnibSw3Og5ilRd/R4zxGnvLiBYxGaXgJDqO0phif/6J74T2UAXgDR96hcYX8p/m8pLT8HPqQLIWpkFTOCu+qS2/nWFcdCtZ8mpK/ahMPKnemYruS6ZsD/cERJk+/j2ttzq1Gt1u3g0Y1y8oWAUozB1yvMZb1c8iE1jOQkEYSkwHg0=">İzmir Kiralık Daire</a></li>
+                                                <li><a title="Bankadan Bursa Kiralık Daire" href="/liste/kiralik/2/daire/8/#/bursa/bankadan/_objectdata_U2FsdGVkX1+V+z9MTxAKPrPVtUnZ8tbfUYLBZa9+PYgvxpH+4sJRiCmCCMparPeOqJQa2dgZWbz75vUjBhufYfJ4eUT+nW8aCieLoSleB4CT2onvVeBENToUSu4MOJwdpNKCxCLUvNti1Ku23vShLuGS/7BhahPM3BqWX1gH+3hnITGXfNy5nGIeXSiQ28ZxT49fn4j3cXN6ZTO7rfmjUkE3N+MvukoXGhNi87dtF0Y=">Bursa Kiralık Daire</a></li>
+                                                <li><a title="Bankadan Antalya Kiralık Daire" href="/liste/kiralik/2/daire/8/#/antalya/bankadan/_objectdata_U2FsdGVkX1/R1O4Kj8zURXZnoS/mryYEqEYuMYa/fdCYMORjS0Wu+psqNR9Qv9oAsOIbFjtKL3iUdjqSeidztq70n8og2qLTjOXqhJfiptZlOGm85SEqjsk/daXitueEq9OS+e2JJr3oyPU34Vdu2LWOUusZulC3OX+6UELoUXr2DAvpVUgpHuxK7bApAiEaWbbLxh4zAbqxPZrMoeeBeHMy0a0gFujYEjzd0H3aULw=">Antalya Kiralık Daire</a></li>
+                                                <li><a title="Bankadan Adana Kiralık Daire" href="/liste/kiralik/2/daire/8/#/adana/bankadan/_objectdata_U2FsdGVkX1/UM5dSqLcXDGfuMGIZpHrCSMuKu0NjlCm/7VX6PFXwvIjfRu9pC/wAIPlo3yAtDUrGPCRYu+gxcLrbhNBKdA5aWnmZqayMWjGeLdkFkcE6xSzjcq1/iX1layyXkUDE+EVAADdeBJZJokENZYRZkckM1L5nMaFYFakaKfYajdnsLSRFJfWlohgsaiaA776pvWRQOv5dqiagd8NdRp56mIznFbKyhydXRR4=">Adana Kiralık Daire</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-2 col-sm-2 col-xs-6">
+                                        <div class="footer-col">
+                                            <p class="footer-title">İşyeri</p>
+                                            <ul class="list-unstyled footer-nav">
+                                                <li><a title="Bankadan İstanbul Satılık İşyeri" href="/liste/satilik/1/isyeri/3/#/istanbul/bankadan/_objectdata_U2FsdGVkX1+tGQOuvwcHbdJchw+v3Bz+7yiYy6fRBiITozfBmOm9mxdtZeBndhVeXAQVJqCVJTzbT5wKepnPRIRPznNXNhjvYGL5npuHk7Nf/ddOQnLp3cT4fOWyJLm/51J3hxCW6io4ah15ZFIdCyfdpo5EncnMw0RzSmI6pUDTee0CYseRMXIoQAfplxEW">İstanbul Satılık İşyeri</a></li>
+                                                <li><a title="Bankadan Ankara Satılık İşyeri" href="/liste/satilik/1/isyeri/3/#/ankara/bankadan/_objectdata_U2FsdGVkX1+QiP00x5+Sx+p0rCnq49yQE0nABkjWWqNWtkGggi3IFfWQeqxDUppJ59P/c7XsRFspJ0CImCOT3nJy5KfV94NFp6dH9HkzIQ40yUJSqDkWWBNfsYUKaTWE9TfQrUrs4ZwR8ioIJckSzBOh5CIGUV3Cy+hDvgEFd97uwOFbtdjh4IHzwUZmyXSP">Ankara Satılık İşyeri</a></li>
+                                                <li><a title="Bankadan İzmir Satılık İşyeri" href="/liste/satilik/1/isyeri/3/#/izmir/bankadan/_objectdata_U2FsdGVkX1+jfSc/T2YBghGSgd1l8LTeIJyMKc9CV++/zWYvdqjp1QJ5uUwYP1IkvZCx3AhzWJAzJNEFujBebbC45y598ZrEOdbJ2PKc4zPSQyhD/MYtmkH9QhtFqWRmEo32QAto7pqg6u9Ji+nsWpw4Y9T5/9x9Sfk/jFz+4kGi+/XZNE2EikpjlNTdkpa9">İzmir Satılık İşyeri</a></li>
+                                                <li><a title="Bankadan Bursa Satılık İşyeri" href="/liste/satilik/1/isyeri/3/#/bursa/bankadan/_objectdata_U2FsdGVkX1+v2Ll3qbUjo796kV+FBXw543wYIbIs0/l7EkrZS8/H1Y5wlPjUMRNY3krFPly7d+j//hZ+XFzjtqSgG6H3aoLW0xp010EfbvsrHEa9K4vY2LlXiulVXshcwtIQQKtPeBrhNX5uDd1+5r904WThx292h1vH+qLhbdCCUnpMKEwoDgpuWFk/uvpF">Bursa Satılık İşyeri</a></li>
+                                                <li><a title="Bankadan Antalya Satılık İşyeri" href="/liste/satilik/1/isyeri/3/#/antalya/bankadan/_objectdata_U2FsdGVkX19IuQdU1AyzOMnjS49/YOWKqx0aORe6+Aw9U6NcKzbxOmyrNEX9ovI1mIXkOQ3lPz4UiZeawqpTtvSFXlSND72f193O32bmHu1ycFkEE5u34l+vCTL3XwvW8xi3AL7diKhW/lFzyurKZnmbgHzVf7KrReBgj5ddRfesrV9sSVBy8hyAjnP01lqG">Antalya Satılık İşyeri</a></li>
+                                                <li><a title="Bankadan Adana Satılık İşyeri" href="/liste/satilik/1/isyeri/3/#/adana/bankadan/_objectdata_U2FsdGVkX19WrNoSnYUR/zwovk1HLZb98xG0uuI1fUavinByFJUFpX916CkSA/ij99HQa8xkntPO2wKHCc0oaiLCb8tww2JBS0m0QexsR38JE0LBxrm5dVYV7nTkVWdU3ozWkpoayOS6xFnHCUIRkrSHwqnl/tJPu6er7QarOqbiyIEi4jq6qmATuqbPl2cM">Adana Satılık İşyeri</a></li>
+                                                <li><a title="Bankadan İstanbul Kiralık İşyeri" href="/liste/kiralik/2/isyeri/3/#/istanbul/bankadan/_objectdata_U2FsdGVkX19ueoVhbnQ5PrOq/g4GHMV/gAwaJyuPjf5ig+7XGq7USvsL9HDJIDviTVFd5O2eQM2ZJosKHtzGir17AW8JTQz4yIb/CwnIQMfqFajMV5l2WgUMJH8BUKf3/6JvvmL0++n+rLMvoWLo0X2WdMuEkQ+ZhNkyEMnR8uuzi/fRTBjCrnFdROnIbvXZ">İstanbul Kiralık İşyeri</a></li>
+                                                <li><a title="Bankadan Ankara Kiralık İşyeri" href="/liste/kiralik/2/isyeri/3/#/ankara/bankadan/_objectdata_U2FsdGVkX19BvndyURa0zyLF4ZXqFGBPCE3yI0H79viPcl8tTc33aQWN6721gFqOFCmiUCPICc2akGVGa3DcYroyQkCPhBnfxLn7ggQXPypdjx0rw1pD3x0g6eqfSH7dDi027LbbMZPFZ6LopZDmEHt4iJgdSijh5M41LpRXfO2RvRRmdX6bmzISyqH2Wq3l">Ankara Kiralık İşyeri</a></li>
+                                                <li><a title="Bankadan İzmir Kiralık İşyeri" href="/liste/kiralik/2/isyeri/3/#/izmir/bankadan/_objectdata_U2FsdGVkX19K3LUEneyahMSxPqkcWdSnU7cstQ0omWMRXH9ikrAZY17L7EsBU9Ie3RfZM+9SZIVdSoONgpfDnyJPqXQloosmCd+HTGvZI5y/+tVI0EXHlKQAGuCawu0B3a1++tdAWivprNfWg9W1O769N586Vt/t9wCQRfRVcBpaFgzL4cfXH70el5k77UdM">İzmir Kiralık İşyeri</a></li>
+                                                <li><a title="Bankadan Bursa Kiralık İşyeri" href="/liste/kiralik/2/isyeri/3/#/bursa/bankadan/_objectdata_U2FsdGVkX18+/VmuXFSSFQZD6YxVdyLNOLgeX9qibk/E0HQax7L2LexQImlkS5LT1o/ShxMLwUlc5iE4TqRmufbsFT7W7YXMLMX8OYtzSxNJIa1Uslboeu8sFulD6Qzz66Evsa5M91WvF7WaljB+PuChFGol9VlPM57K27THc5EL9iVCI2XyqI0ZYTkL74rS">Bursa Kiralık İşyeri</a></li>
+                                                <li><a title="Bankadan Antalya Kiralık İşyeri" href="/liste/kiralik/2/isyeri/3/#/antalya/bankadan/_objectdata_U2FsdGVkX1+pfNwPOLFh1flgj3JfV3xXiFdIL5wumBHU57UePWc2h/GIvQR0WQXbb8trxZ1+p5l/SqA9YhCJY7LRD9tWkmRO59MS1Yf+v+vqfiPW3PVHONky5F/ojn4NVhwLBbGYEsTcSluL2S1oHHXMBaeRnKhJ80XzH3xbPGiwMgXwf8+1tjnjd7yKHu2o">Antalya Kiralık İşyeri</a></li>
+                                                <li><a title="Bankadan Adana Kiralık İşyeri" href="/liste/kiralik/2/isyeri/3/#/adana/bankadan/_objectdata_U2FsdGVkX1+aPvmYOpEVopqNBInX26fhC6S2djAPgLrtebJUryNFOg7fMDzzq4h7XbpZG5PCZCR5B8QwldI+g2Fl2r3RgDHWaNOTbTbT10/0kHgYODL90w2qnr4lQMi84OrOKsoDeZlQUuNNcWR6Z8Y71EVhAGrvnLw4tOT8/3Deu0B66uQ1WQigQ8CpwTrh">Adana Kiralık İşyeri</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-2 col-sm-2 col-xs-6">
+                                        <div class="footer-col">
+                                            <p class="footer-title">Arsa</p>
+                                            <ul class="list-unstyled footer-nav">
+                                                <li><a title="Bankadan İstanbul Satılık Arsa" href="/liste/satilik/1/arsa/4/#/istanbul/bankadan/_objectdata_U2FsdGVkX19FxP7/wPXkbDAhkRjj4ERMHEY2MwQGsPdlQ2UV1TjNTPDIT6pJA1Yt311tnz6hFkfBMBeFpGttRTCEfMEjdWAhh0uz9dxnqlGl2m/JFrSfKGJtqaRcWtWwJXiSHq26nrx7BVNqzPe1P3IYogLyePNwMSNpZyIkN4PyJgTsX3eKVW1euWwZggxkIQrFwsn0MAmkosHhAzYZI85TmgL/J1BArumiRs3aOaIUB+XyXmHrsRnyzs18mIO3vmwFE8Bjx1ltjoIZa3BQ1ypUn7ZrrACQhDZNDy1PUPis912JcLI+s4R1gWfwxHd7">İstanbul Satılık Arsa</a></li>
+                                                <li><a title="Bankadan Ankara Satılık Arsa" href="/liste/satilik/1/arsa/4/#/ankara/bankadan/_objectdata_U2FsdGVkX19v3EWVpPMxuebkBmrajrENuWgGeEVLzkj5DO178KRZT1o7tx9cy/NTefSET81p/X00RvP4ve/ieXCdhzKSEQY4xr7mfLz7MZbto3fdgzyhbO5t5mlMzqjqmSdJt28sbGHHTqwb5cJ+UR1EXtycpu4dbeGUz2zBfRnXvkORLUMAw1YDhazlD5yVULaUj+sO3WiJ/j9Quns5hNedUbgz95a+QrXKbc8uZh8Hx2/WQ//5IzvcJy0a1LhZ+twq2eh3sXiqAJcstLFYn9KQ33+5tHwtKpv6ejBzsNQA3UpHnBRQk59/gbNERHC7">Ankara Satılık Arsa</a></li>
+                                                <li><a title="Bankadan İzmir Satılık Arsa" href="/liste/satilik/1/arsa/4/#/izmir/bankadan/_objectdata_U2FsdGVkX19Ve26JTjgUS7v0Qdc9bYpvux64YcQ3Nopls1HEQr3kmeYnwUPATL0iyTFkPhAb3QVIVKGi0aHMg4CYFBUeojAcL34rYJJh3jT6JaqZKHqdv49CJM+53l8dyf6H+/nCol3Lw96E4xHP801ZRpvcjArV0pu6jPVaMuMsr56N5sLcK1bXU4VkfMhO6yshz6eixieXlgZ7ppMvjz4yCQYrbCZ5+suS12QIBsYGYEUUl5skLoHUlhT3eOI0wnUtUHdRH4MEE9ki+HRDxgwrOSAOYkRjb9myQgWrYKzJ5m10T3v8uvvc4fM0xcBu">İzmir Satılık Arsa</a></li>
+                                                <li><a title="Bankadan Bursa Satılık Arsa" href="/liste/satilik/1/arsa/4/#/bursa/bankadan/_objectdata_U2FsdGVkX1+cRVEqY76Z/WHWKTkD51SIii6sbUdtKx03dC9lJyvy5mU+vWaT+gOT8dk2WWGP0QvqqQYLxcmRLdNQ9qG5jm67yn7L+17fKcAIu2FE7BQwh2Pm2jQMeLiYgDbU+3b/GQ8HSnp1S9/BKMOmprOTupNCBgrMscJIiUS/LmfeWc6oWx5gds1mekb/v0lOGeBkp+D8+xBmpuw9Q2McGsYIjxmhQlRPuwVfCKB11PujdwBxw+U+92OGhjIH44NQvl+YTo/rWQqpAT3HoOsy5GW9GcAd+bxEZVuPsQOZwJaPmALvHSujpgIs+gJ6">Bursa Satılık Arsa</a></li>
+                                                <li><a title="Bankadan Antalya Satılık Arsa" href="/liste/satilik/1/arsa/4/#/antalya/bankadan/_objectdata_U2FsdGVkX19nQ1IPrIvScjggtCH8jbGoETyuAGFNObcdZOJQB1V4nlURgTLwbeAoCVuJpSD069WRyvBUdvfVXPSKjPGS9wwctRpgZS+mmOTdFOq2pTqJV6WPNoWmbsCWdqHgSK/h6ZFHcb42BTiK+xcJ9SzJCkMSSkbGUrohshjbxbR7oFx/GfzakOZj96gpdyR7pqUErgxzOLkU+TfQhLG70XB98G7nB05XMhQzmhzjG2R5sg4q5BmAZ35WlpkjbtaVulOYX1dHWSnCJC6y4yo1Z1lzV9617Lwnpl0hrA1VhWeDz0JldbelQz72MYaf">Antalya Satılık Arsa</a></li>
+                                                <li><a title="Bankadan Adana Satılık Arsa" href="/liste/satilik/1/arsa/4/#/adana/bankadan/_objectdata_U2FsdGVkX1+UsKNrk5LHkUcnMVfnOF+e9I+FQMSl9pNSAEhqNbTpUE/2+OaaHFnK/x7ueg4hBfOYsMC8yMeW7lgf63ZxajcZTGSH3+GaznWUCu4ot7vbg/YdD7i+1b/omTwNnN9xPGA27T5FVPZXv14xk2zm1oh/XAYCwTk0z5RE3okhLLQT2KIdq8zRyAjTlE8rOSu4jn4cIwpyYGSgTGNZtppoDy/pTceUMY5F+ziYuMSwuhO04G7lfgkEfeRWKJQtMUIMGtlXauyiQAv5FbguHbTBJA5ceeVjLQaGb0ibq/TfZh/v/CFd4pARZa/N">Adana Satılık Arsa</a></li>
+                                                <li><a title="Bankadan İstanbul Kiralık Arsa" href="/liste/kiralik/2/arsa/4/#/istanbul/bankadan/_objectdata_U2FsdGVkX19KyEdttHBoa5tuiyL9412z54iFB8tAlmppzlB9NSFmiQNqypL2jP8ylv9TPx35ia/Uiz20UZHIKuOyi30tfsviOnbhuyicLWv8NwITjViegHTERaSx14/lg7Qw7oP7SdyiYciFRcP4WfWmqyRHAaA9bbw2/pxp4TydfT1nLSeIGsfBklAWybTz+Yhvo079WdYkwCFq6e+ySJeYwrYZg+0s6DOR4IN/mOxTlehnzts/jVdlJ8aiRgAfwRPHp2ANkPZOKs7wHwMMlol+QK60ZDNV/X4phyXtNBx3nk4awBbQoCyOAArZMA4Z">İstanbul Kiralık Arsa</a></li>
+                                                <li><a title="Bankadan Ankara Kiralık Arsa" href="/liste/kiralik/2/arsa/4/#/ankara/bankadan/_objectdata_U2FsdGVkX19IzEBnYYcwDkD9/zxWryDk4wISmREG+0XPXP1+l73rZAdSkSlUJGMJYdvbYZK+QeZoY7CBdmITLbogICUJAtfIhel0xyVPV/y5NEmOKCwWzGWvp/EjkdrOMy0zlHoqv9wlL/OewOETwHbP2mhwAKHu8KQHTqsm5hq9H4AA3hEcGOjS5CRFvmql1IO187wqtkRTqCurZ9y5qCaLwvHMIdx/GUZNXTN0lgg5H80+Pa5bHdOc2aKYvaLtRyc8MyKM3VTt+W4GRmmAUzk2F5dIhk3Q3o3bkF3zf98pdme78qqzO5D4qVb4nWA7">Ankara Kiralık Arsa</a></li>
+                                                <li><a title="Bankadan İzmir Kiralık Arsa" href="/liste/kiralik/2/arsa/4/#/izmir/bankadan/_objectdata_U2FsdGVkX19klyO1qedkfjcjBX991pDU1npT0ueuXGSuFl0lDrDa7/4TBgjuYZaCAPhhRs189mWGyC3bt2FvEplQbZM89at9w9O2TaK78HhexSFs8y1UOtfn7GdqWJOSVnLUSfcuqeLJc8aJ91/k2Jjq+AHFDvNQe7QuYi1m/j8Pt2e6oVin05oqsB0M7Og/fVXcuPh6FFrzpozR8zqUZpFs9TzXA7K98mqPswdasu/Sf+qH3/LMFvwIpmcAJJ1HUHO40aOrKyGdPiWsnCrB6okYAJoYl8mt5JaSina3EMkeu+6nhLLowmZoThHUoeiI">İzmir Kiralık Arsa</a></li>
+                                                <li><a title="Bankadan Bursa Kiralık Arsa" href="/liste/kiralik/2/arsa/4/#/bursa/bankadan/_objectdata_U2FsdGVkX1+itAFWkBMmeAOoHBo4a9+vfUe2K28YQnwIcre2q+LQrrgdJvRvS5b6rOB9hYdeM//plIdpbZFFGDr5xr7gvXHNHNoBn78WaJlwIW1jdG17w6/2dUr8EBAM1u+wlUuQi8AZhWzlz8FBpuZ1ejmYYupUWwzz975XcgQLYRCbN1uKUjghV0gHYDfjmN6/78WKKKvt8U+7nhxhA/6Zpu7aHGJpShta0zvia9XHGfzLp17AAIY8NmuWn2hPmkyqVib8Wom8uTppHCq0araDhUxZA71tXHmxSxMPpfhVcqGtXvL/fE+UFL5QfRj3">Bursa Kiralık Arsa</a></li>
+                                                <li><a title="Bankadan Antalya Kiralık Arsa" href="/liste/kiralik/2/arsa/4/#/antalya/bankadan/_objectdata_U2FsdGVkX18ydfUAkgWG+cpfCzxGfk0V5Fshvy/CptSf8QWsfHlnHtd49067FlkEhGB9OJuMaD2AXHq3GfLxqgLs7x/RnR3hy03KHvHf4RWYeX5HYrsre2CzRmPvdsUjTexpHNvxxzsrOCIRfUKqVI58sIjwBbb1V46nQ0DRmg4MLoVVa1x4C8p2DFcFSApHa6HBNLmTXURCEnB1psrM0hz1/RNcZHeqgnKv2JZ/YdK6mDExAJnTgosPDLf6+gY8rUWg6HwnP+U/ahzF17zA2EHzTfy8C0DsC42JWtwoqyPkb2qiZIVqr6Tb4vpV7mHS">Antalya Kiralık Arsa</a></li>
+                                                <li><a title="Bankadan Adana Kiralık Arsa" href="/liste/kiralik/2/arsa/4/#/adana/bankadan/_objectdata_U2FsdGVkX1+oLIhOViDo9K08qs1s3KWN4CuN41ZVULBurHscGj1i0Jn37TOkEEdefa31cOjSbpQiIztzMI7LtSVZrBaEaemxuxz4RJvAGZBi+wred1ycvoIA2mhAYNQFopTR+tZukWNl1V7QzjVt3PF/saLjhQI3Ak5SSChMx4+BAibW8vzSWt1rcmvCWFJgUZWpw8M8mJo2F28I+V+LDRvTnfKzgCTK2BrpgZFi8iT3IGbriMMjBfpDY9GOLYgIg4nNDwQmKqZEmqL9Qcz4E2hdai0mV7d2JRkLrjiln991eX5UiN0Ldw5JyvAgVLvV">Adana Kiralık Arsa</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-2 col-sm-2 col-xs-6">
+                                        <div class="footer-col">
+                                            <p class="footer-title">Bina</p>
+                                            <ul class="list-unstyled footer-nav">
+                                                <li><a title="Bankadan İstanbul Satılık Bina" href="/liste/satilik/1/bina/5/#/istanbul/bankadan/_objectdata_U2FsdGVkX182MwirakfA/BLdHy77+gVtgRyc4GzH8K0Rd+m/hkbYPilfylbTk6sl92V2WbdBA4QPydCfc/lFZsMH62J0r/p2r4GwiUpkS7U29ENC5drjitK1vbGZ1g79sOFpIRf/N5/S5v67rB2vKM9ZKCdzCay84n7OYAWJFxjO3Emad5C7Ag4H3syJJA57FUli83Bk8WS5T9TAiLihlXbM3lOK2LOOpr0FJtlsb0PyWqMg3lmOTteLuJf7G1dEVAT1qhsPdO3+8TeevrxZ6g==">İstanbul Satılık Bina</a></li>
+                                                <li><a title="Bankadan Ankara Satılık Bina" href="/liste/satilik/1/bina/5/#/ankara/bankadan/_objectdata_U2FsdGVkX19GvpKRlliJx67zRkfkRczYOfHt8UoEs2zANSbkY59E/5rFrURYOv0eFrNsBcUGq6xMEK3HYVBy8vA+kpDS+4/7Yu7gTjR52CW8JkOsVpWCxAu/aq45U1iQ/ehzqFpJOofkSkLEIz5NvEgtoC7AozDy0zt1A0TiAdQrqOViQlHkYQsMLLpfZ3ZuJSM/1hfb02xzQTgzVR4c6vkiWYu6rrl12/6io60wz1sfcOfHVIzFGthgexsP8lSvEA7lG9py7atEAKDCPPG76g==">Ankara Satılık Bina</a></li>
+                                                <li><a title="Bankadan İzmir Satılık Bina" href="/liste/satilik/1/bina/5/#/izmir/bankadan/_objectdata_U2FsdGVkX1/Avc7bXJZMeD39ME8cCP+Tc2w5l+L+iphkX/mY+D4mYGpRS1kCtKFqiQFWNEk6OURGizDUvnRPjGJJYs6nWwe5RVUw3x//cHU+0ZZtxmaCnVzYlNIPvcfliQsAeF5sdE8givLlSGd6+NEewPvsDthG13kgO6OPQwQEONDIWJJIfcz/u51UItVAwuqDCX4/Vyz0BV7p5EipoT7x0wcp2pazv+G1YaItFVrXg8G/26drmPJE7j+Dhbi1FQ8hLNNhDYqONN3FDik/oQ==">İzmir Satılık Bina</a></li>
+                                                <li><a title="Bankadan Bursa Satılık Bina" href="/liste/satilik/1/bina/5/#/bursa/bankadan/_objectdata_U2FsdGVkX1+tZvJhmz5/sQFDpA9Uq8LMGJqEE44tsI9YeH3IHhha18bNoUhgIPONE/0HICcPntzzCEdJGS8JmcPGqL/q3+XKUh6KObp5AQ4Cu/e/R55iZ2XjMBMoNnWrbsdeIHFkcy+tIsiDG5j9giJDbLcIS4WI3t1EyiYOe5Xwqga3msDBo/20Enql4HgZr/UEHzcj3gk30TdI3XEJUf04liBXfgl2Q2pPvC2FSAknLM8cRh3DyPu6LLJ5jRt0ELmHkj1uMWkgoAWTgJsLvg==">Bursa Satılık Bina</a></li>
+                                                <li><a title="Bankadan Antalya Satılık Bina" href="/liste/satilik/1/bina/5/#/antalya/bankadan/_objectdata_U2FsdGVkX19bLmXvQm5/GwkiPw+d2ElEbzlRH76xl/hbUDAdAOaNABcHSmR4FyiDD8IjK2+zD8SwLFiEDg5vSsUEx1r+14AKCW9QVtSBgY6gCkLpL+ipkQv/W5LC5oswTTI0/udodeTgWdXGQ6vJCrzzCuWWTgo8VRCf+gSc8ogpCn+DHTlKbv/mRS/EgsP/evlgrxGScBu0M02LEy8pq5HBLldZOx76J00fsqAFGfARzXMFZ8KjDtdeT1lT10Kl3OCLpns7+Vq96aLuNFEYIg==">Antalya Satılık Bina</a></li>
+                                                <li><a title="Bankadan Adana Satılık Bina" href="/liste/satilik/1/bina/5/#/adana/bankadan/_objectdata_U2FsdGVkX18v8SfPNR2MGP9yz/cT3x5xHWX/sCNgCO1bPo0ePyFEbTBllZX8mAWAJsPMTw+hnzpKo7Eph97rU31CRxVjDGdF2zOCO78xS0iVh3+uYbg8gl/algyCvZqaWU0F3j9LTDFLL+HetWRTgR5cOGU3F2MWLbvIuSfU3mAQTe8c2QIk2XJ6A/vYR0qd7lhnvT7ibGvNMymsed3BuGzWgw6JO6EnzMeQOjI2DuRF5OEgnxuYBDin9W45XkP97EDd9HUHqPPmjiZNUqk9BA==">Adana Satılık Bina</a></li>
+                                                <li><a title="Bankadan İstanbul Kiralık Bina" href="/liste/kiralik/2/bina/5/#/istanbul/bankadan/_objectdata_U2FsdGVkX19Rgb4o1SysxvXKAJU2ZoG240I2yPiPpuxqCdG5OwVn08A3Yjku/7grYl1nMYt/1n4pJqseTO2Wn4vmVF5ymnxiCikWdfxSGye6m3KDB0HLHEqrnJ8lBYk5b3LPI3HUpFwWPxShF/KwEB8xJLpqaAvPi/Ub3h+fvZSo9EvfwMTnOc68Sn69+HofQJEIt5mcnvZctcjpJClI/m3uT26CYU0NkNsLjvVj4yJCmjYeTCrcGjZtmn5ZTAwuXQyHVLW7y8zocB0bTvo4Jw==">İstanbul Kiralık Bina</a></li>
+                                                <li><a title="Bankadan Ankara Kiralık Bina" href="/liste/kiralik/2/bina/5/#/ankara/bankadan/_objectdata_U2FsdGVkX19Cf0oxkBdMkq4ODwkwUpnitKg8hhxgjBpv1o5wH89K5JiUYHoujqeyt0Qpg1zpMUIpXR36G4ygRqIkI3JCJEaQ2qk27z53K+Y1Pk7tGo5wgvShMfmC5apnCWvrZ4aUbu1NjPJKas3uOn/IqkJ6TG+JgU2S7BBi84ds7mh+cNkyY0H/55pncDy17YThNxmjXrAFSjATVYMzTTPwKw1ox/VV9fINGecDNZUpZTMKjbPbDn27qP8N43XQNbRNIPhszolac0YHl9DEwQ==">Ankara Kiralık Bina</a></li>
+                                                <li><a title="Bankadan İzmir Kiralık Bina" href="/liste/kiralik/2/bina/5/#/izmir/bankadan/_objectdata_U2FsdGVkX1+2Tfu0kzt3D0HvN89r4z+qvw0RnQrX0NHePhWDt+ZM0F289dfbFA40EGu2QVTBKbmmwVNMQ6C7AATIlvKQJihstrkCxAsfO1fE0OhS+yS0GXl6JmM86v0t75+mcMmlX3LWhU4B5YMXhNczU5gAWk64xAV5lzYnMX58XH6HQ4ylm70TdeDbz/ODRmsCd6Yv2coDn+h5l8JsqcxAd2U2ckwoQAaIxYKMlhALxcSAyCIh2r5QwGolOdjoXSjJLC5LWpcIoKBCTbdo2g==">İzmir Kiralık Bina</a></li>
+                                                <li><a title="Bankadan Bursa Kiralık Bina" href="/liste/kiralik/2/bina/5/#/bursa/bankadan/_objectdata_U2FsdGVkX1+STpLPOf6whUtKqFApYqY3FU/vOOOsRMlNuS2sxwCImWaphdmjoOuEZff2FWRKsxcoW+zFn6wtNwmY9tPYqy1kdiTP/MIC7iFls6QW1BkAQJ6aFCJsWzzRUEumLDsOQS23F4doMWEOE6PruTJu7sMDVjoJTw7LRwC7yN455ppGhkWD29rsoPzwbBsuJEpuWN5vLHQ1KOkgiB2WHivF8keR3DSYYNgiVj9X+QL1tFqmefXly9AkzZf4VeWPspF44DoZbOGtcQXeAA==">Bursa Kiralık Bina</a></li>
+                                                <li><a title="Bankadan Antalya Kiralık Bina" href="/liste/kiralik/2/bina/5/#/antalya/bankadan/_objectdata_U2FsdGVkX1+7eaVGodBHN/88QQxhagSybibTGCaJxUJR6a/K5EGTt7W4j3lNJejM4JNi5UD9qQs6kSjZTnFz0p1pYQ34MFppKP3dzpCedkZRTixIiH9ZprjauKnb1HzdKFcNs9/VPTYZ1Ks1oYM9aku+laa9gLUN+iS1mfyFO5ETuzQZNe/bvnADII5EnX017Y1pdSotacG8csOlCN3tqQWhCaViImk2++NPgWeXbeTzMsiQ5B5JsvNzD3UuHNUJGlJr56UvMOaISkC4pzHo/A==">Antalya Kiralık Bina</a></li>
+                                                <li><a title="Bankadan Adana Kiralık Bina" href="/liste/kiralik/2/bina/5/#/adana/bankadan/_objectdata_U2FsdGVkX1+uRb4mjwZf6/3hqbc8yV4fPF6kejeNS96j61r5yZG2SwbiJsRm/Ihpt0qByfQpizh+sTSYowrzbtdDVOobxo7YpJ4JM1IK+ebkUmpn+WSF2tidSyPqaudsu1Yrdp2RCArn+16Etn/mXs/CJz2h4Mp+esRsndhKmF41locZRAcCwtOh4KvqoDf8dqkjt0bCPsFvB9gwr+1FfcD9E+h+cErg2YDAoC757BP+VlgCeyE6MZFdwcKpeHtr3Z8fMgUuNNxINsFC2jVoSg==">Adana Kiralık Bina</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="tab_f">
+                                    <div class="col-lg-3 col-md-2 col-sm-2 col-xs-6">
+                                        <div class="footer-col">
+                                            <p class="footer-title">Daire</p>
+                                            <ul class="list-unstyled footer-nav">
+                                                <li><a title="Belediyeden İstanbul Satılık Daire" href="/liste/satilik/1/daire/8/#/istanbul/belediyeden/_objectdata_U2FsdGVkX19Qf2d8Vgoigmr9RM9I9vAdbFiZktaNgdTnqeOxdmj3Mgp7/6P6hSCXdaoj3XK4F1nXVTcGERupI4bYjt+b6u0asIkeBB1TB4Zmc9hRwsfCnXQ5NnNUIgsoGg7t4hOyFyUdE5KlreSMzf3e84kaFjaCBVvS+H6g1mzzb3DooSyEaQQ4AKHw7TRCbxtgHBlbAgmBlBQg56sLdtDj7NJV5lenHPp5/LEJjLg=">İstanbul Satılık Daire</a></li>
+                                                <li><a title="Belediyeden Ankara Satılık Daire" href="/liste/satilik/1/daire/8/#/ankara/belediyeden/_objectdata_U2FsdGVkX1+xplqXM5DXB9q3ZjKFUOh3PSvYVK1PIuPJFFHD1Xw247b3xNO/9ykM0RsDEevupTz60k54ZT5GeD/YQvDDl6ZaFQC91YsCHiGExNTJUfh+6kE8LHXIOIH8zkPSqNWjkOt47/S8qURA966C0AX7qCb1G6DPLQDPg9sMOBvqCHIKMno2S57jqvvfi2s+vKj+90hHGpO9/3Rcr/aSwNmBpNk30D1aA1tBRXQ=">Ankara Satılık Daire</a></li>
+                                                <li><a title="Belediyeden İzmir Satılık Daire" href="/liste/satilik/1/daire/8/#/izmir/belediyeden/_objectdata_U2FsdGVkX19WumLJTaklgYOTnhsxTx7Hpg8OberQKw+aHPyr0TAA5lRFOyudEfDNgfWJEgelCeNI6a6/0SCbKLcF0XrPoF9bX12RQ6J+TzJxYcENc65BoSiUFM5lWrmQBP9/df0IjOGrH5Gq7m1srM7e85/woWPi0Whl5V0nf18AqCgw07hvlMk5X/0nedL8B1F8JsjkqIp/CdwViRva4p9ulGdnXhYSu2oCMpXa3R8=">İzmir Satılık Daire</a></li>
+                                                <li><a title="Belediyeden Bursa Satılık Daire" href="/liste/satilik/1/daire/8/#/bursa/belediyeden/_objectdata_U2FsdGVkX19F4vtEsbU6VsC/2oWcBpY3LV7011+hC47DidEx5Oy8JnFhhOOKIYN23hazug3tTjO2zU1KHC8Zl1ZiaEmFYOow+pywL9veUXB74gb02RHZlnZb2TyxWy73rQSAjmLgBR5N7TM5fKOTXv1Ed+pgKa7QUKZq9shLhdtmilr9VxeBcpT5aa7lnKKH3SzO10scngqXd1ID+B97Okjb3uztENGcZSRbAJ69pCc=">Bursa Satılık Daire</a></li>
+                                                <li><a title="Belediyeden Antalya Satılık Daire" href="/liste/satilik/1/daire/8/#/antalya/belediyeden/_objectdata_U2FsdGVkX19m/EbvsHMtXAA9T9a+YZ94WeI2xkI8bpE3vZLsdEScFVyCOpNPTx9lJYdqr4kyGgjjqJ9rCHPLiNEJjlNObjn5ZzR34CPSHa0mMTfm3ujTql+DY/lOU803cyBvuOX8h77fm0avbqL0ZGBZWjs84+Pc3idBbuDy6TWn5zTfMADm8NoFwaawZGCFJ3oY5vRjnQLCYIr5SUyxPklHJ9xRxdtb8cHP3+Qs3ys=">Antalya Satılık Daire</a></li>
+                                                <li><a title="Belediyeden Adana Satılık Daire" href="/liste/satilik/1/daire/8/#/adana/belediyeden/_objectdata_U2FsdGVkX180GsSeR59CDZs5WhmLis9oGTIQffLNL4G3zxslMLc9Hsp5YC20B/pKHguLLKEzfGNe7VBTteDuCXE+E8QRHmNlwNgFSEL+zLU3ZpRnPysGAMKYp6UlM1BeF0Zhxd2xLJ1Um4tzYHDRK4iFKEw3ImLJURa8E+wvYbI+mfdXK5yueXyagMRwkGxBhFSMZeI+bYVDZhr/+khhF5POyHAuA7m15w0D/bXa3iI=">Adana Satılık Daire</a></li>
+                                                <li><a title="Belediyeden İstanbul Kiralık Daire" href="/liste/kiralik/2/daire/8/#/istanbul/belediyeden/_objectdata_U2FsdGVkX1+dxK9pLak893X9G7uyZXmYc5bEOmoJ0F9nfW2Be+IA0A2FoqTXzv1zsjwOanjMWeIEXLquo/80EoUdqzmKGb5a9pGl8aeDTFUpRrYGsdbmuzkuN80VG+nxIikELetrFrMRbqgSM+beDZjmvC9otrccyLSJFrPTIjN6g0RuJeK80WorNMc0n9LtGVqDCDgFxliHDaz2HDm+HAxapK1Wfo0CP9flPoUflHY=">İstanbul Kiralık Daire</a></li>
+                                                <li><a title="Belediyeden Ankara Kiralık Daire" href="/liste/kiralik/2/daire/8/#/ankara/belediyeden/_objectdata_U2FsdGVkX19a1+59K1XChj8lSUo0UWde88HqrqaOeQXrnGDeO0vWBo9Deb25RdepznjNPUILZWFxlTLKbDrEeJwMy7rYuGPahotLS7S5iFrBdkquWXVANjQ/47qCKO36VPnuwAp5UaPe7qSwLCS7DoNSyRrpINIGffwtIGds4R648H97o6rEEze0VFN+1hPlXSsCXLKfIeF4uWgB1BT3ieRZZLX0OW2A6m8YrBFbh1M=">Ankara Kiralık Daire</a></li>
+                                                <li><a title="Belediyeden İzmir Kiralık Daire" href="/liste/kiralik/2/daire/8/#/izmir/belediyeden/_objectdata_U2FsdGVkX183YHGCYk2MySG00Usre9Zc9J3DMbs31g7WBC8o+vCVp2Sj7n/RqSFUX1Z9OEoJ8uzbuzlTyZL97KTpumB7Oje3PFDnpC6RIrUr/YQ+g6fZln3FrPwOrKTtfjaxIGupOpkdqrYI1Tj0VL49e8QitkjCYBaBDkI8lU5/v0lsq8eNgkPgeYpEmcoQZQNQL4C491KbJoJs4dxaOdJW1bGoc+MblwtpYWoiZwU=">İzmir Kiralık Daire</a></li>
+                                                <li><a title="Belediyeden Bursa Kiralık Daire" href="/liste/kiralik/2/daire/8/#/bursa/belediyeden/_objectdata_U2FsdGVkX1+/VjjSm8M6whYzhxvZ1jCmEYFZmKwQLED9UDMvcTMVe2yZ9JLAaC3bacRh30VdkpaQKBUWiZhx8AFOGu2SmGbp5t5zA93EcBeLp8rDz9P2ksbcevVHXlXKUGPnTDqr7KDHxEJAyptvy3UAA7++154LgcoHH1CUPHGaaWTMrUsiweMKXzrMqJUm86owxMMJaHRmTA6o1ZF99BMKKbV14Y3xKVzlh9Rsdvo=">Bursa Kiralık Daire</a></li>
+                                                <li><a title="Belediyeden Antalya Kiralık Daire" href="/liste/kiralik/2/daire/8/#/antalya/belediyeden/_objectdata_U2FsdGVkX19bLjv+zXy4BtnCxVIN47g8s89l3XpQwhsnZeiI81Ut/R/8+WpbqIcu0RRfk0VpNxd730dma1w+XBZW08s+kPgpXxX9dTMUm5jjFudzUz8qGrzg3MINx49RjzSs8YZ0vvC1nmyYWiZBdMlBvOxVQLm4Bq+aLowJjtDLaCvFyWwcUe2Bm2laiUMN5BAqkBr6Uj1fiBTr/ZswoaoFjYkenyaFc9lFdT6Uj84=">Antalya Kiralık Daire</a></li>
+                                                <li><a title="Belediyeden Adana Kiralık Daire" href="/liste/kiralik/2/daire/8/#/adana/belediyeden/_objectdata_U2FsdGVkX19tqCtHaIgzl8yt+hBhCfV8Ft8NfxPXqvaup+BddKZHw1HEqzZi4Q6rufETzg0tMkpvHEvRusxidtMWoYqnvTsJsljQu3Kk+snljWvX2SkbZdKg/14Qg+Pb439AcID0RW7vMZIbZiyH+aTmp/u0h1zYHBGlAIaUIYGFAdobp4XSliOyBbGDwb5eObcRG4znosoGPD0ZXxKzizAG5H12iSYQCIA8z4oqALk=">Adana Kiralık Daire</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-2 col-sm-2 col-xs-6">
+                                        <div class="footer-col">
+                                            <p class="footer-title">İşyeri</p>
+                                            <ul class="list-unstyled footer-nav">
+                                                <li><a title="Belediyeden İstanbul Satılık İşyeri" href="/liste/satilik/1/isyeri/3/#/istanbul/belediyeden/_objectdata_U2FsdGVkX19oyOD0niXwhpVbS24IEMkrPt/AhHsQtGXUnqhI0mnvc5BkzIP5I/i4NGbv1ROZW8IFUiUoC/YhufpBWWBp3IQ9PvaXFvQgAsXECMCQBaI5p09xU7PuL0a+M9uKWTZNvzJIZghvOwB1r32qzmkmquydchUVl3+7h1VikKgNpEyZxWuYQyH+aZPn">İstanbul Satılık İşyeri</a></li>
+                                                <li><a title="Belediyeden Ankara Satılık İşyeri" href="/liste/satilik/1/isyeri/3/#/ankara/belediyeden/_objectdata_U2FsdGVkX1/DDcv0Tn6E+skz9e3h+hVPk6akOprl96DKKDTmDbhESJWSOvATq0FykgqRQ2E93IAars02f/l/EhQcEK5n2hah3E+G1bbHrNG5csuxkvNt2/0cPjaiACkoTRlyf6qD2ArczIzYqBU3Y3dzvNzksWOfEZxYqSXmeFhJGHrDwPQpzsUPvcxnyowr">Ankara Satılık İşyeri</a></li>
+                                                <li><a title="Belediyeden İzmir Satılık İşyeri" href="/liste/satilik/1/isyeri/3/#/izmir/belediyeden/_objectdata_U2FsdGVkX19Lu9SsaDJQGjVu+rmbeSKoHu0aPdP2xeD4WzYwnR8LtBuet9hwkJhtBEZTHOunJWXYVBHhK415lXQZkqDZvYFmw9LFV8H8z0V+hJu3ta6UYq3Mc7wxspro1zDBdJW6rFul6vhYokB5ZUbpN8plkcAcbY+VcGpJ27Tu15CJLeiaqyxDD58Zl6Js">İzmir Satılık İşyeri</a></li>
+                                                <li><a title="Belediyeden Bursa Satılık İşyeri" href="/liste/satilik/1/isyeri/3/#/bursa/belediyeden/_objectdata_U2FsdGVkX1+Vk5FBZ5bMqxcIsMGBPyD9rbM9llm11sAF6vc6fvlEp2Z3+VsHBIBv5dxS/CUJixecml8rjSz0HAHhJoLLkCgm5t8IMCihhJir1tQfDsGSTwN7JTIexZor39qp8p4Heog2Oxwt9dpkpEJgmYcGngHYPc1cERYENM42D1U7zLllcPa0BMSW7Zv4">Bursa Satılık İşyeri</a></li>
+                                                <li><a title="Belediyeden Antalya Satılık İşyeri" href="/liste/satilik/1/isyeri/3/#/antalya/belediyeden/_objectdata_U2FsdGVkX19swaYpvRZwOoHkXZ1yRpfvKuctwnkQMRUGKGSPGk8hb99V2V0xbbjDFFUf7FCSHZF9hBOeommiBVhQYVWMJRLbBSCySfHNhHaH78g6T6B299rRjLOLnrMqt9BpyouQlmvr0OpyCOaTCDLiiQYgLnW8KgpWGkcDp79WX3q7xfMBvQ4kqEK+63dh">Antalya Satılık İşyeri</a></li>
+                                                <li><a title="Belediyeden Adana Satılık İşyeri" href="/liste/satilik/1/isyeri/3/#/adana/belediyeden/_objectdata_U2FsdGVkX1+cOVruqCWjolv8x/E1S42v3i3W8qvuMWEMyZITFW2YfpVC/Gg5zD8iv3pqAafs1HwcSdqd+xtB17QEyhA3DQeL/elGUEhHTZzDLnZucWH9YRETOG2vcvTEUsQsUtjMLoUwiDGfaLi68Sj+fbJigdfrej++7A/Djm1INgq/X8hMhnCH4O32P+ok">Adana Satılık İşyeri</a></li>
+                                                <li><a title="Belediyeden İstanbul Kiralık İşyeri" href="/liste/kiralik/2/isyeri/3/#/istanbul/belediyeden/_objectdata_U2FsdGVkX18xbA6YXC0p40pQYjMoUbc9YGu0Pd2NJqxqUdgb4CbLEYX9nkfGhlVEEUgKbkbjhREKRAZnuYUUSJsu07DPeK/Ex4LBFlxGY151UY02xZGa7WszRi5nnRQzV+lQiQkfKfSXn4bqGiHn68I0LcNfBatje5cOEP9KQzhhMWHQ0x6Qsuqr26KPm8Dp">İstanbul Kiralık İşyeri</a></li>
+                                                <li><a title="Belediyeden Ankara Kiralık İşyeri" href="/liste/kiralik/2/isyeri/3/#/ankara/belediyeden/_objectdata_U2FsdGVkX1+PCXBdyW3UXdv6QssR6JqeI6bl8tIQrxL7FPIm11Oo8LiWS71VhvayC0jJ/AxxKqda7JUlTmHgV5isJsjqFn/MRgKVFDaOiJMfzRoyxqbSbQPJ7l3oyz6oM03L+T/6jRc8Ny6aRla1MIsCLfsJNOa88tJisMJz0jze5o80jMWB0ceHH4U99Q1S">Ankara Kiralık İşyeri</a></li>
+                                                <li><a title="Belediyeden İzmir Kiralık İşyeri" href="/liste/kiralik/2/isyeri/3/#/izmir/belediyeden/_objectdata_U2FsdGVkX1+m/sFGxo4lCi/lSvYMpzA8xPEXu8tLEk5bOWlj7YNRkr5XIt1GcOQDg9SXh8dDASLYhBnSLPkGBZT36I9Lwi+8UfUjuDwi9diX/qbuo7uPRSmg3W6ts88Q0PXejTs63N9vzJ7EA2MDLr9OQJrrcebhzQatyISHLDqSc6soVmjZxy8xbjDxYCw0">İzmir Kiralık İşyeri</a></li>
+                                                <li><a title="Belediyeden Bursa Kiralık İşyeri" href="/liste/kiralik/2/isyeri/3/#/bursa/belediyeden/_objectdata_U2FsdGVkX1+vJcDpPOAcYsCbW5fs9r1tKAV1WRzfZ2UsFZY4fXsdqzFjGXGwxkJAbsKqNkOa2oLqzCzbodq5exXPEF8B85qI8MEs4ZmcruuhuHHGHXf9VzV+dKlerxTIqaS5YZ3qJWbqOr0TuWDgSGoUnGFQMrgNIwdnaB1QQWn80gJKr0uM+FA1Zv19mHqm">Bursa Kiralık İşyeri</a></li>
+                                                <li><a title="Belediyeden Antalya Kiralık İşyeri" href="/liste/kiralik/2/isyeri/3/#/antalya/belediyeden/_objectdata_U2FsdGVkX1+qETXYbHz33lYHqe7SuLvbXwjouPjQKFbVqUn57ozoKnJ9HNOBmdyOGGYN+9jdHD7G7x7C/YeikKEdWN4BbVib6lIS0XblwSmHEakqN8hrMG45FszJvN35W33a7MTgnoU8XT62mlUkoG/lupi730/vONfya/cr1GPzvwHeWHzybipdBwOwRhmg">Antalya Kiralık İşyeri</a></li>
+                                                <li><a title="Belediyeden Adana Kiralık İşyeri" href="/liste/kiralik/2/isyeri/3/#/adana/belediyeden/_objectdata_U2FsdGVkX19Kyp+pbYZho7I6w2gm5VKXoYEt3o4j6ccnbGZw+rSuIFA7Lbxe1cYH0YfHHjNXJP18X4uA3ZxMaz10LGwJPcBs5w6pm7P2aPQSjFjNqG8T/SqJQDbeYtKZMm7oO9WJfUdSpuKcd2eT19wUMUjIOWcy7ZmYeFjuSL/wK3EZbgbUv7k2Amc7bY8t">Adana Kiralık İşyeri</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-2 col-sm-2 col-xs-6">
+                                        <div class="footer-col">
+                                            <p class="footer-title">Arsa</p>
+                                            <ul class="list-unstyled footer-nav">
+                                                <li><a title="Belediyeden İstanbul Satılık Arsa" href="/liste/satilik/1/arsa/4/#/istanbul/belediyeden/_objectdata_U2FsdGVkX19aG1dSS8JAHk00J19NobbDHevBHk4h4PJt+eYzmDCUSmn+SEfHid477/sdh+QOz40MZxqAPkYGb5AEOh5rKesDfoc3XhasjAKW8GNPaEg6AJWzLFvatlXRY1n6JONMdC6HzgUjAzW7TxmcsqBg3ozMDJawG1QOuNp8MEyYCZu1nPj/sxt0L1Wxb2dzTS2rUF8bF8kX0CvqAxsijteJAIM58KDn/asnMNDHRCxykzUaTN96NRdvevidzWRKTdPToDmTVaBRhw2s3nZRNQhpFXwnibimYRLwdadWJ18dlxpvIbQ/FwW6Zimc">İstanbul Satılık Arsa</a></li>
+                                                <li><a title="Belediyeden Ankara Satılık Arsa" href="/liste/satilik/1/arsa/4/#/ankara/belediyeden/_objectdata_U2FsdGVkX1/Q/nf7uDs1/lYsqTF/6x9TnVzg5Z8dNzYsxkQCCQ2y42nkAGzYAMVZYCmRvYNz82S4kuwuqSmYq4mVKzoT1VD6aO0KuWhjjGnpcBWSZbdOiLk15CPELPmF4t4P29KaO82K9hsU0b7HBBdXKL5RZ//5FavKulLfXqYq+wCk+8L5okzg6z6QaKWVADWDwQEmxchbdl0j+ia7QWdnQVIA9flsy3LtsV0fq5H+9ksw1n3lfnUcRBtg2M4txjZMqQUVAvGWA7nxtd5bRmKs0QLPl1GbAGXGZLPi8yoDa9oJKTHtVI7dmnmyDRyd">Ankara Satılık Arsa</a></li>
+                                                <li><a title="Belediyeden İzmir Satılık Arsa" href="/liste/satilik/1/arsa/4/#/izmir/belediyeden/_objectdata_U2FsdGVkX1+0B0lMNNMc3BjkviS/bAEPMtwlpJwyoBCiet/87AQ2U32Tnfresh0SexECvHvdSa6rdtk+4yzFaNB1AAnt+CpqrvzNjc5zf+e9P3FafdHGEZl8Bld6ulU+XtBf2mOTNzPp2K32CbOnttk8Dts55BzTUgJ9LBbq22uAxWOcs045KFH4ahdXoJSUuXDfcBCK0thvifreYe+Cov2tjAf+YsMf/+3O9d4NpSJ89vZTbR2dlzoaRhvg1yLJEcep8jG+XMDRkJ4Ugwnjx384j2qh0GbQwA76MhsqvATiJQUHFS2008rGx9ocBxOQ">İzmir Satılık Arsa</a></li>
+                                                <li><a title="Belediyeden Bursa Satılık Arsa" href="/liste/satilik/1/arsa/4/#/bursa/belediyeden/_objectdata_U2FsdGVkX1+6QYXxrgBQ5CwyhTC0r3K9SLsfKKz0E80bGvUv1Zmwta4KClxAQC8DeM/EZuh1uiHuyD4AQU6NcpHjWb7pqYV/6js4A9cYAb/3BEU/q2KZrAIFUPzw5+TV34S6sIg9kH2ROmuIITbfALs0SVLafc1C1dXbfGU936wLoCJiVuRlgvOX0vex8TDl7x4dgNZ6wU4OGt8GYAGeJe8iKx4oJqG1iE3SSGWRFY1Wy0rSnz+na25JsBtZNkZUk9xZ4WNqkDi+NtiD4Ejcfr8nIVwX8/uWNfQ6qL4ka5luwBQnrNplWnldZ6OyRyDC">Bursa Satılık Arsa</a></li>
+                                                <li><a title="Belediyeden Antalya Satılık Arsa" href="/liste/satilik/1/arsa/4/#/antalya/belediyeden/_objectdata_U2FsdGVkX181iV8Kvd8SI4A0Yf0bokjGU+0NeUmniqcnqV2V6lxUFpmTieA1kc657GUj2zkMxTT4N6j2x0+rQFc3NR09Gog5LSxYVInBmTfhA6GBp+3gMkVs7l/wv+7eVOaR1+eDJ28xpOE6GPwxTWdx5RFE5LGYHvRGjNFDIkTIVBp/sILH66ckjYTag1vEpTHPXBoi5rlaQfOHEatutCkbM766lpYS3NZrS6XDXe6S0OsKA3Vt2uq1P64hhQhL+G9eJc+Io90AkmvceAtvul7SimWwBI7Kj3FYtgj+YEBbrk4+ZJ0Rz82AHciszbhD">Antalya Satılık Arsa</a></li>
+                                                <li><a title="Belediyeden Adana Satılık Arsa" href="/liste/satilik/1/arsa/4/#/adana/belediyeden/_objectdata_U2FsdGVkX1+jflKRoDdPWmuxhEYfOFNRi4XhnXw7yyJjmS9EJGSFxVard3xm73CyoDrVapSASBITgv1GFvCugCNEA5F+8aCadcm1T14Or2OEzsiojIWXAk+WKSYilv1iEA4B+DiyKBsb0rLsT4xaOQ3NStX5vOsNY9ljiLJQUXnaQuiLuK7UtmrsCH3NTu6FlMY7+hgwPOED9BrQE3jPH7zjR6JNDa45uksJISXBRg276sfeI44PJJNxR6Ld0+xDFP+0TDtbitNbAq6w3fiYJLL2EZ+xZ4+WP44Fq2ZlQBRpAzG4ARN+ad9O2F3utYVD">Adana Satılık Arsa</a></li>
+                                                <li><a title="Belediyeden İstanbul Kiralık Arsa" href="/liste/kiralik/2/arsa/4/#/istanbul/belediyeden/_objectdata_U2FsdGVkX1/OEyAPMF24Wxb4dj3VcnwAVjklcZ3x2Lrk18YZZcqwtUQW7bAbZsH4EkvHf4K87eFr9dLqLJw2RlIFYDKXvJC39Q3aFT6pmsBGx0hvr4943qNzB2cAC07Ti0+rOYUkZ78bxEPAlIKNS5JeCJupkE+9I9FMmQManFTwdw6m1yoAIN6F1TvYeKnwlDUQAOciQ93n49F5V0gAPhMAhKQfkfbMgN6vAGEJ+mYtKGPgj5Q2pxRxxDIU/6jLEhnkzbpRDZ24RnHJ3MplL/Uq83d2Ohg6XgK5IUndpGTSHrxsIUpsKOrn5zeMR0f4">İstanbul Kiralık Arsa</a></li>
+                                                <li><a title="Belediyeden Ankara Kiralık Arsa" href="/liste/kiralik/2/arsa/4/#/ankara/belediyeden/_objectdata_U2FsdGVkX19mvH1NyO7hKP67iy0QVwNAntyVv+B3xlMJCA06cu5P0PAzZm2NdzwkEGCHWcrf7r29TG4UXOuqux0QnzG4A1slwUOTHGwgKVkB+bwft49jMSOpnPiz4KV3XgB8s7pJ1Uw0jPHHOSPukgIMLuMPT3sNOEVQHVC3T+7zCafhp9r4kjFGGn6m8h1XVsrKNWc2AYYdktPAEyZiqfQlA7cfcod5MU4cGabYFeBFWaU8au6E4vYVQoZb4AlS7pBspkAQmx+C6ivWvFOBOfOPGCSjhs8szHzNNfHRzff4itV8++hAREhmPw87s2CC">Ankara Kiralık Arsa</a></li>
+                                                <li><a title="Belediyeden İzmir Kiralık Arsa" href="/liste/kiralik/2/arsa/4/#/izmir/belediyeden/_objectdata_U2FsdGVkX1+neuI4usPkdnyQw8Ox6ZnxlDNEoG8Q0AfY4vGbTUe0QKiiUgo0FnbNpHXW1lNduP64NeMqtWzOOPSvnKvKjdqiHQcrAGIDjk/iTfecSa7DW5rGk3dpA4h+cpYeNW72NhCBrqY6FYW25R+HQUpXzHOx1G9SZ4lEU0IOwIpiKCsVwHD6C9OQKrUtfWAfEN7bgbndJBjZ13An3aOJs1enhvAZe0oZNyqUVKaEW6p+0KMCi8nR6WRdvLGZ37O3f8rH6hTraHxcjzJ8l60YZE/+xcVslHmwTOqpLvMjThs6Gn8gkW6dT1oDbvDb">İzmir Kiralık Arsa</a></li>
+                                                <li><a title="Belediyeden Bursa Kiralık Arsa" href="/liste/kiralik/2/arsa/4/#/bursa/belediyeden/_objectdata_U2FsdGVkX1+QwU4kx8Ah1VPa4FcJdV4D3pwrzoqYNQ49cjsNZ44ZwNfXfO5AuswNsPyGNFril8xlGq744Z3s17OoEHNlU/9OIBLEG8cCrzt1bqeVP6+xioRCAUIEs3Y9iuJOvGCmqOtMF1HN7gfj0N4MLNhWab6qrY1huAn7IOm+M1Vn/EP49xWdH+yNvu1aGoimTcXcSXUcYuUFStFtKTqKkW67Kdmf4HHruZlyFIO2joea587QH0duM6RaI0vl9FxvcUU6VREirsNbIIgDvjoCP5Tr70b4C9xMiDXcOUtcdfJstAlznvg6s45KjDAv">Bursa Kiralık Arsa</a></li>
+                                                <li><a title="Belediyeden Antalya Kiralık Arsa" href="/liste/kiralik/2/arsa/4/#/antalya/belediyeden/_objectdata_U2FsdGVkX1+SkweoR/CvYJgz7X5R/dRC6aL4Kg/4DpRYps/dVRCvIeuLp9B6vi3JrnviG1OFZBor0uf2uySf0eXuDy6jClt1fmAURDF2KWHI/qhD6WePXARIbDX6BTZXCzhoD14CqXDnXsLSmy8v0n38p4XlfVtYnLCH5A7CITPPzLpu3IN2FdDB5NNVJQL8tZLMbpQ1DKssj5Ao2ARJMQ42pl3hCZihQ8CUOEk4qSc0hZumYtwHozrTQBm+5lmchF2gqeuoCTVGcL3qf+5zEjz3KnMjVly6fT5LuHAuB8qm2MUvl0cbR1ea79w9ZjLb">Antalya Kiralık Arsa</a></li>
+                                                <li><a title="Belediyeden Adana Kiralık Arsa" href="/liste/kiralik/2/arsa/4/#/adana/belediyeden/_objectdata_U2FsdGVkX1+2oSwunzGVCb95nykpd9pco7vf1lD7J1njwrLnbYXBlPR6kz3NIgAkE8aEnQXQQLX1a0Bpnh5BfhDHNlnapa/JeWwg5ImJtz1IhTihtliolXtwTvZ7rCwtlpiN+OtflfoQJxKcXQchGGZK+D+nd0PBkKz+smBLUOzxthXj3cgDKrcw9eGpFO6sL88SpYBPuIlyrHT6qpgnRbN+p2hkxD4B1INhokiBOzlV95nhCjyU5+uAlq9jmt+ZmGl9TfXCqrKC1/nLDTkWCoefn1+seRMtwdyZ6C73TeRZFTaW7khJduDDy+os0ghy">Adana Kiralık Arsa</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-2 col-sm-2 col-xs-6">
+                                        <div class="footer-col">
+                                            <p class="footer-title">Bina</p>
+                                            <ul class="list-unstyled footer-nav">
+                                                <li><a title="Belediyeden İstanbul Satılık Bina" href="/liste/satilik/1/bina/5/#/istanbul/belediyeden/_objectdata_U2FsdGVkX182AIZhOvMk2Ax8irr4ea2kgSDDI5kioNvi8ua6cw0Ab64+B80ZAxPFRCtzUMVEJDID5MxiJSvtc91SLaas2Hko5kmgmFl5O6mPA13NkYEKGPsIPdVcSaX5vuXskjHFiEW9dgWXfs4/2/2sTZajjDvSvETbQ0R1t3glHrGb/BY9EwiDzAu0wD2sjoGfT7Vt+3TFjsscVbrRzkxizk8rWvVcC/4iJNdyfOgCdNHlSdDS0ORbCsfEVy7KH/KwAQ5vSVjZ6xiE/Scrtg==">İstanbul Satılık Bina</a></li>
+                                                <li><a title="Belediyeden Ankara Satılık Bina" href="/liste/satilik/1/bina/5/#/ankara/belediyeden/_objectdata_U2FsdGVkX1+y4Yk6LGg8VERdlFEOR6tReK0ca9Pr87B0HjU3GQ6zRIxvb+iS7aN9oM7ZlID9SbG9ImizB8AnlNlG28cm5TELrvqhNJKMVgtRnklYnZtm/q623iTT4P6H0VjYIYiXOeATnTZD47nUT7FdWUFQBEwP6u5GiYtFA8HE0PZX4PR/Pg3LywwYEx3TmdjsMzsOYGq3keIEJ9XauwCZhUrHeskNgOAO5gmQ6Tu1HyltWsHKSiKmbXyJtOGvhPPgM/Ie+pbZfjI8Ro+WXw==">Ankara Satılık Bina</a></li>
+                                                <li><a title="Belediyeden İzmir Satılık Bina" href="/liste/satilik/1/bina/5/#/izmir/belediyeden/_objectdata_U2FsdGVkX1+z/pygL/9jT4V8KIOwMi5zO32zmVEUhyXe/veSGNwTsNiZ2rl8fpiFA5tBVKs1j6OWmz8nw3H7c0sbNY6wMrrHJdvCxV8V5nUsT2NAhF2dXiYs2ZTc4c/I9palalhT1Bt/hu4poqAfmPBy2m5I572Agjv9deng24lnouA5DqgxTCvDbnvPcw8yEQ9RKjfa0NpiClEN8oV1c11YNHfaRVpTqqWIJ/42eDuG85L0yHCJiCtlaNcaJI0MY/J+NdzJ0ox/PhD+8fzVrw==">İzmir Satılık Bina</a></li>
+                                                <li><a title="Belediyeden Bursa Satılık Bina" href="/liste/satilik/1/bina/5/#/bursa/belediyeden/_objectdata_U2FsdGVkX18rUXkWxGyyuw1EgeVkdNwZdHR4ispkbBh4j8focq1PW8/HezwATM0J0Vhh9MR0uNykW5HeuIYnLm0pYgHzqPi9HcptT586mSonP8gB/V1Zgfwc7ppq/6IrUxORKPYM4Oh+s+2PuBEDCpa/4sF9yd7kOkkGx2QDhaePpe4/qcs1xjvjeN+QAMXa2RODk51z/waTqZZZFY4Y7+1KhYGYvSL/GfB+Sl3SbV7KBnINVVsYWxqefpCbErndr4i53cMTNzR5fjo9pLu82g==">Bursa Satılık Bina</a></li>
+                                                <li><a title="Belediyeden Antalya Satılık Bina" href="/liste/satilik/1/bina/5/#/antalya/belediyeden/_objectdata_U2FsdGVkX19nnI7cSzOwxpodqqgxhFHvs+PfEVNI+lowM6vaLiyNhb1OKDwFHMSE2/K0DE5ygnVqgEWFRySDAA5wdodQCychDytZ9zguj4k0/7mCzN4xOudRavMRRKHKd0jGG7Oxz65XJ7MU/j0/WmiclAWkbWrbsmOFqROpK1tUGZaRSRi0kVNtFBYu1W25IFd5nMA+PAA93nGwkueQcvH6RndkOdjKdK9imtmwQZU8pS9wV0+MeW7YX3OWjy3Sn7yk4T1DIAd+TlfP6tjlkA==">Antalya Satılık Bina</a></li>
+                                                <li><a title="Belediyeden Adana Satılık Bina" href="/liste/satilik/1/bina/5/#/adana/belediyeden/_objectdata_U2FsdGVkX1/RZs5cwEHqPPzOggMmPQ/LtP+ghSTV0CZ+WLeK4Ovk7Qs68jubqrRJAakxvmhattZUEB0WNswuwNb3Mm3BXE2kcMu3v3slIeADOOnY3X4lCKuvlSgvwQO3YxHJTVnDKQBI/iQU5A+Uxl8dSiyZqkh7LSC1pakP4IOmJqQIm+qstmXc8StRU5Nmybeago5fPo3+We96r5d9YYoXai6vzbqpX7U7CYomyJJEi4fKjkC/KS+9DKDDOZonSR7XWf4dNiNnLf83OPs3IA==">Adana Satılık Bina</a></li>
+                                                <li><a title="Belediyeden İstanbul Kiralık Bina" href="/liste/kiralik/2/bina/5/#/istanbul/belediyeden/_objectdata_U2FsdGVkX19w77SUXeogQnUEP6ShRftPUntuffuR8xXJEdpd6sbVbEshrM+zIMWFESGNFf2PaBtO3kvMNhFi5bTR14poV1CZfyu/j5rYdVIkry/Esv3ZMDGH2T5omdSVoqRps8rehoN9/WaPEsmLNA7EC8YGpWwFPHxoO1+NQua+0v278gk4tP51m8SwwnFfX23tvpggfhgRSwiUJZjDM4/jidwpcReRgnxD5alzw33bzFu7B+NZjwwMYKCb8uMLU2/iUMFclOBzAn+VNbzNow==">İstanbul Kiralık Bina</a></li>
+                                                <li><a title="Belediyeden Ankara Kiralık Bina" href="/liste/kiralik/2/bina/5/#/ankara/belediyeden/_objectdata_U2FsdGVkX19M/jlgpV3kwrA9SKCAsdiQ/KEBlhCEM6Ivcb0GfZAVzSAJMtygizZEbgJciMdXkApMprXVJ8NJ6mblYc9LlnRxYUrYQX0TUGio9Kue9P9lrmEd+XgJCBUBReLSJolv7kADnMgL9Wi7b44SAUaxdWe7c0A8QvgW8Qbs4hjz/Pw6kgx5BGwNx8cg4iXMug91D2fWL6y0/z+lG8HupUstzyA+a6D7Oj4BqutGxkEEXNBPE9PkfCMmSfdI8NaDO0OJ8yor6i/Ls01pJg==">Ankara Kiralık Bina</a></li>
+                                                <li><a title="Belediyeden İzmir Kiralık Bina" href="/liste/kiralik/2/bina/5/#/izmir/belediyeden/_objectdata_U2FsdGVkX1/BLm3Yqm1f8l6g8Gymc9NP+muMGZdb2dFp+q352wRoGa8zDqOs+3mX4qQQodq/y1r/gLu3gTIXI9DTerAr6mT6iB2+0x1bshGE0Oc5zjN56pgVCfvvEAuSuttczi5LyiM+chI0q+hMg/WIRKj6jFG5JXxVACaTvSXCf2VN1OO0LLJsUl8J+xUkDgvMJRG4+GZMKxbSHUnDoSUFOZaY3O6nk81Ick46GnTFuM0BWDOX5vII8FDt0tvpbfiPCMN+nd/g3cHI++tsew==">İzmir Kiralık Bina</a></li>
+                                                <li><a title="Belediyeden Bursa Kiralık Bina" href="/liste/kiralik/2/bina/5/#/bursa/belediyeden/_objectdata_U2FsdGVkX19Mvj5Iy9k5w25WJUiWr10jCDK7HsNWPqoe8be/QgrVG9YqbUZ28Aplj8gD+PdRQr6yPTo1hPSEeA+Mq9zdcoR8ZL+veWFbLrg+ONgfwx133pm+XWM7UOo4nDNfDHJh6xRZAuI0+UZ8ZRRtZRXeQGtPk8d4uH7kkLUcWPfo/NNXFE1XdxrFwkTJjklEJgScuOVSyLbxsfOrsnLZ7iBp7iItHW71jy5YL5MaEiDY35I0HSRrgKjoJYQnJiga0MHIxHNi6PsDwAet9g==">Bursa Kiralık Bina</a></li>
+                                                <li><a title="Belediyeden Antalya Kiralık Bina" href="/liste/kiralik/2/bina/5/#/antalya/belediyeden/_objectdata_U2FsdGVkX19civUwlXDhB7KJNeDPbvmZ1b4PrX1WJKOR/lVHSNUeWGM4NaMavMH+uherHlNiU9miUvZOPzIPZ6/nZm3jxgcTcLnYjFBG3iZfKNsLQVKSEiNp0F14kbpXafws+lZud8yM90TB+9Ihh+DpGgXHf6thkPxBfeYm4QEF+93WD4s82+JxLGCxL3W3sFyt/pS/uVZGezpRqYJSbqdM4kG7v2rVfZpMnfJJqZM0dF4BUspjeUTqFUqgcuy3G/OfOj5DC3DgBS6LDXDfqw==">Antalya Kiralık Bina</a></li>
+                                                <li><a title="Belediyeden Adana Kiralık Bina" href="/liste/kiralik/2/bina/5/#/adana/belediyeden/_objectdata_U2FsdGVkX1+VJ1GHl+D6h51ncki8c7Va4SMQniBkb1mopO0N2Vf9TC1JLXG/fPoI5MGYBSUmknnMEOSyYdWaJCqWTP5MGprxgHx1y/T00NnNGgtl/zQitnR4IG2DI1PUhZOvK5Ht/010cXqplLoke5fN82FuvgMMzU72wSFB8MEvcAlsZEtdiBm70QsCGHHKwd1orx4kX33WDB/B8Y5McDK16M2PTLKk6H651jAUurmu8dO03oGuQvHY5H2hNVaLb8zNJBvfaDArewuzboTdyg==">Adana Kiralık Bina</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="tab_g">
+                                    <div class="col-lg-3 col-md-2 col-sm-2 col-xs-6">
+                                        <div class="footer-col">
+                                            <p class="footer-title">Daire</p>
+                                            <ul class="list-unstyled footer-nav">
+                                                <li><a title="Hazineden İstanbul Satılık Daire" href="/liste/satilik/1/daire/8/#/istanbul/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX1/P1b/5Y+FGqlo1TiTWD8lwOiHtgMizxJDVZ64FoCJwOiAw1SGB9ISsy2GHjbyfweoV/uZEg+GqpZC5clJ9C7dp3AXevN1+LFOR59tZ+i7myx89JWYvInKqGizijeyjveCrEIcxaQxeAAwHG+sCk6KFDqErCdb32SvdI7A9pZ56pag7qUrLim8Qwc4rPA+4mG9d4YrqL142Rv1uOepYxbrZolpwgp2OIXc=">İstanbul Satılık Daire</a></li>
+                                                <li><a title="Hazineden Ankara Satılık Daire" href="/liste/satilik/1/daire/8/#/ankara/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX18+nutJ0dNcRT2EN6glr46hNga/YH9aqblm9CoTCvskT+y2PA2HvvoL2kGVlalOGHJ55XrprlC19ApvY2NDVOFE95VCYeG0guO+QupWmsVZWzuDuShCSrDv2kjtWo2lGPoMaAwhxhHoXs+gPiIDunxjQbTMTDY8hQhnS0MrBfn8Rvr2YTKq+68bk1yGru/eT4kuNQ2sPU1iZi3IiAeNprAsJ7+59+49hag=">Ankara Satılık Daire</a></li>
+                                                <li><a title="Hazineden İzmir Satılık Daire" href="/liste/satilik/1/daire/8/#/izmir/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX1/MXGCHsdMC2WM5YB2se0IIlYAV1HxGHHZj4qkIpilNsJ16M9NHuFK9/eHTEqJkEn53g9SUy7eC5K2TiSEZqsgtPKNPTyNn5reEL+/rnvot4bm9FslQo35si5PsJ8t76YMzehLjqgaiHbQ+mHVweW3VzeFfuxCAGBjY2nS9PW/ur/uFD9yS7m+JnokxshH7T9xkF+GcO2rkJ/Qk3baSt/2URuzww6D3iOM=">İzmir Satılık Daire</a></li>
+                                                <li><a title="Hazineden Bursa Satılık Daire" href="/liste/satilik/1/daire/8/#/bursa/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX19TQTC1ts1isHJrf1BaLTxF8vVAeWMWeEcbafkgp4yMok5E/9oXmqdunxDfgYhAqqx0mvcYlmPAj+VLA3289bQI2pS7cV3mkuaJ2E0y2F0HOYQ75jZT+fVGzwd2HoiM/CxZ2JJm4+MgZJu4sqR5T01OSLGacjDxc5uPvqoxDm3296TX6fFSZPSjBBM/pZB1zVYr5T6I0b4sTNAWa+6jz/Ht4Ndw8x0ieAU=">Bursa Satılık Daire</a></li>
+                                                <li><a title="Hazineden Antalya Satılık Daire" href="/liste/satilik/1/daire/8/#/antalya/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX19uaQ8vXLIPqVrC6pKm5Zd9MZAptBiFcPgxbnYVLyba25Ix7ChzDsfxDXcXTRhbQAe/SSdiulHgdvM/DL/XxDqyRJmT9kEsuqKuSV7LYycSee9ML897mTAYwGgPt5Smh7riuyKdi1L3lFmqeTyGZEnGkpkaO7UKzejZsqMq1s1QBQj/vD0/4eOeXBCSqRMrFMSI5QEFxHdWHrV4et5BCmSJBh9WwyYoNps=">Antalya Satılık Daire</a></li>
+                                                <li><a title="Hazineden Adana Satılık Daire" href="/liste/satilik/1/daire/8/#/adana/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX19dMYlyw5qOzcJAVNrQMMr0SP7Hc7scXOVu2IdP5a0qDeodIfH73R56D8WXjHz6Qu474MlWHbLo3A3pabAoEDu8I4A9YadE9u3oOvSq1K4HkWbZmRoE4Hy0boKAD5bwmQLrlrk0uAoEyEdeMFIrUiBKe3BrauoOHlg75QH3PIzif/RPvB/2LEz7wxJP9ut0MMbRr8zkEP8J6OK7a6yWDrDu1AWs7/4wSRc=">Adana Satılık Daire</a></li>
+                                                <li><a title="Hazineden İstanbul Kiralık Daire" href="/liste/kiralik/2/daire/8/#/istanbul/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX1+/bow8PMdvG7Q1ttIxEE9SKgVU+FUuY4VvnCrEPPtxTAUXKQXyqWDPRP6aI0qtYnJofqxVieuCH3DARR9t9h86Wt0ydQCAi9vgyfJJiGBgMIxwlqW8rN8WA3+s/YziucyIo86y/pMciU5Mypm9ghofZCqiAwSuyQt0H//Um+CZ+J7Tba/awPCZfOAlBApeFEDGv7FhrmL8taWkRz+YAg2ZycVA7s9J0RU=">İstanbul Kiralık Daire</a></li>
+                                                <li><a title="Hazineden Ankara Kiralık Daire" href="/liste/kiralik/2/daire/8/#/ankara/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX19GPtUr0o5RqbwakAYuJYrSZATSqByzI6cJcwf/p1aK5dQiOQfBthSTv/em9lN6Zw420Vv9rnLinVtwrF7vq3aCEBCzbQ6uEwGBaOGE35qusJWeqAcwGxvwXBdgkBalq3NYSR03IxaQNckgQqjXBKuuMMJH3AHOyropX2ZgP29mqc3zYoJCtQsUSVES+NDmYb2Q0t3M2hSKflwLktezMk7P4uIJFPyL97w=">Ankara Kiralık Daire</a></li>
+                                                <li><a title="Hazineden İzmir Kiralık Daire" href="/liste/kiralik/2/daire/8/#/izmir/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX1/PO4oNOvwNVVLpc0ZYJOOutc8NJoTMZXuDtX2nx4cnDneZc3SQInHzVsBZ/WRx/Bl6/ZshTAd/mp47SRyw7CRTZnqOQ2nit5I4BVxHw6A8PAJmAxFnFrcKpXedgGYanQVH1TZL42Lj9d+uFTOSddtTDdqwTPD1dRSNgxaq9OgbBXV9J3fwVqk85rIF5WJjy8YZkxCM0bbUdGYFXi9vYzOTTLXxvWxNXAg=">İzmir Kiralık Daire</a></li>
+                                                <li><a title="Hazineden Bursa Kiralık Daire" href="/liste/kiralik/2/daire/8/#/bursa/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX19LnlelR4oryMbPUxMHYUWEgCjumuxk9a0NcVUCj8Q4+18DgGb5Z3vViq96simAvFuMHDI8FJ6gXL6sUfAPsZiTPbGQ8uhkpUz2ntHhLwMKsQvzmfoUtE4DiLLyxMFnq2wlHtxuNuU2H6OzViVGHxRtNnI0m+tMaLYiFBGxxXtLFVUgpWWfrHBVaCSQ6oRgaz4PQp7/NRX4pj80wo7/jLmyvci5Gmi0GDI=">Bursa Kiralık Daire</a></li>
+                                                <li><a title="Hazineden Antalya Kiralık Daire" href="/liste/kiralik/2/daire/8/#/antalya/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX1+q2qr0zFjyuSdCQMSwC4hn4R9f/Sgs/Pbga2TK0r1LhMoKnD3GwRBwOz9rRCsvHc26LIp8ABxomvN8703Rb9dsUixmgNWpZHLu4BuNdd3qDKqS+HGa4F3ab0glgC65yQlaZyvr1QqIQZtkyCUljaAgDYioEIosfe/Jzm8DTPE6oxUC9a7KeUfDJeByefNucH+U0wcIfkEMFPwsZfXDFSz2hkpvJwztD4E=">Antalya Kiralık Daire</a></li>
+                                                <li><a title="Hazineden Adana Kiralık Daire" href="/liste/kiralik/2/daire/8/#/adana/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX1+yrooRzVN0ZYRJp9v8qfC7wCC9rYcy4Lv3skmpcTRznipASYrFs9T98ueoK+RodgyL+/2rr1p3m7Rg+/1HaE841XSfbWckQyUVr7SAwgaFan6EvHRbtUbFG9Mw6IJrYSIMVT87tKHL6ukNfdcTUA/Y/TVLVNlzf24gDwSdrG5wgxy1W8qMW5P+CpkZtlUuG+BezvtNyVzvGx49yW4N+aXVx+1RBpnrmqM=">Adana Kiralık Daire</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-2 col-sm-2 col-xs-6">
+                                        <div class="footer-col">
+                                            <p class="footer-title">İşyeri</p>
+                                            <ul class="list-unstyled footer-nav">
+                                                <li><a title="Hazineden İstanbul Satılık İşyeri" href="/liste/satilik/1/isyeri/3/#/istanbul/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX18tsF+qn8c6onTSA2xVtErnZ3qYyJDME91pCPb67AsqSZ9EwGwDYeATCX7Ql+04HCCogVP6r8sJpd3vF24GISU+4RylwR7BPHqMGu4/zd0X+kpRObF+6xoV5jfPvZg+oxGM3YnwTxS6fEIwtqrLWY7VyaVxNcYTil9QzY0jmR7NDDcA/nvpWvrt">İstanbul Satılık İşyeri</a></li>
+                                                <li><a title="Hazineden Ankara Satılık İşyeri" href="/liste/satilik/1/isyeri/3/#/ankara/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX1+w6hhzT9UBpe0R4l6OB1Dv04JflQ4O2/iheQqDUmrh2rtN4VeWGPQ/jDx8+S3HNo4rtHBtLgDeRu6ioR3FaBashXZ4nt3Ss6LYwbBpFfSsXIghqNqRj9tEj6wDKrOWNyKsBzkS0YnZcR3GeNPQFBaP7WkO8Aw2nSem+/URgJjdPKIUGIk3G1uH">Ankara Satılık İşyeri</a></li>
+                                                <li><a title="Hazineden İzmir Satılık İşyeri" href="/liste/satilik/1/isyeri/3/#/izmir/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX1+eksJ2kB6gNknfrUXP39PHFXT9PRlW7XI115wh8fuv3JilkB+3wsXGfBiTz+CLn03A33uaDgqKFWQ3VR+67waNUtYsbJ0ha3N1ZqMkq+8Kw4u2r5SBSspdpDl1HKpucY1iJPlGqlEwfAW9hojEWPbYKLfF0X3Y4KnvpSb+4cGuaaw+bw6H2yuV">İzmir Satılık İşyeri</a></li>
+                                                <li><a title="Hazineden Bursa Satılık İşyeri" href="/liste/satilik/1/isyeri/3/#/bursa/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX185ojfBlZwwKPwFomii103P+pxA5+CZkkRDosG1bIq/qkaLa7TQwUzdICImQ7Nj5Nmv8LVGIDXrCp0EFHGIINnGE1LIJhBxL172JeA71BiiJMfkdARMGxuTj/QXISa/VzuW0S1C8/SIZL9uSlpxEPLvgXBj/aPJKfuQutsEaTnQMjqzYtGXYv1i">Bursa Satılık İşyeri</a></li>
+                                                <li><a title="Hazineden Antalya Satılık İşyeri" href="/liste/satilik/1/isyeri/3/#/antalya/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX1+9y3YVupGDVkBulG+2AYCcTP1LL/CwdMIRh6Vjfiek7B6B4M+eDxc17WiRrCWh6ICJ0tKcCRM1e8ilQvHoUjx84QS5xLZb5ge/GynKDFGFdelaH5L9HcDMBzC5kQnslK5Utw+cA5Eoe47HKV7fCRfR0iYgNr6HaAhGuGLqjmsg0cZdHG5Zz+Pj">Antalya Satılık İşyeri</a></li>
+                                                <li><a title="Hazineden Adana Satılık İşyeri" href="/liste/satilik/1/isyeri/3/#/adana/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX19a+xWJb1AZJQ5w/fFTE/z1XhAwyHiIe1PHDgv9SZAvX8qXHy9V48uaA7jnbhLzbPEBdQquz4+tvCwjta1Ug+F3pPMqYj77ymcdgLOdTmaOuGClgVO4rgLQsHVPSvTY9oDq/mldkLWi/ZEnZDns6/0joXP+d4L8LTsI6TixW59sK3ICUjP5Ij0O">Adana Satılık İşyeri</a></li>
+                                                <li><a title="Hazineden İstanbul Kiralık İşyeri" href="/liste/kiralik/2/isyeri/3/#/istanbul/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX19h8aOemVOKuuegUXziL1odaGJBM5lTfP30H2ekfvCRq+GHTsZyVNSj72SEA5Bm4DUvGsXO317KuQ7cryd8ZiKF0IliEITe9LfyjZ/3xsz9PW+jHrZgxhAo+kK43NyZHCccmHGlhMd3+OFUjGqD78JxUTPFWydnKyy15AMBTxSLS6qxyQdwrzkz">İstanbul Kiralık İşyeri</a></li>
+                                                <li><a title="Hazineden Ankara Kiralık İşyeri" href="/liste/kiralik/2/isyeri/3/#/ankara/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX19j5UJ/VaAnxXjFZCri8CUXByeVKL1/lW53xTESfZe/oScL/ylQlUJxa6f4YaAlGLxIhWEpIETflRPKpNAGivnJLvGHaRAp2jnuBQm/z+HcuUQ1EzBQgSq7DE5EgdkAlfFAhEyGaRRcIq6Qe8PkZI5SRpdToObjfEPNJ+8sy/pYU0UctroN8mSA">Ankara Kiralık İşyeri</a></li>
+                                                <li><a title="Hazineden İzmir Kiralık İşyeri" href="/liste/kiralik/2/isyeri/3/#/izmir/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX19K5XhyzaZPsvXLbQg75Z5C0DKSz51mGXAfqJZ4Xmqef5u8hQgNalN71mBL4ZbogT5OkYWs3l8ix9k4TUR/3EQ4CvdcPP1TuzLWNLeX8yzWuQ55DGTU6rHv/8MpLnGJqr2nGfATcDeNQ4ctsNtMIdVPk03bsYDVLUr4j6+dkxi+I4EbW2Sa8SH5">İzmir Kiralık İşyeri</a></li>
+                                                <li><a title="Hazineden Bursa Kiralık İşyeri" href="/liste/kiralik/2/isyeri/3/#/bursa/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX1+P2OfuNLDlvKt4bzy3RfKHGzcAK9jmOzUmCPSV87ZpEOP8yD88F1SidwWMfOsK8vd2cQF+KED/4ooXWmiX+lOwQOmRF52xHIc9R0xjgecsnOcnBfcIVFM5ANu7tsCreXdhskhOmDRL2NaPDnJUWgq1dMV7+HTQbrRoOUX6uS9rL4/2QL+xJyna">Bursa Kiralık İşyeri</a></li>
+                                                <li><a title="Hazineden Antalya Kiralık İşyeri" href="/liste/kiralik/2/isyeri/3/#/antalya/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX1+8Yjt5NSCC12kTo2fgza6hCPDY/Ojt7RgK3Fwp0mwO1BSO6/5ZkrJUhb76ON1osoIjy7pdP5uEmTYUBPFVQ4VRLfv+8IN44JdsS3MB1MSteFMR1fFwu4Hudn6Ip4zga4j1HXBUSn2ahqWkYjCD24wZ0rqn3hSNhkMt/1bMSm6KxPuAYQPzKHXH">Antalya Kiralık İşyeri</a></li>
+                                                <li><a title="Hazineden Adana Kiralık İşyeri" href="/liste/kiralik/2/isyeri/3/#/adana/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX1/BW9hdmfsVExRJe6Edf8ZiLlxCMMOgCQuR3X6M0rvhSkLoISmtPCzJ+ln17IDKGyqTzFeggMX6KanylxdZJbeEoZtM5SW1CGr16p/Ryzwmtya4C91TTn+XPxW/UF69QaefB8eezS65kULaqwKpc7gzc56+m2AUx7oa+jI8OJRJk/jT2zB26WUF">Adana Kiralık İşyeri</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-2 col-sm-2 col-xs-6">
+                                        <div class="footer-col">
+                                            <p class="footer-title">Arsa</p>
+                                            <ul class="list-unstyled footer-nav">
+                                                <li><a title="Hazineden İstanbul Satılık Arsa" href="/liste/satilik/1/arsa/4/#/istanbul/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX19imN/8od14sP9ms3E9YHFpAfOwg4pv180lOE5PswaJbaXVf/Xv4hhku7fJHGB+5+BpFXb4Fsn5hC3GuL31GrUbmvvUH6PjI1T1YlXZR9VBF72LUkA2R59WFCP19dO/LLaZVs651AdwOMUykbJHNJfNtNJdi/zyjtKVn+BJkaynZ0BVrPT0V+9mAm5KICBFg9YMzXhM5stz8XFbH5wLwwZgpyk6X/kfCDqPu0APPpPgEcr6k3hgeRG4o7oIPhu4hH1aNIeipJoDlBBRyLSgBFAMrVDdmZgd3LtC7nuICba02jIBR0w8LJHE">İstanbul Satılık Arsa</a></li>
+                                                <li><a title="Hazineden Ankara Satılık Arsa" href="/liste/satilik/1/arsa/4/#/ankara/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX18tp3TePkvXJdZGhutlytzQ60YmStUDSqh/pcT0eHKWfQJrDfYp1AtdOCuzqezxK8ri22pY1m5XgDR3dJIBKFdNRL2ZWxdrU7tZ5dWstL2FarRE1AfGDmW2wLPi4nt5Cy1HcoJCMLuyF7OQrahZsmKB5yXLkb7E+Y7bKAE71oyIywk05Oq73kGJ6mRsfD2bFVvB0z8fzNgYKGp4dYllh4Ns8vlLCyrM6gpj4/13g0T9/IrhLyTUjxzpJ7oV8cWHsYU2LWEZ+qbbHU2rEfix02EVzP3sXfXmHzmGsLUNQb2a0VaQNT3mI1kF">Ankara Satılık Arsa</a></li>
+                                                <li><a title="Hazineden İzmir Satılık Arsa" href="/liste/satilik/1/arsa/4/#/izmir/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX1/I1Q0Xb6JXnhDbkpXcgIfi+QWTChSJ4MurqB5CXYxER3sVGBLy76sWxbb4KPxTMY6Qbl1ISYgKORDEI9F9b8GDa6sLCfu4FYLFzJ3Sy4DbNT+vN9kt00VTq9Uv3MUIdJbufJ87e1LI7L+KyQjUaVAmqE7sDXbcU53Ed6mo7ODqNIRX82Xm1QOJWNjM6HIc87LolcSFKOHEQXJzPiexumLEHgLSMikgxzaX0CNTYBZvUomk+Hvq/qwkODg8Eo2s1xe3ske5ek4AgzHBUB9iyI1CrG+14K+3KIZLirYHoInsh7cp2gy1gKRF">İzmir Satılık Arsa</a></li>
+                                                <li><a title="Hazineden Bursa Satılık Arsa" href="/liste/satilik/1/arsa/4/#/bursa/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX18yzXoERUc/l83DoGmxUqymGEmq3EkDRQ5RjnkkeBJ6mGGZk97dXqFhz9fVHn8q7xdGEbMS/W0o23xsPlcTFwgV3YcUhsBolz3lJq1it8uDXI75Zx41pLDBmyNDolzbUZXkXRE7NZphdnxE+qQGUhtwUo090Siv+7iuQR5aGjGvmsVdBm4kaBGx0zx3zgtyRUV/5L3eqlTC25wqIblEYZeKrs/rUK6F22GlNHVWZDK0kQCrh0sTEL/S5+qRaLKiEe/thJ3JhiZZ0cntHsNs6376N+QZDTA86eE2VpAFF94qwDyPklyyb1CX">Bursa Satılık Arsa</a></li>
+                                                <li><a title="Hazineden Antalya Satılık Arsa" href="/liste/satilik/1/arsa/4/#/antalya/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX19rxHulN2fViwUhzETMwhS2Fh+5F1+q8PKUBUR9Ebgc9e7MCCXIaZkzqTokLelKt5QI57VcVr01I0crD6Q2gsCMfIoUS04hoO8NT0rTYKfKlQm6EiludKeAfJqUzGJiS4AERtTt1syPOI5QTyo6wJncK7nuMo0R4v/NIOutXUW5n6aq9v7etBmX8bLQyjPF93oW0849wXI8ZZY9Iq2tIbG+wAAr5r940ogoG4a82gfyGOaguhScSloOBhLvbbA+uuUd24dS+qTuxHvvzBo9ZMSLI8GY2CHiUdSCsqObNtyezTYFV/ZucSkG">Antalya Satılık Arsa</a></li>
+                                                <li><a title="Hazineden Adana Satılık Arsa" href="/liste/satilik/1/arsa/4/#/adana/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX1/Uv8BcyCgXHUS75/+zIlgTncF6d8S/ngeNg5OmmK6Yg2d78LKcWbViwLQRkgaSXx8ZRMSWzaGLPfgo4yOVQ0UZ/oc2LIsd2giTfyh+xCLNEOBppNZrllsezzPd2uSf/TjTtcnEZY3399qMLgVgM5MGwvY4ehVU3EeXVZg1sfNoJal6ZcQ25p1U8slIGxWSpUOA96rLOgUl28QE8gdvbyyYRETveMbPh/rv/KMpIBXBqm3ZzAJZOtorB8tRkIB+2L1IQF7td8K5T/IUlcoKY53NnDt2sffXXr5X+E9v4xAbX6/JqPktbUdH">Adana Satılık Arsa</a></li>
+                                                <li><a title="Hazineden İstanbul Kiralık Arsa" href="/liste/kiralik/2/arsa/4/#/istanbul/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX1+11OarrJrQYjzpE1RSDmXoq5ctWpCz6gfqfirhcwPwEe0ZZE78Vfnm1gSw5iaHlf8gzfQ3vHN2l3vQwcrZKq0V1XwdjucBT9RlG1oy4WTYHnZXOS8xgmco7J3DrsrtkCcoL+xx+qGE12S+/PxSLDX1nAgLjoHNMCDF3GZaI4mHAN9cRnFegaKPcPzv+bs9PS6m3W/DZ3lSyGsE0Bvl57rVf0jrXilmEY+NRsJ1K+e+YdY+zMTvEW14Jl7PsSdqQtH1XWwqbf1+ocBbmxYbmCJdX0oJYJzpGcULwUyQED7Iw7QgDxulfwGl">İstanbul Kiralık Arsa</a></li>
+                                                <li><a title="Hazineden Ankara Kiralık Arsa" href="/liste/kiralik/2/arsa/4/#/ankara/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX1/MwOESXInC0DqcI+Q8WSSAP+E6OD9U0b6hwOA8KIJXTxZyveOD1PqMEQgf6oVjl28yzyxczjE7qQ2YpER2AEQUEARc82w8HvgTQa2nlHOEJsxiDPRxaH75Oi/hP5H7u4cAfehqvpKfN1RqRiqA5YOzY9J4MnOQ6f+NrE9LGsgpe+ovMBmI5xcYFYyXwocEKLTGvspnR2cpOsfOApzy2w9llBEtjt98d424XZUH+m5QeT2kLEEDP6EXWbe0wxKYI2PArJnr/El6gbjf2n9vL/wuWfIbY39344LpQM4gI6SMfGcdUAPe7WDB">Ankara Kiralık Arsa</a></li>
+                                                <li><a title="Hazineden İzmir Kiralık Arsa" href="/liste/kiralik/2/arsa/4/#/izmir/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX19aC7qemBZq+63O+VoTGT213rXRFTCVko+zK7NttdpI98YgCsF0w5VI5/v2+qc3FmjryBT0gY/gKSb1CQsCUFTNCM0tkZvryY4GwMoi5DRD72KVkVbw9MP+sozOouhdRGyN/nKPcECxe1m3dQNkGL58HgGWTkWY+N3g3iKhrpfiovDrwR7JLRxwOomc6nizqLmqhJmm4dn6gEg4CF7qxJ1yGxpodaGOrT3Um3zZoKbKmNwiXk/VPjxxOinnztmptWpiWbtLimWXRo3ewqQIqHbcVNkqGkOZyJ1Tvp+tLSMQs7EcZ1U8bA4D">İzmir Kiralık Arsa</a></li>
+                                                <li><a title="Hazineden Bursa Kiralık Arsa" href="/liste/kiralik/2/arsa/4/#/bursa/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX19jUYPuv3sRFU/K2ob1yEkFNW895szpP5+b5pArXqGMzO36QJOLqe7e2tFh5dbDcp38beRFRTpReEvJJcTFR2DhcHyoS9bSEJ/rsxn042ENKQU+KlOZ22425WaiZ1+mNOMhxBVLemYqZ3A4D5YPVIkniMu9TxR8W6GWz4143ehV0jZP1VZJiST2orrJ8SvcwqrOZGTFIHJffbQo41R7YwLnHKehhnWRj64URuB6nMDaZite2JY6owDTo+au9uaFsu/C6Ey/lGk2kYAiw5IGK3vZIhbL47AiCmNOw304nFuFAOjwcR+7dqtw">Bursa Kiralık Arsa</a></li>
+                                                <li><a title="Hazineden Antalya Kiralık Arsa" href="/liste/kiralik/2/arsa/4/#/antalya/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX18sQa8zcIwCh+Dtjwx4i+xVzOqEIf/f9X9BiT1YhnJJu/aMzRtjHDK+TfurlqWO6A948z96Y3KleZmUO6ep9o7MpWXH2mzgRZWo7ZPihRCDB55iFKeK4LvYzyvpVKElHPjTmdIcgAWKWt3Q0/fMwrcbjiEY0byT5vr7JIX29UTXSEh0gAC2LyKXnUMaSLNfO13pMCDucDEC8wZe1Um2oZudtD+msflsoqLONstvqAtyHxrgskN/ZxMxJCgKjOCB++rAXjyd0qvMSwyAHwSKZCYhFhPGEkyp+6+hIEj+dN70ebdyXw3LLMaI">Antalya Kiralık Arsa</a></li>
+                                                <li><a title="Hazineden Adana Kiralık Arsa" href="/liste/kiralik/2/arsa/4/#/adana/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX1+q5syrzTp9pc/alom5trNgsW09lmosbR1mwnsliMQr++ETTIv1d3IX/i4g7cK54c5WB+1sqOdUh9pU32cS9Dh3ZiEZXBG1O/3pbqDawCe5K+dvgQNe12aXdWfxu4NxuiG4rxKZifh+O5R/h9Xei0V0sSsENab+Sa+IRPd6k4QhBrJzBwkDzaI8QT6CaOIPC/4f3y3XzGoyn4O2NyAICPkuOOSnF0BCCm3zVDur2CkhSCnboAl2wvdw69PTEpl4tf3tlVQbr2wHmCYg2ymTPxNZ+1HNbHSjTQhn/Z/XKwMlW/f2PUCtgriH">Adana Kiralık Arsa</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-2 col-sm-2 col-xs-6">
+                                        <div class="footer-col">
+                                            <p class="footer-title">Bina</p>
+                                            <ul class="list-unstyled footer-nav">
+                                                <li><a title="Hazineden İstanbul Satılık Bina" href="/liste/satilik/1/bina/5/#/istanbul/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX1+0DROpLx2EVz9yLGybqPEYm53CcbvSu3AJl7dsEWgrHz7hHQu8dE1xObXgyIVv8kAdi3lc+7zMxTc0vdfGxxHUUWagDqqE2dskqOoTylmD3HMlP29tvHJzY4qTzr+G6oyz9I4AQLbA4n8fIbECw/pKTXb+7Q9ZvbOafy04PfswWAgxVMmvOSFTY38sKlLFakQatg2HPo8ZcAO0bgUumLJ05BHNtdwWIHOrNzyIc6IdsC2BPPIR4+Cu8h5hgylCinG+Ikcx8Tk6RQ==">İstanbul Satılık Bina</a></li>
+                                                <li><a title="Hazineden Ankara Satılık Bina" href="/liste/satilik/1/bina/5/#/ankara/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX1+xRd2AU0U1kY4X0osUvLhlES/0KaxrRqFHnawXCiT59dhxur7MD74ufliyw4nx/DWcERwAdVSq8ML4PZwLAzIUECCmuMS9LH/L8e1MWhG/g1+WtIDbpx3gmHVZqSKxRc4w5aN7louY/PXLaB6PLB44mwXvWSTOeuQyM1B+EEQVe7AkGDgsShhHBV1RIrq7MyrpSVVZ1ZhhQzBk+8QItRreaiM5KbS/Sa1T0iGL5ESxPOlmKH2kHyxP5M/JKsZ5a2FBlTN3gY8+HQ==">Ankara Satılık Bina</a></li>
+                                                <li><a title="Hazineden İzmir Satılık Bina" href="/liste/satilik/1/bina/5/#/izmir/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX1++kybiaLRZxj2nw1STF65Z6LVXE2r00InADqVomG1LCSmjO/zhGcAbSF+ivkayQobJw5xpH5ftbxd6gooulf5aCWgAlGYgQrOO5vXpBEG1HA6Y9E12BCWRIu0OuKQ4oBV61cG1tTQToGzV388orZFPs7hx29/UV0AXOzl/qYxcKoYkuZtQwwkvo5BIaX9a3d5H0J0jr7x4WkgDj66vDhHkGqztGrbcL78w8OpQ1KL7H32UzItbDlmSlLmIc9tYcHgvjG9bcnFO5g==">İzmir Satılık Bina</a></li>
+                                                <li><a title="Hazineden Bursa Satılık Bina" href="/liste/satilik/1/bina/5/#/bursa/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX18ua/77Zt8F6hetit/WhCLM85tiR1DEjknr49+ZtMBF3fc1+nsFCSIUl5YgvJgNc4aCE77mfuzEt8m8FIa6hB1UcTHW+7u0EqBqqwzWn3NnXM1DUa6ib78dj4fOje2ARX/GGuRpkcKhhDEU92WkpXcN9eujL7yirCW1KYarI64xrp7YhiHLR2zIJKO4/b4CC85hq9zohE9r7iVE2912Eg1L3C58vh9TUAtjzsKGPZM4eECL7zHb+IIGbyal8uwSvSUuhFiw/8loMg==">Bursa Satılık Bina</a></li>
+                                                <li><a title="Hazineden Antalya Satılık Bina" href="/liste/satilik/1/bina/5/#/antalya/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX1+zYCRKSnuqcC0mAmgWQ/WEEmRXIH2s7hx/t0sYZbK45O0vBGQ3xrDVUH+jGvaxC1GwVLJPAZJgpKFDxdXqr1GZtXieE/1rvpLpS+USZ2DHH2kwSTD7WloURxnFeCv9gMgrofJ87w1yn467V/VxtZ3PBHhCAKydCqqfIBXklAl+c1hb3l4Oix80z5faz7dLxA+3eyuL86aA5x/2Xr41UyjWzPnwc5ImtBLQ+cY8yknrH6jLMu/rKtoJsKgiKVS+GWEXGSQ8Dr9sdQ==">Antalya Satılık Bina</a></li>
+                                                <li><a title="Hazineden Adana Satılık Bina" href="/liste/satilik/1/bina/5/#/adana/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX19TSdlJqKFvWf99Euc9ShJ/RvC28yCCNLUHCgRigCvbMQGLUv/GO+VZxZaCxSSdfxyKy9/hK7fOewMD8Nva6vczD8dXGqYmSSc5alxL6rEizKdkhzsYLVo+2mGQ76ZhUmYc6maucbfHqdPutvJBtsJNyJsQjwt0dPB4Yj4U57vRS6PPHhFm3BknMu+ualSf/E1y27ZSYzNJsfer4Viyc85qA5dDnVg3hgi3PvDcivgkkl2wlmqY8nKr3rMz1IcFRzVrLkGs5r5PnQ==">Adana Satılık Bina</a></li>
+                                                <li><a title="Hazineden İstanbul Kiralık Bina" href="/liste/kiralik/2/bina/5/#/istanbul/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX1/S7fkJQkU0D/tHTclBlvthfdM9BuNDlutrMoPOb/i7jOijj3/YSPQ+U7NMk4Mcnh5H0I42XOP0hSjpM/nubnH7Hojq1nCHQkOfiHIdpBFmrkLNTG+k0odTWqq3GHnu4si7zt3gDkucimFMB+y9X5peDb0AkDn0EfMppzocXoGLWiouE5YF0JLt2mH41aOQF8xclPTkaUwrmSpm6OCh0DGXPPmQV0aB7jisFOfKmqw97k6HsqET4mx0fdqnk2kIHwMgIWStH3XoJQ==">İstanbul Kiralık Bina</a></li>
+                                                <li><a title="Hazineden Ankara Kiralık Bina" href="/liste/kiralik/2/bina/5/#/ankara/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX18wdRr5yXw455IMTuEbQ9OQkAdgdGNwWyPD3RDATMiZB+rNluyBL+K4EZZ9m1HQFRGi1NTl5fnvTFNh5wZBhMPzMQVJD459FHeQPhMNzOwXNL3N5s7TjBs5RvZqSY47v2Z4Xf4x05Qhir7gGn5oNMYmOh3tl8b7dnohi6VKw66jGH+hM1tR8Mb5mo5iTIeoK/RgYvftfl2TBSjH0lGKBzOWiyBVUS/ZKhthIkP2jJ+s0vnrdtq5B3bou/yCTT40E+cOcKa81Rzp6Q==">Ankara Kiralık Bina</a></li>
+                                                <li><a title="Hazineden İzmir Kiralık Bina" href="/liste/kiralik/2/bina/5/#/izmir/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX1/S6YKUNg7my4dE3l5ZfT9E4+LfYEU4HIAwOwNc2mDNB/vCF/zi4xlR3RKHPTfiQO4dXtyRTLKm+qs1R2vJtkIPBmY0agCzyZNQWBdVSJgU0k+tsGqtGrc2Ow4n+pcjXpNEnpsVMFBJ1vk3xUSMaEp+38X8/8mbOwQiHYvunwYBZGRtiCqEP9lO+8QIvV/by+sPyOheByRoc5/I8/kM9z5dFDtFRlVN/Z4txx8Em8ABZUijAG7r5+HgyeRng52Jox/nPYPwVx+aMg==">İzmir Kiralık Bina</a></li>
+                                                <li><a title="Hazineden Bursa Kiralık Bina" href="/liste/kiralik/2/bina/5/#/bursa/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX1878ZJmk00xyXeDFGgIEOmgWnW6axVwDVpWaYXuyEQBGJW7F5i/aNqsFGU9ZwDxcKFpbB5pwoUwta4vclIWZbvWBmdKwkkzD34sp+2Ku8IqRzh7CLZePi4rpguJmoTW2Y1rMei+LKdz8ifG/N1qid3s2lYICoOnhSMvoPQCp4PF1jT5TeAj3BdwzsZCWgfjs5ckSZVGdKeEpS9yxCOimS/RI7YYW73P5zpfbIlqS8BLUifBdAJ7feqaUHf9HkogG5mB5hfmlJJyUw==">Bursa Kiralık Bina</a></li>
+                                                <li><a title="Hazineden Antalya Kiralık Bina" href="/liste/kiralik/2/bina/5/#/antalya/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX1/EI/S/VUdEnde3q2/A3S1Cy/Xa9P3LaVtcP5UWmC3Pg1ZTOnbliyP4CjWmfg6zsA4qYA0XNYQOX3Oro0x/oRYWd6HsIWejvspWpNVeg89wqIFV63oLzvsHei1aS8usCO3DzF++gCdMwkmFH6pNvxvLTfA8iR1BSjYMkEgoSxJBU2rGrKs0//nIGIcmLJXR960Avfu4vQJhq1VpvAYXvYXvviFfU2kOG54GT8M4tdd/rGY0LBkJv77vMZG++Rynjqdjm96AKHVqBQ==">Antalya Kiralık Bina</a></li>
+                                                <li><a title="Hazineden Adana Kiralık Bina" href="/liste/kiralik/2/bina/5/#/adana/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX19cODSWO0Vh8nl89fNQCtP7imLzUcgGAIRHr+UT6pyHdJRc7tcIKSPH4Fk6+ZEp41lhJol7Is5PEycw0h3i11uTKznUZ4E7LIxFL3p+LD5A9/8wsoYw/JJjUvaQ4l5+kdoURvBkWtEy3M/B4eIy2GEQGYHjvfqbGnC1KZTG6y2HI6G/lrEHYKkaxP0ItHAJg7vEH59s0kdGJrcp/8z37ZJt6twWOfgLCmztZ1C743dV46oLOtVTCUZ9DtZqgAm1kxFVEJSs9GYxww==">Adana Kiralık Bina</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="tab_h">
+                                    <div class="col-lg-3 col-md-2 col-sm-2 col-xs-6">
+                                        <div class="footer-col">
+                                            <p class="footer-title">Daire</p>
+                                            <ul class="list-unstyled footer-nav">
+                                                <li><a title="Satılık Daire" href="/haritada-ara/satilik/1/daire/8/">Satılık Daire</a></li>
+                                                <li><a title="Kiralık Daire" href="/haritada-ara/kiralik/2/daire/8/">Kiralık Daire</a></li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-2 col-sm-2 col-xs-6">
+                                        <div class="footer-col">
+                                            <p class="footer-title">İşyeri</p>
+                                            <ul class="list-unstyled footer-nav">
+                                                <li><a title="Satılık İşyeri" href="/haritada-ara/satilik/1/isyeri/3/">Satılık İşyeri</a></li>
+                                                <li><a title="Kiralık İşyeri" href="/haritada-ara/kiralik/2/isyeri/3/">Kiralık İşyeri</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-2 col-sm-2 col-xs-6">
+                                        <div class="footer-col">
+                                            <p class="footer-title">Arsa</p>
+                                            <ul class="list-unstyled footer-nav">
+                                                <li><a title="Satılık Arsa" href="/haritada-ara/satilik/1/arsa/4/">Satılık Arsa</a></li>
+                                                <li><a title="Kiralık Arsa" href="/haritada-ara/kiralik/2/arsa/4/">Kiralık Arsa</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-2 col-sm-2 col-xs-6">
+                                        <div class="footer-col">
+                                            <p class="footer-title">Bina</p>
+                                            <ul class="list-unstyled footer-nav">
+                                                <li><a title="Satılık Bina" href="/haritada-ara/satilik/1/bina/5/">Satılık Bina</a></li>
+                                                <li><a title="Kiralık Bina" href="/haritada-ara/kiralik/2/bina/5/">Kiralık Bina</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="clear: both"></div>
+                            <br />
+                            <br />
+                            <div class=" col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                                <div class="footer-col">
+                                    <p class="footer-title">Kurumsal</p>
+                                    <ul class="list-unstyled footer-nav">
+                                        <li><a title="İletişim" href="/kurumsal/iletisim/">İletişim </a></li>
+                                        <li><a title="Hakkımızda" href="/kurumsal/hakkimizda/">Hakkımızda </a></li>
+                                        <li><a title="Üye Ol" href="/kayit/">Üye Ol</a></li>
+                                        <li><a title="Giriş Yap" href="/giris-yap/">Giriş Yap</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class=" col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                                <div class="footer-col">
+                                    <p class="footer-title">Gizlilik ve Kullanım</p>
+                                    <ul class="list-unstyled footer-nav">
+                                        <li><a title="Şartlar ve Koşullar" href="/sartlar-ve-kosullar/">Şartlar ve Koşullar </a></li>
+                                        <li><a title="Sıkça Sorulan Sorular" href="/sss/">Sıkça Sorulan Sorular </a></li>
+                                        <li><a title="Üyelik Sözleşmesi" href="/uyelik-sozlesmesi/">Üyelik Sözleşmesi </a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class=" col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                                <div class="footer-col">
+                                    <p class="footer-title">Katkılarıyla</p>
+                                    <div class="row ">
+                                        <div class="col-xs-12 col-sm-6 ">
+                                            <a class="app-icon" target="_blank" href="http://www.kosgeb.gov.tr/">
+                                                <img src="/libraries/images/kosgeb logo.png" alt="Kosgeb" width="130" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                                <div class="footer-col">
+                                    <p class="footer-title">Tıklayın Arayalım</p>
+                                    <ul class="list-unstyled list-inline footer-nav social-list-footer social-list-color footer-nav-inline">
+                                        <li><a rel="noopener" href="/kurumsal/iletisim/" data-placement="top" data-toggle="tooltip" data-original-title="mesaj gönder" title="" target="_blank"><i class="fa fa-hand-pointer-o fa-2x"></i>Kurumsal Üyelik ve Reklam Vermek İçin Tıklayın</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class=" col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="footer-col row">
+                                    <div class="col-sm-12 col-xs-6 col-xxs-12 no-padding-lg">
+                                        <div class="mobile-app-content">
+                                            <p class="footer-title">Müşteri Hizmetleri</p>
+                                            <ul class="list-unstyled list-inline footer-nav social-list-footer social-list-color footer-nav-inline">
+                                                <li><a rel="noopener" href="tel:+08508085725" data-placement="top" data-toggle="tooltip" data-original-title="ara" title=""><i class="fa fa-phone fa-2x"></i></a><a href="tel:+08508085725" style="font-size: 20px;">0(850) 808 57 25</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-xs-6 col-xxs-12 no-padding-lg" style="padding-top: 12px;">
+                                        <div class="hero-subscribe">
+                                            <p class="footer-title no-margin">Bizi Takip Edin</p>
+                                            <ul class="list-unstyled list-inline footer-nav social-list-footer social-list-color footer-nav-inline">
+                                                <li><a rel="noopener" href="https://www.facebook.com/kralilan/" data-placement="top" data-toggle="tooltip" data-original-title="facebook" title="" target="_blank"><i class="fa fa-facebook-square fa-2x"></i></a></li>
+                                                <li><a rel="noopener" href="https://twitter.com/kralilan" data-placement="top" data-toggle="tooltip" data-original-title="twitter" title="" target="_blank"><i class="fa fa-twitter fa-2x"></i></a></li>
+                                                <li><a rel="noopener" href="https://www.instagram.com/kralilancom/?hl=tr" data-placement="top" data-toggle="tooltip" data-original-title="instagram" title="" target="_blank"><i class="fa fa-instagram fa-2x"></i></a></li>
+                                                <li><a rel="noopener" href="https://www.youtube.com/channel/UCgqKlGl5M2KAQxk_B8Ay-cQ/featured" data-placement="top" data-toggle="tooltip" data-original-title="youtube" title="" target="_blank"><i class="fa fa-youtube-square fa-2x"></i></a></li>
+                                                <li><a rel="noopener" href="https://www.linkedin.com/company-beta/17912042/" data-placement="top" data-toggle="tooltip" data-original-title="linkedin" title="" target="_blank"><i class="fa fa-linkedin-square fa-2x"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="clear: both"></div>
+                            <div class="col-lg-12">
+                                <div class=" text-center paymanet-method-logo">
+                                    <img src="/libraries/images/master_card.png" alt="Master Card" />
+                                    <img src="/libraries/images/visa_card.png" alt="Visa Card" />
+                                </div>
+                                <div class="copy-info text-center">
+                                    © 2016 kral ilan markası Yatırımcı Bilgi Merkezi - YABİMER'in tescilli markasıdır. Tüm hakları saklıdır.										
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <a href="#" id="back-to-top" style="color: #fff;" class="fa fa-angle-up fa-4x" title="En üste git"></a>
+        <style>
+            .nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover {
+                color: #fff;
+                background-color: rgb(20, 144, 120) !important;
+                border-left-color: rgb(20, 144, 120) !important;
+            }
+
+            .nav-pills > li > a {
+                background-color: #fff;
+                color: #000;
+            }
+        </style>
+        <link rel="manifest" href="/manifest.json" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        <script>
+            if (navigator.userAgent.indexOf("Speed Insights") == -1) {
+
+                (function (i, s, o, g, r, a, m) {
+                    i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                        (i[r].q = i[r].q || []).push(arguments)
+                    }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+                })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+                ga('create', 'UA-83917838-1', 'auto');
+                ga('send', 'pageview');
+            }
+        </script>
+        <script src='<%= Page.ResolveUrl("~/libraries/assets/bootstrap/js/bootstrap.min.js") %>'></script>
+        <script src='<%= Page.ResolveUrl("~/libraries/assets/js/owl.carousel.min.js") %>'></script>
+        <script src='<%= Page.ResolveUrl("~/libraries/assets/js/jquery.matchHeight-min.js") %>'></script>
+        <!-- include jquery list shorting plugin plugin  -->
+        <script src='<%= Page.ResolveUrl("~/libraries/assets/js/hideMaxListItem.js") %>'></script>
+        <!-- include jquery.fs plugin for custom scroller and selecter  -->
+        <script src='<%= Page.ResolveUrl("~/libraries/assets/plugins/jquery.fs.scroller/jquery.fs.scroller.js") %>'></script>
+        <script src='<%= Page.ResolveUrl("~/libraries/assets/plugins/jquery.fs.selecter/jquery.fs.selecter.js") %>'></script>
+        <!-- include custom script for site  -->
+        <script src='<%= Page.ResolveUrl("~/libraries/assets/js/script.js") %>'></script>
+        <script src="/libraries/assets/js/pace.min.js"></script>
+        <asp:ContentPlaceHolder ID="scripts" runat="server">
+        </asp:ContentPlaceHolder>
+        <script>
+            paceOptions = {
+                elements: true
+            };
+
+            var cssId = 'escapeCss';  // you could encode the css path itself to generate id..
+            var head = document.getElementsByTagName('head')[0];
+            var link = document.createElement('link');
+            link.id = cssId;
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = 'https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css';
+            link.media = 'all';
+            head.appendChild(link);
+       </script>
+
+
+        <%--        <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />--%>
+
+        <%--        <script async="async" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({
+                google_ad_client: "ca-pub-9803073452171785",
+                enable_page_level_ads: true
+            });
+    </script>--%>
+        <!-- Start Alexa Certify Javascript -->
+        <%--        <script type="text/javascript">
+            _atrk_opts = { atrk_acct: "SAVTo1IWhd10uG", domain: "kralilan.com", dynamic: true };
+            (function () { var as = document.createElement('script'); as.type = 'text/javascript'; as.async = true; as.src = "https://d31qbv1cthcecs.cloudfront.net/atrk.js"; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(as, s); })();
+    </script>--%>
+        <!-- End Alexa Certify Javascript -->
+<%--        <script>
+
+            if ('serviceWorker' in navigator) {
+                console.log("Will service worker register?");
+                navigator.serviceWorker.register('service-worker.js').then(function (reg) {
+                    console.log("Yes it did.");
+                }).catch(function (err) {
+                    console.log("No it didn't. This happened: ", err)
+                });
+            }
+    </script>--%>
+    </form>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</body>
+</html>

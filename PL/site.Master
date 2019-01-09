@@ -1,0 +1,295 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="site.master.cs" Inherits="PL.site" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="tr" xml:lang="tr">
+<head runat="server">
+    <title>Sahibinden Satýlýk Daire Arsa Kiralýk Ev Emlak - Kral Ýlan</title>
+    <meta http-equiv="Content-Language" content="tr" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Sahibinden satýlýk daire kiralýk ev iþyeri arsa ve tüm kamu kurumlarýndan satýlýk kiralýk emlak ilanlarý için tek site: kral ilan." />
+    <meta name="keywords" content="sahibinden,satýlýk,daire,kiralýk,ev,arsa,iþyeri,emlak,ücretsiz,bedava,ilan,ver,ekle,kral,ilan" />
+    <meta name="author" content="kralian.com development" />
+    <meta name="google-site-verification" content="gbU4UNxHbBsUcELtHVxxjVlXoYJ9zneG8BWQqOsPHoI" />
+    <meta name="robots" content="index, follow" />
+    <meta name="copyright" content="© 2015 kralilan.com" />
+    <meta name="robots" content="all" />
+    <meta charset="utf-8" />
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#16A085" />
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#16A085" />
+    <!-- iOS Safari -->
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/upload/default-images/apple-touch-icon-144-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/upload/default-images/apple-touch-icon-114-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/upload/default-images/apple-touch-icon-72-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" href="/upload/default-images/apple-touch-icon-57-precomposed.png" />
+    <link rel="shortcut icon" href="/libraries/assets/ico/favicon.png" />
+    <link rel="stylesheet" href="/libraries/assets/css/bootstrap.min.css" />
+    <link href="/libraries/assets/css/style.min.css" rel="stylesheet" />
+    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async="async"></script>
+    <script>
+        var OneSignal = window.OneSignal || [];
+        OneSignal.push(
+        ["init", {
+            appId: "d30b7b05-a644-4aa3-ac59-534eca6fcfac",
+            welcomeNotification: {
+                "title": "Kral Ýlan",
+                "message": "Teþekkürler!"
+            },
+            autoRegister: false,
+            notifyButton: {
+                enable: false,
+            }
+        }],
+        function () {
+            OneSignal.registerForPushNotifications()
+        }
+        );
+    </script>
+    <!-- Global site tag (gtag.js) - AdWords: 781913905 -->
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=AW-781913905"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'AW-781913905');
+    </script>
+    <!-- Facebook Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1930191430395114');
+        fbq('track', 'PageView');
+    </script>
+    <asp:ContentPlaceHolder ID="metalog" runat="server">
+    </asp:ContentPlaceHolder>
+    <asp:ContentPlaceHolder ID="styles" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form runat="server" id="form1">
+        <div id="wrapper">
+            <div class="header">
+                <nav class="navbar navbar-site navbar-default" role="navigation">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+                                <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span
+                                    class="icon-bar"></span><span class="icon-bar"></span>
+                            </button>
+                            <a href="/" title="kralilan.com">
+                                <img style="padding: 11px;" src="/upload/default-images/apple-touch-icon-57-precomposed.png" alt="kralilan.com logo" /></a>
+                        </div>
+                        <div class="navbar-collapse collapse">
+                            <ul class="nav navbar-nav navbar-right" runat="server" id="userPanel" visible="false">
+                                <li>
+                                    <a href="/secure/bildirimlerim/">
+                                        <i class="icon icon-bell-1"></i>
+                                        <span class="label label-danger" runat="server" id="span1"></span>
+                                    </a>
+                                </li>
+                                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">
+                                    <span>
+                                        <asp:Label Text="text" runat="server" ID="lblUserName" /></span> <i class="icon-user fa"></i><i
+                                            class=" icon-down-open-big fa"></i></a>
+                                    <ul class="dropdown-menu user-menu">
+                                        <li>
+                                            <a href="/secure/benim-sayfam/"><i class="icon-home"></i>Benim Sayfam</a>
+                                        </li>
+                                        <li>
+                                            <a href="/secure/ilanlarim/"><i class="icon-th-thumb"></i>Ýlanlarým </a></li>
+                                        <li>
+                                            <a href="/secure/favori-ilanlarim/"><i class="icon-heart"></i>Favorilerim </a>
+                                        </li>
+                                        <li>
+                                            <asp:LinkButton ID="LinkButton1" runat="server" OnClick="Cikis_Click"><i class="glyphicon glyphicon-off"></i>Çýkýþ</asp:LinkButton></li>
+                                    </ul>
+                                </li>
+                                <li class="postadd">
+                                    <a href="/kategori-secimini-yap/" class="btn btn-success-ki " style="font-size: 14px; padding-right: 140px;"><i class="icon icon-plus"></i>&nbsp;Ücretsiz Ýlan Ver</a>
+                                </li>
+                                <li class="postadd" runat="server" visible="false" id="project">
+                                    <a href="/projeler/ekle/" type="button" class="btn btn-danger" style="font-weight: 700; font-size: 14px; padding-right: 100px;"><i class="fa fa-circle"></i>&nbsp;Proje Yayýnla</a>
+                                </li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right" runat="server" id="visitorPanel">
+                                <li>
+                                    <a title="Giriþ Yap" href="/giris-yap/"><i class="icon icon-login"></i>&nbsp;Giriþ Yap</a></li>
+                                <li>
+                                    <a title="Üye Ol" href="/kayit/"><i class="icon icon-user-add"></i>&nbsp;Üye Ol</a></li>
+                                <li class="postadd">
+                                    <a href="/giris-yap/" type="button" class="btn btn-success-ki" style="font-size: 14px; padding-right: 140px;"><i class="icon icon-plus"></i>&nbsp;Ücretsiz Ýlan Ver</a>
+                                </li>
+                                <li class="postadd" runat="server" visible="false" id="project1">
+                                    <a href="/giris-yap/" type="button" class="btn btn-danger" style="font-weight: 700; font-size: 14px; padding-right: 100px;"><i class="fa fa-circle"></i>&nbsp;Proje Yayýnla</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!--/.nav-collapse -->
+                    </div>
+                    <!-- /.container-fluid -->
+                </nav>
+            </div>
+            <!-- /.header -->
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+            <footer>
+                <div class="footer-content" style="border-bottom: 1px solid rgba(0,0,0,0.1); border-top: 1px solid rgba(0,0,0,0.1); font-size: 14px; padding: 40px 0; color: #333; background: #f5f5f5;">
+                    <div class="container">
+                        <!-- tab content -->
+                        <div class="row">
+
+                            <div style="clear: both"></div>
+
+                            <div class=" col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                                <div class="footer-col">
+                                    <p class="footer-title">Kurumsal</p>
+                                    <ul class="list-unstyled footer-nav">
+                                        <li><a title="Maðaza Açmak Ýstiyorum" href="/yeni-magaza/">Maðaza Açmak Ýstiyorum</a></li>
+                                        <li><a title="Ýletiþim" href="/kurumsal/iletisim/">Ýletiþim </a></li>
+                                        <li><a title="Hakkýmýzda" href="/kurumsal/hakkimizda/">Hakkýmýzda </a></li>
+                                        <li><a title="Üye Ol" href="/kayit/">Üye Ol</a></li>
+                                        <li><a title="Giriþ Yap" href="/giris-yap/">Giriþ Yap</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class=" col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                                <div class="footer-col">
+                                    <p class="footer-title">Gizlilik ve Kullaným</p>
+                                    <ul class="list-unstyled footer-nav">
+                                        <li><a title="Þartlar ve Koþullar" href="/sartlar-ve-kosullar/">Þartlar ve Koþullar </a></li>
+                                        <li><a title="Sýkça Sorulan Sorular" href="/sss/">Sýkça Sorulan Sorular </a></li>
+                                        <li><a title="Üyelik Sözleþmesi" href="/uyelik-sozlesmesi/">Üyelik Sözleþmesi </a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class=" col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                                <div class="footer-col">
+                                    <p class="footer-title">Katkýlarýyla</p>
+                                    <div class="row ">
+                                        <div class="col-xs-12 col-sm-6 ">
+                                            <a class="app-icon" target="_blank" href="http://www.kosgeb.gov.tr/">
+                                                <img src="/libraries/images/kosgeb logo.png" alt="Kosgeb" width="130" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                                <div class="footer-col">
+                                    <p class="footer-title">Týklayýn Arayalým</p>
+                                    <ul class="list-unstyled list-inline footer-nav social-list-footer social-list-color footer-nav-inline">
+                                        <li><a rel="noopener" href="/kurumsal/iletisim/" data-placement="top" data-toggle="tooltip" data-original-title="mesaj gönder" title="" target="_blank"><i class="fa fa-hand-pointer-o fa-2x"></i>Kurumsal Üyelik ve Reklam Vermek Ýçin Týklayýn</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class=" col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="footer-col row">
+                                    <div class="col-sm-12 col-xs-6 col-xxs-12 no-padding-lg">
+                                        <div class="mobile-app-content">
+                                            <p class="footer-title">Müþteri Hizmetleri</p>
+                                            <ul class="list-unstyled list-inline footer-nav social-list-footer social-list-color footer-nav-inline">
+                                                <li><a rel="noopener" href="tel:+08508085725" data-placement="top" data-toggle="tooltip" data-original-title="ara" title=""><i class="fa fa-phone fa-2x"></i></a><a href="tel:+08508085725" style="font-size: 20px;">0(850) 808 57 25</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-xs-6 col-xxs-12 no-padding-lg" style="padding-top: 12px;">
+                                        <div class="hero-subscribe">
+                                            <p class="footer-title no-margin">Bizi Takip Edin</p>
+                                            <ul class="list-unstyled list-inline footer-nav social-list-footer social-list-color footer-nav-inline">
+                                                <li><a rel="noopener" href="https://www.facebook.com/kralilan/" data-placement="top" data-toggle="tooltip" data-original-title="facebook" title="" target="_blank"><i class="fa fa-facebook-square fa-2x"></i></a></li>
+                                                <li><a rel="noopener" href="https://twitter.com/kralilan" data-placement="top" data-toggle="tooltip" data-original-title="twitter" title="" target="_blank"><i class="fa fa-twitter fa-2x"></i></a></li>
+                                                <li><a rel="noopener" href="https://www.instagram.com/kralilancom/?hl=tr" data-placement="top" data-toggle="tooltip" data-original-title="instagram" title="" target="_blank"><i class="fa fa-instagram fa-2x"></i></a></li>
+                                                <li><a rel="noopener" href="https://www.youtube.com/channel/UCgqKlGl5M2KAQxk_B8Ay-cQ/featured" data-placement="top" data-toggle="tooltip" data-original-title="youtube" title="" target="_blank"><i class="fa fa-youtube-square fa-2x"></i></a></li>
+                                                <li><a rel="noopener" href="https://www.linkedin.com/company-beta/17912042/" data-placement="top" data-toggle="tooltip" data-original-title="linkedin" title="" target="_blank"><i class="fa fa-linkedin-square fa-2x"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="clear: both"></div>
+                            <div class="col-lg-12">
+                                <div class=" text-center paymanet-method-logo">
+                                    <img src="/libraries/images/master_card.png" alt="Master Card" />
+                                    <img src="/libraries/images/visa_card.png" alt="Visa Card" />
+                                </div>
+                                <div class="copy-info text-center">
+                                    © 2016 kral ilan markasý Yatýrýmcý Bilgi Merkezi - YABÝMER'in tescilli markasýdýr. Tüm haklarý saklýdýr.										
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <a href="#" id="back-to-top" style="color: #fff;" class="fa fa-angle-up fa-4x" title="En üste git"></a>
+        <style>
+            .nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover {
+                color: #fff;
+                background-color: rgb(20, 144, 120) !important;
+                border-left-color: rgb(20, 144, 120) !important;
+            }
+
+            .nav-pills > li > a {
+                background-color: #fff;
+                color: #000;
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        <script>
+            if (navigator.userAgent.indexOf("Speed Insights") == -1) {
+
+                (function (i, s, o, g, r, a, m) {
+                    i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                        (i[r].q = i[r].q || []).push(arguments)
+                    }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+                })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+                ga('create', 'UA-83917838-1', 'auto');
+                ga('send', 'pageview', { 'page': location.pathname + location.search + location.hash });
+            }
+        </script>
+        <script src='<%= Page.ResolveUrl("~/libraries/assets/bootstrap/js/bootstrap.min.js") %>'></script>
+        <script src='<%= Page.ResolveUrl("~/libraries/assets/js/owl.carousel.min.js") %>'></script>
+        <script src='<%= Page.ResolveUrl("~/libraries/assets/js/jquery.matchHeight-min.js") %>'></script>
+        <!-- include jquery list shorting plugin plugin  -->
+        <script src='<%= Page.ResolveUrl("~/libraries/assets/js/hideMaxListItem.js") %>'></script>
+        <!-- include jquery.fs plugin for custom scroller and selecter  -->
+        <script src='<%= Page.ResolveUrl("~/libraries/assets/plugins/jquery.fs.scroller/jquery.fs.scroller.js") %>'></script>
+        <script src='<%= Page.ResolveUrl("~/libraries/assets/plugins/jquery.fs.selecter/jquery.fs.selecter.js") %>'></script>
+        <!-- include custom script for site  -->
+        <script src='<%= Page.ResolveUrl("~/libraries/assets/js/script.js") %>'></script>
+        <asp:ContentPlaceHolder ID="scripts" runat="server">
+        </asp:ContentPlaceHolder>
+        <script>
+            paceOptions = {
+                elements: true
+            };
+
+            var cssId = 'escapeCss';  // you could encode the css path itself to generate id..
+            var head = document.getElementsByTagName('head')[0];
+            var link = document.createElement('link');
+            link.id = cssId;
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = 'https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css';
+            link.media = 'all';
+            head.appendChild(link);
+       </script>
+    </form>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</body>
+</html>
+
