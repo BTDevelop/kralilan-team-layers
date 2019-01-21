@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL;
 using DAL.Abstract;
+using KralilanProject.Entities;
 using KralilanProject.Interfaces;
 
 namespace BLL.Concrete
@@ -37,7 +38,7 @@ namespace BLL.Concrete
             throw new NotImplementedException();
         }
 
-        public List<mahalleler> GetAllByCityId(int CityId)
+        public List<Mahalle> GetAllByCityId(int CityId)
         {
             return _mahallelerDal.GetAllByCityId(CityId);
         }

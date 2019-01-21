@@ -21,13 +21,8 @@ namespace PL.harita
     public partial class kral_harita : System.Web.UI.Page
     {
 
-        mesajBll mesajb = new mesajBll();
-        bildirimBll bildirimb = new bildirimBll();
-        kullaniciBll kullanicib = new kullaniciBll();
-        kategoriBll kategorib = new kategoriBll();
+
         kategoriTurBll kategoriTurb = new kategoriTurBll();
-        ilanBll ilanb = new ilanBll();
-        ozelliklerBll property = new ozelliklerBll();
         kullanici _kullanici;
 
         public int topCatId = 0, catId = 0, typeId = 0;
@@ -39,6 +34,7 @@ namespace PL.harita
         private IKategoriService _kategoriManager;
         private IBildirimService _bildirimManager;
         private IKullaniciService _kullaniciManager;
+        private IIlanSayiService _ilanSayiManager;
         public kral_harita()
         {
             _ozellikManager = new OzellikManager(new LTSOzelliklerDal());
@@ -46,12 +42,13 @@ namespace PL.harita
             _kategoriManager = new KategoriManager(new LTSKategorilerDal());
             _bildirimManager = new BildirimManager(new LTSBildirimlerDal());
             _kullaniciManager = new KullaniciManager(new LTSKullanicilarDal());
+            _ilanSayiManager = new IlanSayiManager(new LTSIlanSayilarDal());
         }
 
 
         protected override void OnInit(EventArgs e)
         {
-            if (RouteData.Values["KategoriNo"].ToString() != null)
+            if (!String.IsNullOrEmpty(RouteData.Values["KategoriNo"].ToString()))
             {
                 CreateDynamicFilterControls(RouteData.Values["KategoriNo"].ToString());
             }
@@ -234,16 +231,13 @@ namespace PL.harita
         {
             _kullanici = kullaniciBll.getUsersBlock();
 
-
             if (!String.IsNullOrEmpty(RouteData.Values["KategoriNo"].ToString()) && !String.IsNullOrEmpty(RouteData.Values["TurNo"].ToString()))
             {
-
                 if (RouteData.Values["KategoriNo"] != null)
                     topCatId = Convert.ToInt32(RouteData.Values["KategoriNo"].ToString());
 
                 if (RouteData.Values["TurNo"] != null)
                     typeId = Convert.ToInt32(RouteData.Values["TurNo"]);
-
 
                 if (RouteData.Values["KategoriNo"] != null && RouteData.Values["TurNo"] != null)
                 {
@@ -257,14 +251,14 @@ namespace PL.harita
                 }
                 if (_kategoriManager.Get(topCatId) != null)
                 {
-                    altStr.InnerText = _kategoriManager.Get(topCatId).kategoriAdi + " " + "(" + String.Format("{0:N0}", ilanb.count(topCatId, -1, -1).ToString()) + ")";
+                    altStr.InnerText = _kategoriManager.Get(topCatId).kategoriAdi + " " + "(" + String.Format("{0:N0}", _ilanSayiManager.CountByCategoriId(topCatId).ToString()) + ")";
                 }
                 subcategori.Visible = true;
                 Ul1.Visible = false;
                 Ul2.Visible = false;
 
             }
-            else if(!String.IsNullOrEmpty(RouteData.Values["TurNo"].ToString()))
+            else if (!String.IsNullOrEmpty(RouteData.Values["TurNo"].ToString()))
             {
                 subcategori.Visible = false;
                 Ul1.Visible = false;
@@ -275,7 +269,7 @@ namespace PL.harita
                 else
                     topCatId = 1;
 
-                Repeater2.DataSource = kategoriTurb.getListCategoriWithType(topCatId, -1);
+                Repeater2.DataSource = _kategoriTurManager.GetAllByCategoriTypeId(topCatId, -1);
                 Repeater2.DataBind();
 
 
@@ -285,7 +279,7 @@ namespace PL.harita
                 }
                 if (_kategoriManager.Get(topCatId) != null)
                 {
-                    Strong2.InnerText = _kategoriManager.Get(topCatId).kategoriAdi + " " + "(" + String.Format("{0:N0}", ilanb.count(topCatId, -1, -1).ToString()) + ")";
+                    Strong2.InnerText = _kategoriManager.Get(topCatId).kategoriAdi + " " + "(" + String.Format("{0:N0}", _ilanSayiManager.CountByCategoriId(topCatId).ToString()) + ")";
                 }
             }
             else
@@ -299,9 +293,10 @@ namespace PL.harita
                 else
                     topCatId = 1;
 
-                    Repeater1.DataSource = kategoriTurb.getListCategoriWithType(topCatId, -1);
-                    Repeater1.DataBind();
-                
+                Repeater1.DataSource = _kategoriTurManager.GetAllByCategoriTypeId(topCatId, -1);
+                Repeater1.DataBind();
+
+
 
                 if (_kategoriManager.Get(Convert.ToInt32(_kategoriManager.Get(topCatId).ustKategoriId)) != null)
                 {
@@ -309,62 +304,61 @@ namespace PL.harita
                 }
                 if (_kategoriManager.Get(topCatId) != null)
                 {
-                    topcategoristrong2.InnerText = _kategoriManager.Get(topCatId).kategoriAdi + " " + "(" + String.Format("{0:N0}", ilanb.count(topCatId, -1, -1).ToString()) + ")";
+                    if (topCatId == 1)
+                    {
+                        topcategoristrong2.InnerText = "Emlak" + " " + "(" + String.Format("{0:N0}", _ilanSayiManager.CountAll().ToString()) + ")";
+                    }
+                    else
+                    {
+                        topcategoristrong2.InnerText = _kategoriManager.Get(topCatId).kategoriAdi + " " + "(" + String.Format("{0:N0}", _ilanSayiManager.CountByCategoriId(topCatId).ToString()) + ")";
+                    }
+
                 }
             }
 
-                if (!Page.IsPostBack)
-                {
-                    //if (HttpContext.Current.User.Identity.Name != "")
-                    //{
-                    //    kullanici _authority = kullanicib.search(Convert.ToInt32(HttpContext.Current.User.Identity.Name));
-                    //    HttpRequest _request = base.Request;
-                    //if(!String.IsNullOrEmpty(HttpContext.Current.User.Identity.Name))
-                    if (_kullanici != null)
-                    {
-                    //if (Session["unique-site-user"] != null)
-                    //{
-                        //kullanici _authority = (kullanici)Session["unique-site-user"];
-                    kullanici _authority = _kullanici;
+            if (!Page.IsPostBack)
+            {
 
+                if (_kullanici != null)
+                {
+
+                    kullanici _authority = _kullanici;
                     HttpRequest _request = base.Request;
 
-                        if (_authority.rol == 4 || _authority.rol == 3 || _authority.rol == 2 || _authority.rol == 1)
-                        {
-                            visitorPanel.Visible = false;
-                            userPanel.Visible = true;
-                            lblUserName.Text = _authority.kullaniciAdSoyad.ToString();
-                            //span3.InnerText = kullanicib.search(_authority.kullaniciId).kredi.ToString();
-                        }
-
-
-                        if (_bildirimManager.Count(_authority.kullaniciId) != 0)
-                        {
-                            span1.InnerText = _bildirimManager.Count(_authority.kullaniciId).ToString();
-                        }
-
-
-                        _kullaniciManager.UpdateBySessionInfo(_authority.kullaniciId, _request.Browser.Browser, _request.UserHostAddress);
-                        _kullaniciManager.UpdateByOnlineStatus(_authority.kullaniciId, 10);
-
+                    if (_authority.rol == 4 || _authority.rol == 3 || _authority.rol == 2 || _authority.rol == 1)
+                    {
+                        visitorPanel.Visible = false;
+                        userPanel.Visible = true;
+                        lblUserName.Text = _authority.kullaniciAdSoyad.ToString();
                     }
+
+                    if (_bildirimManager.Count(_authority.kullaniciId) != 0)
+                    {
+                        span1.InnerText = _bildirimManager.Count(_authority.kullaniciId).ToString();
+                    }
+
+                    _kullaniciManager.UpdateBySessionInfo(_authority.kullaniciId, _request.Browser.Browser, _request.UserHostAddress);
+                    _kullaniciManager.UpdateByOnlineStatus(_authority.kullaniciId, 10);
+
                 }
-           
+            }
+
         }
 
-        public string count(object catid, string typeId)
+        public string count(string catid, string typeId)
         {
-            int cat = Convert.ToInt32(catid);
-            int type = Convert.ToInt32(typeId);
+            int CategoriId = Convert.ToInt32(catid);
+            int TypeId = Convert.ToInt32(typeId);
 
-            return " " + String.Format("{0:N0}", ilanb.count(cat, type, -1).ToString());
+
+            if (TypeId == -1) return " " + String.Format("{0:N0}", _ilanSayiManager.CountByCategoriId(CategoriId).ToString());
+            else return " " + String.Format("{0:N0}", _ilanSayiManager.CountByCategoriTypeId(CategoriId, TypeId).ToString());
         }
 
         public bool catKind(object _income)
         {
             if (_kategoriTurManager.Get(Convert.ToInt32(_income)) != null)
             {
-
                 return true;
             }
             else
@@ -378,6 +372,19 @@ namespace PL.harita
             Session.Abandon();
             FormsAuthentication.SignOut();
             Response.Redirect("~/");
+        }
+
+        protected void Page_Error(object sender, EventArgs e)
+        {
+            Exception olusanHata = Server.GetLastError();
+            ErrorPage = "HataSayfasi.aspx?EkBilgi=" + olusanHata.Message + "&HataMesaji=" + olusanHata.InnerException.Message + "&Sayfa=" + Page.AppRelativeVirtualPath;
+            Response.Write(olusanHata.Message);
+            //using (FileStream stream = new FileStream("C:\\HataLogDosyasi.txt", FileMode.Append, FileAccess.Write))
+            //{
+            //    StreamWriter writer = new StreamWriter(stream);
+            //    writer.WriteLine("Hata Zamanı " + DateTime.Now.ToString() + " Hata Sayfası " + Page.AppRelativeVirtualPath + " Hata Mesajı " + olusanHata.InnerException.Message);
+            //    writer.Close();
+            //}
         }
     }
 }

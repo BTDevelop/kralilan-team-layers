@@ -226,21 +226,6 @@
             if (!results[2]) return '';
             return decodeURIComponent(results[2].replace(/\+/g, " "));
         }
-
-        //$('img').bind('error', function() { alert($(this)); }
-
-        //$('img').each(function () {
-        //    if (!this.complete || (!$.browser.msie && (typeof this.naturalWidth == "undefined" || this.naturalWidth == 0))) {
-        //        this.src = '/images/imgPlaceholder.png';
-        //    }
-        //});
-        //$(document).ready(function () {
-        //    /* Hide broken titles */
-        //    $(".thumbnail img").error(function () {
-        //        $(this).attr('src', '/libraries/images/loading.gif');
-        //    });
-        //});
-
     </script>
 </asp:Content>
  

@@ -11,7 +11,6 @@ namespace PL.management.araclar
 {
     public partial class mesajoku : System.Web.UI.UserControl
     {
-        mesajBll mesajb = new mesajBll();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Convert.ToInt32(Request.QueryString["how"]) == 1)

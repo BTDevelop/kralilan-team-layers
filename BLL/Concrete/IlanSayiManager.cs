@@ -26,6 +26,21 @@ namespace BLL.Concrete
             throw new NotImplementedException();
         }
 
+        public int CountAll()
+        {
+            return _ilanSayiDal.CountAll();
+        }
+
+        public int CountByCategoriId(int CategoriId)
+        {
+            return _ilanSayiDal.CountByCategoriId(CategoriId);
+        }
+
+        public int CountByCategoriTypeId(int CategoriId, int TypeId)
+        {
+            return _ilanSayiDal.CountByCategoriTypeId(CategoriId, TypeId);
+        }
+
         public void Delete(ilanSayi entity)
         {
             throw new NotImplementedException();

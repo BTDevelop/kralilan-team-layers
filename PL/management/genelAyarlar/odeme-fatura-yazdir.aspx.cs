@@ -26,11 +26,6 @@ namespace PL.management
         public string mail;
         public string telefon = "";
 
-        odemeBll odemeb = new odemeBll();
-        kullaniciBll kullanicib = new kullaniciBll();
-        dopingKategoriBll dopingKatb = new dopingKategoriBll();
-        seciliDopingBll secDopingB = new seciliDopingBll();
-
         private IOdemeService _odemeManager;
         private IDopingKategoriService _dopingKategoriManager;
         private IKullaniciService _kullaniciManager;

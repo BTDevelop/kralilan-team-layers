@@ -113,21 +113,21 @@ namespace BLL
         //    }
         //}
 
-        public int storeClassifiedCount(int _inStoreId)
-        {
-            using (ilanDataContext idc = new ilanDataContext())
-            {
-                return idc.ilans.Count(i => i.magazaId == _inStoreId && i.onay == 1 && i.silindiMi == false  && i.satildiMi == false);
-            }
-        }
+        //public int storeClassifiedCount(int _inStoreId)
+        //{
+        //    using (ilanDataContext idc = new ilanDataContext())
+        //    {
+        //        return idc.ilans.Count(i => i.magazaId == _inStoreId && i.onay == 1 && i.silindiMi == false  && i.satildiMi == false);
+        //    }
+        //}
 
-        public int storeFollowerCount(int _income)
-        {
-            using (ilanDataContext idc = new ilanDataContext())
-            {
-                return idc.magazaTakips.Count(i => i.magazaId == _income & i.kullanici.silindiMi == false);
-            }
-        }
+        //public int storeFollowerCount(int _income)
+        //{
+        //    using (ilanDataContext idc = new ilanDataContext())
+        //    {
+        //        return idc.magazaTakips.Count(i => i.magazaId == _income & i.kullanici.silindiMi == false);
+        //    }
+        //}
 
         //public void insert(string _inStoreName, bool _inCorpote, int _inProvId, int _inDistId, int _inNeigId, 
         //                   string _inTaxNumber, int _inTaxId, string _inStoreLogo, string _inExp, int _inStoreType, int _inPacId, int _inMonth)

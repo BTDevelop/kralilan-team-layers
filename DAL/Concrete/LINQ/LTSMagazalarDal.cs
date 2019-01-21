@@ -63,7 +63,7 @@ namespace DAL.Concrete.LINQ
                         {
                             MagazaId = m.magazaId,
                             MagazaAdi = m.magazaAdi,
-                            MagazaKategoriId = Convert.ToInt32(m.magazaKategoriId)
+                            MagazaKategoriId = m.magazaKategoriId
 
                         };
 

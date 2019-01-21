@@ -15,8 +15,6 @@ namespace PL
 {
     public partial class sifremi_unuttum : System.Web.UI.Page
     {
-        kullaniciBll kullanicib = new kullaniciBll();
-        guvenlikKodlariBll guvenlib = new guvenlikKodlariBll();
         string info, detail;
 
         private IGuvenlikKodService _guvenlikKodManager;

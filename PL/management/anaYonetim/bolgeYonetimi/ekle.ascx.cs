@@ -13,8 +13,6 @@ namespace PL.management.anaYonetim.bolgeYonetimi
 {
     public partial class ekle : System.Web.UI.UserControl
     {
-        ilBll il = new ilBll();
-        kullaniciBll kullanicib = new kullaniciBll();
 
         private IIlService _ilManager;
         public ekle()

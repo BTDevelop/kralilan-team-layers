@@ -333,8 +333,6 @@ namespace PL.management.anaYonetim.ilanYonetimi
             _kullanici = kullaniciBll.getUsersBlock();
             if (_kullanici != null)
             {
-                kullanici _authority = _kullanici;
-
                 if (!IsPostBack)
                 {
                     geciciIlanId = DateTime.Now.Ticks.ToString();
@@ -366,8 +364,8 @@ namespace PL.management.anaYonetim.ilanYonetimi
         protected void drpIlce_SelectedIndexChanged(object sender, EventArgs e)
         {
             drpMahalle.DataSource =_mahalleManager.GetAllByCityId(Convert.ToInt32(drpIlce.SelectedValue));
-            drpMahalle.DataTextField = "mahalleAdi";
-            drpMahalle.DataValueField = "mahalleId";
+            drpMahalle.DataTextField = "MahalleAdi";
+            drpMahalle.DataValueField = "MahalleId";
             drpMahalle.DataBind();
 
             ListItem lst = new ListItem();
@@ -381,8 +379,8 @@ namespace PL.management.anaYonetim.ilanYonetimi
             drpMahalle.Items.Clear();
 
             drpIlce.DataSource = _ilceManager.GetByRegionId(Convert.ToInt32(drpIl.SelectedValue));
-            drpIlce.DataTextField = "ilceAdi";
-            drpIlce.DataValueField = "ilceId";
+            drpIlce.DataTextField = "IlceAdi";
+            drpIlce.DataValueField = "IlceId";
             drpIlce.DataBind();
 
             ListItem lst = new ListItem();
@@ -393,7 +391,6 @@ namespace PL.management.anaYonetim.ilanYonetimi
 
         protected void Kaydet_Click(object sender, EventArgs e)
         {
-            //kullanici _authority = (kullanici)Session["unique-user"];
             kullanici _authority = _kullanici;
 
             if (drpKimden.SelectedValue != "")

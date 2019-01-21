@@ -5,8 +5,6 @@
 <link rel="stylesheet" href='<%= Page.ResolveUrl("~/libraries/assets/plugins/jquery.confirm/jquery-confirm.min.css") %>'>
 <link rel="stylesheet" href='<%= Page.ResolveUrl("~/libraries/assets/plugins/dropzone/dropzone.min.css") %>' />
 <link rel="stylesheet" href='<%= Page.ResolveUrl("~/libraries/assets/plugins/dropzone/basic.min.css") %>' />
-
-<%--<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/css/bootstrap-dialog.min.css" rel="stylesheet" />--%>
 <style>
     #map {
         width: 100%;
@@ -260,75 +258,31 @@
                     <!-- /.box -->
                 </div>
             </div>
-
-            <%-- <div class="col-md-9 col-xs-12 pull-right">
-                <!-- general form elements -->
-                <div class="box box-success">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">Harita</h3>
-                    </div>
-                    <!-- /.box-header -->
-                    <!-- form start -->
-                 <div class="overlay">
-                  <i class="fa fa-refresh fa-spin"></i>
-                </div>
-                    <div role="form">
-                        <div class="box-body">
-                            <div class="col-md-12">
-                                <div id="map"></div>
-                                <!-- Harita -->
-                            </div>
-                            <!-- /.box-body -->
-                        </div>
-                    </div>
-                    <!-- /.box -->
-                </div>
-            </div>--%>
-
             <div class="col-md-9 col-xs-12 pull-right">
-                <!-- general form elements -->
                 <div class="box box-default">
                     <div class="box-header with-border">
                         <h3 class="box-title">Resim Ekle</h3>
                     </div>
-                    <!-- /.box-header -->
-                    <!-- form start -->
                     <div role="form">
                         <div class="box-body">
                             <div class="col-md-12">
-                                <%--                       <div class="form-group">
-                                    <div id='uploadImage'>
-                                        <asp:FileUpload ID="FileUpload1" CssClass="fUp" runat="server" AllowMultiple="true" onChange="preview(this)" maxRequestLength="2048" />
-                                        <a class="dSec" onclick="triggerFileUpload()"><span class="fa fa-camera" style="font-size: 45px;"></span>Resim Seç</a>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                    <div id="previews">
-                                    </div>
-                                </div>--%>
                                 <div class="dropzone" id="dropzoneForm" style="border-radius: 15px; background: url('../../../libraries/images/bg_1.png') repeat left top;">
                                     <div class="fallback">
                                         <input name="file" type="file" multiple="multiple" />
                                     </div>
                                 </div>
                                 <input runat="server" name="txtgecici" id="txtgecici" visible="False" />
-
                                 <br />
                             </div>
-                            <!-- /.box-body -->
                         </div>
                     </div>
-                    <!-- /.box -->
                 </div>
             </div>
-            <!-- left column -->
             <div class="col-md-9 pull-right">
-                <!-- general form elements -->
                 <div class="box box-default">
                     <div class="box-header with-border">
                         <h3 class="box-title">İlan Detayları</h3>
                     </div>
-                    <!-- /.box-header -->
-                    <!-- form start -->
                     <div role="form">
                         <div class="box-body">
                             <div>
@@ -336,7 +290,6 @@
                                     <label for="txtBaslik">Başlık</label>
                                     <asp:TextBox ID="txtBaslik" CssClass="form-control" runat="server"></asp:TextBox>
                                 </div>
-                                <!-- /.form-group -->
                                 <div class="form-group">
                                     <label for="txtFiyat">Fiyat</label>
                                     <asp:TextBox ID="txtFiyat" CssClass="form-control double price" runat="server"></asp:TextBox>

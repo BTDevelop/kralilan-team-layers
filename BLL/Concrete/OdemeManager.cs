@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL;
 using DAL.Abstract;
+using KralilanProject.Entities;
 using KralilanProject.Interfaces;
 
 namespace BLL.Concrete
@@ -35,6 +36,11 @@ namespace BLL.Concrete
         public List<odeme> GetAll()
         {
             throw new NotImplementedException();
+        }
+
+        public List<Odeme> GetByProjeId(int ProjeId)
+        {
+            return _odemelerDal.GetByProjeId(ProjeId);
         }
 
         public odeme GetLast()

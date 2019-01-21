@@ -17,10 +17,6 @@ namespace PL.profil
 {
     public partial class cep_telefonu : System.Web.UI.UserControl
     {
-
-        kullaniciBll kullanicib = new kullaniciBll();
-        telefonBll telefonBLL = new telefonBll();
-        guvenlikKodlariBll guvenlikKodb = new guvenlikKodlariBll();
         SecurityCodeHelper securityCode = new SecurityCodeHelper();
         SMSHelper smsHelper = new SMSHelper();
 

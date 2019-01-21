@@ -14,9 +14,6 @@ namespace PL
 {
     public partial class yeni_sifre : System.Web.UI.Page
     {
-        guvenlikKodlariBll guvenlikb = new guvenlikKodlariBll();
-        kullaniciBll kullanicib = new kullaniciBll();
-
         private IGuvenlikKodService _guvenlikKodManager;
         private IKullaniciService _kullaniciManager;
         public yeni_sifre()

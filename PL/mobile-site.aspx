@@ -87,15 +87,15 @@
         </div>
         <asp:Repeater ID="rpcategories" runat="server">
             <ItemTemplate>
-                <a href="<%# String.Format("/kategori/emlak-{0}", BLL.PublicHelper.Tools.URLConverter(((DAL.StrategyData.KategoriType)Container.DataItem).kategoriAdi)) %>">
+                <a href="<%# String.Format("/kategori/emlak-{0}", BLL.PublicHelper.Tools.URLConverter(Eval("Adi"))) %>">
                     <div class="w3-cell-row">
                         <div class="w3-cell w3-cell-icon">
-                            <i class="<%# String.Format("{0}", ((DAL.StrategyData.KategoriType)Container.DataItem).kategoriLogo) %>"></i>
+                            <i class="<%#  Icons[Index++] %>"></i>
                         </div>
                         <div class="w3-cell w3-container w3-cell-title">
-                            <h2><%# ((DAL.StrategyData.KategoriType)Container.DataItem).kategoriAdi %></h2>
-                            <h3>&nbsp;(<%# String.Format("{0:N0}", ((DAL.StrategyData.KategoriType)Container.DataItem).kategoriSayi) %>)</h3>
-                            <h4><%# String.Format("{0}", ((DAL.StrategyData.KategoriType)Container.DataItem).kategoriTip) %></h4>
+                            <h2><%# Eval("Adi") %></h2>
+                            <h3>&nbsp;(<%# String.Format("{0:N0}", Eval("Sayi")) %>)</h3>
+                            <h4><%# _kategoriTurManager.GetByCategoriIdStr(Convert.ToInt32(Eval("Id"))) %></h4>
                         </div>
                         <div class="w3-cell w3-cell-icon">
                             <i class="icon-right-open-big"></i>

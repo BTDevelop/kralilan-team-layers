@@ -248,7 +248,16 @@ namespace PL
 
                     List<Firma> companies = new List<Firma>();
 
-                    companies = _firmaManager.GetAllByUserId(kullaniciId);
+                    try
+                    {
+                        companies = _firmaManager.GetAllByUserId(kullaniciId);
+
+                    }
+                    catch (Exception exception)
+                    {
+                        Console.WriteLine(exception);
+                        throw;
+                    }
                     rpcompany.DataSource = companies;
                     rpcompany.DataBind();
                 }

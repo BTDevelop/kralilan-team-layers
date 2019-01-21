@@ -34,20 +34,19 @@
             sonistek = index;
             jQuery.ajax({
                 type: "POST",
-                url: "/services/ki_operation.asmx/getListUserAds",
+                url: "/endpoint/ilanfavoriservice.asmx/GetByAdsUserId",
                 dataType: "json",
-                data: "{inuserid:'" + inuserid + "' , index:'" + index + "'" + ", count:'" + count + "'" + ", opt:'" + opt + "'}",
+                data: "{ UserId:'" + inuserid + "' , Index:'" + index + "'}",
                 contentType: "application/json; charset=utf-8",
                 success: function (data) {
                     edata = data.d;
-
                     var dataArr = JSON.parse(edata);
                     result = "";
                     var status = "";
                     for(var i = 0; i < dataArr.length; i++) {
                         var text, parser, xmlDoc;
 
-                        text = dataArr[i].resim;
+                        text = dataArr[i].Resimler;
                         parser = new DOMParser();
                         xmlDoc = parser.parseFromString(text, "text/xml");
                         var resim = "noImage.jpg";
@@ -55,33 +54,34 @@
                             resim = xmlDoc.getElementsByTagName("resimDataType")[0].childNodes[0].firstChild;
                         }
 
-                        if (dataArr[i].satildiMi == true)
-                            status += '<span class="item-location"><i class="icon-docs"></i>&nbsp; satıldı </span>';
+                        status = "";
+                        //if (dataArr[i].satildiMi == true)
+                            //status += '<span class="item-location"><i class="icon-docs"></i>&nbsp; satıldı </span>';
 
                         result += '<div class="item-list">\
                                         <div class="col-sm-2 no-padding photobox">\
-                                            <div><a href="/ilan/'+ dataArr[i].baslikFormat +'-'+ dataArr[i].ilanId +'/detay"\
-                                                    title="' + dataArr[i].baslik + '">\
+                                            <div><a href="/ilan/'+ dataArr[i].Url +'-'+ dataArr[i].IlanId +'/detay"\
+                                                    title="' + dataArr[i].Baslik + '">\
                                                         <img\
                                                             class="thumbnail no-margin" src="/upload/ilan/' + resim.data +  '"\
-                                                            alt="' + dataArr[i].baslik + '"></a>\
+                                                            alt="' + dataArr[i].Baslik + '"></a>\
                                             </div>\
                                         </div>\
                                         <div class="col-sm-7 add-desc-box">\
                                             <div class="add-details">\
                                                 <h5 class="add-title">\
-                                                <a href="/ilan/' + dataArr[i].baslikFormat + '-' + dataArr[i].ilanId + '/detay"\
-                                                        title="' + dataArr[i].baslik + '">' + dataArr[i].baslik + '</a></h5>\
+                                                <a href="/ilan/' + dataArr[i].Url + '-' + dataArr[i].IlanId + '/detay"\
+                                                        title="' + dataArr[i].Baslik + '">' + dataArr[i].Baslik + '</a></h5>\
                                                 <span class="info-row"><span\
-                                                        class="date"><i class="icon-clock"></i>' + dataArr[i].tarihFormat + '</span> - <span\
-                                                            class="category">' + dataArr[i].ilanTur + ' ' + dataArr[i].kategoriAdi + '</span><span\
-                                                                class="item-location"><i class="icon-location-2"></i>&nbsp;' + dataArr[i].ilAdi + ' / ' + dataArr[i].ilceAdi + ' / ' + dataArr[i].mahalleAdi + '</span>\
+                                                        class="date"><i class="icon-clock"></i>' + dataArr[i].BaslangicTarihi + '</span> - <span\
+                                                            class="category">' + dataArr[i].EmlakTipi + ' ' + dataArr[i].KategoriAdi + '</span><span\
+                                                                class="item-location"><i class="icon-location-2"></i>&nbsp;' + dataArr[i].IlAdi + ' / ' + dataArr[i].IlceAdi + ' / ' + dataArr[i].MahalleAdi + '</span>\
                                                                 '+ status +'\
                                                 </span>\
                                             </div>\
                                         </div>\
                                         <div class="col-sm-3 text-right price-box">\
-                                            <h2 class="item-price">' + dataArr[i].fiyatTur + ' ' + dataArr[i].fiyatFormat + '</h2>\
+                                            <h2 class="item-price">' + dataArr[i].FiyatTipi + ' ' + dataArr[i].Fiyat + '</h2>\
                                         </div>\
                                     </div>';
                     }

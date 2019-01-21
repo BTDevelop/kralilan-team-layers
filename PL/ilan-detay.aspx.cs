@@ -17,21 +17,8 @@ namespace PL
     public partial class ilan_detaylari : System.Web.UI.Page
     {
 
-        ilanBll ilanb = new ilanBll();
-        ilanFavoriBll favorib = new ilanFavoriBll();
-        telefonBll telefonb = new telefonBll();
-        magazaTelefonBll magazaTlfb = new magazaTelefonBll();
-        magazaTakipciBll magazaTakipb = new magazaTakipciBll();
-        kullaniciTakipciBll kullaniciTakipb = new kullaniciTakipciBll();
-        kullaniciBll kullanicib = new kullaniciBll();
-        mesajBll mesajb = new mesajBll();
-        ziyaretciBll ziyaretcib = new ziyaretciBll();
-        ozelliklerBll property = new ozelliklerBll();
-        projelerBll projeb = new projelerBll();
-        kategoriBll kategorib = new kategoriBll();
         List<BLL.ExternalClass.ilanDataType> nearPositionClassified = new List<BLL.ExternalClass.ilanDataType>();
         kullanici _kullanici;
-
 
         public string magazaId, kullaniciId, postResim, sellerProfil = "", link = "", classifiedURI;
         public int whoFromId, phindex = 0;

@@ -15,15 +15,8 @@ namespace PL.profil
 {
     public partial class anasayfa : System.Web.UI.UserControl
     {
-        ilanBll ilanb = new ilanBll();
-        kullaniciBll kullanicib = new kullaniciBll();
-        ilanFavoriBll ilanFavb = new ilanFavoriBll();
-        magazaTakipciBll magazaTkpb = new magazaTakipciBll();
+
         kullanici _kullanici;
-        ilBll ilBLL = new ilBll();
-        ilceBll ilceBLL = new ilceBll();
-        mahalleBll mahalleBLL = new mahalleBll();
-        kategoriBll kategoriBLL = new kategoriBll();
 
         public string userProfilePic = "",
                       classifiedPic = "",
@@ -44,20 +37,15 @@ namespace PL.profil
                       userFollowerStore,
                       userClassifiedFavorite;
 
-        private IMahalleService _mahalleManager;
         private IMagazaTakipciService _magazaTakipciManager;
         private IKategoriService _kategoriManager;
-        private IIlceService _ilceManager;
-        private IIlService _ilManager;
         private IIlanFavoriService _ilanFavoriManager;
         private IIlanService _ilanManager;
 
         public anasayfa()
         {
-            _mahalleManager = new MahalleManager(new LTSMahallelerDal());
             _magazaTakipciManager = new MagazaTakipciManager(new LTSMagazaTakipcilerDal());
             _kategoriManager = new KategoriManager(new LTSKategorilerDal());
-            _ilManager = new IlManager(new LTSIllerDal());
             _ilanFavoriManager = new IlanFavoriManager(new LTSIlanFavorilerDal());
             _ilanManager = new IlanManager(new LTSIlanlarDal());
         }
@@ -77,9 +65,9 @@ namespace PL.profil
                     classifiedTitle = _ilan.baslik;
                     classifiedDate = String.Format("{0:dd MMMM yyyy}", _ilan.bitisTarihi);
                     classifiedCategori = _kategoriManager.Get(_ilan.kategoriId).kategoriAdi;
-                    classifiedCity = _ilManager.Get(_ilan.ilId).ilAdi;
-                    classifiedDist = _ilceManager.Get(_ilan.ilceId).ilceAdi;
-                    classifiedNeig = _mahalleManager.Get(_ilan.mahalleId).mahalleAdi;
+                    classifiedCity = _ilan.iller.ilAdi;
+                    classifiedDist = _ilan.ilceler.ilceAdi;
+                    classifiedNeig = _ilan.mahalleler.mahalleAdi;
                     classifiedPrice = String.Format(" {0:N0}", _ilan.fiyat);
                     classifiedPriceKind = EnumHelper.GetDescription((CurrencyTypeString)Enum.Parse(typeof(CurrencyTypeString), _ilan.fiyatTurId.ToString()));
                     classifiedType = EnumHelper.GetDescription((EstateTypeString)Enum.Parse(typeof(EstateTypeString), _ilan.ilanTurId.ToString()));
@@ -114,7 +102,7 @@ namespace PL.profil
 
                     userName = _authority.kullaniciAdSoyad;
                     userProfilePic = _authority.profilResim == null ? "noUser.jpg" : _authority.profilResim;
-                    userClassified = kullanicib.countAdsByUserId(_authority.kullaniciId);
+                    userClassified = _ilanManager.CountByUserStoreId(_authority.kullaniciId,-1);
                     userClassifiedFavorite = _ilanFavoriManager.Count(_authority.kullaniciId);
                     userFollowerStore = _magazaTakipciManager.CountByUserId(_authority.kullaniciId);
                     enSonİlan.Visible = true;

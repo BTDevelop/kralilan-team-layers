@@ -88,23 +88,23 @@ namespace BLL
         /// </summary>
         /// <param name="_id"></param>
         /// <returns></returns>
-        public string select(int _id)
-        {
-            using (ilanDataContext idc = new ilanDataContext())
-            {
-                var query = from i in idc.ilcelers.Where(q => q.ilId == _id)
-                            select new
-                            {
-                                i.ilceId,
-                                i.ilceAdi
-                            };
+        //public string select(int _id)
+        //{
+        //    using (ilanDataContext idc = new ilanDataContext())
+        //    {
+        //        var query = from i in idc.ilcelers.Where(q => q.ilId == _id)
+        //                    select new
+        //                    {
+        //                        i.ilceId,
+        //                        i.ilceAdi
+        //                    };
 
-                JsonFormat jsonFormat = new JsonFormat();
-                formatter.FormatTo(jsonFormat);
-                formatter.rawData = query.ToList();
-                return formatter.Format();
-            }
-        }
+        //        JsonFormat jsonFormat = new JsonFormat();
+        //        formatter.FormatTo(jsonFormat);
+        //        formatter.rawData = query.ToList();
+        //        return formatter.Format();
+        //    }
+        //}
 
         /// <summary>
         /// 

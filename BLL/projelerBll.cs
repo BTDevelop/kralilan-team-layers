@@ -110,88 +110,88 @@ namespace BLL
         //    }
         //}
 
-        int existid = 0;
+        //int existid = 0;
 
-        public class ProjectView
-        {
-            public int ProjeId { get; set; }
-            public string ProjeAdi { get; set; }
-            public string FirmaLogo { get; set; }
-            public string ProjeBilgiler { get; set; }
-            public string Galeri { get; set; }
-            public string IlAdi { get; set; }
-            public string IlceAdi { get; set; }
-        }
+        //public class ProjectView
+        //{
+        //    public int ProjeId { get; set; }
+        //    public string ProjeAdi { get; set; }
+        //    public string FirmaLogo { get; set; }
+        //    public string ProjeBilgiler { get; set; }
+        //    public string Galeri { get; set; }
+        //    public string IlAdi { get; set; }
+        //    public string IlceAdi { get; set; }
+        //}
 
-        public ProjectView getProjectRandomizer(int _inProvId, string _inIpAddress, bool _inView)
-        {
-            using (ilanDataContext idc = new ilanDataContext())
-            {
-                Random rnd = new Random();
+        //public ProjectView getProjectRandomizer(int _inProvId, string _inIpAddress, bool _inView)
+        //{
+        //    using (ilanDataContext idc = new ilanDataContext())
+        //    {
+        //        Random rnd = new Random();
 
-                var query = from p in idc.projelers.Where(x =>
-                        x.psilindmi == false && x.psatistami == true && x.ponay == true)
-                    select new
-                    {
-                        p.projeid,
-                        p.padi,
-                        p.firmalar.flogo,
-                        p.pbilgiler,
-                        p.pgaleri,
-                        p.iller.ilAdi,
-                        p.iller.ilId,
-                        p.ilceler.ilceAdi
-                    };
+        //        var query = from p in idc.projelers.Where(x =>
+        //                x.psilindmi == false && x.psatistami == true && x.ponay == true)
+        //            select new
+        //            {
+        //                p.projeid,
+        //                p.padi,
+        //                p.firmalar.flogo,
+        //                p.pbilgiler,
+        //                p.pgaleri,
+        //                p.iller.ilAdi,
+        //                p.iller.ilId,
+        //                p.ilceler.ilceAdi
+        //            };
 
-                if (_inProvId != -1)
-                {
-                    var count = query.Where(x => x.ilId == _inProvId).Count();
-                    if (count > 0)
-                    {
-                        var subQuery = query.Where(x => x.ilId == _inProvId);
-                        int r = rnd.Next(subQuery.Count());
-                        var subData = subQuery.ToList()[r];
-                        var result = new ProjectView
-                        {
-                            ProjeId = subData.projeid,
-                            ProjeAdi = subData.padi,
-                            ProjeBilgiler = subData.pbilgiler,
-                            FirmaLogo = subData.flogo,
-                            IlAdi = subData.ilAdi,
-                            IlceAdi = subData.ilceAdi,
-                            Galeri = subData.pgaleri
-                        };
+        //        if (_inProvId != -1)
+        //        {
+        //            var count = query.Where(x => x.ilId == _inProvId).Count();
+        //            if (count > 0)
+        //            {
+        //                var subQuery = query.Where(x => x.ilId == _inProvId);
+        //                int r = rnd.Next(subQuery.Count());
+        //                var subData = subQuery.ToList()[r];
+        //                var result = new ProjectView
+        //                {
+        //                    ProjeId = subData.projeid,
+        //                    ProjeAdi = subData.padi,
+        //                    ProjeBilgiler = subData.pbilgiler,
+        //                    FirmaLogo = subData.flogo,
+        //                    IlAdi = subData.ilAdi,
+        //                    IlceAdi = subData.ilceAdi,
+        //                    Galeri = subData.pgaleri
+        //                };
 
-                        return result;
-                    }
+        //                return result;
+        //            }
 
-                }
-                else
-                {
-                    var count = query.Count();
-                    if (count > 0)
-                    {
-                        int r = rnd.Next(query.Count());
-                        var subData = query.ToList()[r];
-                        var result = new ProjectView
-                        {
-                            ProjeId = subData.projeid,
-                            ProjeAdi = subData.padi,
-                            ProjeBilgiler = subData.pbilgiler,
-                            FirmaLogo = subData.flogo,
-                            IlAdi = subData.ilAdi,
-                            IlceAdi = subData.ilceAdi,
-                            Galeri = subData.pgaleri
-                        };
+        //        }
+        //        else
+        //        {
+        //            var count = query.Count();
+        //            if (count > 0)
+        //            {
+        //                int r = rnd.Next(query.Count());
+        //                var subData = query.ToList()[r];
+        //                var result = new ProjectView
+        //                {
+        //                    ProjeId = subData.projeid,
+        //                    ProjeAdi = subData.padi,
+        //                    ProjeBilgiler = subData.pbilgiler,
+        //                    FirmaLogo = subData.flogo,
+        //                    IlAdi = subData.ilAdi,
+        //                    IlceAdi = subData.ilceAdi,
+        //                    Galeri = subData.pgaleri
+        //                };
 
-                        return result;
-                    }
-                }
+        //                return result;
+        //            }
+        //        }
 
-                return null;
-            }
+        //        return null;
+        //    }
 
-        }
+        //}
 
         //public projeler getLastProject()
         //{
@@ -254,7 +254,6 @@ namespace BLL
         {
             using (ilanDataContext idc = new ilanDataContext())
             {
-                ziyaretciprojeBll ziyaretProjeBLL = new ziyaretciprojeBll();
                 var query = from i in idc.projelers.Where(x => x.pkullanicid == _inUserId && x.psilindmi == false)
                             select new
                             {
@@ -267,8 +266,8 @@ namespace BLL
                                 i.psilindmi,
                                 i.ptarih,
                                 i.psatistami,
-                                views = ziyaretProjeBLL.getVisitorByProjectId(i.projeid, false).ToString(),
-                                click = ziyaretProjeBLL.getVisitorByProjectId(i.projeid, true).ToString()
+                                views = idc.ziyaretprojes.Where(x => x.gpid == i.projeid && x.gtip == false).Count(),
+                                click = idc.ziyaretprojes.Where(x => x.gpid == i.projeid && x.gtip == true).Count()
                             };
 
                 query = query.OrderByDescending(x => x.ptarih).Skip(_inCount * (_index)).Take(_inCount);
@@ -666,26 +665,27 @@ namespace BLL
             }
         }
 
-        public string getProjectCountByProvince()
-        {
-            using (ilanDataContext idc = new ilanDataContext())
-            {
-                var query = (from i in idc.projelers
-                             where i.ponay == true && i.psilindmi == false && i.psatistami == true
-                             group i by i.iller into g
-                             select new provinCntDT
-                             {
-                                 provId = g.Key.ilId,
-                                 provName = g.Key.ilAdi,
-                                 cnt = g.Count()
-                             });
 
-                JsonFormat jsonFromat = new JsonFormat();
-                formatter.FormatTo(jsonFromat);
-                formatter.rawData = query.ToList();
-                return formatter.Format();
-            }
-        }
+        //public string getProjectCountByProvince()
+        //{
+        //    using (ilanDataContext idc = new ilanDataContext())
+        //    {
+        //        var query = (from i in idc.projelers
+        //                     where i.ponay == true && i.psilindmi == false && i.psatistami == true
+        //                     group i by i.iller into g
+        //                     select new provinCntDT
+        //                     {
+        //                         provId = g.Key.ilId,
+        //                         provName = g.Key.ilAdi,
+        //                         cnt = g.Count()
+        //                     });
+
+        //        JsonFormat jsonFromat = new JsonFormat();
+        //        formatter.FormatTo(jsonFromat);
+        //        formatter.rawData = query.ToList();
+        //        return formatter.Format();
+        //    }
+        //}
 
         public object list(int _index, int _inCount, bool _inVerify, bool _inDeleted, bool _inSales, 
                            string _inAds, string _inEcho, int _income)

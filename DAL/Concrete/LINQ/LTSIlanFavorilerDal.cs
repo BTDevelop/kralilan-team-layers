@@ -1,15 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using DAL.Abstract;
+using KralilanProject.Entities;
+using DAL.Enums;
 
 namespace DAL.Concrete.LINQ
 {
     public class LTSIlanFavorilerDal : IIlanFavorilerDal
     {
         private ilanDataContext idc = new ilanDataContext();
+        private readonly int pageCount = 10;
 
         public void Add(ilanFavori entity)
         {
@@ -52,29 +56,30 @@ namespace DAL.Concrete.LINQ
             return value;
         }
 
-        public IQueryable GetByUserId(int UserId)
+        public List<Ilan> GetByUserId(int UserId, int Index)
         {
             var query = from i in idc.ilanFavoris.Where(i => i.ilan.silindiMi == false & i.kullaniciId == UserId)
-                select new
+                select new Ilan
                 {
-                    i.ilanId,
-                    i.ilan.baslik,
-                    i.ilan.baslangicTarihi,
-                    i.ilan.iller.ilAdi,
-                    i.ilan.ilceler.ilceAdi,
-                    i.ilan.mahalleler.mahalleAdi,
-                    i.ilan.fiyat,
-                    i.ilan.kategori.kategoriAdi,
-                    ilanTur = i.ilan.ilanTurId.ToString(),
-                    fiyatTur =  i.ilan.fiyatTurId.ToString(),
-                    i.ilan.resim,
-                    i.ilan.satildiMi,
-                    baslikFormat = i.ilan.baslik,
-                    fiyatFormat = String.Format(" {0:N0}", i.ilan.fiyat),
-                    tarihFormat = String.Format(" {0:dd MMMM yyyy}", i.ilan.baslangicTarihi),
+                    IlanId = i.ilanId,
+                    Baslik = i.ilan.baslik,
+                    Tarih = i.ilan.baslangicTarihi,
+                    IlAdi = i.ilan.iller.ilAdi,
+                    IlceAdi = i.ilan.ilceler.ilceAdi,
+                    MahalleAdi = i.ilan.mahalleler.mahalleAdi,
+                    FiyatNumeric = i.ilan.fiyat,
+                    KategoriAdi = i.ilan.kategori.kategoriAdi,
+                    EmlakTipi = Enums.Enums.GetDescription((EstateTypeString)Enum.Parse(typeof(EstateTypeString), i.ilan.ilanTurId.ToString())),
+                    FiyatTipi = Enums.Enums.GetDescription((CurrencyTypeString)Enum.Parse(typeof(CurrencyTypeString), i.ilan.fiyatTurId.ToString())),
+                    Resimler = i.ilan.resim,
+                    Url = KralilanProject.Services.PublicHelper.Tools.URLConverter(i.ilan.baslik),
+                    Fiyat = String.Format(" {0:N0}", i.ilan.fiyat),
+                    BaslangicTarihi = String.Format(" {0:dd MMMM yyyy}", i.ilan.baslangicTarihi)
                 };
 
-            return query;
+            query = query.OrderByDescending(x => x.Tarih).Skip(pageCount * (Index)).Take(pageCount);
+
+            return query.ToList();
         }
 
         public void Update(ilanFavori entity)

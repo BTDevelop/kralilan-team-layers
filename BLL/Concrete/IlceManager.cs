@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL;
 using DAL.Abstract;
+using KralilanProject.Entities;
 using KralilanProject.Interfaces;
 
 namespace BLL.Concrete
@@ -36,7 +37,7 @@ namespace BLL.Concrete
             throw new NotImplementedException();
         }
 
-        public List<ilceler> GetByRegionId(int RegionId)
+        public List<Ilce> GetByRegionId(int RegionId)
         {
             return _ilcelerDal.GetByRegionId(RegionId);
         }

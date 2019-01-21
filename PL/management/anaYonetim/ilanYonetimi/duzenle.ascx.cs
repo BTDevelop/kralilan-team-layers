@@ -911,6 +911,7 @@ namespace PL.management.anaYonetim.ilanYonetimi
                 ilat = lat,
                 ilng = lng,
                 baslangicTarihi = starterDate,
+                bitisTarihi = starterDate.AddYears(1),
                 silindiMi = silindi
             };
 

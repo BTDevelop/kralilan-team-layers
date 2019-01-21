@@ -19,12 +19,6 @@ namespace PL.management.anaYonetim.projeYonetimi
     public partial class duzenle : System.Web.UI.UserControl
     {
 
-        projelerBll projeb = new projelerBll();
-        ilBll ilb = new ilBll();
-        ilceBll ilceb = new ilceBll();
-        ozelliklerBll property = new ozelliklerBll();
-        ziyaretciprojeBll ziyaretb = new ziyaretciprojeBll();
-        odemeBll odemeb = new odemeBll();
         public string tempcer = "";
 
         public string _inproname;
@@ -66,12 +60,16 @@ namespace PL.management.anaYonetim.projeYonetimi
         private IOzellikService _ozellikManager;
         private IIlceService _ilceManager;
         private IIlService _ilManager;
+        private IOdemeService _odemeManager;
+        private IZiyaretciProjeService _ziyaretciProjeManager;
         public duzenle()
         {
             _projeManager = new ProjeManager(new LTSProjelerDal());
             _ozellikManager =new OzellikManager(new LTSOzelliklerDal());
             _ilceManager = new IlceManager(new LTSIlcelerDal());
             _ilManager = new IlManager(new LTSIllerDal());
+            _odemeManager = new OdemeManager(new LTSOdemelerDal());
+            _ziyaretciProjeManager = new ZiyaretciProjeManager(new LTSZiyaretcilerProjeDal());
         }
         protected override void OnInit(EventArgs e)
         {
@@ -255,11 +253,11 @@ namespace PL.management.anaYonetim.projeYonetimi
 
                 tempcer = "temp" + projed.projeid;
 
-                _inproviews = ziyaretb.getVisitorByProjectId(_inprojeid, false);
-                _inproclick = ziyaretb.getVisitorByProjectId(_inprojeid, true);
+                _inproviews = _ziyaretciProjeManager.Count(_inprojeid, false);
+                _inproclick = _ziyaretciProjeManager.Count(_inprojeid, true);
 
-                List<BLL.ExternalClass.ilanDataType> payment = new List<BLL.ExternalClass.ilanDataType>();
-                payment = (List<BLL.ExternalClass.ilanDataType>)DAL.toolkit.GetObjectInXml(odemeb.getProjectPaymentStatus(_inprojeid), typeof(List<BLL.ExternalClass.ilanDataType>));
+                List<Odeme> payment = new List<Odeme>();
+                payment = _odemeManager.GetByProjeId(_inprojeid);
 
                 rppayment.DataSource = payment;
                 rppayment.DataBind();

@@ -125,6 +125,50 @@ namespace PL
                 new RouteValueDictionary { { "Kategori", string.Empty }, { "KategoriNo", string.Empty } }
 
             );
+            
+            ///////////
+
+            routes.MapPageRoute(
+                 "listeCat1",
+                 "ado/{Tur}-{Kategori}",
+                 "~/liste-test.aspx",
+                 true,
+                 new RouteValueDictionary { { "Tur", string.Empty }, { "Kategori", string.Empty } }
+            );
+
+            routes.MapPageRoute(
+               "listeProvince1",
+               "ado/{Tur}-{Kategori}/{Il}",
+               "~/liste-test.aspx",
+               false,
+               new RouteValueDictionary { { "Tur", string.Empty }, { "Kategori", string.Empty }, { "Il", string.Empty } }
+
+           );
+
+            routes.MapPageRoute(
+               "listeLokasyonKimden1",
+               "ado/{Tur}-{Kategori}/{Il}/{Kimden}",
+               "~/liste-test.aspx",
+               false,
+               new RouteValueDictionary { { "Tur", string.Empty }, { "Kategori", string.Empty }, { "Il", string.Empty }, { "Kimden", string.Empty } }
+             );
+
+            routes.MapPageRoute(
+                "listeDistrict1",
+                "ado/{Tur}-{Kategori}/{Il}-{Ilce}-{Mahalle}",
+                "~/liste-test.aspx",
+                false,
+                new RouteValueDictionary { { "Tur", string.Empty }, { "Kategori", string.Empty }, { "Il", string.Empty }, { "Ilce", string.Empty }, { "Mahalle", string.Empty } }
+            );
+
+            routes.MapPageRoute(
+                "listeWhoFrom1",
+                "ado/{Tur}-{Kategori}/{Kimden}",
+                "~/liste-test.aspx",
+                false,
+                new RouteValueDictionary { { "Tur", string.Empty }, { "Kategori", string.Empty }, { "Kimden", string.Empty } }
+            );
+
         }
 
         protected void Session_Start(object sender, EventArgs e)
@@ -145,6 +189,8 @@ namespace PL
 
         protected void Application_Error(object sender, EventArgs e)
         {
+            //Exception exc = Server.GetLastError();
+            //Response.Write(exc.Message);
             Context.ClearError();
         }
 

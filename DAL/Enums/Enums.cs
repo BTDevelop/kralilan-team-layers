@@ -72,6 +72,19 @@ namespace DAL.Enums
         havale = 3
     }
 
+    public enum AdsTypeString : int
+    {
+        [Description("Sayfa Düzeyi Reklam")]
+        sayfaduzeyi = 1,
+        [Description("Harita Düzeyi Reklam")]
+        haritaduzeyi = 2,
+    }
+
+    public enum AdsLocationTypeString : int
+    {
+        
+    }
+
     public enum CurrencyTypeString : int
     {
         [Description(" &#x20BA;")]

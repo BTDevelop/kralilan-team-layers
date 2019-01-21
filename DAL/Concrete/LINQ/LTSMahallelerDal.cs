@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DAL.Abstract;
+using KralilanProject.Entities;
 
 namespace DAL.Concrete.LINQ
 {
@@ -42,9 +43,17 @@ namespace DAL.Concrete.LINQ
             throw new NotImplementedException();
         }
 
-        public List<mahalleler> GetAllByCityId(int CityId)
+        public List<Mahalle> GetAllByCityId(int CityId)
         {
-            return idc.mahallelers.Where(q => q.ilceId == CityId).ToList();
+            var query = from i in idc.mahallelers.Where(q => q.ilceId == CityId)
+                select new Mahalle
+                {
+                    MahalleId = i.mahalleId,
+                    MahalleAdi = i.mahalleAdi
+                };
+
+            return query.ToList();
+
         }
 
         public void Update(mahalleler entity)

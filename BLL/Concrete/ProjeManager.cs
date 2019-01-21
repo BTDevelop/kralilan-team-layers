@@ -33,7 +33,7 @@ namespace BLL.Concrete
 
         public List<IlanSayi> CountAllByRegionId()
         {
-            throw new NotImplementedException();
+            return _projeDal.CountAllByRegionId();
         }
 
         public void Delete(projeler entity)
@@ -43,7 +43,7 @@ namespace BLL.Concrete
 
         public projeler Get(int Id)
         {
-            throw new NotImplementedException();
+            return _projeDal.Get(Id);
         }
 
         public List<projeler> GetAll()
@@ -93,7 +93,7 @@ namespace BLL.Concrete
 
         public bool IsByUserId(int UserId)
         {
-            throw new NotImplementedException();
+            return _projeDal.IsByUserId(UserId);
         }
 
         public void Update(projeler entity)

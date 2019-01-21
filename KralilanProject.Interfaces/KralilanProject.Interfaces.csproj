@@ -46,6 +46,7 @@
     <Compile Include="IFirmaService.cs" />
     <Compile Include="IGuvenlikKodService.cs" />
     <Compile Include="IIlanFavoriService.cs" />
+    <Compile Include="IIlanSatilanService.cs" />
     <Compile Include="IIlanSayiService.cs" />
     <Compile Include="IIlanService.cs" />
     <Compile Include="IIlceService.cs" />
@@ -82,6 +83,9 @@
       <Project>{9EC35E6B-E53D-483F-A7EB-A0B90A558CEF}</Project>
       <Name>KralilanProject.Entities</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

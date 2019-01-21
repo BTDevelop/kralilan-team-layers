@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL;
 using DAL.Abstract;
+using KralilanProject.Entities;
 using KralilanProject.Interfaces;
 
 namespace BLL.Concrete
@@ -47,9 +48,9 @@ namespace BLL.Concrete
             throw new NotImplementedException();
         }
 
-        public IQueryable GetByUserId(int UserId)
+        public List<Ilan> GetByUserId(int UserId, int Index)
         {
-            throw new NotImplementedException();
+            return _ilanFavorilerDal.GetByUserId(UserId, Index);
         }
 
         public void Update(ilanFavori entity)

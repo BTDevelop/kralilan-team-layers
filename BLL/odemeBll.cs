@@ -91,23 +91,23 @@ namespace BLL
         //    }
         //}
 
-        public string getProjectPaymentStatus(int _inProjeId)
-        {
-            using (ilanDataContext idc = new ilanDataContext())
-            {
-                var query = from o in idc.odemes.Where(x => x.islemId == 20 && x.siparis.Contains("<adsid>" + _inProjeId + "</adsid>"))
-                             select new ilanDataType
-                             {
-                                 baslik = o.kullanici.kullaniciAdSoyad,
-                                 aciklama = o.basariliMi == true ? "ödeme başarılı" : "ödeme başarısız",
-                             };
+        //public string getProjectPaymentStatus(int _inProjeId)
+        //{
+        //    using (ilanDataContext idc = new ilanDataContext())
+        //    {
+        //        var query = from o in idc.odemes.Where(x => x.islemId == 20 && x.siparis.Contains("<adsid>" + _inProjeId + "</adsid>"))
+        //                     select new ilanDataType
+        //                     {
+        //                         baslik = o.kullanici.kullaniciAdSoyad,
+        //                         aciklama = o.basariliMi == true ? "ödeme başarılı" : "ödeme başarısız",
+        //                     };
 
-                XmlFormat xmlFormat = new XmlFormat();
-                formatter.FormatTo(xmlFormat);
-                formatter.rawData = query.ToList();
-                return formatter.Format();
-            }
-        }
+        //        XmlFormat xmlFormat = new XmlFormat();
+        //        formatter.FormatTo(xmlFormat);
+        //        formatter.rawData = query.ToList();
+        //        return formatter.Format();
+        //    }
+        //}
 
         public string getPayByUserId(int _inUserId, int _inOrderType, int _index, int _inCount, IFormatter _inReturnType)
         {

@@ -491,12 +491,11 @@
                 $button = $(this);
                 if ($button.hasClass('following')) {
 
-                    //$.ajax(); Do Unfollow
                     jQuery.ajax({
                         type: "POST",
-                        url: "/services/ki_operation.asmx/ctrlStoreFollow",
+                        url: "/endpoint/magazatakipservice.asmx/Delete",
                         dataType: "json",
-                        data: "{ oneid:'" + <%= sellerProfilId%> + "'" + ", twoid:'" + <%= userid%> + "'" + ", opt:'" + 1 + "'}",
+                        data: "{ StoreId:'" + <%= sellerProfilId %> + "'" + ", UserId:'" + <%= userid%> + "'}",
                         contentType: "application/json; charset=utf-8",
                         success: function (data) {
 
@@ -513,12 +512,11 @@
                     $button.text('Takip Et');
                 } else {
 
-                    // $.ajax(); Do Follow
                     jQuery.ajax({
                         type: "POST",
-                        url: "/services/ki_operation.asmx/ctrlStoreFollow",
+                        url: "/endpoint/magazatakipservice.asmx/Add",
                         dataType: "json",
-                        data: "{ oneid:'" + <%= sellerProfilId%> + "'" + ", twoid:'" + <%= userid%> + "'" + ", opt:'" + 2 + "'}",
+                        data: "{ StoreId:'" + <%= sellerProfilId %> + "'" + ", UserId:'" + <%= userid %> + "'}",
                         contentType: "application/json; charset=utf-8",
                         success: function (data) {
 

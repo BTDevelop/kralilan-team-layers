@@ -25,7 +25,7 @@
                 <div class="col-lg-3 page-sidebar col-thin-right">
                     <aside>
                         <div class="inner-box">
-                            <h2 class="title-2"><%= CategoriName%></h2>
+                            <h2 class="title-2"><%= CategoriName %></h2>
                             <div class="inner-box-content">
                                 <ul class="cat-list arrow">
                                     <asp:Repeater ID="rpTypes" runat="server">
@@ -91,14 +91,14 @@
                                             class="  icon-th-list"></i></a></h2>
                                 </div>
                             </div>
-                            <asp:Repeater ID="rpcategorishowcase" runat="server">s
+                            <asp:Repeater ID="rpcategorishowcase" runat="server">
                                 <ItemTemplate>
-                                    <%--<div class="col-lg-2 col-md-3 col-sm-3 col-xs-4 f-category">
-                                        <a href='<%# String.Format("/ilan/{0}-{1}/detay", BLL.PublicHelper.Tools.URLConverter(Eval("baslik")),Eval("ilanId")) %>' title='<%# Eval("baslik") %>'>
-                                            <img src='/upload/ilan/<%# ParsePictures(Eval("resim").ToString()) %>' class="img-responsive" width="120" height="80" alt="<%# Eval("baslik") %>" />
-                                            <h6><%# Eval("baslik") %> </h6>
+                                    <div class="col-lg-2 col-md-3 col-sm-3 col-xs-4 f-category">
+                                        <a href='<%# String.Format("/ilan/{0}-{1}/detay", BLL.PublicHelper.Tools.URLConverter(Eval("Baslik")),Eval("IlanId")) %>' title='<%# Eval("Baslik") %>'>
+                                            <img src='/upload/ilan/<%# ParsePictures(Eval("Resimler").ToString()) %>' class="img-responsive" width="120" height="80" alt="<%# Eval("Baslik") %>" />
+                                            <h6><%# Eval("Baslik") %> </h6>
                                         </a>
-                                    </div>--%>
+                                    </div>
                                 </ItemTemplate>
                             </asp:Repeater>
                         </div>

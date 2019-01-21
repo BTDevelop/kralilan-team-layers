@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using KralilanProject.Entities;
 
 namespace DAL.Abstract
 {
@@ -10,7 +11,7 @@ namespace DAL.Abstract
     {
         int Count(int toId);
 
-        IQueryable GetByUserId(int UserId);
+        List<Bildirim> GetByUserId(int UserId, int Index);
 
         void UpdateByReceiver(int Id);
 

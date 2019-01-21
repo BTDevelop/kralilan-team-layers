@@ -14,7 +14,6 @@ namespace PL.profil
 {
     public partial class favori : System.Web.UI.UserControl
     {
-        ilanFavoriBll ilanFavb = new ilanFavoriBll();
         public int kullaniciId;
         kullanici _kullanici;
 

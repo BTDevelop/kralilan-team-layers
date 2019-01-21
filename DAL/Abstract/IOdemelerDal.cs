@@ -13,5 +13,6 @@ namespace DAL.Abstract
 
         List<Odeme> GetByUserId(int UserId);
 
+        List<Odeme> GetByProjeId(int ProjeId);
     }
 }

@@ -4,37 +4,33 @@
 <script src='<%= Page.ResolveUrl("~/management/plugins/datatables/dataTables.bootstrap.min.js") %>'></script>
 
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1>İlan Vitrin Fiyatları
+        <h1>İlan Vitrin Fiyatları       
             <small>tüm vitrin fiyatları bu alanda listelenir.</small>
         </h1>
     </section>
-    <!-- Main content -->
     <section class="content">
         <script type="text/javascript" class="init">
 
             $(document).ready(function () {
                 $('#example').DataTable({
                     columns: [
-                 { "data": "catname" },
-                 { "data": "showcasename" },
-                 { "data": "showcasetime" },
-                 { "data": "price" },
-                 { "data": "option" }
+                 { "data": "KategoriAdi" },
+                 { "data": "DopingAdi" },
+                 { "data": "Sure" },
+                 { "data": "FiyatNumeric" },
+                        {
+                            mRender: function (data, type, row) {
+                                return '<a class="btn btn-success btn-xs" href="/management/genelAyarlar/genelayarlar.aspx?page=vitrinucretayar&showcase=' + row.Id + '">Düzenle</a>'
+                            }
+                        }
                     ],
                     processing: true,
                     serverSide: true,
-                    sAjaxSource: "/services/ki_ai.ashx?data=showcasedata",
-                    fnServerParams: function (aoData) {
-
-                    },
+                    sAjaxSource: "/managerpoint/dopingkategorihandler.ashx?data=GetDopingCategories",
                     sServerMethod: "post"
-
                 });
             });
-
-            
         </script>
         <div class="row">
             <div class="col-xs-12">
@@ -42,7 +38,6 @@
                     <div class="box-header">
                         <h3 class="box-title">Vitrin Ücret Listesi</h3>
                     </div>
-                    <!-- /.box-header -->
                     <div class="box-body">
                         <table id="example" class="table table-bordered table-striped">
                             <thead>
@@ -54,17 +49,10 @@
                                     <th>İşlemler</th>
                                 </tr>
                             </thead>
-              
                         </table>
                     </div>
-                    <!-- /.box-body -->
                 </div>
-                <!-- /.box -->
             </div>
-            <!-- /.col -->
         </div>
-        <!-- /.row -->
     </section>
-    <!-- /.content -->
 </div>
-<!-- /.content-wrapper -->

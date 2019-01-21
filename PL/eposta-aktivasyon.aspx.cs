@@ -13,8 +13,6 @@ namespace PL
 {
     public partial class eposta_aktivasyon : System.Web.UI.Page
     {
-        guvenlikKodlariBll guvenlikb = new guvenlikKodlariBll();
-
         private IGuvenlikKodService _guvenlikKodManaeger;
 
         public eposta_aktivasyon()

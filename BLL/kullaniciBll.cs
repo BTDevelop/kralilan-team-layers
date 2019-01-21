@@ -317,15 +317,15 @@ namespace BLL
 
 
 
-        //ilana alıanacak
-        public int countAdsByUserId(int _inUserId)
-        {
-            using (ilanDataContext idc = new ilanDataContext())
-            {
-                var query = idc.ilans.Count(i => i.kullaniciId == _inUserId && i.onay == 1 && i.silindiMi == false && i.satildiMi == false && i.magazaId == null);
-                return query;
-            }
-        }
+        ////ilana alıanacak
+        //public int countAdsByUserId(int _inUserId)
+        //{
+        //    using (ilanDataContext idc = new ilanDataContext())
+        //    {
+        //        var query = idc.ilans.Count(i => i.kullaniciId == _inUserId && i.onay == 1 && i.silindiMi == false && i.satildiMi == false && i.magazaId == null);
+        //        return query;
+        //    }
+        //}
 
 
         /// <summary>

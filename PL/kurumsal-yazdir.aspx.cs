@@ -16,12 +16,6 @@ namespace PL
 {
     public partial class kurumsal_yazdir : System.Web.UI.Page
     {
-        ilanBll ilanBLL = new ilanBll();
-        telefonBll telefonb = new telefonBll();
-        magazaTelefonBll magazaTlfb = new magazaTelefonBll();
-        kullaniciBll kullanicib = new kullaniciBll();
-        ozelliklerBll ozelliklerBLL = new ozelliklerBll();
-
         public string magazaId, kullaniciId, postResim, sellerProfil = "", link = "";
         public int whoFromId, phindex = 0, adsNumber;
         public string heading = "",
@@ -67,12 +61,12 @@ namespace PL
             foreach (var item in secilenler)
             {
                 ozellikler prop = _ozellikManager.Get(item.ozellikId);
-                if (prop.ozellikTipi ==  ozelliklerBll.selectVal)
+                if (prop.ozellikTipi ==  OzellikManager.selectVal)
                 {
                     var income = new BLL.ExternalClass.detayDataType
                     {
                         ozellikAd = prop.ozellikAdi,
-                        deger = ozelliklerBLL.searchPropValue(item.ozellikId, item.deger)
+                        deger = _ozellikManager.GetPropValueId(item.ozellikId, item.deger)
                     };
 
                     ozellikler.Add(income);
@@ -85,7 +79,7 @@ namespace PL
             {
                 ozellikler prop = _ozellikManager.Get(item.ozellikId);
 
-                if (prop.ozellikTipi == ozelliklerBll.selectVal)
+                if (prop.ozellikTipi == OzellikManager.selectVal)
                 {
                     var income = new BLL.ExternalClass.detayDataType
                     {

@@ -11,6 +11,7 @@ namespace KralilanProject.Entities
         public int FirmaId { get; set; }
         public string FirmaAdi { get; set; }
         public DateTime Tarih { get; set; }
+        public string BaslangicTarihi { get; set; }
         public string Logo { get; set; }
     }
 }

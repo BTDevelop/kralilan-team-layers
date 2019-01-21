@@ -19,14 +19,7 @@ namespace PL
     public partial class magaza_ac : System.Web.UI.Page
     {
 
-        SmtpClient smtp = new SmtpClient("smtp.yandex.com");
-        magazaKategoriBll magazaKtgb = new magazaKategoriBll();
-        magazaBll magazab = new magazaBll();
-        magazaTelefonBll magazaTlfb = new magazaTelefonBll();
-        magazaKullaniciBll magazaKllb = new magazaKullaniciBll();
-        kullaniciBll kullanicib = new kullaniciBll();
-        odemeBll odemeb = new odemeBll();
-        ilBll ilb = new ilBll();
+      
         public string stdThreePriceText = "";
         public string stdSixPriceText = "";
         public string stdTwelvePriceText = "";

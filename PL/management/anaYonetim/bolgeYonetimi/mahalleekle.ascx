@@ -2,9 +2,7 @@
 
 <link rel="stylesheet" href="../../plugins/select2/select2.min.css">
 <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
-
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>Mahalle Ekle
             <small>buradan mahalle ekleyebilirsiniz.</small>
@@ -15,7 +13,6 @@
             <li class="active">General Elements</li>
         </ol>
     </section>
-    <!-- Main content -->
     <section class="content">
         <div class="row">
             <div class="col-md-3">
@@ -34,21 +31,13 @@
                                 <asp:HyperLink NavigateUrl="~/management/araclar/araclar.aspx?page=gonderilen-kutusu" runat="server"><i class="fa fa-envelope-o"></i>Gönderilen Kutusu</asp:HyperLink></li>
                         </ul>
                     </div>
-                    <!-- /.box-body -->
                 </div>
-                <!-- /. box -->
-
-                <!-- /.box -->
             </div>
-            <!-- left column -->
             <div class="col-md-9">
-                <!-- general form elements -->
                 <div class="box box-primary">
                     <div class="box-header with-border">
                         <h3 class="box-title">Mahalle Bilgileri</h3>
                     </div>
-                    <!-- /.box-header -->
-                    <!-- form start -->
                     <div role="form">
                         <div class="box-body">
                             <div>
@@ -62,35 +51,24 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="txtMahalle">Mahalle Adı</label>
-                                    <input type="text" class="form-control" id="txtMahalle" placeholder="Cumhuriyet" runat="server">
+                                    <input type="text" class="form-control" id="txtMahalle" placeholder="Cumhuriyet" runat="server"/>
                                 </div>
                             </div>
                         </div>
-                        <!-- /.box-body -->
                         <div class="box-footer">
                             <asp:Button ID="Kaydet" runat="server" CssClass="btn btn-success" Text="Kaydet" OnClick="Kaydet_Click" />
                             <asp:Button ID="Vazgeç" runat="server" CssClass="btn btn-danger" Text="Vazgeç" OnClick="Vazgeç_Click" />
                         </div>
                     </div>
                 </div>
-                <!-- /.box -->
             </div>
-            <!--/.col (left) -->
-            <!-- right column -->
-            <!--/.col (right) -->
         </div>
-        <!-- /.row -->
     </section>
-    <!-- /.content -->
 </div>
-<!-- /.content-wrapper -->
-
-<!-- Select2 -->
 <script src="../../plugins/select2/select2.full.min.js"></script>
 
 <script>
     $(function () {
-        //Initialize Select2 Elements
         $(".select2").select2();
     });
 </script>

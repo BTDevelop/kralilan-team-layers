@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL;
 using DAL.Abstract;
+using KralilanProject.Entities;
 using KralilanProject.Interfaces;
 
 namespace BLL.Concrete
@@ -35,6 +36,11 @@ namespace BLL.Concrete
         public List<iller> GetAll()
         {
             return _illerDal.GetAll();
+        }
+
+        public List<Il> GetRegions()
+        {
+            return _illerDal.GetRegions();
         }
 
         public void Update(iller entity)

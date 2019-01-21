@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL.Abstract;
 using DAL.Enums;
+using KralilanProject.Entities;
 
 namespace DAL.Concrete.LINQ
 {
@@ -88,6 +89,39 @@ namespace DAL.Concrete.LINQ
                 return typeText;
             }
             else return "";
+        }
+
+        public List<UrlUtf> GetUtf()
+        {
+            List<UrlUtf> UtfListe = new List<UrlUtf>();
+            foreach (EstateTypeString item in (EstateTypeString[])Enum.GetValues(typeof(EstateTypeString)))
+            {
+                var value = new UrlUtf
+                {
+                    Id = (int)item,
+                    Name = Enums.Enums.GetDescription((EstateTypeString)Enum.Parse(typeof(EstateTypeString), ((int)item).ToString())),
+                    NameUtf = Enums.Enums.GetDescription((EstateTypeString)Enum.Parse(typeof(EstateTypeString), ((int)item).ToString())),
+                };
+
+                UtfListe.Add(value);
+            }
+            return UtfListe;
+        }
+
+        public IEnumerable<object> GetAllByCategoriTypeId(int CategoriId, int TypeId)
+        {
+            var IsCategoriTypes = idc.kategoriTurs.Where(q => q.kategoriId == CategoriId).FirstOrDefault();
+
+            if (IsCategoriTypes == null)
+            {
+                var query = idc.kategoris.Where(x => x.ustKategoriId == CategoriId);
+                return query.ToList();
+            }
+            else
+            {
+                var query = idc.kategoriTurs.Where(x => x.kategoriId == TypeId);
+                return query.ToList();
+            }
         }
     }
 }

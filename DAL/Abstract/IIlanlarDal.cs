@@ -26,7 +26,21 @@ namespace DAL.Abstract
 
         List<Ilan> GetByUserIdFaceted(int UserId);
 
+        List<Ilan> GetSitemap(int Year, int Month);
+
+        List<IlanSayi> GetAllRegion();
+
+        List<Ilan> GetByLocationRound(int RegionId, int CityId);
+
+        List<Ilan> GetFaceted(int Index, int[] GeneralFilter, Filtre OtherFilter);
+ 
         int CountByStoreId(int StoreId);
+
+        int CountByUserStoreId(int UserId, int StoreId);
+
+        int CountLastDate();
+
+        int CountSale();
 
         void UpdatePicturesByAdsId(int AdsId, string Pictures);
 

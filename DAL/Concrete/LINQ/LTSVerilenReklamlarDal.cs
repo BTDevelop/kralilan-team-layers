@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DAL.Abstract;
+using KralilanProject.Entities;
 
 namespace DAL.Concrete.LINQ
 {
@@ -40,6 +41,21 @@ namespace DAL.Concrete.LINQ
         public List<verilenReklam> GetAll()
         {
             throw new NotImplementedException();
+        }
+
+        public Reklam GetByRegionTypeId(int RegionId, int Type)
+        {
+            var query = from i in idc.verilenReklams.Where(x => x.ilId == RegionId && x.reklamId == Type)
+                select new Reklam
+                {
+                    Id = i.verilenReklamId,
+                    ReklamAdi = i.reklamAdi,
+                    Resim = i.reklamResim,
+                    IlId = i.ilId,
+                    Link = i.reklamLink
+                };
+
+            return query.FirstOrDefault();
         }
 
         public verilenReklam GetLast()

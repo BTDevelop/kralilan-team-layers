@@ -12,9 +12,6 @@ namespace BLL
 {
     public class kategoriTurBll
     {
-        kategoriBll kategoriBLL = new kategoriBll();
-        Formatter.Formatter formatter = new Formatter.Formatter();
-        ilanBll ilanBLL = new ilanBll();
 
         /// <summary>
         /// 
@@ -162,77 +159,24 @@ namespace BLL
         /// <param name="catid"></param>
         /// <param name="typeid"></param>
         /// <returns></returns>
-        public IEnumerable<object> getListCategoriWithType(int _inCatId, int _inTypeId)
-        {
-            using (ilanDataContext idc = new ilanDataContext())
-            {
-                int staticdata = Convert.ToInt32(idc.kategoris.Where(q => q.kategoriId == _inCatId).FirstOrDefault().ustKategoriId);
-                if (_inTypeId == -1)
-                {
-                    if (idc.kategoriTurs.Where(q => q.kategoriId == _inCatId).FirstOrDefault() == null)
-                    {
-                        if (idc.kategoris.Where(q => q.ustKategoriId == _inCatId).FirstOrDefault() == null)
-                        {
-                            var query = idc.kategoris.Where(x => x.kategoriId == -1);
-                            return query.ToList();
-                        }
-                        else
-                        {
+        //public IEnumerable<object> getListCategoriWithType(int _inCatId, int _inTypeId)
+        //{
+        //    using (ilanDataContext idc = new ilanDataContext())
+        //    {
+        //        var IsCategoriType = idc.kategoriTurs.Where(q => q.kategoriId == _inCatId).FirstOrDefault();
 
-                            var query = idc.kategoris.Where(x => x.ustKategoriId == _inCatId);
-                            return query.ToList();
-                        }
-                    }
-                    else
-                    {
-                        var dataaaaaa = idc.kategoriTurs.Where(q => q.kategoriId == staticdata).FirstOrDefault(); ;
-
-                        if (idc.kategoris.Where(q => q.ustKategoriId == _inCatId).FirstOrDefault() == null)
-                        {
-                            if (dataaaaaa != null)
-                            {
-                                var query = idc.kategoris.Where(x => x.ustKategoriId == _inCatId);
-                                return query.ToList();
-                            }
-                            else
-                            {
-                                var query = idc.kategoriTurs.Where(x => x.kategoriId == _inCatId);
-
-                                return query.ToList();
-                            }
-                        }
-                        else
-                        {
-                            var query = idc.kategoriTurs.Where(x => x.kategoriId == _inCatId);
-
-                            return query.ToList();
-                        }
-                    }
-
-                }
-                else
-                {
-                    if (_inTypeId != -1)
-                    {
-                        if (idc.kategoris.Where(q => q.ustKategoriId == _inCatId).FirstOrDefault() == null)
-                        {
-                            var query = idc.kategoris.Where(x => x.ustKategoriId == _inCatId);
-                            return query.ToList();
-                        }
-                        else
-                        {
-                            var query = idc.kategoriTurs.Where(x => x.turId == _inTypeId & x.kategori.ustKategoriId == _inTypeId);
-                            return query.ToList();
-                        }
-                    }
-                    else
-                    {
-                        var query = idc.kategoris.Where(x => x.ustKategoriId == _inCatId);
-                        return query.ToList();
-                    }
-                }
-            }
-        }
+        //        if (IsCategoriType == null)
+        //        {
+        //            var query = idc.kategoris.Where(x => x.ustKategoriId == _inCatId);
+        //            return query.ToList();
+        //        }
+        //        else
+        //        {
+        //            var query = idc.kategoriTurs.Where(x => x.kategoriId == _inCatId);
+        //            return query.ToList();
+        //        }
+        //    }
+        //}
 
         //public IEnumerable<object> getListTypesByCatId(int _inCatId)
         //{

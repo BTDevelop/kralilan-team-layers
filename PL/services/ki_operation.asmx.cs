@@ -10,7 +10,6 @@ using BLL;
 using System.Web.Script.Services;
 using System.Net;
 using BLL.ExternalClass;
-using static BLL.ozelliklerBll;
 using static DAL.toolkit;
 using BLL.Formatter;
 using BLL.PublicHelper;
@@ -31,25 +30,16 @@ namespace PL.Services
     {
         ilanBll ilanBll = new ilanBll();
         seciliDopingBll secDopingBll = new seciliDopingBll();
-        ilBll il = new ilBll();
-        ilceBll ilce = new ilceBll();
-        mahalleBll mahalle = new mahalleBll();
-        ilanFavoriBll favori = new ilanFavoriBll();
         magazaTakipciBll magazaTakip = new magazaTakipciBll();
-        vergiDaireBll vergiBll = new vergiDaireBll();
         magazaTurBll magazaTurb = new magazaTurBll();
         odemeBll odemeb = new odemeBll();
         kullaniciBll kullanicib = new kullaniciBll();
         magazaTelefonBll magazaTlfb = new magazaTelefonBll();
         magazaTakipciBll magazaTkpb = new magazaTakipciBll();
         magazaKullaniciBll magazaKllb = new magazaKullaniciBll();
-        dopingKategoriBll dopingKtgb = new dopingKategoriBll();
-        mesajBll mesajb = new mesajBll();
         kullaniciTakipciBll kullaniciTb = new kullaniciTakipciBll();
-        bildirimBll bildirimb = new bildirimBll();
         magazaTakipciBll magazaTb = new magazaTakipciBll();
         projelerBll projeb = new projelerBll();
-        ozelliklerBll ozelliklerBLL = new ozelliklerBll();
         magazaBll magazaBLL = new magazaBll();
 
         JsonFormat jsonFormat = new JsonFormat();
@@ -60,41 +50,41 @@ namespace PL.Services
         /// <param name="inprovname"></param>
         /// <param name="opt"></param>
         /// <returns></returns>
-        [WebMethod]
-        public string getProvinAdsCnt(string inprovname, int opt)
-        {
-            try
-            {
-                int _inProvId = String.IsNullOrEmpty(inprovname) ? -1 : Convert.ToInt32(inprovname);
+        //[WebMethod]
+        //public string getProvinAdsCnt(string inprovname, int opt)
+        //{
+        //    try
+        //    {
+        //        int _inProvId = String.IsNullOrEmpty(inprovname) ? -1 : Convert.ToInt32(inprovname);
 
-                if (_inProvId == -1) return ilanBll.getAdsCountByProvince();
-                else return ilanBll.getAdsCountByDistrict(_inProvId);
-            }
-            catch (Exception)
-            {
+        //        if (_inProvId == -1) return ilanBll.getAdsCountByProvince();
+        //        else return ilanBll.getAdsCountByDistrict(_inProvId);
+        //    }
+        //    catch (Exception)
+        //    {
 
-                throw;
-            }
-        }
+        //        throw;
+        //    }
+        //}
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="inprovname"></param>
         /// <returns></returns>
-        [WebMethod]
-        public string getProviProjectCnt(string inprovname)
-        {
-            try
-            {
-                return projeb.getProjectCountByProvince();
-            }
-            catch (Exception)
-            {
+        //[WebMethod]
+        //public string getProviProjectCnt(string inprovname)
+        //{
+        //    try
+        //    {
+        //        return projeb.getProjectCountByProvince();
+        //    }
+        //    catch (Exception)
+        //    {
 
-                throw;
-            }
-        }
+        //        throw;
+        //    }
+        //}
 
         /// <summary>
         /// 
@@ -292,27 +282,27 @@ namespace PL.Services
         /// <param name="distid"></param>
         /// <param name="opt"></param>
         /// <returns></returns>
-        [WebMethod]
-        public string getListLocation(int provid, int distid, int opt)
-        {
-            try
-            {
-                if (opt == 1)
-                    return il.select();
-                else if (opt == 2)
-                    return ilce.select(provid);
-                else if (opt == 3)
-                    return mahalle.select(distid);
-                else
-                    return null;
-            }
-            catch (Exception)
-            {
+        //[WebMethod]
+        //public string getListLocation(int provid, int distid, int opt)
+        //{
+        //    try
+        //    {
+        //        if (opt == 1)
+        //            return il.select();
+        //        else if (opt == 2)
+        //            return ilce.select(provid);
+        //        else if (opt == 3)
+        //            return mahalle.select(distid);
+        //        else
+        //            return null;
+        //    }
+        //    catch (Exception)
+        //    {
 
-                throw;
-            }
+        //        throw;
+        //    }
 
-        }
+        //}
 
         /// <summary>
         /// 
@@ -328,7 +318,8 @@ namespace PL.Services
             try
             {
                 if (opt == 1)
-                    return favori.select(inuserid, index, count, jsonFormat);
+                    //return favori.select(inuserid, index, count, jsonFormat);
+                    return null;
                 else if (opt == 2)
                     return magazaTakip.select(inuserid, index, count);
                 else
@@ -592,21 +583,21 @@ namespace PL.Services
         /// <param name="catid"></param>
         /// <param name="dopingid"></param>
         /// <returns></returns>
-        [WebMethod]
-        public string getListDopingType(int catid, int dopingid)
-        {
-            string result = "";
-            try
-            {
-                result = dopingKtgb.select(catid, dopingid, jsonFormat);
-                return result;
-            }
-            catch (Exception)
-            {
+        //[WebMethod]
+        //public string getListDopingType(int catid, int dopingid)
+        //{
+        //    string result = "";
+        //    try
+        //    {
+        //        result = dopingKtgb.select(catid, dopingid, jsonFormat);
+        //        return result;
+        //    }
+        //    catch (Exception)
+        //    {
 
-                return "error:";
-            }
-        }
+        //        return "error:";
+        //    }
+        //}
 
         /// <summary>
         /// 
@@ -669,20 +660,20 @@ namespace PL.Services
         /// <param name="oneid"></param>
         /// <param name="twoid"></param>
         /// <param name="opt"></param>
-        [WebMethod]
-        public void ctrlSellerFollow(int oneid, int twoid, int opt)
-        {
-            try
-            {
-                if (opt == 1) kullaniciTb.delete(oneid, twoid);
-                else kullaniciTb.insert(oneid, twoid);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+        //[WebMethod]
+        //public void ctrlSellerFollow(int oneid, int twoid, int opt)
+        //{
+        //    try
+        //    {
+        //        if (opt == 1) kullaniciTb.delete(oneid, twoid);
+        //        else kullaniciTb.insert(oneid, twoid);
+        //    }
+        //    catch (Exception)
+        //    {
+        //        throw;
+        //    }
 
-        }
+        //}
 
         /// <summary>
         /// 
@@ -692,20 +683,20 @@ namespace PL.Services
         /// <param name="oneid"></param>
         /// <param name="opt"></param>
         /// <returns></returns>
-        [WebMethod]
-        public string getListNotification(int index, int count, int oneid, int opt)
-        {
-            try
-            {
-                string result = "";
-                if (opt == 1) result = bildirimb.select(index, count, oneid);
-                return result;
-            }
-            catch (Exception ex)
-            {
-                return ex.ToString();
-            }
-        }
+        //[WebMethod]
+        //public string getListNotification(int index, int count, int oneid, int opt)
+        //{
+        //    try
+        //    {
+        //        string result = "";
+        //        if (opt == 1) result = bildirimb.select(index, count, oneid);
+        //        return result;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return ex.ToString();
+        //    }
+        //}
 
         /// <summary>
         /// 
@@ -713,20 +704,20 @@ namespace PL.Services
         /// <param name="oneid"></param>
         /// <param name="twoid"></param>
         /// <param name="opt"></param>
-        [WebMethod]
-        public void ctrlStoreFollow(int oneid, int twoid, int opt)
-        {
-            try
-            {
-                if (opt == 1) magazaTb.delete(oneid, twoid);
-                else magazaTb.insert(oneid, twoid);
-            }
-            catch (Exception)
-            {
+        //[WebMethod]
+        //public void ctrlStoreFollow(int oneid, int twoid, int opt)
+        //{
+        //    try
+        //    {
+        //        if (opt == 1) magazaTb.delete(oneid, twoid);
+        //        else magazaTb.insert(oneid, twoid);
+        //    }
+        //    catch (Exception)
+        //    {
 
-                throw;
-            }
-        }
+        //        throw;
+        //    }
+        //}
 
         /// <summary>
         /// 

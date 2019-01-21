@@ -22,5 +22,7 @@ namespace KralilanProject.Interfaces
 
         List<Ozellik> GetAllByCategoriId(int CategoriId);
 
+        string GetPropValueId(int PropertyId, int PropertyValueId);
+
     }
 }

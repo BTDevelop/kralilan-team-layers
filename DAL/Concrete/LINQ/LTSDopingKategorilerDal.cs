@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DAL.Abstract;
+using KralilanProject.Entities;
 
 namespace DAL.Concrete.LINQ
 {
@@ -43,17 +44,17 @@ namespace DAL.Concrete.LINQ
             throw new NotImplementedException();
         }
 
-        public IQueryable GetByDopingKategoriId(int DopingId, int KategoriId)
+        public List<DopingKategori> GetByDopingKategoriId(int DopingId, int KategoriId)
         {
 
             var query = from dk in idc.dopingKategoris.Where(d => d.kategoriId == KategoriId && d.dopingId == DopingId)
-                        select new
+                        select new DopingKategori
                         {
-                            dk.dopingKategoriId,
-                            dopingFiyat = String.Format("{0} Haftalık ({1} TL)", dk.dopingSureId, dk.fiyat)
+                            Id = dk.dopingKategoriId,
+                            Fiyat = String.Format("{0} Haftalık ({1} TL)", dk.dopingSureId, dk.fiyat)
                         };
 
-            return query;
+            return query.ToList();
         }
 
         public void Update(dopingKategori entity)

@@ -17,34 +17,34 @@ namespace BLL
         /// </summary>
         /// <param name="_instrid"></param>
         /// <param name="_inuserid"></param>
-        public void delete(int _inStoreId, int _inUserId)
-        {
-            using (ilanDataContext idc = new ilanDataContext())
-            {
-                var value = idc.magazaTakips.Where(q => q.magazaId == _inStoreId & q.kullaniciId == _inUserId).FirstOrDefault();
-                if (value != null)
-                {
-                    idc.magazaTakips.DeleteOnSubmit(value);
-                    idc.SubmitChanges();
-                }
-            }
-        }
-        /// <summary>
-        /// ekle
-        /// </summary>
-        /// <param name="_instrid"></param>
-        /// <param name="_inuserid"></param>
-        public void insert(int _instrid, int _inuserid)
-        {
-            using (ilanDataContext idc = new ilanDataContext())
-            {
-                magazaTakip magazaTakipd = new magazaTakip();
-                magazaTakipd.kullaniciId = _inuserid;
-                magazaTakipd.magazaId = _instrid;
-                idc.magazaTakips.InsertOnSubmit(magazaTakipd);
-                idc.SubmitChanges();
-            }
-        }
+        //public void delete(int _inStoreId, int _inUserId)
+        //{
+        //    using (ilanDataContext idc = new ilanDataContext())
+        //    {
+        //        var value = idc.magazaTakips.Where(q => q.magazaId == _inStoreId & q.kullaniciId == _inUserId).FirstOrDefault();
+        //        if (value != null)
+        //        {
+        //            idc.magazaTakips.DeleteOnSubmit(value);
+        //            idc.SubmitChanges();
+        //        }
+        //    }
+        //}
+        ///// <summary>
+        ///// ekle
+        ///// </summary>
+        ///// <param name="_instrid"></param>
+        ///// <param name="_inuserid"></param>
+        //public void insert(int _instrid, int _inuserid)
+        //{
+        //    using (ilanDataContext idc = new ilanDataContext())
+        //    {
+        //        magazaTakip magazaTakipd = new magazaTakip();
+        //        magazaTakipd.kullaniciId = _inuserid;
+        //        magazaTakipd.magazaId = _instrid;
+        //        idc.magazaTakips.InsertOnSubmit(magazaTakipd);
+        //        idc.SubmitChanges();
+        //    }
+        //}
         /// <summary>
         /// güncelle
         /// </summary>

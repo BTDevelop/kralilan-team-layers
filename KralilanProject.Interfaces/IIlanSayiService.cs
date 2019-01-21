@@ -24,6 +24,12 @@ namespace KralilanProject.Interfaces
 
         List<IlanSayi> GetAllCategoriByTopCategoriId(int TopCategoriId);
 
+        int CountByCategoriTypeId(int CategoriId, int TypeId);
+
+        int CountByCategoriId(int CategoriId);
+
+        int CountAll();
+
 
     }
 }

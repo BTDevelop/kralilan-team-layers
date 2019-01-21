@@ -25,7 +25,7 @@ namespace DAL.Concrete.LINQ
                      Baslik = s.ilan.baslik,
                      Tarih = s.ilan.baslangicTarihi,
                      Resimler = s.ilan.resim,
-                 }).OrderByDescending(x => x.Tarih).Take(10));
+                 }).OrderByDescending(x => x.Tarih).Take(11));
 
         public void Add(seciliDoping entity)
         {
@@ -142,7 +142,7 @@ namespace DAL.Concrete.LINQ
                             BaslangicTarihi = String.Format(" {0:dd MMMM yyyy}", s.ilan.baslangicTarihi),
                             Tarih = s.ilan.baslangicTarihi,
                             Resimler = s.ilan.resim,
-                            Fiyat = string.Format(" {0:N0}", s.ilan.fiyat),
+                            Fiyat = String.Format(" {0:N0}", s.ilan.fiyat),
                             UstKategoriId = Convert.ToInt32(s.ilan.kategori.ustKategoriId),
                             KategoriId = s.ilan.kategoriId,
                             IlAdi = s.ilan.iller.ilAdi,

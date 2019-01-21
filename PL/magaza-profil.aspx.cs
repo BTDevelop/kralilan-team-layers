@@ -15,8 +15,6 @@ namespace PL
 {
     public partial class magaza_profil : System.Web.UI.Page
     {
-        magazaBll magazab = new magazaBll();
-
         public int storeClassifiedCount = 0;
         public int storeFollowerCount = 0;
         int magazaId;
@@ -30,18 +28,20 @@ namespace PL
 
         private IMagazaTakipciService _magazaTakipciManager;
         private IMagazaService _magazaManager;
+        private IIlanService _ilanManager;
         public magaza_profil()
         {
             _magazaTakipciManager = new MagazaTakipciManager(new LTSMagazaTakipcilerDal());
             _magazaManager = new MagazaManager(new LTSMagazalarDal());
+            _ilanManager = new IlanManager(new LTSIlanlarDal());
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
             magazaId = Convert.ToInt32(RouteData.Values["MagazaNo"]);
 
-            storeClassifiedCount = magazab.storeClassifiedCount(magazaId);
-            storeFollowerCount = magazab.storeFollowerCount(magazaId);
+            storeClassifiedCount = _ilanManager.CountByStoreId(magazaId);
+            storeFollowerCount = _magazaTakipciManager.CountByStoreId(magazaId);
 
             DAL.magaza _magaza = _magazaManager.Get(magazaId);
             lblMagazaAdi.Text = _magaza.magazaAdi;

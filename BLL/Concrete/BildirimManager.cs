@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL;
 using DAL.Abstract;
+using KralilanProject.Entities;
 using KralilanProject.Interfaces;
 
 namespace KralilanProject.BLL.Concrete
@@ -44,9 +45,9 @@ namespace KralilanProject.BLL.Concrete
             throw new NotImplementedException();
         }
 
-        public IQueryable GetByUserId(int UserId)
+        public List<Bildirim> GetByUserId(int UserId, int Index)
         {
-           return _bildirimDal.GetByUserId(UserId);
+           return _bildirimDal.GetByUserId(UserId, Index);
         }
 
         public void Update(bildirimler entity)

@@ -16,8 +16,6 @@ namespace PL.management.anaYonetim.kullaniciYonetimi
 {
     public partial class ekle : System.Web.UI.UserControl
     {
-        kullaniciBll kullanicib = new kullaniciBll();
-        telefonBll telefonb = new telefonBll();
 
         private ITelefonService _telefonManager;
         private IKullaniciService _kullaniciManager;

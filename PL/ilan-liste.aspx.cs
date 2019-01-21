@@ -21,9 +21,7 @@ namespace PL
     {
         kategoriTurBll kategoriTurBLL = new kategoriTurBll();
         kategoriBll kategorib = new kategoriBll();
-        ilanBll ilanb = new ilanBll();
         magazaTurBll magazaTurBLL = new magazaTurBll();
-        ilBll ilBLL = new ilBll();
         ilceBll ilceBLL = new ilceBll();
         mahalleBll mahalleBLL = new mahalleBll();
 
@@ -40,21 +38,22 @@ namespace PL
         private IOzellikService _ozellikManager;
         private IKategoriTurService _kategoriTurManager;
         private IKategoriService _kategoriManager;
+        private IIlanSayiService _ilanSayiManager;
+        private IIlService _ilManager;
         public ilan_liste()
         {
             _ozellikManager = new OzellikManager(new LTSOzelliklerDal());
             _kategoriTurManager = new KategoriTurManager(new LTSKategoriTurlerDal());
             _kategoriManager = new KategoriManager(new LTSKategorilerDal());
+            _ilanSayiManager = new IlanSayiManager(new LTSIlanSayilarDal());
+            _ilManager = new IlManager(new LTSIllerDal());
         }
 
         protected override void OnInit(EventArgs e)
         {
 
-            if (RouteData.Values["KategoriNo"] != null)
-            {
-                Response.Status = "301 Moved Permanently";
-                Response.RedirectPermanent("~/liste/" + RouteData.Values["Tur"] + "-" + RouteData.Values["Kategori"]);
-            }
+
+
 
             if (RouteData.Values["Kategori"].ToString() != null)
             {
@@ -218,15 +217,16 @@ namespace PL
                         else
                         {
                             region = RouteData.Values["Il"].ToString();
-                            var valueRegion = ilBLL.getUTFList().Where(x => x.RegionUTF == region)
+                            var valueRegion = _ilManager.GetRegions().Where(x => x.Url == region)
                                 .FirstOrDefault();
 
 
-                            pageTitle = valueRegion.Region + " " + pageTitle;
+                            pageTitle = valueRegion.Url + " " + pageTitle;
                         }
                     }
                 }
             }
+
 
             Page.Title = pageTitle + "Fiyatları ve İlanları kralilan.com'da";
             Page.MetaDescription = pageTitle + pageMetaDesc;
@@ -393,7 +393,7 @@ namespace PL
             }
             if (_kategoriManager.Get(topCatId) != null)
             {
-                altStr.InnerText = _kategoriManager.Get(topCatId).kategoriAdi + " " + "(" + String.Format("{0:N0}", ilanb.count(topCatId, -1, -1).ToString()) + ")";
+                altStr.InnerText = _kategoriManager.Get(topCatId).kategoriAdi + " " + "(" + String.Format("{0:N0}", _ilanSayiManager.CountByCategoriId(topCatId).ToString()) + ")";
             }
 
             int cat;
@@ -410,7 +410,7 @@ namespace PL
             int cat = Convert.ToInt32(catid);
             int type = Convert.ToInt32(typeId);
 
-            return " " + String.Format("{0:N0}", ilanb.count(cat, type, -1).ToString());
+            return " " + String.Format("{0:N0}", _ilanSayiManager.CountByCategoriTypeId(cat, type).ToString());
         }
 
         public bool catKind(object _income)

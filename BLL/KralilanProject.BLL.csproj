@@ -52,7 +52,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="bildirimBll.cs" />
     <Compile Include="Concrete\BildirimManager.cs" />
     <Compile Include="Concrete\DopingKategoriManager.cs" />
     <Compile Include="Concrete\DopingManager.cs" />
@@ -60,6 +59,7 @@
     <Compile Include="Concrete\GuvenlikKodManager.cs" />
     <Compile Include="Concrete\IlanFavoriManager.cs" />
     <Compile Include="Concrete\IlanManager.cs" />
+    <Compile Include="Concrete\IlanSatilanManager.cs" />
     <Compile Include="Concrete\IlceManager.cs" />
     <Compile Include="Concrete\IlManager.cs" />
     <Compile Include="Concrete\MagazaManager.cs" />
@@ -101,17 +101,11 @@
     <Compile Include="ExternalClass\resimDataType.cs" />
     <Compile Include="ExternalClass\secilenDataType.cs" />
     <Compile Include="ExternalClass\siparisDT.cs" />
-    <Compile Include="ExternalClass\SiteMapCS.cs" />
-    <Compile Include="dopingBll.cs" />
-    <Compile Include="dopingKategoriBll.cs" />
     <Compile Include="firmalarBll.cs" />
     <Compile Include="Formatter\Formatter.cs" />
     <Compile Include="Formatter\HtmlFormat.cs" />
     <Compile Include="Formatter\XmlFormat.cs" />
-    <Compile Include="guvenlikKodlariBll.cs" />
     <Compile Include="ilanBll.cs" />
-    <Compile Include="ilanFavoriBll.cs" />
-    <Compile Include="ilBll.cs" />
     <Compile Include="ilceBll.cs" />
     <Compile Include="ImageZipperHelper\ImageZipperHelper.cs" />
     <Compile Include="kategoriBll.cs" />
@@ -126,9 +120,7 @@
     <Compile Include="magazaTurBll.cs" />
     <Compile Include="mahalleBll.cs" />
     <Compile Include="MailHelper\MailHelper.cs" />
-    <Compile Include="mesajBll.cs" />
     <Compile Include="odemeBll.cs" />
-    <Compile Include="ozelliklerBll.cs" />
     <Compile Include="PaymentHelper\IPayment.cs" />
     <Compile Include="PaymentHelper\IyzicoPayment.cs" />
     <Compile Include="PaymentHelper\MobilePayment.cs" />
@@ -137,17 +129,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PublicHelper\Tools.cs" />
     <Compile Include="ReCaptchaHelper\ReCaptchaHelper.cs" />
-    <Compile Include="reklamBll.cs" />
     <Compile Include="seciliDopingBll.cs" />
     <Compile Include="Formatter\IFormatter.cs" />
     <Compile Include="Formatter\JsonFormat.cs" />
     <Compile Include="SecurityCodeHelper\SecurityCodeHelper.cs" />
     <Compile Include="SMSHelper\SMSHelper.cs" />
-    <Compile Include="telefonBll.cs" />
-    <Compile Include="vergiDaireBll.cs" />
-    <Compile Include="verilenReklamBll.cs" />
-    <Compile Include="ziyaretciBll.cs" />
-    <Compile Include="ziyaretciprojeBll.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

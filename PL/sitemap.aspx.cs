@@ -8,6 +8,10 @@ using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using BLL.Concrete;
+using DAL.Concrete.LINQ;
+using KralilanProject.Interfaces;
+using KralilanProject.Entities;
 
 namespace PL.sm
 {
@@ -15,9 +19,14 @@ namespace PL.sm
     {
         ilanBll ilanb = new ilanBll();
 
+        private IIlanService _ilanManager;
+        public sitemap()
+        {
+            _ilanManager = new IlanManager(new LTSIlanlarDal());
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
-            List<BLL.ExternalClass.SiteMapCS> _lst = new List<BLL.ExternalClass.SiteMapCS>();
+            List<Ilan> _lst = new List<Ilan>();
 
             string strpath = @"\sm\";
             string link;
@@ -43,7 +52,7 @@ namespace PL.sm
 
                     if (!isExists)
                     {
-                        _lst = ilanb.getSitemapByYearAndMonth(i, j);
+                        _lst = _ilanManager.GetSitemap(i, j);
                         if (_lst.Count != 0)
                         {
                             System.IO.File.Create(pathString).Dispose();
@@ -55,7 +64,7 @@ namespace PL.sm
                                 strBuilder.AppendLine("<url>");
                                 strBuilder.AppendLine("<loc>");
 
-                                link = String.Format("https://www.kralilan.com/ilan/{0}-{1}/detay", Tools.URLConverter(item.baslik), item.ilanId);
+                                link = String.Format("https://www.kralilan.com/ilan/{0}-{1}/detay", Tools.URLConverter(item.Baslik), item.IlanId);
 
                                 strBuilder.AppendLine(link);
                                 strBuilder.AppendLine("</loc>");
@@ -83,7 +92,7 @@ namespace PL.sm
                     {
                         if (nowStr.Equals(pathString))
                         {
-                            _lst = ilanb.getSitemapByYearAndMonth(i, j);
+                            _lst = _ilanManager.GetSitemap(i, j);
                             if (_lst.Count != 0)
                             {
                                 strBuilder.AppendLine("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
@@ -94,7 +103,7 @@ namespace PL.sm
                                     strBuilder.AppendLine("<url>");
                                     strBuilder.AppendLine("<loc>");
 
-                                    link = String.Format("https://www.kralilan.com/ilan/{0}-{1}/detay", Tools.URLConverter(item.baslik), item.ilanId);
+                                    link = String.Format("https://www.kralilan.com/ilan/{0}-{1}/detay", Tools.URLConverter(item.Baslik), item.IlanId);
 
                                     strBuilder.AppendLine(link);
                                     strBuilder.AppendLine("</loc>");

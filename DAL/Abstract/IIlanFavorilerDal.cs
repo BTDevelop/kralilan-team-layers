@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using KralilanProject.Entities;
 
 namespace DAL.Abstract
 {
@@ -10,7 +11,7 @@ namespace DAL.Abstract
     {
         ilanFavori GetByAdsUserId(int AdsId, int UserId);
 
-        IQueryable GetByUserId(int UserId);
+        List<Ilan> GetByUserId(int UserId, int Index);
 
         int Count(int UserId);
 

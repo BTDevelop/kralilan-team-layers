@@ -1,7 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="kral-harita.aspx.cs" Inherits="PL.harita.kral_harita" %>
 
 <%@ Import Namespace="BLL.EnumHelper" %>
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="tr" xml:lang="tr">
 <head runat="server">
@@ -91,7 +90,6 @@
                                 </ul>
                             </li>
                             <li class="postadd">
-<%--                                <a href='<%= String.Format("/liste/{0}/{1}/{2}/{3}/", BLL.PublicHelper.Tools.URLConverter(EnumHelper.GetDescription((EstateTypeString)Enum.Parse(typeof(EstateTypeString), RouteData.Values["TurNo"].ToString()))),RouteData.Values["TurNo"], BLL.PublicHelper.Tools.URLConverter(RouteData.Values["Kategori"]), RouteData.Values["KategoriNo"]) %>' class="btn btn-lg btn-border btn-danger"><i class="icon icon-menu"></i>&nbsp;Listelemeye Git </a>--%>
                             </li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right" runat="server" id="visitorPanel" style="margin-right: -425px; margin-top: 17px;">
@@ -100,16 +98,12 @@
                             <li>
                                 <a href="/kayit/"><i class="icon icon-user-add"></i>&nbsp;Üye Ol</a></li>
                             <li class="postadd">
-<%--                                <a href="<%= String.Format("/liste/{0}/{1}/{2}/{3}/", BLL.PublicHelper.Tools.URLConverter(EnumHelper.GetDescription((EstateTypeString)Enum.Parse(typeof(EstateTypeString), RouteData.Values["TurNo"].ToString()))), RouteData.Values["TurNo"], BLL.PublicHelper.Tools.URLConverter(RouteData.Values["Kategori"]), RouteData.Values["KategoriNo"]) %>" class="btn btn-lg btn-border btn-danger"><i class="icon icon-menu"></i>&nbsp;Listelemeye Git </a>--%>
                             </li>
                         </ul>
                     </div>
-                    <!--/.nav-collapse -->
                 </div>
-                <!-- /.container-fluid -->
             </nav>
         </div>
-
         <div class="map-area clearfix">
             <span class="slide-a slide-a-left"></span>
             <div class="left-list">
@@ -119,7 +113,6 @@
                             <li class="tabli active"><a data-toggle="tab" href="#arama">Filtre</a></li>
                             <li class="tabli"><a data-toggle="tab" href="#firmalar">Firmalar</a></li>
                             <li id="project" class="tabli"><a data-toggle="tab" href="#projeler">Projeler</a></li>
-                            <%--                            <li class="tabli"><a data-toggle="tab" href="#yatirimcilar">Yatırımcılar</a></li>--%>
                         </ul>
                         <div class="tab-content">
                             <div id="arama" class="tab-pane fade in active">
@@ -139,7 +132,8 @@
                                                     <asp:Repeater ID="rpcategories" runat="server">
                                                         <ItemTemplate>
                                                             <li>
-                                                                <a href='<%# String.Format("/haritada-ara/{0}/{1}/{2}/{3}", BLL.PublicHelper.Tools.URLConverter(EnumHelper.GetDescription((EstateTypeString)Enum.Parse(typeof(EstateTypeString),RouteData.Values["TurNo"].ToString()))),RouteData.Values["TurNo"], BLL.PublicHelper.Tools.URLConverter(Eval("kategoriAdi")), Eval("kategoriId")) %>'><%# Eval("kategoriAdi") %><span class="count"><%# count(Eval("kategoriId"),RouteData.Values["TurNo"].ToString()) %></span></a></li>
+                                                                <a href='<%# String.Format("/haritada-ara/{0}/{1}/{2}/{3}", BLL.PublicHelper.Tools.URLConverter(EnumHelper.GetDescription((EstateTypeString)Enum.Parse(typeof(EstateTypeString),RouteData.Values["TurNo"].ToString()))),RouteData.Values["TurNo"], BLL.PublicHelper.Tools.URLConverter(Eval("kategoriAdi")), Eval("kategoriId")) %>'><%# Eval("kategoriAdi") %><span class="count"><%# count(Eval("kategoriId").ToString(),RouteData.Values["TurNo"].ToString()) %></span></a>
+                                                            </li>
                                                         </ItemTemplate>
                                                     </asp:Repeater>
                                                 </ul>
@@ -155,7 +149,9 @@
                                                     <asp:Repeater ID="Repeater1" runat="server">
                                                         <ItemTemplate>
                                                             <li>
-                                                                <a href='<%# String.Format("/haritada-ara/{0}/{1}/", BLL.PublicHelper.Tools.URLConverter(Eval("kategoriAdi")), Eval("kategoriId")) %>'><%# Eval("kategoriAdi") %><span class="count"><%# count(Eval("kategoriId"),"-1") %></span></a></li>
+                                                                <a href='<%# String.Format("/haritada-ara/{0}/{1}/", BLL.PublicHelper.Tools.URLConverter(Eval("kategoriAdi")), Eval("kategoriId")) %>'><%# Eval("kategoriAdi") %><span class="count"><%# count(Eval("kategoriId").ToString() , "-1") %></span>
+                                                                </a>
+                                                            </li>
                                                         </ItemTemplate>
                                                     </asp:Repeater>
                                                 </ul>
@@ -166,12 +162,13 @@
                                                 class="count">&nbsp;</span></a>
                                                 <a href="#"><span class="title">&nbsp;<strong runat="server" id="Strong2"></strong></span><span
                                                     class="count">&nbsp;</span></a>
-
                                                 <ul class=" list-unstyled long-list">
                                                     <asp:Repeater ID="Repeater2" runat="server">
                                                         <ItemTemplate>
                                                             <li>
-                                                                <a href='<%# String.Format("/haritada-ara/{0}/{1}/{2}/{3}", BLL.PublicHelper.Tools.URLConverter(EnumHelper.GetDescription((EstateTypeString)Enum.Parse(typeof(EstateTypeString),Eval("turId").ToString()))),Eval("turId"), RouteData.Values["Tur"], RouteData.Values["TurNo"]) %>'><%# EnumHelper.GetDescription((EstateTypeString)Enum.Parse(typeof(EstateTypeString),Eval("turId").ToString())) %><span class="count"><%# count(RouteData.Values["TurNo"],Eval("turId").ToString()) %></span></a></li>
+                                                                <a href='<%# String.Format("/haritada-ara/{0}/{1}/{2}/{3}", BLL.PublicHelper.Tools.URLConverter(EnumHelper.GetDescription((EstateTypeString)Enum.Parse(typeof(EstateTypeString),Eval("turId").ToString()))),Eval("turId"), RouteData.Values["Tur"], RouteData.Values["TurNo"]) %>'><%# EnumHelper.GetDescription((EstateTypeString)Enum.Parse(typeof(EstateTypeString),Eval("turId").ToString())) %><span class="count"><%# count(RouteData.Values["TurNo"].ToString(),Eval("turId").ToString()) %></span>
+                                                                </a>
+                                                            </li>
                                                         </ItemTemplate>
                                                     </asp:Repeater>
                                                 </ul>
@@ -220,25 +217,24 @@
                                         <div class="form-group" id="rddaterange">
                                             <label>
                                                 <input value="1" type="radio" name="daterange" class="daterangecls" />
-                                                Son 1 Gün</label><br />
+                                                Son 1 Gün
+                                            </label><br />
                                             <label>
                                                 <input value="3" type="radio" name="daterange" class="daterangecls" />
-                                                Son 3 Gün                                         
-                                           
-                                            </label>
-                                            <br />
+                                                Son 3 Gün                                                                      
+                                            </label><br />
                                             <label>
                                                 <input value="7" type="radio" name="daterange" class="daterangecls" />
-                                                Son 1 Hafta</label><br />
+                                                Son 1 Hafta
+                                            </label><br />
                                             <label>
                                                 <input value="15" type="radio" name="daterange" class="daterangecls" />
-                                                Son 15 Gün                                          
-                                           
-                                            </label>
-                                            <br />
+                                                Son 15 Gün                                                                     
+                                            </label><br />
                                             <label>
                                                 <input value="30" type="radio" name="daterange" class="daterangecls" />
-                                                Son 1 Ay</label><br />
+                                                Son 1 Ay
+                                            </label><br />
                                         </div>
                                     </div>
                                     <div id="filtre-btn" class="form-group">
@@ -252,7 +248,6 @@
                                 <ul class="list-2" id="projewrap">
                                 </ul>
                             </div>
-                            <%--                            <div id="yatirimcilar" class="tab-pane fade"></div>--%>
                         </div>
                     </div>
                 </div>
@@ -375,9 +370,9 @@
         function GetLocation(proid, distid, opt) {
             jQuery.ajax({
                 type: "POST",
-                url: "/services/ki_operation.asmx/getListLocation",
+                url: "/endpoint/locationservice.asmx/GetLocation",
                 dataType: "json",
-                data: "{ provid:'" + proid + "'" + ", distid:'" + distid + "'" + ", opt:'" + opt + "' }",
+                data: "{ RegionId:'" + proid + "'" + ", CityId:'" + distid + "' }",
                 contentType: "application/json; charset=utf-8",
                 success: function (data) {
                     var d = JSON.parse(data.d);
@@ -385,7 +380,7 @@
                     if (opt == 1) {
                         $("#slctprovi").append("<option value='-1' selected='selected'>Seçiniz</option>");
                         for (var i = 0; i < d.length; i++) {
-                            var appnd = "<option value='" + d[i].ilId + "'>" + d[i].ilAdi + "</option>";
+                            var appnd = "<option value='" + d[i].IlId + "'>" + d[i].IlAdi + "</option>";
                             $("#slctprovi").append(appnd);
 
                         }
@@ -396,7 +391,7 @@
                     if (opt == 2) {
                         $("#slctdist").append("<option value='-1' selected='selected'>Seçiniz</option>");
                         for (var i = 0; i < d.length; i++) {
-                            var appnd = "<option value='" + d[i].ilceId + "'>" + d[i].ilceAdi + "</option>";
+                            var appnd = "<option value='" + d[i].IlceId + "'>" + d[i].IlceAdi + "</option>";
                             $("#slctdist").append(appnd);
 
                         }
@@ -407,7 +402,7 @@
                     if (opt == 3) {
                         $("#slctneig").append("<option value='-1' selected='selected'>Seçiniz</option>");
                         for (var i = 0; i < d.length; i++) {
-                            var appnd = "<option value='" + d[i].mahalleId + "'>" + d[i].mahalleAdi + "</option>";
+                            var appnd = "<option value='" + d[i].MahalleId + "'>" + d[i].MahalleAdi + "</option>";
                             $("#slctneig").append(appnd);
 
                         }
@@ -737,9 +732,6 @@
                     cntr = map.getCenter();
 
                 }
-                    //else if (map.getZoom() > 5 & map.getZoom() < 6) {
-                    //    zoomStatus = 2;
-                    //}
                 else {
                     zoomStatus = 0;
                     if (overlays != null) {
@@ -795,8 +787,6 @@
             });
 
             getAdsCount("", 1);
-            var donusbekle = false;
-
         }
 
         function polygonCenter(poly) {
@@ -831,11 +821,12 @@
         function getAdsCount(inprov, opt) {
             jQuery.ajax({
                 type: "POST",
-                url: "/services/ki_operation.asmx/getProvinAdsCnt",
+                url: "/endpoint/ilanservice.asmx/GetAllRegion",
                 dataType: "json",
-                data: "{ inprovname:'" + inprov + "'" + ", opt:'" + opt + "'}",
+                //data: "{ inprovname:'" + inprov + "'" + ", opt:'" + opt + "'}",
                 contentType: "application/json; charset=utf-8",
                 success: function (data) {
+                    console.log(data);
                     var obj = data.d;
                     cityCountData = JSON.parse(obj);
                     var sql = encodeURIComponent("SELECT City,Location,Place FROM 1JUoe66aZCZFv6_gx3xLWhajjPtuUm71K6xv8ElIm WHERE Text IN ('Il')");
@@ -860,7 +851,7 @@
 
                             var dat = "";
                             for (var k = 0; k < cityCountData.length; k++) {
-                                if (city == cityCountData[k].provName) {
+                                if (city == cityCountData[k].Adi) {
                                     dat = cityCountData[k];
                                 }
                             }
@@ -869,8 +860,8 @@
                             var dataid = 0;
 
                             if (dat != "") {
-                                contentString = '<div class="marker-tooltip">' + dat.provName + '<br>' + dat.cnt + '</div>'
-                                dataid = dat.provId;
+                                contentString = '<div class="marker-tooltip">' + dat.Adi + '<br>' + dat.Sayi + '</div>'
+                                dataid = dat.Id;
                             }
 
                             var infW = new google.maps.InfoWindow({
@@ -948,7 +939,7 @@
                                     map.setZoom(13);
                                     this.setMap(null);
                                     this.data.close();
-                                    var itemCity = $("#slctprovi").val(slctdCity.provId).attr("selected", true);
+                                    var itemCity = $("#slctprovi").val(slctdCity.Id).attr("selected", true);
                                     $("#slctprovi").change();
                                     //getListFiltre(true);
                                     google.maps.event.trigger(map, 'zoom_changed');
@@ -971,71 +962,6 @@
         var slctDist;
         var oncekiDistPoly;
         var distPolyList = [];
-        function giveDistPlace(prov, provid) {
-            for (var i = 0; i < distPolyList.length; i++) {
-                distPolyList[i].setMap(null);
-                distPolyList[i] = null;
-            }
-            distPolyList = [];
-            jQuery.ajax({
-                type: "POST",
-                url: "/services/ki_operation.asmx/getProvinAdsCnt",
-                dataType: "json",
-                data: "{ inprovname:'" + provid + "'" + ", opt:'" + "0" + "'}",
-                contentType: "application/json; charset=utf-8",
-                success: function (data) {
-
-                    var obj = data.d;
-                    distCountData = JSON.parse(obj);
-                    var sql = encodeURIComponent("SELECT City,Location FROM 1JUoe66aZCZFv6_gx3xLWhajjPtuUm71K6xv8ElIm WHERE Place IN ('" + prov + "')");
-                    var query = new google.visualization.Query('https://www.google.com/fusiontables/gvizdata?tq=' + sql);
-                    query.send(function (response) {
-                        var data = response.getDataTable();
-                        var datarow = data.Nf;
-                        var lng = datarow.length;
-                        for (var i = 0; i < lng; i++) {
-                            var item = datarow[i].c;
-                            var dist = item[0].v;
-                            var lat = item[1].v;
-
-                            var newCoordinates = [];
-
-                            var geometries = $(lat).find("coordinates");
-
-                            for (var j = 0 ; j < geometries.length; j++) {
-                                newCoordinates.push(constructNewCoordinates(geometries[j].textContent.split(" ")));
-                            }
-
-                            var dat = "";
-                            for (var k = 0; k < distCountData.length; k++) {
-                                if (dist == distCountData[k].distName) {
-                                    dat = distCountData[k];
-                                }
-                            }
-
-                            var contentString = "";
-
-                            var dist = new google.maps.Polygon({
-                                paths: newCoordinates,
-                                strokeColor: "#FFFFFF",
-                                strokeOpacity: 0.5,
-                                strokeWeight: 1,
-                                fillOpacity: 0.0,
-                                datac: dat,
-                                datalng: newCoordinates[0][0]
-                            });
-
-                            distPolyList[i] = dist;
-                            dist.setMap(map);
-                        }
-                    });
-                },
-                error:
-                    {
-
-                    }
-            });
-        }
 
         function constructNewCoordinates(polygon) {
             var newCoordinates = [];
@@ -1046,64 +972,6 @@
             }
             return newCoordinates;
         }
-
-        ////////////////////////////////////////
-        //function getListProjectFilteWithAjax(_income, _intext, index, count, opt, tur, clear, istop) {
-        //    pageIsRefresh = false;
-
-        //    var fnc = new projectDT();
-        //    var dt;
-
-        //    if (clear == false) {s
-        //        if (sonistek == index) return;
-        //    }
-
-        //    var _incomestr = JSON.stringify(_income);
-        //    var _intextstr = JSON.stringify(_intext);
-
-        //    sonistek = index;
-        //    jQuery.ajax({
-        //        type: "POST",
-        //        url: "/services/ki_operation.asmx/getFilterProject",
-        //        dataType: "json",
-        //        data: "{ _incomestr:'" + _incomestr + "'" + ", _intextstr:'" + _intextstr + "'" + ", index:'" + index + "' , count:'" + count + "' , opt:'" + opt + "' , tur:'" + tur + "'}",
-        //        contentType: "application/json; charset=utf-8",
-        //        success: function (data) {
-
-        //            edata = data.d;
-        //            dt = JSON.parse(edata);
-
-        //            if (dt != null) {
-
-        //                for (var j = 0; j < dt.length; j++) {
-
-        //                    var append = "<li>"+
-        //						"<a href='/proje/" + urlConverter(dt[j].proname) + "/" + dt[j].proid + "/detay' class='blank'>"+
-        //							"<div><img src='/upload/estate-projects/" + dt[j].proid + "/" + dt[j].image + "'></div>"+
-        //							"<div><strong class='title'>" + dt[j].proname + "</strong>"+
-        //							"<span class='list-size'><i class='ion ion-arrow-expand'></i>" + dt[j].proplace + " m2<i class='ion ion-podium'></i>" + dt[j].estatecnt + "</span>"+
-        //						    "<span class='list-price>" + dt[j].deliverytime + "</span>"+
-        //							"</div>"+
-        //						"</a>"+
-        //					"</li>";
-        //                    $("#projewrap").append(append);
-        //                }
-        //            }
-
-        //            pageIsRefresh = true;
-        //        },
-        //        error: function (e) {
-        //            var s;
-        //            s = e;
-        //            pageIsRefresh = true;
-        //        }
-        //    });
-        //    if (clear == true) {
-        //        $("#projewrap").empty();
-        //    }
-
-        //}
-        ///////////////////////////////////////////////////////////////
 
         var markers = [];
         var overlays = [];
@@ -1270,9 +1138,6 @@
                                     }
                                 }
 
-
-
-
                                 color = colorGive(dt[j].magazaTurId);
 
                                 if (dt[j].magazaId == 100001342) {
@@ -1370,18 +1235,6 @@
             }
 
         }
-
-        //google.maps.event.addListener(infoWindow, 'domready', function () {
-        //    var iwOuter = $('.gm-style-iw');
-        //    var iwBackground = iwOuter.prev();
-        //    iwBackground.children(':nth-child(2)').css({ 'display': 'none' });
-        //    iwBackground.children(':nth-child(4)').css({ 'display': 'none' });
-        //    var iwCloseBtn = iwOuter.next();
-        //    iwCloseBtn.css({ opacity: '1', right: '55px', top: '20px' });
-        //    iwCloseBtn.mouseout(function () {
-        //        $(this).css({ opacity: '1' });
-        //    });
-        //});
 
         function urlConverter(_income) {
             var strSonuc = _income.toString();
@@ -1519,26 +1372,26 @@
         }
 
         var urldata = "";
-        function getUrlConverter(inurl) {
-            var url = "";
-            jQuery.ajax({
-                type: "POST",
-                url: "/services/ki_operation.asmx/getUrlConverter",
-                dataType: "json",
-                data: "{ income:'" + inurl + "'}",
-                contentType: "application/json; charset=utf-8",
-                success: function (data) {
-                    edata = data.d;
-                    urldata = edata;
-                    return (edata);
+        //function getUrlConverter(inurl) {
+        //    var url = "";
+        //    jQuery.ajax({
+        //        type: "POST",
+        //        url: "/services/ki_operation.asmx/getUrlConverter",
+        //        dataType: "json",
+        //        data: "{ income:'" + inurl + "'}",
+        //        contentType: "application/json; charset=utf-8",
+        //        success: function (data) {
+        //            edata = data.d;
+        //            urldata = edata;
+        //            return (edata);
 
-                },
-                error: function (e) {
+        //        },
+        //        error: function (e) {
 
-                }
-            });
+        //        }
+        //    });
 
-        }
+        //}
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAS1wH5TdTQ8gbD5zB6Ghi2hN4BpkkbJ5M&callback=initMap" async="async" defer="defer"></script>
     <!-- Start Alexa Certify Javascript -->

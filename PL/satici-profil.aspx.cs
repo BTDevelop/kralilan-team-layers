@@ -15,26 +15,19 @@ namespace PL
     public partial class satici_profil : System.Web.UI.Page
     {
 
-        ilanBll ilanb = new ilanBll();
-        telefonBll telefonb = new telefonBll();
-        kullaniciTakipciBll kullaniciTkpb = new kullaniciTakipciBll();
-        magazaBll magazab = new magazaBll();
-        magazaTelefonBll magazaTlfb = new magazaTelefonBll();
-        magazaKullaniciBll magazaKllb = new magazaKullaniciBll();
-        magazaTakipciBll magazaTakipb = new magazaTakipciBll();
-        seciliDopingBll seciliDopingb = new seciliDopingBll();
-        kullaniciBll kullanicib = new kullaniciBll();
-
         public int sellerProfilId, userFollowerCount = 0, userFollowedCount = 0, userClassifiedCount = 0, userid = 0;
         public string thmbUserProfile, userName;
         public int ctrlFollow;
 
         private IKullaniciTakipService _kullaniciTakipManager;
         private IKullaniciService _kullaniciManager;
+        private IIlanService _ilanManager;
         public satici_profil()
         {
             _kullaniciTakipManager = new KullaniciTakipManager(new LTSKullaniciTakipcilerDal());
-        }
+            _ilanManager = new IlanManager(new LTSIlanlarDal());
+            _kullaniciManager = new KullaniciManager(new LTSKullanicilarDal());
+;        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -71,7 +64,7 @@ namespace PL
 
                 userFollowerCount = _kullaniciTakipManager.CountFollower(sellerProfilId);
                 userFollowedCount = _kullaniciTakipManager.CountFollowed(sellerProfilId);
-                userClassifiedCount = kullanicib.countAdsByUserId(sellerProfilId);
+                userClassifiedCount = _ilanManager.CountByUserStoreId(sellerProfilId, -1);
                 rpuserfollower.DataSource = _kullaniciTakipManager.GetFollowed(_kullanici.kullaniciId);
                 rpuserfollower.DataBind();
                 rpuserfollowed.DataSource = _kullaniciTakipManager.GetFollower(_kullanici.kullaniciId);

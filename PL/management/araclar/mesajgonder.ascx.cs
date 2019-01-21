@@ -11,8 +11,6 @@ namespace PL.management.araclar
 {
     public partial class mesajgonder : System.Web.UI.UserControl
     {
-        kullaniciBll kullanicib = new kullaniciBll();
-        mesajBll mesajb = new mesajBll();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)

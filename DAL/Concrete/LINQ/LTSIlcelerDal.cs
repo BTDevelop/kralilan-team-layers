@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using DAL.Abstract;
+using KralilanProject.Entities;
 
 namespace DAL.Concrete.LINQ
 {
@@ -45,9 +48,17 @@ namespace DAL.Concrete.LINQ
             throw new NotImplementedException();
         }
 
-        public List<ilceler> GetByRegionId(int RegionId)
+        public List<Ilce> GetByRegionId(int RegionId)
         {
-            return idc.ilcelers.Where(q => q.ilId == RegionId).ToList();
+            var query = from i in idc.ilcelers.Where(q => q.ilId == RegionId)
+                select new Ilce
+                {
+                    IlceId = i.ilceId,
+                    IlceAdi = i.ilceAdi,
+                    //Url = KralilanProject.Services.PublicHelper.Tools.URLConverter(i.ilceAdi)
+                };
+
+            return query.ToList();
         }
 
         public void Update(ilceler entity)

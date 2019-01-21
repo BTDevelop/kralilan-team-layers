@@ -50,30 +50,27 @@
         sonistek = index;
         jQuery.ajax({
             type: "POST",
-            url: "/services/ki_operation.asmx/getListNotification",
+            url: "/endpoint/bildirimservice.asmx/GetByUserId",
             dataType: "json",
-            data: "{index:'" + index + "'" + ", count:'" + count + "'" + ", oneid:'" + oneid + "', opt:'" + 1 + "'}",
+            data: "{Index:'" + index + "'" + ", UserId:'" + oneid + "'}",
             contentType: "application/json; charset=utf-8",
             success: function (data) {
                 edata = data.d;
-
-                var dataArr = JSON.parse(edata);s
+                var dataArr = JSON.parse(edata);
                 result = "";
                 for(var i = 0; i < dataArr.length; i++) {
 
-                    
+                   
                     result += '<li class="friend-with-a-SVAGina">\
                             <div class="head">\
                                 <span class="name">Bildirim Merkezi</span>\
-                                <span class="time">' + dataArr[i].tarihFormat + '</span>\
+                                <span class="time">' + dataArr[i].BaslangicTarihi + '</span>\
                             </div>\
-                            <div class="message">' + dataArr[i].mesaj + '</div>\
+                            <div class="message">' + dataArr[i].Mesaj + '</div>\
                         </li>';
 
 
                 }
-
-
 
                 if (istop == true) {
                     $("#messagewrap").prepend(result);

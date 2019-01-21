@@ -47,7 +47,6 @@
         }
         );
     </script>
-    <!-- Global site tag (gtag.js) - AdWords: 781913905 -->
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=AW-781913905"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -56,7 +55,6 @@
 
         gtag('config', 'AW-781913905');
     </script>
-    <!-- Facebook Pixel Code -->
     <script>
         !function (f, b, e, v, n, t, s) {
             if (f.fbq) return; n = f.fbq = function () {

@@ -10,6 +10,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using BLL.Concrete;
 using DAL.Concrete.LINQ;
+using KralilanProject.Entities;
 using KralilanProject.Interfaces;
 using static DAL.toolkit;
 
@@ -17,18 +18,21 @@ namespace PL
 {
     public partial class mobile_site : System.Web.UI.Page
     {
-        kategoriBll kategorib = new kategoriBll();
-        kullaniciBll kullaniciBLL = new kullaniciBll();
-        kategoriTurBll kategoriTurBLL = new kategoriTurBll();
-        XmlFormat xmlFormat = new XmlFormat();
-        private kullanici _kullanici;
+        public int Index = 0;
+        public string[] Icons = { "icon-home", "icon-shop", "icon-prison", "icon-building-filled", "icon-calendar-1", "icon-home-1" };
 
-        private IKategoriTurService _kategoriTurManager;
+        private kullanici _kullanici;
+        List<IlanSayi> SayilarList = new List<IlanSayi>();
+
+        public IKategoriTurService _kategoriTurManager;
         private IKullaniciService _kullaniciManager;
+        private IIlanSayiService _ilanSayiManager;
         public mobile_site()
         {
             _kategoriTurManager = new KategoriTurManager(new LTSKategoriTurlerDal());
             _kullaniciManager = new KullaniciManager(new LTSKullanicilarDal());
+            _ilanSayiManager = new IlanSayiManager(new LTSIlanSayilarDal());
+
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -55,19 +59,10 @@ namespace PL
                 profile.Visible = false;
             }
 
-            List<StrategyData.KategoriType> categori = new List<StrategyData.KategoriType>();
-            categori = (List<StrategyData.KategoriType>)toolkit.GetObjectInXml(kategorib.getTopCategoriViewHomePageTest(1, xmlFormat), typeof(List<StrategyData.KategoriType>));
-       
 
-            string[] arrIcon = new string[6] { "icon-home", "icon-shop", "icon-prison", "icon-building-filled", "icon-calendar-1", "icon-home-1" };
+            SayilarList = _ilanSayiManager.GetAllCategoriByTopCategoriId(1);
 
-            for (int i = 0; i < categori.Count; i++)
-            {
-                categori[i].kategoriLogo = arrIcon[i];
-                categori[i].kategoriTip = _kategoriTurManager.GetByCategoriIdStr(Convert.ToInt32(categori[i].kategoriId));
-            }
-
-            rpcategories.DataSource = categori;
+            rpcategories.DataSource = SayilarList;
             rpcategories.DataBind();
 
         }

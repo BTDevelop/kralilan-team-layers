@@ -14,12 +14,7 @@ namespace PL.profil
 {
     public partial class profil : System.Web.UI.Page
     {
-        magazaKullaniciBll magazaKullaniciBLL = new magazaKullaniciBll();
-        projelerBll projelerBLL = new projelerBll();
         kullanici _kullanici;
-        magazaBll magazaBLL = new magazaBll();
-
-
         public int storeId = -1;
         public string storeName = null;
 

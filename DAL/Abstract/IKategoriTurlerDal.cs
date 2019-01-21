@@ -14,5 +14,8 @@ namespace DAL.Abstract
         IEnumerable<object> GetByCategoriId(int CategoriId);
 
         IEnumerable<object> GetByCategoriTypeId(int CategoriId, int TypeId);
+
+        IEnumerable<object> GetAllByCategoriTypeId(int CategoriId, int TypeId);
+
     }
 }

@@ -2,7 +2,6 @@
 using BLL.EnumHelper;
 using BLL.PublicHelper;
 using DAL;
-using MessagingToolkit.QRCode.Codec;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -21,11 +20,7 @@ using KralilanProject.Entities;
 namespace PL
 {
     public partial class yazdir : System.Web.UI.Page
-    {
-        ilanBll ilanb = new ilanBll();
-        telefonBll telefonb = new telefonBll();
-        magazaTelefonBll magazaTlfb = new magazaTelefonBll();
-        ozelliklerBll property = new ozelliklerBll();
+    { 
 
         public string magazaId, kullaniciId, postResim, sellerProfil = "", link = "";
         public int whoFromId, phindex = 0, adsNumber;

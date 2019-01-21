@@ -40,17 +40,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bildirim.cs" />
+    <Compile Include="DopingKategori.cs" />
+    <Compile Include="Filtre.cs" />
     <Compile Include="Firma.cs" />
+    <Compile Include="Il.cs" />
     <Compile Include="Ilan.cs" />
     <Compile Include="IlanSayi.cs" />
+    <Compile Include="Ilce.cs" />
     <Compile Include="Kategori.cs" />
     <Compile Include="Magaza.cs" />
     <Compile Include="MagazaKullanici.cs" />
+    <Compile Include="Mahalle.cs" />
     <Compile Include="Odeme.cs" />
     <Compile Include="Ozellik.cs" />
     <Compile Include="Proje.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reklam.cs" />
     <Compile Include="SeciliDoping.cs" />
+    <Compile Include="UrlUtf.cs" />
     <Compile Include="VergiDaire.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

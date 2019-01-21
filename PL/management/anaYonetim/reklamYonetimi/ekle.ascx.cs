@@ -15,10 +15,6 @@ namespace PL.management.anaYonetim.reklamYonetimi
 {
     public partial class ekle : System.Web.UI.UserControl
     {
-        ilBll il = new ilBll();
-        kullaniciBll kullanicib = new kullaniciBll();
-        verilenReklamBll verilenReklam = new verilenReklamBll();
-        reklamBll rklm = new reklamBll();
         public string tempnumber;
 
         private IVerilenReklamService _verilenReklamManager;

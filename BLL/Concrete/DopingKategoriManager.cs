@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL;
 using DAL.Abstract;
+using KralilanProject.Entities;
 using KralilanProject.Interfaces;
 
 namespace BLL.Concrete
@@ -35,6 +36,11 @@ namespace BLL.Concrete
         public List<dopingKategori> GetAll()
         {
             throw new NotImplementedException();
+        }
+
+        public List<DopingKategori> GetByDopingKategoriId(int DopingId, int KategoriId)
+        {
+            return _dopingKategorilerDal.GetByDopingKategoriId(DopingId, KategoriId);
         }
 
         public void Update(dopingKategori entity)

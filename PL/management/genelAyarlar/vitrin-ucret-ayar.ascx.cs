@@ -14,11 +14,7 @@ namespace PL.management.genelAyarlar
 {
     public partial class vitrin_ucret_ayar : System.Web.UI.UserControl
     {
-        kategoriBll kategorib = new kategoriBll();
-        dopingBll dopingb = new dopingBll();
-        dopingKategoriBll dopingKtgb = new dopingKategoriBll();
         public int showcaseCatId;
-
         private IKategoriService _kategoriManager;
         private IDopingKategoriService _dopingKategoriManager;
         private IDopingService _dopingManager;

@@ -12,7 +12,7 @@ namespace KralilanProject.Entities
 
         public string MagazaAdi { get; set; }
 
-        public int MagazaKategoriId { get; set; }
+        public int? MagazaKategoriId { get; set; }
 
     }
 }

@@ -40,7 +40,7 @@ namespace BLL.Concrete
 
         public List<Magaza> GetAllByStoreCategori(int StoreCategori)
         {
-            throw new NotImplementedException();
+           return _magazalarDal.GetAllByStoreCategori(StoreCategori);
         }
 
         public magaza GetLast()

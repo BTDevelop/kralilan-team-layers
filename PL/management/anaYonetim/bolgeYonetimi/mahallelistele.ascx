@@ -1,7 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="mahallelistele.ascx.cs" Inherits="PL.management.anaYonetim.bolgeYonetimi.mahallelistele" %>
-<!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>Mahalleler
             <small>tüm mahalleler burada listelenir.</small>
@@ -12,7 +10,6 @@
             <li class="active">Data tables</li>
         </ol>
     </section>
-    <!-- Main content -->
     <section class="content">
         <div class="row">
             <div class="col-xs-12">
@@ -20,7 +17,6 @@
                     <div class="box-header">
                         <h3 class="box-title">Mahalle Listesi</h3>
                     </div>
-                    <!-- /.box-header -->
                     <div class="box-body">
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
@@ -34,10 +30,10 @@
                                 <asp:Repeater ID="mahalleRepeater" runat="server">
                                     <ItemTemplate>
                                         <tr>
-                                            <td><%# Eval("mahalleId") %></td>
-                                            <td><%# Eval("mahalleAdi") %></td>
+                                            <td><%# Eval("MahalleId") %></td>
+                                            <td><%# Eval("MahalleAdi") %></td>
                                             <td>
-                                                <asp:HyperLink ID="hypDuzenle" runat="server" CssClass="btn btn-primary btn-xs" NavigateUrl='<%# String.Format("~/management/anaYonetim/bolgeYonetimi/bolge.aspx?page=mahalleduzenle&ilId={0}&ilceId={1}&mahalleId={2}", Request.QueryString["ilId"] ,Eval("ilceId"),Eval("mahalleId"))%>'> Düzenle</asp:HyperLink>
+                                                <asp:HyperLink ID="hypDuzenle" runat="server" CssClass="btn btn-primary btn-xs" NavigateUrl='<%# String.Format("~/management/anaYonetim/bolgeYonetimi/bolge.aspx?page=mahalleduzenle&ilId={0}&ilceId={1}&mahalleId={2}", Request.QueryString["ilId"] ,Request.QueryString["ilceId"],Eval("MahalleId"))%>'> Düzenle</asp:HyperLink>
                                             </td>
                                         </tr>
                                     </ItemTemplate>
@@ -52,14 +48,8 @@
                             </tfoot>
                         </table>
                     </div>
-                    <!-- /.box-body -->
                 </div>
-                <!-- /.box -->
             </div>
-            <!-- /.col -->
         </div>
-        <!-- /.row -->
     </section>
-    <!-- /.content -->
 </div>
-<!-- /.content-wrapper -->

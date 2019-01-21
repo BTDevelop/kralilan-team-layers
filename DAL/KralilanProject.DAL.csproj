@@ -63,6 +63,7 @@
     <Compile Include="Abstract\IDopingKategorilerDal.cs" />
     <Compile Include="Abstract\IFirmalarDal.cs" />
     <Compile Include="Abstract\IGuvenlikKodlarDal.cs" />
+    <Compile Include="Abstract\IIlanSatilanDal.cs" />
     <Compile Include="Abstract\IIlanSayilarDal.cs" />
     <Compile Include="Abstract\IIllerDal.cs" />
     <Compile Include="Abstract\IIlanlarDal.cs" />
@@ -91,6 +92,7 @@
     <Compile Include="Abstract\IVerilenReklamlarDal.cs" />
     <Compile Include="Abstract\IZiyaretcilerDal.cs" />
     <Compile Include="Abstract\IZiyaretcilerProjeDal.cs" />
+    <Compile Include="Concrete\ADONET\ADOIlanlarDal.cs" />
     <Compile Include="Concrete\LINQ\LTSBildirimlerDal.cs" />
     <Compile Include="Concrete\LINQ\LTSDopinglerDal.cs" />
     <Compile Include="Concrete\LINQ\LTSDopingKategorilerDal.cs" />
@@ -98,6 +100,7 @@
     <Compile Include="Concrete\LINQ\LTSGuvenlikKodlarDal.cs" />
     <Compile Include="Concrete\LINQ\LTSIlanlarDal.cs" />
     <Compile Include="Concrete\LINQ\LTSIlanFavorilerDal.cs" />
+    <Compile Include="Concrete\LINQ\LTSIlanSatilanDal.cs" />
     <Compile Include="Concrete\LINQ\LTSIlanSayilarDal.cs" />
     <Compile Include="Concrete\LINQ\LTSIlcelerDal.cs" />
     <Compile Include="Concrete\LINQ\LTSIllerDal.cs" />
@@ -162,7 +165,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Concrete\ADONET\" />
     <Folder Include="Concrete\EntityFramework\" />
   </ItemGroup>
   <ItemGroup>

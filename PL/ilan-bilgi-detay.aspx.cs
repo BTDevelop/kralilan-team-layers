@@ -20,11 +20,10 @@ namespace PL
 {
     public partial class ilan_bilgi_detay : System.Web.UI.Page
     {
-        ilanBll ilanb = new ilanBll();
         kullanici _kullanici;
         public List<resimDataType> resimler = new List<resimDataType>();
+        private List<Ilan> BakilanlarList = new List<Ilan>();
         ilan _ilan;
-
 
         public string magazaId, postResim, sellerProfil = "", link = "", classifiedURI, provName = "", districtName = "", neighName = "";
         public int whoFromId, phindex = 0, kullaniciId;
@@ -218,6 +217,12 @@ namespace PL
                 ProjectDate = txtlist.Where(x => x.ozellikId == 8758).FirstOrDefault().deger;
             }
             else ProjeBox.Visible = false;
+
+
+            BakilanlarList = _ilanManager.GetByLocationRound(_ilan.ilId, _ilan.ilceId);
+            rpNearPosition.DataSource = BakilanlarList;
+            rpNearPosition.DataBind();
+            
 
             Page.Title = provName + " " + districtName + " " + fromWho + " " + adsType + " #" + adsId;
             Page.MetaDescription = provName + " " + districtName + " " + neighName + " " + fromWho + " " + adsType + String.Format(" {0:N0}", _ilan.fiyat) + " TL " + "ilan detay ve iletişim bilgileri için tıklayın kralilan.com #" + number;

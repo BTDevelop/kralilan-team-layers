@@ -15,8 +15,6 @@ namespace PL.profil
 {
     public partial class eposta : System.Web.UI.UserControl
     {
-        kullaniciBll kullanicib = new kullaniciBll();
-        guvenlikKodlariBll guvenlikKodb = new guvenlikKodlariBll();
         string info, detail;
         kullanici _kullanici;
 

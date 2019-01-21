@@ -27,9 +27,6 @@ namespace PL
     {
         public string mesaj = "";
         kullanici _kullanici;
-        ilBll ilb = new ilBll();
-        dopingKategoriBll dopingKatBll = new dopingKategoriBll();
-        dopingBll dopingBll = new dopingBll();
 
         private IOdemeService _odemeManager;
         private IIlService _ilManager;
@@ -49,7 +46,6 @@ namespace PL
             {
                 if (!IsPostBack)
                 {
-                    dopingKategoriBll dkb = new dopingKategoriBll();
                     objDizi = (JArray)Session["showcasebasket"];
                     if (objDizi.Count <= 0)
                     {

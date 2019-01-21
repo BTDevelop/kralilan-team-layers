@@ -475,9 +475,9 @@
         function getDoping(catid, dopingid, opt) {
             jQuery.ajax({
                 type: "POST",
-                url: "/services/ki_operation.asmx/getListDopingType",
+                url: "/endpoint/dopingkategoriservice.asmx/GetByDopingKategoriId",
                 dataType: "json",
-                data: "{ catid:'" + catid + "'" + ", dopingid:'" + dopingid + "'}",
+                data: "{ DopingId:'" + dopingid + "'" + ", CategoriId:'" + catid + "'}",
                 contentType: "application/json; charset=utf-8",
                 success: function (data) {
                     var d = JSON.parse(data.d);
@@ -485,7 +485,7 @@
                     if (opt == 1) {
                         $("#slcthomeshowcase").append("<option value='-1' selected='selected'>Seçiniz</option>");
                         for (var i = 0; i < d.length; i++) {
-                            var appnd = "<option value='" + d[i].dopingKategoriId + "'>" + d[i].dopingFiyat + "</option>";
+                            var appnd = "<option value='" + d[i].Id + "'>" + d[i].Fiyat + "</option>";
                             $("#slcthomeshowcase").append(appnd);
 
                         }
@@ -493,7 +493,7 @@
                     if (opt == 2) {
                         $("#slctcatshowcase").append("<option value='-1' selected='selected'>Seçiniz</option>");
                         for (var i = 0; i < d.length; i++) {
-                            var appnd = "<option value='" + d[i].dopingKategoriId + "'>" + d[i].dopingFiyat + "</option>";
+                            var appnd = "<option value='" + d[i].Id + "'>" + d[i].Fiyat + "</option>";
                             $("#slctcatshowcase").append(appnd);
 
                         }
@@ -501,7 +501,7 @@
                     if (opt == 3) {
                         $("#slctemergencyshowcase").append("<option value='-1' selected='selected'>Seçiniz</option>");
                         for (var i = 0; i < d.length; i++) {
-                            var appnd = "<option value='" + d[i].dopingKategoriId + "'>" + d[i].dopingFiyat + "</option>";
+                            var appnd = "<option value='" + d[i].Id + "'>" + d[i].Fiyat + "</option>";
                             $("#slctemergencyshowcase").append(appnd);
 
                         }
@@ -509,7 +509,7 @@
                     if (opt == 4) {
                         $("#slctsearchshowcase").append("<option value='-1' selected='selected'>Seçiniz</option>");
                         for (var i = 0; i < d.length; i++) {
-                            var appnd = "<option value='" + d[i].dopingKategoriId + "'>" + d[i].dopingFiyat + "</option>";
+                            var appnd = "<option value='" + d[i].Id + "'>" + d[i].Fiyat + "</option>";
                             $("#slctsearchshowcase").append(appnd);
 
                         }
@@ -517,7 +517,7 @@
                     if (opt == 5) {
                         $("#slctdiscountshowcase").append("<option value='-1' selected='selected'>Seçiniz</option>");
                         for (var i = 0; i < d.length; i++) {
-                            var appnd = "<option value='" + d[i].dopingKategoriId + "'>" + d[i].dopingFiyat + "</option>";
+                            var appnd = "<option value='" + d[i].Id + "'>" + d[i].Fiyat + "</option>";
                             $("#slctdiscountshowcase").append(appnd);
 
                         }

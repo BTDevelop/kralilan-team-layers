@@ -16,16 +16,7 @@ namespace PL.management.anaYonetim.magazaYonetimi
 {
     public partial class ekle : System.Web.UI.UserControl
     {
-        ilBll ilb = new ilBll();
-        ilceBll ilceb = new ilceBll();
-        mahalleBll mahalleb = new mahalleBll();
-        vergiDaireBll vergiDaireb = new vergiDaireBll();
-        magazaBll magazab = new magazaBll();
-        magazaTelefonBll magazaTlfb = new magazaTelefonBll();
-        magazaKullaniciBll magazaKllb = new magazaKullaniciBll();
-        kullaniciBll kullanicib = new kullaniciBll();
-
-
+      
         private IMagazaTelefonService _magazaTelefonManager;
         private IMagazaKullaniciService _magazaKullaniciManager;
         private IKullaniciService _kullaniciManager;

@@ -4,7 +4,6 @@ $(document).ready(function () {
 
 var incomeArr;
 var editdataintext;
-//var staticMeta = " fiyatlar\u0131 ve bankadan, belediyeden, icradan, hazineden, \u00f6zelle\u015ftirmeden, kamu kurumlar\u0131ndan ve sahibinden emlak ilanlar\u0131 kralilan.com da. Uydudan G\u00f6r Be\u011fen Se\u00e7 Al deneyimi ya\u015famak i\u00e7in hemen t\u0131kla.";
 var staticMeta = "ilanları ile bankadan, belediyeden, icradan, hazineden kısacası tüm kamu kurumlarından emlak ilanları kral ilan' da";
 var inGeneralArr = [-1, -1, -1, -1, -1, -1, -1, -1];
 var whoId = -1;
@@ -73,10 +72,6 @@ function urlReader() {
                 inGeneralArr[5] = whoId;
                 $('#slctwho').val(whoId);
 
-                //document.title = $("#slctwho option:selected").text() + " " + $(".hidden-intro").text() + " Fiyatlar\u0131 kralilan.com'da";
-                //document.getElementsByTagName("META")[2].content = $("#slctwho option:selected").text() + " " + $(".hidden-intro").text() + " " + staticMeta;
-                //document.getElementsByTagName("META")[3].content = document.getElementsByTagName("META")[2].content.replace(' ', ',');
-
                 $(".text-title").text($("#slctwho option:selected").text() + " " + $(".hidden-intro").text() + " İlanlar\u0131");
                 getListFiltre();
                 GetLocation(-1, -1, 1);
@@ -101,11 +96,6 @@ function urlReader() {
                                                 inGeneralArr[2] = $('#slctprovi').val();
                                                 inGeneralArr[3] = $('#slctdist').val();
                                                 getListFiltre();
-
-                                                //document.title = $("#slctdist option:selected").text() + " " + $(".hidden-intro").text() + " Fiyatlar\u0131 kralilan.com'da";
-                                                //document.getElementsByTagName("META")[2].content = $("#slctdist option:selected").text() + " " + $(".hidden-intro").text() + " " + staticMeta;
-                                                //document.getElementsByTagName("META")[3].content = document.getElementsByTagName("META")[2].content.replace(' ', ',');
-
 
                                                 titleParams = $("#slctdist option:selected").text();                               
                                                 $(".text-title").text($("#slctdist option:selected").text() + " " + $(".hidden-intro").text() + " İlanlar\u0131");
@@ -132,12 +122,7 @@ function urlReader() {
                                                 inGeneralArr[2] = $('#slctprovi').val();
                                                 inGeneralArr[3] = $('#slctdist').val();
                                                 inGeneralArr[4] = $('#slctneig').val();
-                                                getListFiltre();
-
-                                                //document.title = $("#slctneig option:selected").text() + " " + $(".hidden-intro").text() + " Fiyatlar\u0131 kralilan.com'da";
-                                                //document.getElementsByTagName("META")[2].content = $("#slctneig option:selected").text() + " " + $(".hidden-intro").text() + " " + staticMeta;
-                                                //document.getElementsByTagName("META")[3].content = document.getElementsByTagName("META")[2].content.replace(' ', ',');
-
+                                                getListFiltre();                                             
 
                                                 titleParams = $("#slctneig option:selected").text();          
                                                 $(".text-title").text($("#slctneig option:selected").text() + " " + $(".hidden-intro").text() + " İlanlar\u0131");                              
@@ -161,11 +146,6 @@ function urlReader() {
                                         inGeneralArr[2] = $('#slctprovi').val();
                                         getListFiltre();
 
-                                        //document.title = $("#slctprovi option:selected").text() + " " + $(".hidden-intro").text() + " Fiyatlar\u0131 kralilan.com'da";
-                                        //document.getElementsByTagName("META")[2].content = $("#slctprovi option:selected").text() +" "+$(".hidden-intro").text() + " " + staticMeta;
-                                        //document.getElementsByTagName("META")[3].content = document.getElementsByTagName("META")[2].content.replace(' ', ',');
-
-
                                         titleParams = $("#slctprovi option:selected").text();                       
                                         $(".text-title").text($("#slctprovi option:selected").text() + " " + $(".hidden-intro").text() + " İlanlar\u0131");
                                                       
@@ -186,18 +166,10 @@ function urlReader() {
 
             if (titleParams)
             {
-                //document.title = titleParams + " " + $("#slctwho option:selected").text() + " " + $(".hidden-intro").text() + " Fiyatlar\u0131 kralilan.com'da";
-                //document.getElementsByTagName("META")[2].content = titleParams + " " + $("#slctwho option:selected").text() + " " + $(".hidden-intro").text() + staticMeta;
-                //document.getElementsByTagName("META")[3].content = document.getElementsByTagName("META")[2].content.replace(' ', ',');
-
                 $(".text-title").text(titleParams + " " + $("#slctwho option:selected").text() + " " + $(".hidden-intro").text() + " ilanlar\u0131");
             }
             else
             {
-                //document.title = $("#slctwho option:selected").text() + " " + $(".hidden-intro").text() + " Fiyatlar\u0131 kralilan.com'da";
-                //document.getElementsByTagName("META")[2].content = $("#slctwho option:selected").text() + " " + $(".hidden-intro").text() + staticMeta;
-                //document.getElementsByTagName("META")[3].content = document.getElementsByTagName("META")[2].content.replace(' ', ',');
-
 
                 $(".text-title").text($("#slctwho option:selected").text() + " " + $(".hidden-intro").text() + " ilanlar\u0131");
             }
@@ -206,10 +178,6 @@ function urlReader() {
         if(pathUrl.split('/').length == 3) {
             getListFiltre();
             GetLocation(-1, -1, 1);
-
-            //document.title = $(".hidden-intro").text() + " Fiyatlar\u0131 kralilan.com'da";
-            //document.getElementsByTagName("META")[2].content = $(".hidden-intro").text() + " " + staticMeta;
-            //document.getElementsByTagName("META")[3].content = document.getElementsByTagName("META")[2].content.replace(' ', ',');
 
             $(".text-title").text($(".hidden-intro").text() + " İlanlar\u0131");
         }
@@ -220,9 +188,9 @@ function urlReader() {
 function GetLocation(proid, distid, opt, callback) {
     jQuery.ajax({
         type: "POST",
-        url: "/services/ki_operation.asmx/getListLocation",
+        url: "/endpoint/locationservice.asmx/GetLocation",
         dataType: "json",
-        data: "{ provid:'" + proid + "'" + ", distid:'" + distid + "'" + ", opt:'" + opt + "' }",
+        data: "{ RegionId:'" + proid + "'" + ", CityId:'" + distid + "' }",
         contentType: "application/json; charset=utf-8",
         success: function (data) {
             var d = JSON.parse(data.d);
@@ -231,12 +199,12 @@ function GetLocation(proid, distid, opt, callback) {
                 $("#slctprovi").append("<option value='-1' selected='selected'>Se\u00e7iniz</option>");
                 for (var i = 0; i < d.length; i++) {
                 
-                    var appnd = "<option value='" + d[i].ilId + "'>" + d[i].ilAdi + "</option>";
+                    var appnd = "<option value='" + d[i].IlId + "'>" + d[i].IlAdi + "</option>";
                     $("#slctprovi").append(appnd);
 
                     if (provinceName) {
-                        if (trConverter(d[i].ilAdi) == provinceName) {
-                            $('#slctprovi').val(d[i].ilId);
+                        if (trConverter(d[i].IlAdi) == provinceName) {
+                            $('#slctprovi').val(d[i].IlId);
                         } 
                     }
                 }
@@ -245,12 +213,12 @@ function GetLocation(proid, distid, opt, callback) {
                 $("#slctdist").empty();
                 $("#slctdist").append("<option value='-1' selected='selected'>Se\u00e7iniz</option>");
                 for (var i = 0; i < d.length; i++) {
-                    var appnd = "<option value='" + d[i].ilceId + "'>" + d[i].ilceAdi + "</option>";
+                    var appnd = "<option value='" + d[i].IlceId + "'>" + d[i].IlceAdi + "</option>";
                     $("#slctdist").append(appnd);
 
                     if (districtName) {
-                        if (trConverter(d[i].ilceAdi) == districtName) {
-                            $('#slctdist').val(d[i].ilceId);
+                        if (trConverter(d[i].IlceAdi) == districtName) {
+                            $('#slctdist').val(d[i].IlceId);
                         } 
                     }
 
@@ -260,11 +228,11 @@ function GetLocation(proid, distid, opt, callback) {
                 $("#slctneig").empty();
                 $("#slctneig").append("<option value='-1' selected='selected'>Se\u00e7iniz</option>");
                 for (var i = 0; i < d.length; i++) {
-                    var appnd = "<option value='" + d[i].mahalleId + "'>" + d[i].mahalleAdi + "</option>";
+                    var appnd = "<option value='" + d[i].MahalleId + "'>" + d[i].MahalleAdi + "</option>";
                     $("#slctneig").append(appnd);
 
                     if (neighName) {
-                        if (trConverter(d[i].mahalleAdi) == neighName) {
+                        if (trConverter(d[i].MahalleAdi) == neighName) {
                             $('#slctneig').val(d[i].mahalleId);
                         } 
                     }

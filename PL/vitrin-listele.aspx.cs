@@ -18,9 +18,11 @@ namespace PL
         ilanBll ilanb = new ilanBll();
 
         private ISeciliDopingService _seciliDopingManager;
+        private IIlanService _ilanManager;
         public vitrin_listele()
         {
             _seciliDopingManager = new SeciliDopingManager(new LTSSeciliDopinglerDal());
+            _ilanManager = new IlanManager(new LTSIlanlarDal());
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -77,10 +79,12 @@ namespace PL
         public string count(int opt)
         {
             string cnt = "";
-            if (opt == 1 || opt == 5 || opt == 8 || opt==3 || opt==2)
-                cnt = String.Format("{0:N0}", _seciliDopingManager.CountByDopingId(opt));
+            if (opt == 1 || opt == 5 || opt == 8 || opt == 2)
+                cnt = String.Format("({0:N0})", _seciliDopingManager.CountByDopingId(opt));
+            else if (opt == 48)
+                cnt = String.Format("({0:N0})", _ilanManager.CountLastDate());
             else
-                cnt = String.Format("{0:N0}", ilanb.countOther(opt));
+                cnt = String.Format("({0:N0})", _ilanManager.CountSale());
 
             return cnt;
         }

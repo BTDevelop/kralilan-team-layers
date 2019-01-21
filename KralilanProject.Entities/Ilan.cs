@@ -24,7 +24,7 @@ namespace KralilanProject.Entities
 
         public string Fiyat { get; set; }
 
-        public int UstKategoriId { get; set; }
+        public int? UstKategoriId { get; set; }
 
         public int KategoriId { get; set; }
 
@@ -34,7 +34,13 @@ namespace KralilanProject.Entities
 
         public string IlAdi { get; set; }
 
+        public int IlId { get; set; }
+
         public string IlceAdi { get; set; }
+
+        public int IlceId { get; set; }
+
+        public int MahalleId { get; set; }
 
         public string MahalleAdi { get; set; }
 
@@ -44,6 +50,23 @@ namespace KralilanProject.Entities
 
         public string FiyatTipi { get; set; }
 
+        public int? EmlakTipiId { get; set; }
+
         public string EmlakTipi { get; set; }
+
+        public string Girilenler { get; set; }
+
+        public string Secilenler { get; set; }
+
+        public string Koordinat { get; set; }
+
+        public double? Enlem { get; set; }
+
+        public double? Boylam { get; set; }
+
+        public int? MagazaTipId { get; set; }
+
+        public DateTime? BitisTarihi { get; set; }
+
     }
 }

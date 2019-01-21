@@ -10,7 +10,14 @@ namespace DAL.Abstract
     public interface IIlanSayilarDal : IEntityRepository<ilanSayi>
     {
         List<IlanSayi> GetAllByTopCategoriId(int TopCategoriId);
+
         List<IlanSayi> GetAllCategoriByTopCategoriId(int TopCategoriId);
+
+        int CountByCategoriTypeId(int CategoriId, int TypeId);
+
+        int CountByCategoriId(int CategoriId);
+
+        int CountAll();
 
     }
 }

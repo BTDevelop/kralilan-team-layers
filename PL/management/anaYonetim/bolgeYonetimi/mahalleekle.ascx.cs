@@ -13,10 +13,6 @@ namespace PL.management.anaYonetim.bolgeYonetimi
 {
     public partial class mahalleekle : System.Web.UI.UserControl
     {
-        ilBll il = new ilBll();
-        ilceBll ilce = new ilceBll();
-        mahalleBll mahalle = new mahalleBll();
-        kullaniciBll kullanicib = new kullaniciBll();
 
         private IMahalleService _mahalleManager;
         private IIlceService _ilceManager;
@@ -71,8 +67,6 @@ namespace PL.management.anaYonetim.bolgeYonetimi
                     ilceId = distId
                 };
                 _mahalleManager.Add(mahalle);
-
-                //mahalle.insert(txtMahalle.Value, distId);
                 Response.Redirect("~/management/anaYonetim/bolgeYonetimi/bolge.aspx?page=mahallelistele&ilceId=" + drpIlce.SelectedValue);
             }
             catch (Exception)

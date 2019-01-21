@@ -79,7 +79,7 @@ namespace BLL.Concrete
 
         public void UpdateByOnlineStatus(int UserId, int SessionTime)
         {
-            throw new NotImplementedException();
+            _kullanicilarDal.UpdateByOnlineStatus(UserId, SessionTime);
         }
 
         public void UpdateByPassword(int UserId, string Password)

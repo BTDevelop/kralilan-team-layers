@@ -15,7 +15,7 @@
     <meta name="twitter:title" content="Mevzu İlansa kralilan.com" />
     <meta name="twitter:description" content="Belediyeden, bankadan, icradan, hazineden yani tüm kamu kurumlarından ve sahibinden satılık daire, işyeri, arsa, tarla, müstakil ev ile kiralık en uygun emlak ilanlarını, gerçek konum ve şekilleriyle uydu haritasından görme imkanı sadece kral ilan'da" />
     <meta name="twitter:url" content="https://www.kralilan.com/; katg=Yaşam" />
-    <meta name="twitter:image" content="https://www.kralilan.com/upload/default-images<a href="default.aspx">default.aspx</a>/apple-touch-icon-57-precomposed.png" />
+    <meta name="twitter:image" content="https://www.kralilan.com/upload/default-images/apple-touch-icon-57-precomposed.png" />
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="styles" runat="server">
 </asp:Content>
@@ -126,7 +126,7 @@
                                 <ItemTemplate>
                                     <div class="col-lg-2 col-md-3 col-sm-3 col-xs-4 f-category">
                                         <a href='<%# String.Format("/ilan/{0}-{1}/detay", BLL.PublicHelper.Tools.URLConverter(Eval(("Baslik"))),Eval(("IlanId"))) %>' title='<%# Eval(("Baslik")) %>'>
-                                            <img src="/libraries/images/loadingv.gif" data-src="upload/ilan/thmb_<%# getShowCasePic(Eval("Resimler").ToString()) %>" class="img-responsive lazy" width="120" height="80" alt="<%# Eval(("Baslik")) %>" />
+                                            <img src="/libraries/images/loadingv.gif" data-src="upload/ilan/thmb_<%# ParsePictures(Eval("Resimler").ToString()) %>" class="img-responsive lazy" width="120" height="80" alt="<%# Eval(("Baslik")) %>" />
                                             <h6><%# Eval(("Baslik")) %> </h6>
                                         </a>
                                     </div>
@@ -139,35 +139,35 @@
                             <div class="item-list">
                                 <div class="col-sm-3 no-padding photobox">
                                     <div class="add-image">
-                                        <a title="<%= projectName %>" href="/proje/<%= BLL.PublicHelper.Tools.URLConverter(projectName) %>/<%= projectId %>/detay">
-                                            <img class="thumbnail no-margin" src="/upload/estate-projects/<%= projectId %>/<%= projectPic %>" alt="<%= projectName %>" /></a>
+                                        <a title="<%= ProjeView.ProjeAdi %>" href="/proje/<%= BLL.PublicHelper.Tools.URLConverter(ProjeView.ProjeAdi) %>/<%= ProjeView.ProjeId %>/detay">
+                                            <img class="thumbnail no-margin" src="/upload/estate-projects/<%= ProjeView.ProjeId %>/<%= ParsePictures(ProjeView.Galeri) %>" alt="<%= ProjeView.ProjeAdi %>" /></a>
                                     </div>
                                 </div>
                                 <div class="col-sm-6 add-desc-box">
                                     <div class="add-details">
-                                        <h5 class="add-title"><a title="<%= projectName %>" href="/proje/<%= BLL.PublicHelper.Tools.URLConverter(projectName) %>/<%= projectId %>/detay"><%= projectName %></a></h5>
-                                        <span class='info-row'><span class='item-location'><%= projectProv %> - <%= projectDist %> | <a><i class='icon-location-2'></i>Konum</a></span></span>
+                                        <h5 class="add-title"><a title="<%= ProjeView.ProjeAdi %>" href="/proje/<%= BLL.PublicHelper.Tools.URLConverter(ProjeView.ProjeAdi) %>/<%= ProjeView.ProjeId %>/detay"><%= ProjeView.ProjeAdi %></a></h5>
+                                        <span class='info-row'><span class='item-location'><%= ProjeView.IlAdi %> - <%= ProjeView.IlceAdi %> | <a><i class='icon-location-2'></i>Konum</a></span></span>
                                         <div class="prop-info-box">
                                             <div class="prop-info">
                                                 <div class="clearfix prop-info-block">
-                                                    <span class="title"><%= projectPlace %>  m2</span>
+                                                    <span class="title"><%= ProjectPlace %>  m2</span>
                                                     <span class='text'>Proje Alanı</span>
                                                 </div>
                                                 <div class='clearfix prop-info-block middle'>
-                                                    <span class='title prop-area'><%= projectEstateCount %></span>
+                                                    <span class='title prop-area'><%= ProjectEstateCount %></span>
                                                     <span class='text'>Konut Sayısı</span>
                                                 </div>
                                                 <div class='clearfix prop-info-block'>
                                                     <span class='title prop-room'>Teslim Tarihi</span>
-                                                    <span class='text'><%= projectDate %></span>
+                                                    <span class='text'><%= ProjectDate %></span>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class='col-sm-3 text-right  price-box'>
-                                    <a title="<%= projectName %>" class='btn btn-warning btn-sm bold' href="/proje/<%= BLL.PublicHelper.Tools.URLConverter(projectName) %>/<%= projectId %>/detay">Önerilen Proje</a>
-                                    <img class="fadeshow1 thumbnail no-margin" src="/upload/estate-company/<%= projectComp %>" alt="<%= projectName %>" />
+                                    <a title="<%= ProjeView.ProjeAdi %>" class='btn btn-warning btn-sm bold' href="/proje/<%= BLL.PublicHelper.Tools.URLConverter(ProjeView.ProjeAdi) %>/<%= ProjeView.ProjeId %>/detay">Önerilen Proje</a>
+                                    <img class="fadeshow1 thumbnail no-margin" src="/upload/estate-company/<%= ProjeView.FirmaLogo %>" alt="<%= ProjeView.ProjeAdi %>" />
                                     <div style='clear: both'></div>
                                 </div>
                             </div>
@@ -289,7 +289,7 @@
                                             <div class="item emergency">
                                                 <a href='<%# String.Format("/ilan/{0}-{1}/detay", BLL.PublicHelper.Tools.URLConverter(Eval(("Baslik"))),Eval(("IlanId"))) %>' title='<%# Eval("Baslik") %>'>
                                                     <span class="item-carousel-thumb">
-                                                        <img src="/libraries/images/loadingv.gif" data-src="upload/ilan/thmb_<%# getShowCasePic(Eval("Resimler").ToString()) %>" class="img-responsive lazy" width="120" height="80" alt="<%# Eval("Baslik") %>" />
+                                                        <img src="/libraries/images/loadingv.gif" data-src="upload/ilan/thmb_<%# ParsePictures(Eval("Resimler").ToString()) %>" class="img-responsive lazy" width="120" height="80" alt="<%# Eval("Baslik") %>" />
                                                     </span>
                                                     <span class="item-name"><%# Eval("Baslik") %>  </span>
                                                 </a>
@@ -300,7 +300,7 @@
                             </div>
                         </div>
                     </div>
-                  <%--  <div id="specialwithplace2" class="text-center" runat="server">
+                    <%--  <div id="specialwithplace2" class="text-center" runat="server">
                     </div>--%>
                     <div class="col-lg-12 content-box ">
                         <div class="row row-featured">
@@ -328,9 +328,9 @@
                                         <ItemTemplate>
                                             <div class="item">
                                                 <a href='<%# String.Format("/ilan/{0}-{1}/detay", BLL.PublicHelper.Tools.URLConverter(Eval("Baslik")), Eval("IlanId")) %>'
-                                                    title='<%# ((DAL.StrategyData.IlanType)Container.DataItem).baslik %>'>
+                                                    title='<%# Eval("Baslik") %>'>
                                                     <span class="item-carousel-thumb">
-                                                        <img src="/libraries/images/loadingv.gif" data-src="upload/ilan/thmb_<%# getShowCasePic(Eval("Resimler").ToString()) %>" class="img-responsive lazy" width="120" height="80" alt="<%# Eval("Baslik") %>" />
+                                                        <img src="/libraries/images/loadingv.gif" data-src="upload/ilan/thmb_<%# ParsePictures(Eval("Resimler").ToString()) %>" class="img-responsive lazy" width="120" height="80" alt="<%# Eval("Baslik") %>" />
                                                     </span>
                                                     <span class="item-name"><%# Eval("Baslik") %> </span>
                                                 </a>
@@ -430,11 +430,11 @@
                                         <ItemTemplate>
                                             <div class="item">
 
-                                                <a href='<%# String.Format("/ilan/{0}-{1}/detay", Eval("Baslik"),Eval("IlanId")) %>'>
+                                                <a href='<%# String.Format("/ilan/{0}-{1}/detay",  BLL.PublicHelper.Tools.URLConverter(Eval("Baslik")),Eval("IlanId")) %>'>
                                                     <span class="item-carousel-thumb">
                                                         <img class="item-img lazy"
                                                             src="/libraries/images/loadingv.gif"
-                                                            data-src="/upload/ilan/thmb_<%# getShowCasePic(Eval("Resimler").ToString()) %>"
+                                                            data-src="/upload/ilan/thmb_<%# ParsePictures(Eval("Resimler").ToString()) %>"
                                                             alt="<%# Eval("Baslik") %>" />
                                                     </span>
                                                     <span

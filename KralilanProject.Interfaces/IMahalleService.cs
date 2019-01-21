@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DAL;
+using KralilanProject.Entities;
 
 namespace KralilanProject.Interfaces
 {
@@ -18,7 +19,8 @@ namespace KralilanProject.Interfaces
         void Delete(mahalleler entity);
 
         void Update(mahalleler entity);
-        List<mahalleler> GetAllByCityId(int CityId);
+
+        List<Mahalle> GetAllByCityId(int CityId);
 
     }
 }

@@ -17,15 +17,6 @@ namespace PL.profil
 {
     public partial class magaza_profil : System.Web.UI.UserControl
     {
-        ilBll ilb = new ilBll();
-        ilceBll ilceb = new ilceBll();
-        mahalleBll mahalleb = new mahalleBll();
-        vergiDaireBll vergiDaireb = new vergiDaireBll();
-        magazaBll magazab = new magazaBll();
-        magazaTelefonBll magazaTlfb = new magazaTelefonBll();
-        kategoriBll kategorib = new kategoriBll();
-        kullaniciBll kullanicib = new kullaniciBll();
-        magazaKullaniciBll magazaKllb = new magazaKullaniciBll();
         public int userid;
         public int storeid;
         public string storename;

@@ -126,7 +126,6 @@
     <script src="/management/plugins/select2/select2.full.min.js"></script>
     <script>
         $(function () {
-            //Money Euro
             $("[data-mask]").inputmask();
         });
 </script>
@@ -135,11 +134,8 @@
         Sys.WebForms.PageRequestManager.getInstance().add_pageLoaded(function (evt, args) {
             $(function () {
                 $(".select2").select2();
-                //Datemask dd/mm/yyyy
                 $("#datemask").inputmask("dd/mm/yyyy", { "placeholder": "dd/mm/yyyy" });
-                //Datemask2 mm/dd/yyyy
                 $("#datemask2").inputmask("mm/dd/yyyy", { "placeholder": "mm/dd/yyyy" });
-                //Money Euro
                 $("[data-mask]").inputmask();
             });
         });
@@ -148,7 +144,6 @@
         Sys.WebForms.PageRequestManager.getInstance().add_pageLoaded(function (evt, args) {
             $(document).on('click', '#close-preview', function () {
                 $('.image-preview').popover('hide');
-                // Hover befor close the preview
                 $('.image-preview').hover(
                     function () {
                         $('.image-preview').popover('show');
@@ -160,7 +155,6 @@
             });
 
             $(function () {
-                // Create the close button
                 var closebtn = $('<button/>', {
                     type: "button",
                     text: 'x',
@@ -168,7 +162,6 @@
                     style: 'font-size: initial;',
                 });
                 closebtn.attr("class", "close pull-right");
-                // Set the popover default content
                 $('.image-preview').popover({
                     trigger: 'manual',
                     html: true,
@@ -176,7 +169,6 @@
                     content: "Dosya seçilmedi",
                     placement: 'bottom'
                 });
-                // Clear event
                 $('.image-preview-clear').click(function () {
                     $('.image-preview').attr("data-content", "").popover('hide');
                     $('.image-preview-filename').val("");
@@ -184,7 +176,6 @@
                     $('.image-preview-input input:file').val("");
                     $(".image-preview-input-title").text("Resim Yükle");
                 });
-                // Create the preview image
                 $(".image-preview-input input:file").change(function () {
                     var img = $('<img/>', {
                         id: 'dynamic',
@@ -193,7 +184,6 @@
                     });
                     var file = this.files[0];
                     var reader = new FileReader();
-                    // Set preview image into the popover data-content
                     reader.onload = function (e) {
                         $(".image-preview-input-title").text("Değiştir");
                         $(".image-preview-clear").show();

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DAL;
+using KralilanProject.Entities;
 
 namespace KralilanProject.Interfaces
 {
@@ -18,6 +19,8 @@ namespace KralilanProject.Interfaces
         void Delete(dopingKategori entity);
 
         void Update(dopingKategori entity);
+
+        List<DopingKategori> GetByDopingKategoriId(int DopingId, int KategoriId);
 
     }
 }

@@ -7,8 +7,6 @@ using System.Web.UI.WebControls;
 using BLL;
 using BLL.Concrete;
 using BLL.ExternalClass;
-using BLL.Formatter;
-using static BLL.seciliDopingBll;
 using DAL;
 using DAL.Concrete.LINQ;
 using KralilanProject.Interfaces;
@@ -18,10 +16,7 @@ namespace PL
 {
     public partial class kategoriler : System.Web.UI.Page
     {
-        kategoriTurBll kategoriTurBLL = new kategoriTurBll();
         kategoriBll kategorib = new kategoriBll();
-        seciliDopingBll seciliDpngb = new seciliDopingBll();
-
         List<CategoriCS> lstCategory = new List<CategoriCS>();
 
         public Proje ProjeView = null;
@@ -79,8 +74,6 @@ namespace PL
                     {
                         rpTypes.DataSource = SayilarList;
                         rpTypes.DataBind();
-
-                        //categorishwcase = (List<DopingKategoriType>)DAL.toolkit.GetObjectInXml(seciliDpngb.getAdsByDopingCatHomePage(0, 13, 1, CategoriId, xmlFormat), typeof(List<DopingKategoriType>));
 
                         IlanlarList = _seciliDopingManager.GetAllByCategoriShowcase(CategoriId);
                         rpcategorishowcase.DataSource = IlanlarList;

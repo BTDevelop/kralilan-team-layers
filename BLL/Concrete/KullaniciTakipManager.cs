@@ -18,7 +18,7 @@ namespace BLL.Concrete
         }
         public void Add(kullaniciTakip entity)
         {
-            throw new NotImplementedException();
+            _kullaniciTakipcilerDal.Add(entity);
         }
 
         public int CountFollowed(int Id)

@@ -15,11 +15,6 @@ namespace PL.management.anaYonetim.bolgeYonetimi
     public partial class mahalleduzenle : System.Web.UI.UserControl
     {
 
-        ilBll il = new ilBll();
-        ilceBll ilceBLL = new ilceBll();
-        mahalleBll mahalle = new mahalleBll();
-        kullaniciBll kullanicib = new kullaniciBll();
-
         private IMahalleService _mahalleManager;
         private IIlceService _ilceManager;
         private IIlService _ilManager;
@@ -37,8 +32,6 @@ namespace PL.management.anaYonetim.bolgeYonetimi
                 mahalleler _mahalle = _mahalleManager.Get(Convert.ToInt32(Request.QueryString["mahalleId"]));
                 txtMahalle.Value = _mahalle.mahalleAdi;
 
-                ilceler _ilce = _ilceManager.Get(Convert.ToInt32(Request.QueryString["ilceId"]));
-
                 drpIl.DataSource = _ilManager.GetAll();
                 drpIl.DataTextField = "ilAdi";
                 drpIl.DataValueField = "ilId";
@@ -46,9 +39,9 @@ namespace PL.management.anaYonetim.bolgeYonetimi
 
                 drpIl.SelectedValue = _ilceManager.Get(Convert.ToInt32(_mahalle.ilceId)).ilId.ToString();
 
-                drpIlce.DataSource = _ilceManager.Get(Convert.ToInt32(Request.QueryString["ilId"]));
-                drpIlce.DataTextField = "ilceAdi";
-                drpIlce.DataValueField = "ilceId";
+                drpIlce.DataSource = _ilceManager.GetByRegionId(Convert.ToInt32(Request.QueryString["ilId"]));
+                drpIlce.DataTextField = "IlceAdi";
+                drpIlce.DataValueField = "IlceId";
                 drpIlce.DataBind();
 
                 drpIlce.SelectedValue = _mahalle.ilceId.ToString();
@@ -61,8 +54,8 @@ namespace PL.management.anaYonetim.bolgeYonetimi
             drpIlce.Items.Clear();
 
             drpIlce.DataSource = _ilceManager.GetByRegionId(Convert.ToInt32(drpIl.SelectedValue));
-            drpIlce.DataTextField = "ilceAdi";
-            drpIlce.DataValueField = "ilceId";
+            drpIlce.DataTextField = "IlceAdi";
+            drpIlce.DataValueField = "IlceId";
             drpIlce.DataBind();
 
             ListItem lst = new ListItem();
@@ -91,7 +84,6 @@ namespace PL.management.anaYonetim.bolgeYonetimi
 
                 _mahalleManager.Update(mahalle);
 
-                //mahalle.update(mahalleId, txtMahalle.Value, distId);
                 DAL.ilceler _ilce = new DAL.ilceler
                 {
                     ilceId = ilceId,
@@ -100,7 +92,6 @@ namespace PL.management.anaYonetim.bolgeYonetimi
                 };
 
                 _ilceManager.Update(_ilce);
-                //ilceBLL.update(ilceId, drpIlce.SelectedItem.Text, ilId);
                 Response.Redirect("~/management/anaYonetim/bolgeYonetimi/bolge.aspx?page=mahallelistele&ilceId=" + drpIlce.SelectedValue);
             }
             catch (Exception)

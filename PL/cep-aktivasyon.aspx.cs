@@ -17,7 +17,6 @@ namespace PL
     public partial class cep_aktivasyon : System.Web.UI.Page
     {
         kullaniciBll kll = new kullaniciBll();
-        telefonBll tlf = new telefonBll();
         kullanici _kullanici;
 
         private ITelefonService _telefonManager;

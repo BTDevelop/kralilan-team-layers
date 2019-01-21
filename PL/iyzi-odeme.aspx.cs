@@ -17,10 +17,6 @@ namespace PL
 {
     public partial class iyzi_odeme : System.Web.UI.Page
     {
-        odemeBll odemeb = new odemeBll();
-        seciliDopingBll secDopingB = new seciliDopingBll();
-        dopingKategoriBll dopingKatb = new dopingKategoriBll();
-
         private IOdemeService _odemeManager;
         private IDopingKategoriService _dopingKategoriManager;
         private ISeciliDopingService _seciliDopingManager;

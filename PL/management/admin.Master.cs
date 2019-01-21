@@ -16,9 +16,6 @@ namespace PL.Management
 {
     public partial class admin : System.Web.UI.MasterPage
     {
-        mesajBll mesajb = new mesajBll();
-        bildirimBll bildirimb = new bildirimBll();
-        kullaniciBll kullanicib = new kullaniciBll();
         public string name = "";
         public string onlinestat = "";
         public int id;

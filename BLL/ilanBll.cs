@@ -18,16 +18,15 @@ namespace BLL
 
         Formatter.Formatter formatter = new Formatter.Formatter();
 
-        ozelliklerBll _prop_object = new ozelliklerBll();
 
-        public enum ClassifiedType
-        {
-            satilik = 1,
-            kiralik = 2,
-            günlükkiralik = 3,
-            devren = 4,
-            devrensatilik = 5
-        }
+        //public enum ClassifiedType
+        //{
+        //    satilik = 1,
+        //    kiralik = 2,
+        //    günlükkiralik = 3,
+        //    devren = 4,
+        //    devrensatilik = 5
+        //}
 
         public enum VerifyStatus
         {
@@ -536,48 +535,48 @@ namespace BLL
         /// <param name="_intype"></param>
         /// <param name="_inwhoFrom"></param>
         /// <returns></returns>
-        public int count(int _inCatId, int _inTypeId, int _inWhoFrom)
-        {
-            using (ilanDataContext idc = new ilanDataContext())
-            {
-                var value = idc.ilans.Where(q => q.onay == (int)VerifyStatus.onaylanmis && q.silindiMi == false && q.satildiMi == false);
-                if (_inCatId != -1)
-                {
-                    var itemTopValue = idc.kategoris.Where(x => x.ustKategoriId == _inCatId).FirstOrDefault();
+        //public int count(int _inCatId, int _inTypeId, int _inWhoFrom)
+        //{
+        //    using (ilanDataContext idc = new ilanDataContext())
+        //    {
+        //        var value = idc.ilans.Where(q => q.onay == (int)VerifyStatus.onaylanmis && q.silindiMi == false && q.satildiMi == false);
+        //        if (_inCatId != -1)
+        //        {
+        //            var itemTopValue = idc.kategoris.Where(x => x.ustKategoriId == _inCatId).FirstOrDefault();
 
-                    if (itemTopValue == null) value = value.Where(q => q.kategoriId == _inCatId);
-                    else value = value.Where(q => q.kategori.ustKategoriId == _inCatId);
-                }
+        //            if (itemTopValue == null) value = value.Where(q => q.kategoriId == _inCatId);
+        //            else value = value.Where(q => q.kategori.ustKategoriId == _inCatId);
+        //        }
 
-                if (_inTypeId != -1) value = value.Where(q => q.ilanTurId == _inTypeId);
+        //        if (_inTypeId != -1) value = value.Where(q => q.ilanTurId == _inTypeId);
 
-                if (_inWhoFrom != -1)
-                {
-                    if (_inWhoFrom == 0) value = value.Where(q => q.magazaId == null);
-                    else value = value.Where(q => q.magaza.magazaTur.turId == _inWhoFrom);
-                }
+        //        if (_inWhoFrom != -1)
+        //        {
+        //            if (_inWhoFrom == 0) value = value.Where(q => q.magazaId == null);
+        //            else value = value.Where(q => q.magaza.magazaTur.turId == _inWhoFrom);
+        //        }
 
-                int count = value.Count();
-                return count;
-            }
-        }
+        //        int count = value.Count();
+        //        return count;
+        //    }
+        //}
         /// <summary>
         /// 
         /// </summary>
         /// <param name="_inopt"></param>
         /// <returns></returns>
-        public int countOther(int _inOpt)
-        {
-            using (ilanDataContext idc = new ilanDataContext())
-            {
-                var value = idc.ilans.Where(q => q.onay == (int)VerifyStatus.onaylanmis && q.silindiMi == false);
+        //public int countOther(int _inOpt)
+        //{
+        //    using (ilanDataContext idc = new ilanDataContext())
+        //    {
+        //        var value = idc.ilans.Where(q => q.onay == (int)VerifyStatus.onaylanmis && q.silindiMi == false);
 
-                if (_inOpt == 48) value = value.Where(q => q.baslangicTarihi >= DateTime.Now.Subtract(new TimeSpan(2, 0, 0, 0, 0)) && q.satildiMi == false);
-                else value = value.Where(q => q.satildiMi == true);
+        //        if (_inOpt == 48) value = value.Where(q => q.baslangicTarihi >= DateTime.Now.Subtract(new TimeSpan(2, 0, 0, 0, 0)) && q.satildiMi == false);
+        //        else value = value.Where(q => q.satildiMi == true);
 
-                return value.Count();
-            }
-        }
+        //        return value.Count();
+        //    }
+        //}
 
         /// <summary>
         /// 
@@ -2117,8 +2116,7 @@ namespace BLL
 
             return cmd;
         }
-
-        
+ 
         public string EditorClassified(int whoFrom, int index, int pageSize, int opt)
         {
             ilanDataContext idc = new ilanDataContext();
@@ -2242,52 +2240,52 @@ namespace BLL
         }
 
 
-        public string getAdsCountByProvince()
-        {
-            using (ilanDataContext idc = new ilanDataContext())
-            {
-                var query = (from i in idc.ilans
-                             where i.onay == 1 && i.silindiMi == false && i.satildiMi == false
-                             group i by i.iller into g
-                             select new provinCntDT
-                             {
-                                 provId = g.Key.ilId,
-                                 provName = g.Key.ilAdi,
-                                 cnt = g.Count()
-                             });
+        //public string getAdsCountByProvince()
+        //{
+        //    using (ilanDataContext idc = new ilanDataContext())
+        //    {
+        //        var query = (from i in idc.ilans
+        //                     where i.onay == 1 && i.silindiMi == false && i.satildiMi == false
+        //                     group i by i.iller into g
+        //                     select new provinCntDT
+        //                     {
+        //                         provId = g.Key.ilId,
+        //                         provName = g.Key.ilAdi,
+        //                         cnt = g.Count()
+        //                     });
 
 
-                JsonFormat jsonFormat = new JsonFormat();
-                formatter.FormatTo(jsonFormat);
-                formatter.rawData = query.ToList();
-                return formatter.Format();
-            }
-        }
+        //        JsonFormat jsonFormat = new JsonFormat();
+        //        formatter.FormatTo(jsonFormat);
+        //        formatter.rawData = query.ToList();
+        //        return formatter.Format();
+        //    }
+        //}
 
-        public string getAdsCountByDistrict(int _inProvId)
-        {
-            using (ilanDataContext idc = new ilanDataContext())
-            {
+        //public string getAdsCountByDistrict(int _inProvId)
+        //{
+        //    using (ilanDataContext idc = new ilanDataContext())
+        //    {
 
-                var query = from i in idc.ilans
-                            where i.onay == 1 && i.silindiMi == false && i.satildiMi == false && i.iller.ilId == _inProvId
-                            group i by new { i.ilceler, i.iller } into g
-                            select new distCntDT
-                            {
-                                distId = g.Key.ilceler.ilceId,
-                                distName = g.Key.ilceler.ilceAdi,
-                                provId = g.Key.iller.ilId,
-                                provName = g.Key.iller.ilAdi,
-                                cnt = g.Count()
-                            };
+        //        var query = from i in idc.ilans
+        //                    where i.onay == 1 && i.silindiMi == false && i.satildiMi == false && i.iller.ilId == _inProvId
+        //                    group i by new { i.ilceler, i.iller } into g
+        //                    select new distCntDT
+        //                    {
+        //                        distId = g.Key.ilceler.ilceId,
+        //                        distName = g.Key.ilceler.ilceAdi,
+        //                        provId = g.Key.iller.ilId,
+        //                        provName = g.Key.iller.ilAdi,
+        //                        cnt = g.Count()
+        //                    };
 
 
-                JsonFormat jsonFormat = new JsonFormat();
-                formatter.FormatTo(jsonFormat);
-                formatter.rawData = query.ToList();
-                return formatter.Format();
-            }
-        }
+        //        JsonFormat jsonFormat = new JsonFormat();
+        //        formatter.FormatTo(jsonFormat);
+        //        formatter.rawData = query.ToList();
+        //        return formatter.Format();
+        //    }
+        //}
 
 
         public int getAdsCountByEditorId(int _inUserId, int _inDateRange)
@@ -2874,43 +2872,43 @@ namespace BLL
             }
         }
 
-        public List<SiteMapCS> getSitemapByYearAndMonth(int _inYear, int _inMonth)
-        {
-            using (ilanDataContext idc = new ilanDataContext())
-            {
-                var query = from i in idc.ilans
-                        .Where(x => x.silindiMi == false & x.onay == (int) VerifyStatus.onaylanmis &&
-                                    x.baslangicTarihi.Year == _inYear && x.baslangicTarihi.Month == _inMonth)
-                        .OrderBy(x => x.baslangicTarihi)
-                    select new
-                    {
-                        i.baslik,
-                        i.ilanId,
-                        i.baslangicTarihi
-                    };
+        //public List<SiteMapCS> getSitemapByYearAndMonth(int _inYear, int _inMonth)
+        //{
+        //    using (ilanDataContext idc = new ilanDataContext())
+        //    {
+        //        var query = from i in idc.ilans
+        //                .Where(x => x.silindiMi == false & x.onay == (int) VerifyStatus.onaylanmis &&
+        //                            x.baslangicTarihi.Year == _inYear && x.baslangicTarihi.Month == _inMonth)
+        //                .OrderBy(x => x.baslangicTarihi)
+        //            select new
+        //            {
+        //                i.baslik,
+        //                i.ilanId,
+        //                i.baslangicTarihi
+        //            };
 
 
-                List<SiteMapCS> ads = new List<SiteMapCS>();
-                int monthVal = -1;
-                int yearVal = -1;
-                foreach (var item in query.ToList())
-                {
-                    monthVal = item.baslangicTarihi.Month;
-                    yearVal = item.baslangicTarihi.Year;
+        //        List<SiteMapCS> ads = new List<SiteMapCS>();
+        //        int monthVal = -1;
+        //        int yearVal = -1;
+        //        foreach (var item in query.ToList())
+        //        {
+        //            monthVal = item.baslangicTarihi.Month;
+        //            yearVal = item.baslangicTarihi.Year;
 
-                    var itemVal = new SiteMapCS
-                    {
-                        baslik = item.baslik,
-                        ilanId = item.ilanId,
-                        baslangicTarihi = item.baslangicTarihi
-                    };
+        //            var itemVal = new SiteMapCS
+        //            {
+        //                baslik = item.baslik,
+        //                ilanId = item.ilanId,
+        //                baslangicTarihi = item.baslangicTarihi
+        //            };
 
-                    ads.Add(itemVal);
-                }
+        //            ads.Add(itemVal);
+        //        }
 
-                return ads;
-            }
-        }
+        //        return ads;
+        //    }
+        //}
 
     }
 

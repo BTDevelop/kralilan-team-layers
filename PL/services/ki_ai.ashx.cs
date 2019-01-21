@@ -17,8 +17,6 @@ namespace PL.services
         kullaniciBll kullanicib = new kullaniciBll();
         magazaBll magazab = new magazaBll();
         odemeBll odemeb=new odemeBll();
-        dopingKategoriBll dopingKatb = new dopingKategoriBll();
-        verilenReklamBll verilenReklamb = new verilenReklamBll();
         magazaKategoriBll magazaKatb = new magazaKategoriBll();
         projelerBll projeb = new projelerBll();
         firmalarBll firmab = new firmalarBll();
@@ -50,10 +48,6 @@ namespace PL.services
                 {
                     giveMePaymentInfo(context);
                 }
-                else if(data=="showcasedata")
-                {
-                    giveMeShowcasePricing(context);
-                }
                 else if (data == "adsdata")
                 {
                     giveMeAdsInfo(context);
@@ -84,22 +78,22 @@ namespace PL.services
             }
         }
 
-        public void giveMeShowcasePricing(HttpContext context)
-        {
-            string[] strlst = null;
-            strlst = context.Request.Params.AllKeys;
-            string secho = context.Request.Params.Get("sEcho");
-            int i = Convert.ToInt32(context.Request.Params.Get("iDisplayStart"));
-            int icount = Convert.ToInt32(context.Request.Params.Get("iDisplayLength"));
-            string search = context.Request.Params.Get("sSearch");
+        //public void giveMeShowcasePricing(HttpContext context)
+        //{
+        //    string[] strlst = null;
+        //    strlst = context.Request.Params.AllKeys;
+        //    string secho = context.Request.Params.Get("sEcho");
+        //    int i = Convert.ToInt32(context.Request.Params.Get("iDisplayStart"));
+        //    int icount = Convert.ToInt32(context.Request.Params.Get("iDisplayLength"));
+        //    string search = context.Request.Params.Get("sSearch");
 
-            var _data = dopingKatb.getDopingCategorisJDatatables(i, icount, search, secho);
+        //    var _data = dopingKatb.getDopingCategorisJDatatables(i, icount, search, secho);
 
-            string str = JsonConvert.SerializeObject(_data);
-            context.Response.Clear();
-            context.Response.ContentType = "application/json";
-            context.Response.Write(str);
-        }
+        //    string str = JsonConvert.SerializeObject(_data);
+        //    context.Response.Clear();
+        //    context.Response.ContentType = "application/json";
+        //    context.Response.Write(str);
+        //}
 
         public void giveMePaymentInfo(HttpContext context)
         {

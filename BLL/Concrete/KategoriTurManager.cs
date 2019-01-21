@@ -38,6 +38,11 @@ namespace BLL.Concrete
             throw new NotImplementedException();
         }
 
+        public IEnumerable<object> GetAllByCategoriTypeId(int CategoriId, int TypeId)
+        {
+            return _kategoriTurlerDal.GetAllByCategoriTypeId(CategoriId, TypeId);
+        }
+
         public IEnumerable<object> GetByCategoriId(int CategoriId)
         {
             return _kategoriTurlerDal.GetByCategoriId(CategoriId);

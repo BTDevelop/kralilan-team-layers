@@ -15,11 +15,6 @@ namespace PL.management.anaYonetim.magazaYonetimi
 {
     public partial class duzenle : System.Web.UI.UserControl
     {
-        ilBll ilb = new ilBll();
-        ilceBll ilceb = new ilceBll();
-        mahalleBll mahalleb = new mahalleBll();
-        magazaBll magazab = new magazaBll();
-        magazaTelefonBll magazaTlfb = new magazaTelefonBll();
 
         private IVergiDaireService _vergiDaireManager;
         private IMahalleService _mahalleManager;

@@ -51,13 +51,6 @@ namespace PL
         List<BLL.ExternalClass.resimDataType> galery = new List<BLL.ExternalClass.resimDataType>();
         List<BLL.ExternalClass.pplanDT> plnlist = new List<BLL.ExternalClass.pplanDT>();
         List<BLL.ExternalClass.girilenDataType> txtlist = new List<BLL.ExternalClass.girilenDataType>();
-        ziyaretciprojeBll ziyaretb = new ziyaretciprojeBll();
-
-        ozelliklerBll ozellikb = new ozelliklerBll();
-        projelerBll projeb = new projelerBll();
-        ilBll ilBLL = new ilBll();
-        ilceBll ilceBLL = new ilceBll();
-        firmalarBll firmalarBLL = new firmalarBll();
 
         ReCaptchaHelper reCapthcaHelper = new ReCaptchaHelper();
 

@@ -214,9 +214,9 @@
     function GetLocation(proid, distid, opt) {
         jQuery.ajax({
             type: "POST",
-            url: "/services/ki_operation.asmx/getListLocation",
+            url: "/enpoint/locationservice.asmx/GetLocation",
             dataType: "json",
-            data: "{ provid:'" + proid + "'" + ", distid:'" + distid + "'" + ", opt:'" + opt + "' }",
+            data: "{ RegionId:'" + proid + "'" + ", CityId:'" + distid + "' }",
             contentType: "application/json; charset=utf-8",
             success: function (data) {
                 var d = JSON.parse(data.d);
@@ -224,7 +224,7 @@
                 if (opt == 1) {
                     $(".slctprovi").append("<option value='-1' selected='selected'>Seçiniz</option>");
                     for (var i = 0; i < d.length; i++) {
-                        var appnd = "<option value='" + d[i].ilId + "'>" + d[i].ilAdi + "</option>";
+                        var appnd = "<option value='" + d[i].IlId + "'>" + d[i].IlAdi + "</option>";
                         $(".slctprovi").append(appnd);
 
                     }
@@ -232,7 +232,7 @@
                 if (opt == 2) {
                     $(".slctdist").append("<option value='-1' selected='selected'>Seçiniz</option>");
                     for (var i = 0; i < d.length; i++) {
-                        var appnd = "<option value='" + d[i].ilceId + "'>" + d[i].ilceAdi + "</option>";
+                        var appnd = "<option value='" + d[i].IlceId + "'>" + d[i].IlceAdi + "</option>";
                         $(".slctdist").append(appnd);
 
                     }
@@ -240,7 +240,7 @@
                 if (opt == 3) {
                     $(".slctneig").append("<option value='-1' selected='selected'>Seçiniz</option>");
                     for (var i = 0; i < d.length; i++) {
-                        var appnd = "<option value='" + d[i].mahalleId + "'>" + d[i].mahalleAdi + "</option>";
+                        var appnd = "<option value='" + d[i].MahalleId + "'>" + d[i].MahalleAdi + "</option>";
                         $(".slctneig").append(appnd);
 
                     }

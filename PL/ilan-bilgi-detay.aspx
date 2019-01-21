@@ -162,9 +162,7 @@
                                     </asp:Repeater>
                                 </div>
                             </div>
-                            <!--ads-image-->
                         </div>
-                        <!--ads-image-->
                         <div class="Ads-Details">
                             <h5 class="list-title"><strong>İLAN BİLGİLERİ</strong></h5>
                             <div class="row">
@@ -223,9 +221,7 @@
                             </div>
                         </div>
                     </div>
-                    <!--/.ads-details-wrapper-->
                 </div>
-                <!--/.page-content-->
                 <div class="col-md-3 page-sidebar-right noprint">
                     <aside>
                         <div class="panel sidebar-panel panel-contact-seller">
@@ -244,9 +240,7 @@
                                         <a class="btn btn-success btn-block" style="background-color: #16A085" href="<%= link %>"><i class=" icon-docs"></i>Tüm İlanları</a>
                                         <a class="btn btn-danger btn-block" href="#contactAdvertiser" data-toggle="modal" runat="server" id="messageAuth"><i class=" icon-mail-2"></i>Mesaj Gönder</a>
                                         <a class="btn btn-danger btn-block" onclick="showmodalpopup2();" runat="server" id="messageNonAuth"><i class=" icon-mail-2"></i>Mesaj Gönder</a>
-
                                         <a class="btn btn-default btn-block" href="<%= link %>"><i class=" icon-plus"></i>Takip Et</a>
-
                                         <asp:Repeater ID="rpuserphone" runat="server">
                                             <ItemTemplate>
                                                 <a href="tel:0<%# Eval("telefon") %>"
@@ -259,7 +253,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Go to www.addthis.com/dashboard to customize your tools -->
                         <div class="panel sidebar-panel">
                             <div class="panel-heading">Güvenlik İpuçları</div>
                             <div class="panel-content">
@@ -283,12 +276,10 @@
                     <div style="clear: both"></div>
                     <div class="">
                         <div class="tab-lite">
-                            <!-- Nav tabs -->
                             <ul class="nav nav-tabs " role="tablist">
                                 <li role="presentation" id="konum"><a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab"><i class="icon-location-2"></i>Konumu</a></li>
                                 <li role="presentation" id="ilan_detay" class="active"><a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab"><i class="icon-doc-new"></i>İlan Detayları</a></li>
                             </ul>
-                            <!-- Tab panes -->
                             <div class="tab-content">
                                 <div role="tabpanel" class="tab-pane" id="tab1">
                                     <div class="intro-inner">
@@ -308,15 +299,11 @@
                                                         <div class="box-tools pull-right">
                                                             <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
                                                         </div>
-                                                        <!-- /.box-tools -->
                                                     </div>
-                                                    <!-- /.box-header -->
                                                     <div class="box-body" id="lblAciklama" runat="server">
                                                         <%= explanation %>
                                                     </div>
-                                                    <!-- /.box-body -->
                                                 </div>
-                                                <!-- /.box -->
                                             </div>
                                             <div>
                                                 <asp:PlaceHolder ID="placeholder" runat="server"></asp:PlaceHolder>
@@ -329,7 +316,7 @@
                     </div>
                 </div>
             </div>
-            <%--            <div class="row">
+            <div class="row">
                 <div class="col-lg-12 page-content col-thin-right">
                     <div class="inner-box relative">
                         <p class="title-2 headline" style="text-transform: uppercase">
@@ -344,14 +331,14 @@
                                     <asp:Repeater ID="rpNearPosition" runat="server">
                                         <ItemTemplate>
                                             <div class="item">
-                                                <a href='<%# String.Format("/ilan/{0}-{1}/detay", PublicHelper.Tools.URLConverter(((BLL.ExternalClass.ilanDataType)Container.DataItem).baslik),((BLL.ExternalClass.ilanDataType)Container.DataItem).ilanId) %>'>
+                                                <a href='<%# String.Format("/ilan/{0}-{1}/detay", Eval("Url"), Eval("IlanId")) %>'>
                                                     <span class="item-carousel-thumb">
                                                         <img class="item-img lazy"
                                                             src="/libraries/images/loadingv.gif"
-                                                            data-src='/upload/ilan/<%# ((BLL.ExternalClass.ilanDataType)Container.DataItem).resim %>'
-                                                            alt="<%# ((BLL.ExternalClass.ilanDataType)Container.DataItem).baslik %>" />
+                                                            data-src='/upload/ilan/<%# ParsePictures(Eval("Resimler").ToString()) %>'
+                                                            alt="<%# Eval("Baslik") %>" />
                                                     </span><span
-                                                        class="item-name"><%# ((BLL.ExternalClass.ilanDataType)Container.DataItem).baslik %> </span><span class="price"><%# ((BLL.ExternalClass.ilanDataType)Container.DataItem).fiyatTurId %> <%# String.Format(" {0:N0}", ((BLL.ExternalClass.ilanDataType)Container.DataItem).fiyat) %> </span></a>
+                                                        class="item-name"><%# Eval("Baslik") %> </span></a>
                                             </div>
                                         </ItemTemplate>
                                     </asp:Repeater>
@@ -360,17 +347,14 @@
                         </div>
                     </div>
                 </div>
-            </div>--%>
+            </div>
         </div>
     </div>
-    <!-- /.main-container -->
-    <!-- Modal contactAdvertiser -->
     <div class="modal fade" id="contactAdvertiser" tabindex="-1" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title"><i class=" icon-mail-2"></i>Mesaj Gönder </h4>
-
                     <button type="button" class="close" data-dismiss="modal">
                         <span aria-hidden="true">&times;</span><span
                             class="sr-only">Close</span></button>
@@ -410,8 +394,6 @@
             </div>
         </div>
     </div>
-    <!-- /.modal -->
-    <!-- Modal contactAdvertiser -->
     <div id="lightbox" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <button type="button" class="close hidden" data-dismiss="modal" aria-hidden="true">×</button>

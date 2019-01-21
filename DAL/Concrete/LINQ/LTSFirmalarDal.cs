@@ -58,7 +58,7 @@ namespace DAL.Concrete.LINQ
                 {
                     FirmaId = i.firmaid,
                     FirmaAdi = i.fadi,
-                    Tarih = Convert.ToDateTime(i.ftarih),
+                    BaslangicTarihi = String.Format(" {0:dd MMMM yyyy}", i.ftarih),
                     Logo = i.flogo
                 };
 

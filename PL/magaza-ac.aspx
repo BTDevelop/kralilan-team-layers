@@ -88,7 +88,6 @@
                                                 </label>
                                             </div>
                                         </div>
-                                        <!-- Text input-->
                                         <div class="form-group">
                                             <label class="col-md-3 control-label" for="Adtitle">Mağaza Adı</label>
                                             <div class="col-md-8">
@@ -96,7 +95,6 @@
                                                     class="form-control input-md" required="required" type="text" />
                                             </div>
                                         </div>
-                                        <!-- Textarea -->
                                         <div class="form-group">
                                             <label class="col-md-3 control-label" for="textarea">Mağaza Hakkında</label>
                                             <div class="col-md-8">
@@ -124,7 +122,6 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <!-- Text input-->
                                         <div class="form-group">
                                             <label class="col-md-3 control-label" for="Adtitle">TC Kimlik No / Vergi No</label>
                                             <div class="col-md-8">
@@ -149,7 +146,6 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <!-- Prepended text-->
                                         <div class="form-group">
                                             <label class="col-md-3 control-label">Sabit Telefon</label>
                                             <div class="col-md-4">
@@ -160,7 +156,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- Prepended text-->
                                         <div class="form-group">
                                             <label class="col-md-3 control-label">Cep Telefonu</label>
                                             <div class="col-md-4">
@@ -172,7 +167,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- photo -->
                                         <div class="form-group">
                                             <label class="col-md-3 control-label">Logo Ekle</label>
                                             <div class="col-md-4">
@@ -242,7 +236,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- terms -->
                                         <div class="form-group">
                                             <label class="col-md-3 control-label">Hizmet Politikası</label>
                                             <div class="col-md-8">
@@ -445,7 +438,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- Button  -->
                                         <div class="form-group">
                                             <label class="col-md-3 control-label"></label>
                                             <div class="col-md-8">
@@ -460,7 +452,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- /.page-content -->
                 <div class="col-md-3 reg-sidebar">
                     <div class="reg-sidebar-inner text-center">
                         <div class="promo-text-box">
@@ -472,11 +463,8 @@
                         </div>
                     </div>
                 </div>
-                <!--/.reg-sidebar-->
             </div>
-            <!-- /.row -->
         </div>
-        <!-- /.container -->
     </div>
     <!-- /.main-container -->
     <%--<div class="page-info hasOverly"
@@ -568,10 +556,8 @@
     <script src="/management/plugins/input-mask/jquery.inputmask.js"></script>
     <script src="/management/plugins/input-mask/jquery.inputmask.extensions.js"></script>
     <script>
-
         $(document).on('click', '#close-preview', function () {
             $('.image-preview').popover('hide');
-            // Hover befor close the preview
             $('.image-preview').hover(
                 function () {
                     $('.image-preview').popover('show');
@@ -587,7 +573,6 @@
         });
 
         $(function () {
-            // Create the close button
             var closebtn = $('<button/>', {
                 type: "button",
                 text: 'x',
@@ -595,7 +580,6 @@
                 style: 'font-size: initial;',
             });
             closebtn.attr("class", "close pull-right");
-            // Set the popover default content
             $('.image-preview').popover({
                 trigger: 'manual',
                 html: true,
@@ -603,7 +587,6 @@
                 content: "Logo Bulunamadı.",
                 placement: 'bottom'
             });
-            // Clear event
             $('.image-preview-clear').click(function () {
                 $('.image-preview').attr("data-content", "").popover('hide');
                 $('.image-preview-filename').val("");
@@ -611,7 +594,6 @@
                 $('.image-preview-input input:file').val("");
                 $(".image-preview-input-title").text("Logo Yükle");
             });
-            // Create the preview image
             $(".image-preview-input input:file").change(function () {
                 var img = $('<img/>', {
                     id: 'dynamic',
@@ -620,7 +602,6 @@
                 });
                 var file = this.files[0];
                 var reader = new FileReader();
-                // Set preview image into the popover data-content
                 reader.onload = function (e) {
                     $(".image-preview-input-title").text("Değiştir");
                     $(".image-preview-clear").show();
@@ -631,19 +612,18 @@
                 reader.readAsDataURL(file);
             });
         });
-    </script>
-    <script>
+
         $(document).ready(function () {
-            GetLocation(-1, -1, 1);
-            //GetLocation(-1, -1, 5);
+            try {
+                GetLocation(-1, -1, 1);
 
+            } catch (e) {
+                console.log(e);
+            } 
             $('.nav-tabs > li a[title]').tooltip();
-
-            //Wizard
             $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
 
                 var $target = $(e.target);
-
                 if ($target.parent().hasClass('disabled')) {
                     return false;
                 }
@@ -694,24 +674,23 @@
         function GetLocation(proid, distid, opt) {
             jQuery.ajax({
                 type: "POST",
-                url: "/services/ki_operation.asmx/getListLocation",
+                url: "/endpoint/locationservice.asmx/GetLocation",
                 dataType: "json",
-                data: "{ provid:'" + proid + "'" + ", distid:'" + distid + "'" + ", opt:'" + opt + "' }",
+                data: "{ RegionId:'" + proid + "'" + ", CityId:'" + distid + "'}",
                 contentType: "application/json; charset=utf-8",
                 success: function (data) {
                     var d = JSON.parse(data.d);
-
                     if (opt == 1) {
                         $(".slctprovi").append("<option value='-1' selected='selected'>Seçiniz</option>");
                         for (var i = 0; i < d.length; i++) {
-                            var appnd = "<option value='" + d[i].ilId + "'>" + d[i].ilAdi + "</option>";
+                            var appnd = "<option value='" + d[i].IlId + "'>" + d[i].IlAdi + "</option>";
                             $(".slctprovi").append(appnd);
 
                         }
 
                         $(".slctprovireport").append("<option value='-1' selected='selected'>Seçiniz</option>");
                         for (var i = 0; i < d.length; i++) {
-                            var appnd = "<option value='" + d[i].ilId + "'>" + d[i].ilAdi + "</option>";
+                            var appnd = "<option value='" + d[i].IlId + "'>" + d[i].IlAdi + "</option>";
                             $(".slctprovireport").append(appnd);
 
                         }
@@ -720,7 +699,7 @@
                     if (opt == 2) {
                         $(".slctdist").append("<option value='-1' selected='selected'>Seçiniz</option>");
                         for (var i = 0; i < d.length; i++) {
-                            var appnd = "<option value='" + d[i].ilceId + "'>" + d[i].ilceAdi + "</option>";
+                            var appnd = "<option value='" + d[i].IlceId + "'>" + d[i].IlceAdi + "</option>";
                             $(".slctdist").append(appnd);
 
                         }
@@ -729,17 +708,8 @@
                     if (opt == 3) {
                         $(".slctneig").append("<option value='-1' selected='selected'>Seçiniz</option>");
                         for (var i = 0; i < d.length; i++) {
-                            var appnd = "<option value='" + d[i].mahalleId + "'>" + d[i].mahalleAdi + "</option>";
+                            var appnd = "<option value='" + d[i].MahalleId + "'>" + d[i].MahalleAdi + "</option>";
                             $(".slctneig").append(appnd);
-
-                        }
-                    }
-
-                    if (opt == 4) {
-                        $(".slcttax").append("<option value='-1' selected='selected'>Seçiniz</option>");
-                        for (var i = 0; i < d.length; i++) {
-                            var appnd = "<option value='" + d[i].vergiDaireId + "'>" + d[i].vergiDairesi + "</option>";
-                            $(".slcttax").append(appnd);
 
                         }
                     }
@@ -747,10 +717,9 @@
                 error: function (e) {
 
                 }
-
             });
         }
-
+        
         function GetTax(proid) {
             jQuery.ajax({
                 type: "POST",
@@ -760,9 +729,10 @@
                 contentType: "application/json; charset=utf-8",
                 success: function (data) {
                     var d = JSON.parse(data.d);
+                    console.log(data);
                     $(".slcttax").append("<option value='-1' selected='selected'>Seçiniz</option>");
                     for (var i = 0; i < d.length; i++) {
-                        var appnd = "<option value='" + d[i].VergiDaireId + "'>" + d[i].VergiDairesi + "</option>";
+                        var appnd = "<option value='" + d[i].VergiDaireId + "'>" + d[i].VergiDaireAdi + "</option>";
                         $(".slcttax").append(appnd);
 
                     }
@@ -770,10 +740,8 @@
                 error: function (e) {
 
                 }
-
             });
         }
-
 
         $(".slctprovi").change(function () {
             $(".slctdist").empty();
@@ -793,7 +761,6 @@
 
         jQuery('#adminmail').focusout(function () {
             var mail = $("#adminmail").val();
-
             if (mail != "") {
                 ctrlUser(mail);
             }

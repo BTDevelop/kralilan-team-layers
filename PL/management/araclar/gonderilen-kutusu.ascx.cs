@@ -11,8 +11,6 @@ namespace PL.management.araclar
 {
     public partial class gönderilen_kutusu : System.Web.UI.UserControl
     {
-        mesajBll mesajb = new mesajBll();
-        kullaniciBll kullanicib = new kullaniciBll();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["unique-user"] != null)

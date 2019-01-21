@@ -87,7 +87,7 @@
       <Column Name="ilceId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="mahalleId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="baslik" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="aciklama" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="aciklama" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
       <Column Name="baslangicTarihi" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="bitisTarihi" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="magazaId" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -98,15 +98,16 @@
       <Column Name="silindiMi" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="fiyatiDustu" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="satildiMi" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="koordinat" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="girilenOzellik" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="secilenOzellik" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="resim" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="koordinat" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="girilenOzellik" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="secilenOzellik" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="resim" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="ilat" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="ilng" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Association Name="ilan_ilanFavori" Member="ilanFavoris" ThisKey="ilanId" OtherKey="ilanId" Type="ilanFavori" />
       <Association Name="ilan_ilanSikayet" Member="ilanSikayets" ThisKey="ilanId" OtherKey="ilanId" Type="ilanSikayet" />
       <Association Name="ilan_mesajlar" Member="mesajlars" ThisKey="ilanId" OtherKey="ilanId" Type="mesajlar" />
+      <Association Name="ilan_ozellikDegerler" Member="ozellikDegerlers" ThisKey="ilanId" OtherKey="ilanId" Type="ozellikDegerler" />
       <Association Name="ilan_seciliDoping" Member="seciliDopings" ThisKey="ilanId" OtherKey="ilanId" Type="seciliDoping" />
       <Association Name="ilceler_ilan" Member="ilceler" ThisKey="ilceId" OtherKey="ilceId" Type="ilceler" IsForeignKey="true" />
       <Association Name="iller_ilan" Member="iller" ThisKey="ilId" OtherKey="ilId" Type="iller" IsForeignKey="true" />
@@ -122,6 +123,46 @@
       <Column Name="ilanId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Association Name="ilan_ilanFavori" Member="ilan" ThisKey="ilanId" OtherKey="ilanId" Type="ilan" IsForeignKey="true" />
       <Association Name="kullanici_ilanFavori" Member="kullanici" ThisKey="kullaniciId" OtherKey="kullaniciId" Type="kullanici" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ilanSatilan" Member="ilanSatilans">
+    <Type Name="ilanSatilan">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ilanId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ilanTurId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="kategoriId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="fiyat" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="fiyatTurId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="kullaniciId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ilId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ilceId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="mahalleId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="baslik" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="aciklama" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="baslangicTarihi" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="bitisTarihi" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="magazaId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ziyaretci" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="onay" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="numaraYayinlansinMi" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="pasifMi" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="silindiMi" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="fiyatiDustu" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="satildiMi" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="koordinat" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="girilenOzellik" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="secilenOzellik" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="resim" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ilat" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ilng" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="ilanSatilan_ilanSatilan" Member="ilanSatilan2" ThisKey="ilanId" OtherKey="ilanId" Type="ilanSatilan" Cardinality="One" />
+      <Association Name="ilanSatilan_ilanSatilan" Member="ilanSatilan1" ThisKey="ilanId" OtherKey="ilanId" Type="ilanSatilan" IsForeignKey="true" />
+      <Association Name="ilceler_ilanSatilan" Member="ilceler" ThisKey="ilceId" OtherKey="ilceId" Type="ilceler" IsForeignKey="true" />
+      <Association Name="iller_ilanSatilan" Member="iller" ThisKey="ilId" OtherKey="ilId" Type="iller" IsForeignKey="true" />
+      <Association Name="kategori_ilanSatilan" Member="kategori" ThisKey="kategoriId" OtherKey="kategoriId" Type="kategori" IsForeignKey="true" />
+      <Association Name="kullanici_ilanSatilan" Member="kullanici" ThisKey="kullaniciId" OtherKey="kullaniciId" Type="kullanici" IsForeignKey="true" />
+      <Association Name="magaza_ilanSatilan" Member="magaza" ThisKey="magazaId" OtherKey="magazaId" Type="magaza" IsForeignKey="true" />
+      <Association Name="mahalleler_ilanSatilan" Member="mahalleler" ThisKey="mahalleId" OtherKey="mahalleId" Type="mahalleler" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.ilanSayi" Member="ilanSayis">
@@ -159,6 +200,7 @@
       <Column Name="ilId" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="ilceAdi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Association Name="ilceler_ilan" Member="ilans" ThisKey="ilceId" OtherKey="ilceId" Type="ilan" />
+      <Association Name="ilceler_ilanSatilan" Member="ilanSatilans" ThisKey="ilceId" OtherKey="ilceId" Type="ilanSatilan" />
       <Association Name="ilceler_magaza" Member="magazas" ThisKey="ilceId" OtherKey="ilceId" Type="magaza" />
       <Association Name="ilceler_mahalleler" Member="mahallelers" ThisKey="ilceId" OtherKey="ilceId" Type="mahalleler" />
       <Association Name="ilceler_projeler" Member="projelers" ThisKey="ilceId" OtherKey="pilce" Type="projeler" />
@@ -170,6 +212,7 @@
       <Column Name="ilId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="ilAdi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Association Name="iller_ilan" Member="ilans" ThisKey="ilId" OtherKey="ilId" Type="ilan" />
+      <Association Name="iller_ilanSatilan" Member="ilanSatilans" ThisKey="ilId" OtherKey="ilId" Type="ilanSatilan" />
       <Association Name="iller_ilceler" Member="ilcelers" ThisKey="ilId" OtherKey="ilId" Type="ilceler" />
       <Association Name="iller_kullanici" Member="kullanicis" ThisKey="ilId" OtherKey="ilId" Type="kullanici" />
       <Association Name="iller_magaza" Member="magazas" ThisKey="ilId" OtherKey="ilId" Type="magaza" />
@@ -185,6 +228,7 @@
       <Column Name="kategoriAdi" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Association Name="kategori_dopingKategori" Member="dopingKategoris" ThisKey="kategoriId" OtherKey="kategoriId" Type="dopingKategori" />
       <Association Name="kategori_ilan" Member="ilans" ThisKey="kategoriId" OtherKey="kategoriId" Type="ilan" />
+      <Association Name="kategori_ilanSatilan" Member="ilanSatilans" ThisKey="kategoriId" OtherKey="kategoriId" Type="ilanSatilan" />
       <Association Name="kategori_ilanSayi" Member="ilanSayis" ThisKey="kategoriId" OtherKey="kategoriId" Type="ilanSayi" />
       <Association Name="kategori_ilanUcret" Member="ilanUcrets" ThisKey="kategoriId" OtherKey="kategoriId" Type="ilanUcret" />
       <Association Name="kategori_kategoriOzellikDeger" Member="kategoriOzellikDegers" ThisKey="kategoriId" OtherKey="kategoriId" Type="kategoriOzellikDeger" />
@@ -234,6 +278,7 @@
       <Association Name="kullanici_geriBildirim" Member="geriBildirims" ThisKey="kullaniciId" OtherKey="kullaniciId" Type="geriBildirim" />
       <Association Name="kullanici_ilan" Member="ilans" ThisKey="kullaniciId" OtherKey="kullaniciId" Type="ilan" />
       <Association Name="kullanici_ilanFavori" Member="ilanFavoris" ThisKey="kullaniciId" OtherKey="kullaniciId" Type="ilanFavori" />
+      <Association Name="kullanici_ilanSatilan" Member="ilanSatilans" ThisKey="kullaniciId" OtherKey="kullaniciId" Type="ilanSatilan" />
       <Association Name="kullanici_kullaniciTakip" Member="kullaniciTakips" ThisKey="kullaniciId" OtherKey="kullaniciId" Type="kullaniciTakip" />
       <Association Name="kullanici_log" Member="logs" ThisKey="kullaniciId" OtherKey="kullaniciId" Type="log" />
       <Association Name="kullanici_magazaKullanici" Member="magazaKullanicis" ThisKey="kullaniciId" OtherKey="kullaniciId" Type="magazaKullanici" />
@@ -282,8 +327,9 @@
       <Column Name="pasifMi" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="kurumsalMi" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="silindiMi" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="aciklama" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="aciklama" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Association Name="magaza_ilan" Member="ilans" ThisKey="magazaId" OtherKey="magazaId" Type="ilan" />
+      <Association Name="magaza_ilanSatilan" Member="ilanSatilans" ThisKey="magazaId" OtherKey="magazaId" Type="ilanSatilan" />
       <Association Name="magaza_magazaKullanici" Member="magazaKullanicis" ThisKey="magazaId" OtherKey="magazaId" Type="magazaKullanici" />
       <Association Name="magaza_magazaTakip" Member="magazaTakips" ThisKey="magazaId" OtherKey="magazaId" Type="magazaTakip" />
       <Association Name="magaza_magazaTelefon" Member="magazaTelefons" ThisKey="magazaId" OtherKey="magazaId" Type="magazaTelefon" />
@@ -347,6 +393,7 @@
       <Column Name="ilceId" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="mahalleAdi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Association Name="mahalleler_ilan" Member="ilans" ThisKey="mahalleId" OtherKey="mahalleId" Type="ilan" />
+      <Association Name="mahalleler_ilanSatilan" Member="ilanSatilans" ThisKey="mahalleId" OtherKey="mahalleId" Type="ilanSatilan" />
       <Association Name="mahalleler_magaza" Member="magazas" ThisKey="mahalleId" OtherKey="mahalleId" Type="magaza" />
       <Association Name="ilceler_mahalleler" Member="ilceler" ThisKey="ilceId" OtherKey="ilceId" Type="ilceler" IsForeignKey="true" />
     </Type>
@@ -382,8 +429,17 @@
       <Column Name="odemeTipId" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="basariliMi" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="kartNo" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="siparis" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="siparis" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Association Name="kullanici_odeme" Member="kullanici" ThisKey="kullaniciId" OtherKey="kullaniciId" Type="kullanici" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ozellikDegerler" Member="ozellikDegerlers">
+    <Type Name="ozellikDegerler">
+      <Column Name="ozellikDegerId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ilanId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ozellikId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="deger" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Association Name="ilan_ozellikDegerler" Member="ilan" ThisKey="ilanId" OtherKey="ilanId" Type="ilan" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.ozellikler" Member="ozelliklers">
@@ -391,8 +447,8 @@
       <Column Name="ozellikId" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="ozellikAdi" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="ozellikTipi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ozellikDeger" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="kategoriId" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ozellikDeger" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="kategoriId" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="sayisalMi" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="filtredeMi" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="detaydaMı" Type="System.Boolean" DbType="Bit" CanBeNull="true" />

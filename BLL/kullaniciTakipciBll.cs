@@ -10,41 +10,40 @@ namespace BLL
 {
     public class kullaniciTakipciBll
     {
-        kullaniciBll kullaniciBLL = new kullaniciBll();
         Formatter.Formatter formatter = new Formatter.Formatter();
         /// <summary>
         /// sil
         /// </summary>
         /// <param name="_inuserid"></param>
         /// <param name="_infolid"></param>
-        public void delete(int _inUserId, int _inFollowerId)
-        {
-            using (ilanDataContext idc = new ilanDataContext())
-            {
-                var value = idc.kullaniciTakips.Where(q => q.kullaniciId == _inUserId & q.takipciId == _inFollowerId).FirstOrDefault();
-                if (value != null)
-                {
-                    idc.kullaniciTakips.DeleteOnSubmit(value);
-                    idc.SubmitChanges();
-                }
-            }
-        }
-        /// <summary>
-        /// ekle
-        /// </summary>
-        /// <param name="_inuserid"></param>
-        /// <param name="_infolid"></param>
-        public void insert(int _inUserId, int _inFollowerId)
-        {
-            using (ilanDataContext idc = new ilanDataContext())
-            {
-                kullaniciTakip kullaniciTakip = new kullaniciTakip();
-                kullaniciTakip.kullaniciId = _inUserId;
-                kullaniciTakip.takipciId = _inFollowerId;
-                idc.kullaniciTakips.InsertOnSubmit(kullaniciTakip);
-                idc.SubmitChanges();
-            }
-        }
+        //public void delete(int _inUserId, int _inFollowerId)
+        //{
+        //    using (ilanDataContext idc = new ilanDataContext())
+        //    {
+        //        var value = idc.kullaniciTakips.Where(q => q.kullaniciId == _inUserId & q.takipciId == _inFollowerId).FirstOrDefault();
+        //        if (value != null)
+        //        {
+        //            idc.kullaniciTakips.DeleteOnSubmit(value);
+        //            idc.SubmitChanges();
+        //        }
+        //    }
+        //}
+        ///// <summary>
+        ///// ekle
+        ///// </summary>
+        ///// <param name="_inuserid"></param>
+        ///// <param name="_infolid"></param>
+        //public void insert(int _inUserId, int _inFollowerId)
+        //{
+        //    using (ilanDataContext idc = new ilanDataContext())
+        //    {
+        //        kullaniciTakip kullaniciTakip = new kullaniciTakip();
+        //        kullaniciTakip.kullaniciId = _inUserId;
+        //        kullaniciTakip.takipciId = _inFollowerId;
+        //        idc.kullaniciTakips.InsertOnSubmit(kullaniciTakip);
+        //        idc.SubmitChanges();
+        //    }
+        //}
         /// <summary>
         /// güncelle
         /// </summary>

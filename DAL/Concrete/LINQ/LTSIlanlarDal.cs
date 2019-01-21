@@ -5,8 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL.Abstract;
 using System.Data.Linq;
+using System.Runtime.Serialization;
 using KralilanProject.Entities;
 using DAL.Enums;
+using KralilanProject.Services.FormatHelper;
+using Formatter = System.Runtime.Serialization.Formatter;
 
 namespace DAL.Concrete.LINQ
 {
@@ -287,6 +290,352 @@ namespace DAL.Concrete.LINQ
                 value.satildiMi = IsSale;
                 idc.SubmitChanges();
             }
+        }
+
+        public int CountLastDate()
+        {
+            var value = idc.ilans.Where(q => q.onay == 1 && q.silindiMi == false
+                                                         && q.satildiMi == false
+                                                         && q.baslangicTarihi >= DateTime.Now.Subtract(new TimeSpan(2, 0, 0, 0, 0)));
+            return value.Count();
+        }
+
+        public int CountSale()
+        {
+            var value = idc.ilans.Where(q => q.onay == 1 && q.silindiMi == false && q.satildiMi == true);
+            return value.Count();
+        }
+
+        public List<Ilan> GetSitemap(int Year, int Month)
+        {
+            var query = from i in idc.ilans
+                    .Where(x => x.onay == 1 && x.silindiMi == false &&
+                                x.baslangicTarihi.Year == Year && x.baslangicTarihi.Month == Month)
+                    .OrderBy(x => x.baslangicTarihi)
+                        select new Ilan
+                        {
+                            Baslik = i.baslik,
+                            IlanId = i.ilanId,
+                            Tarih = i.baslangicTarihi
+                        };
+
+            return query.ToList();
+        }
+
+        public List<IlanSayi> GetAllRegion()
+        {
+            var query = (from i in idc.ilans
+                         where i.onay == 1 && i.silindiMi == false && i.satildiMi == false
+                         group i by i.iller into g
+                         select new IlanSayi
+                         {
+                             Id = g.Key.ilId,
+                             Adi = g.Key.ilAdi,
+                             Sayi = g.Count()
+                         });
+
+            return query.ToList();
+        }
+
+        public List<Ilan> GetByLocationRound(int RegionId, int CityId)
+        {
+            var query = from i in idc.ilans.Where(x => x.onay == 1 && x.silindiMi == false && x.satildiMi == false)
+                        select new Ilan
+                        {
+                            IlanId = i.ilanId,
+                            Baslik = i.baslik,
+                            Tarih = i.baslangicTarihi,
+                            Resimler = i.resim,
+                            IlId = i.ilId,
+                            IlceId = i.ilceId,
+                            Url = KralilanProject.Services.PublicHelper.Tools.URLConverter(i.baslik)
+                        };
+
+            var subQuery = query.Where(x => x.IlceId == CityId);
+
+            if (subQuery.Count() > 10)
+            {
+                return subQuery.Take(10).ToList();
+            }
+            else
+            {
+                return query.Where(x => x.IlId == RegionId).Take(10).ToList();
+            }
+
+        }
+
+        public int CountByUserStoreId(int UserId, int StoreId)
+        {
+            var query = idc.ilans.Where(i => i.onay == 1 && i.silindiMi == false && i.satildiMi == false && i.kullaniciId == UserId);
+
+            if (StoreId == -1) query = query.Where(x => x.magazaId == null);
+            else query = query.Where(x => x.magazaId == StoreId);
+
+            return query.Count();
+        }
+
+        public class girilenDataType
+        {
+            public int ozellikId { get; set; }
+            public string deger { get; set; }
+        }
+
+        public List<Ilan> GetFaceted(int Index, int[] GeneralFilter, Filtre OtherFilter)
+        {
+            var query = from i in idc.ilans.Where(i =>
+                    i.onay == 1 && i.silindiMi == false)
+                select new Ilan
+                {
+                    IlanId = i.ilanId,
+                    KategoriId = i.kategoriId,
+                    EmlakTipiId = i.ilanTurId,
+                    UstKategoriId = i.kategori.ustKategoriId,
+                    Baslik = i.baslik,
+                    FiyatNumeric = i.fiyat,
+                    FiyatTipi = Enums.Enums.GetDescription(
+                        (CurrencyTypeString) Enum.Parse(typeof(CurrencyTypeString), i.fiyatTurId.ToString())),
+                    Tarih = i.baslangicTarihi,
+                    IlId = i.iller.ilId,
+                    IlceId = i.ilceler.ilceId,
+                    MahalleId = i.mahalleler.mahalleId,
+                    IlAdi = i.iller.ilAdi,
+                    IlceAdi = i.ilceler.ilceAdi,
+                    MahalleAdi = i.mahalleler.mahalleAdi,
+                    MagazaTipId = i.magaza.magazaTur.turId,
+                    MagazaId = i.magazaId,
+                    Resimler = i.resim,
+                    Girilenler = i.girilenOzellik,
+                    Secilenler = i.secilenOzellik,
+                    Koordinat = i.koordinat,
+                    Enlem = i.ilat,
+                    Boylam = i.ilng,
+                    BitisTarihi = i.bitisTarihi
+                };
+
+            if (GeneralFilter.Length > 0)
+            {
+
+                int
+                    EstateTypeId = Convert.ToInt32(GeneralFilter[1]),
+                    RegionId = Convert.ToInt32(GeneralFilter[2]),
+                    CityId = Convert.ToInt32(GeneralFilter[3]),
+                    CityAreaId = Convert.ToInt32(GeneralFilter[4]),
+                    StoreType = Convert.ToInt32(GeneralFilter[5]),
+                    DateRange = Convert.ToInt32(GeneralFilter[6]),
+                    SortType = Convert.ToInt32(GeneralFilter[7]);
+
+                string category = GeneralFilter[0].ToString();
+
+
+
+                if (RegionId != -1)
+                {
+                    query = query.Where(q => q.IlId == RegionId);
+
+                    if (CityId != -1)
+                    {
+                        query = query.Where(q => q.IlceId == CityId);
+
+                        if (CityAreaId != -1)
+                        {
+                            query = query.Where(q => q.MahalleId == CityAreaId);
+                        }
+                    }
+                }
+
+
+                //if (!category.Equals("-1"))
+                //{
+                //    int categoryId = idc.kategoris.Where(x => (x.kategoriAdi).Equals(category)).FirstOrDefault()
+                //        .kategoriId;
+
+                //    if (idc.kategoris.Where(x => x.ustKategoriId == categoryId).FirstOrDefault() == null)
+                //    {
+                //        query = query.Where(q => q.kategoriId == categoryId);
+                //    }
+                //    else
+                //    {
+                //        query = query.Where(q => q.kategori.ustKategoriId == categoryId);
+                //    }
+                //}
+
+                if (EstateTypeId != -1)
+                {
+                    query = query.Where(q => q.EmlakTipiId == EstateTypeId);
+                }
+
+
+                if (StoreType != -1)
+                {
+                    if (StoreType != 0)
+                    {
+                        query = query.Where(q => q.MagazaTipId == StoreType);
+                    }
+                    else
+                    {
+                        query = query.Where(q => q.MagazaId == null);
+                    }
+                }
+
+                if (DateRange != -1)
+                {
+                    if (DateRange == 1)
+                    {
+                        query = query.Where(
+                            q => q.Tarih >= DateTime.Now.Subtract(new TimeSpan(1, 0, 0, 0, 0)));
+                    }
+                    else if (DateRange == 3)
+                    {
+                        query = query.Where(
+                            q => q.Tarih >= DateTime.Now.Subtract(new TimeSpan(3, 0, 0, 0, 0)));
+                    }
+                    else if (DateRange == 7)
+                    {
+                        query = query.Where(
+                            q => q.Tarih >= DateTime.Now.Subtract(new TimeSpan(7, 0, 0, 0, 0)));
+                    }
+                    else if (DateRange == 15)
+                    {
+                        query = query.Where(q =>
+                            q.Tarih >= DateTime.Now.Subtract(new TimeSpan(15, 0, 0, 0, 0)));
+                    }
+                    else
+                    {
+                        query = query.Where(q =>
+                            q.Tarih >= DateTime.Now.Subtract(new TimeSpan(30, 0, 0, 0, 0)));
+                    }
+                }
+
+                if (SortType != -1)
+                {
+                    if (SortType == 2) query = query.OrderBy(x => x.FiyatNumeric);
+
+                    if (SortType == 3) query = query.OrderByDescending(x => x.FiyatNumeric);
+
+                    if (SortType == 4) query = query.OrderBy(x => x.Tarih);
+
+                    if (SortType == 5) query = query.OrderByDescending(x => x.Tarih);
+
+                    if (SortType == 6) query = query.OrderBy(x => x.IlId);
+
+                    if (SortType == 7) query = query.OrderByDescending(x => x.IlId);
+                }
+
+
+            }
+
+            if (OtherFilter != null)
+            {
+                if (OtherFilter.KoordinatliMi)
+                {
+                    query = query.Where(q => q.Koordinat != null);
+
+                    if (OtherFilter.SuruklendiMi)
+                    {
+                        query = query.Where(q =>
+                            q.Enlem < OtherFilter.Koordinat.MaxLat & q.Enlem > OtherFilter.Koordinat.MinLat &
+                            q.Boylam < OtherFilter.Koordinat.MaxLng & q.Boylam > OtherFilter.Koordinat.MinLng);
+                    }
+                }
+
+                if (OtherFilter.Fiyat != null)
+                {
+                    double MinFiyat = -1,
+                        MaxFiyat = -1;
+
+                    if (OtherFilter.Fiyat.Min != -1)
+                        MinFiyat = Convert.ToDouble(OtherFilter.Fiyat.Min);
+                    if (OtherFilter.Fiyat.Max != -1)
+                        MaxFiyat = Convert.ToDouble(OtherFilter.Fiyat.Max);
+
+                    if (MinFiyat != -1 && MaxFiyat != -1)
+                        query = query.Where(q => q.FiyatNumeric >= MinFiyat & q.FiyatNumeric <= MaxFiyat);
+
+                    if (MinFiyat == -1 && MaxFiyat != -1) query = query.Where(q => q.FiyatNumeric <= MaxFiyat);
+
+                    if (MinFiyat != -1 && MaxFiyat == -1) query = query.Where(q => q.FiyatNumeric >= MaxFiyat);
+
+                }
+
+
+                if (OtherFilter.Secilenler != null)
+                {
+                    for (int i = 0; i < OtherFilter.Secilenler.Count; i++)
+                    {
+                        SelectFiltre InData = OtherFilter.Secilenler[i];
+
+                        int Value = -1;
+
+                        if (InData.Value != -1)
+                        {
+                            query = query.Where(q => q.Secilenler.Contains("<deger>" + InData.Value + "</deger>"));
+                        }
+                    }
+                }
+
+
+                if (OtherFilter.Girilenler != null)
+                {
+                    for (int i = 0; i < OtherFilter.Girilenler.Count; i++)
+                    {
+                        TextFiltre InData = OtherFilter.Girilenler[i];
+                        double MinValue = -1,
+                            MaxValue = -1,
+                            PropertyId = -1;
+
+                        //if (InData.Max != -1) MaxValue = InData.Max;
+
+
+                        //if (InData.Min != -1)  MinValue = InData.Min;
+
+
+                        PropertyId = InData.Id;
+
+                        //TextFiltre itemclssorgu = new TextFiltre();
+                        //itemclssorgu.id = ozellikId;
+                        //itemclssorgu.Max = max;
+                        //itemclssorgu.Min = min;
+                        //lstsorgu.Add(itemclssorgu);
+                        if (InData.Max != -1 || InData.Min != -1)
+                        {
+                            query = query.Where(q =>
+                                q.Girilenler.Contains("<ozellikId>" + InData.Id + "</ozellikId>"));
+                        }
+
+                        List<Ilan> FiltrelenenIlanlar = new List<Ilan>();
+                        FiltrelenenIlanlar = query.ToList();
+
+                        FormatHelper formatter = new FormatHelper();
+                        XmlFormat xmlFormat = new XmlFormat();
+
+
+                        for (int j = 0; j < FiltrelenenIlanlar.Count; j++)
+                        {
+
+                          
+                            List<girilenDataType> Girilenler = new List<girilenDataType>();
+                            
+                            formatter.FormatTo(xmlFormat);
+                            formatter.strData = FiltrelenenIlanlar[i].Girilenler;
+                            formatter.type = typeof(girilenDataType);
+                            formatter.Deformat();
+
+                            double Min = -1,
+                                   Max = -1;
+
+
+                    
+
+
+
+                        }
+                    }
+                }
+
+
+            }
+
+            return null;
         }
     }
 }

@@ -207,7 +207,7 @@
                             <asp:Repeater ID="rppayment" runat="server">
                                 <ItemTemplate>
                                     <li>
-                                        <a href="#"><i class="fa fa-bullseye"></i><small class="label label-primary"><i class="fa fa-check"></i><%# ((BLL.ExternalClass.ilanDataType)Container.DataItem).aciklama %></small></a></li>
+                                        <a href="#"><i class="fa fa-bullseye"></i><small class="label label-primary"><i class="fa fa-check"></i><%# Eval("OdemeDurum") %></small></a></li>
                                 </ItemTemplate>
                             </asp:Repeater>
                         </ul>

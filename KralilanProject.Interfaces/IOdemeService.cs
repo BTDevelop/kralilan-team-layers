@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using KralilanProject.Entities;
 
 namespace KralilanProject.Interfaces
 {
@@ -20,5 +21,8 @@ namespace KralilanProject.Interfaces
         void Update(odeme entity);
 
         odeme GetLast();
+
+        List<Odeme> GetByProjeId(int ProjeId);
+
     }
 }

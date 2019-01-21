@@ -13,8 +13,6 @@ namespace PL.management.anaYonetim.bolgeYonetimi
 {
     public partial class mahallelistele : System.Web.UI.UserControl
     {
-        mahalleBll mahalle = new mahalleBll();
-
         private IMahalleService _mahalleManager;
         public mahallelistele()
         {

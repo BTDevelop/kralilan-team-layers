@@ -19,15 +19,6 @@ namespace PL
 {
     public partial class ilan_duzenle : System.Web.UI.Page
     {
-        ilBll ilb = new ilBll();
-        ilceBll ilceb = new ilceBll();
-        mahalleBll mahalleb = new mahalleBll();
-        magazaBll mgzBll = new magazaBll();
-        magazaTurBll mgzTurBll = new magazaTurBll();
-        magazaKullaniciBll mKul = new magazaKullaniciBll();
-        ilanBll ilnBll = new ilanBll();
-        ozelliklerBll property = new ozelliklerBll();
-        ilanBll ilnB = new ilanBll();
         kullanici _kullanici;
         magazaKullaniciBll mkul = new magazaKullaniciBll();
 
@@ -631,38 +622,14 @@ namespace PL
                 ilat = -1,
                 ilng = -1,
                 baslangicTarihi = iln.baslangicTarihi,
+                bitisTarihi = iln.bitisTarihi,
                 silindiMi = false
             };
 
             _ilanManager.Update(_ilan);
 
 
-            //ilnBll.update(
-            //            ilanId,
-            //            Convert.ToDouble(txtFiyat.Text),
-            //            1,
-            //            outuserid,
-            //            Convert.ToInt32(drpIl.SelectedValue),
-            //            Convert.ToInt32(drpIlce.SelectedValue),
-            //            Convert.ToInt32(drpMahalle.SelectedValue),
-            //            txtBaslik.Text,
-            //            txtCKeditorAdi.Text,
-            //            magazaId,
-            //            onay,
-            //            issale,
-            //            numberpublish,
-            //            "",
-            //            txtstr,
-            //            slctstr,
-            //            picstr,
-            //            -1,
-            //            -1,
-            //            iln.baslangicTarihi,
-            //            false
-            //        );
-
             Session["ilanNo"] = ilanId;
-
             Response.Redirect("~/hizli-satisi-gor/");
 
         }

@@ -78,24 +78,24 @@ namespace BLL
         /// </summary>
         /// <param name="_inDistId"></param>
         /// <returns></returns>
-        public string select(int _inDistId)
-        {
-            using (ilanDataContext idc = new ilanDataContext())
-            {
-                var query = from m in idc.mahallelers.Where(q => q.ilceId == _inDistId)
-                             select new
-                             {
-                                 m.mahalleId,
-                                 m.mahalleAdi
-                             };
+        //public string select(int _inDistId)
+        //{
+        //    using (ilanDataContext idc = new ilanDataContext())
+        //    {
+        //        var query = from m in idc.mahallelers.Where(q => q.ilceId == _inDistId)
+        //                     select new
+        //                     {
+        //                         m.mahalleId,
+        //                         m.mahalleAdi
+        //                     };
 
 
-                JsonFormat jsonFormat = new JsonFormat();
-                formatter.FormatTo(jsonFormat);
-                formatter.rawData = query.ToList();
-                return formatter.Format();
-            }
-        }
+        //        JsonFormat jsonFormat = new JsonFormat();
+        //        formatter.FormatTo(jsonFormat);
+        //        formatter.rawData = query.ToList();
+        //        return formatter.Format();
+        //    }
+        //}
 
         /// <summary>
         /// 

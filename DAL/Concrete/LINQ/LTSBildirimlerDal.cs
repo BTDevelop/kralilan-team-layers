@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DAL.Abstract;
+using KralilanProject.Entities;
 
 namespace DAL.Concrete.LINQ
 {
@@ -48,21 +49,21 @@ namespace DAL.Concrete.LINQ
             return value;
         }
 
-        public IQueryable GetByUserId(int UserId)
+        public List<Bildirim> GetByUserId(int UserId, int Index)
         {
             var query = from b in idc.bildirimlers.Where(i => i.aliciSildiMi == false && i.kimeId == UserId)
-                        select new
+                        select new Bildirim
                         {
-                            b.bildirimId,
-                            b.okunduMu,
-                            b.tarih,
-                            b.mesaj,
-                            b.konu
+                           Id = b.bildirimId,
+                           Tarih = b.tarih,
+                           Mesaj = b.mesaj,
+                           Konu = b.konu,
+                           BaslangicTarihi = String.Format(" {0:dd MMMM yyyy}", b.tarih),
                         };
 
 
-            query = query.OrderByDescending(x => x.tarih).Skip(pageCount * (pageIndex)).Take(pageCount);
-            return query;
+            query = query.OrderByDescending(x => x.Tarih).Skip(pageCount * (Index)).Take(pageCount);
+            return query.ToList();
         }
 
         public void UpdateByReceiver(int Id)

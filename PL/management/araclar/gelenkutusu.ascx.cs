@@ -11,8 +11,6 @@ namespace PL.management.araclar
 {
     public partial class mesajlar : System.Web.UI.UserControl
     {
-        mesajBll mesajb = new mesajBll();
-        kullaniciBll kullanicib = new kullaniciBll();
         kullanici _kullanici;
         protected void Page_Load(object sender, EventArgs e)
         {

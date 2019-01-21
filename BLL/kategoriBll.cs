@@ -17,12 +17,12 @@ namespace BLL
     {
         Formatter.Formatter formatter = new Formatter.Formatter();
 
-        public class TypeAds
-        {
-            public int typeId { get; set; }
-            public string typeName { get; set; }
-            public string typeUTF { get; set; }
-        }
+        //public class TypeAds
+        //{
+        //    public int typeId { get; set; }
+        //    public string typeName { get; set; }
+        //    public string typeUTF { get; set; }
+        //}
 
         /// <summary>
         /// sil
@@ -146,18 +146,18 @@ namespace BLL
 
         //}
 
-        public string getTopCategoriViewHomePageTest(int _inTopCatId, IFormatter _inReturnType)
-        {
-            using (ilanDataContext idc = new ilanDataContext())
-            {
-                var query = StrategyData.GetTopesCategoriWithCount(idc, _inTopCatId);
+        //public string getTopCategoriViewHomePageTest(int _inTopCatId, IFormatter _inReturnType)
+        //{
+        //    using (ilanDataContext idc = new ilanDataContext())
+        //    {
+        //        var query = StrategyData.GetTopesCategoriWithCount(idc, _inTopCatId);
 
-                formatter.FormatTo(_inReturnType);
-                formatter.rawData = query.ToList();
-                return formatter.Format();
-            }
+        //        formatter.FormatTo(_inReturnType);
+        //        formatter.rawData = query.ToList();
+        //        return formatter.Format();
+        //    }
 
-        }
+        //}
 
     }
 }

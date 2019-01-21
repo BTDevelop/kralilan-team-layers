@@ -54,6 +54,18 @@ namespace DAL.Concrete.LINQ
             throw new NotImplementedException();
         }
 
+        public List<Odeme> GetByProjeId(int ProjeId)
+        {
+            var query = from o in idc.odemes.Where(x => x.islemId == 20 && x.siparis.Contains("<adsid>" + ProjeId + "</adsid>"))
+                select new Odeme
+                {
+                    YapanAdSoyad = o.kullanici.kullaniciAdSoyad,
+                    OdemeDurum = o.basariliMi == true ? "Ödeme Başarılı" : "Ödeme Başarısız",
+                };
+
+            return query.ToList();
+        }
+
         public List<Odeme> GetByUserId(int UserId)
         {
             var query = from o in idc.odemes.Where(x => x.kullaniciId == UserId)

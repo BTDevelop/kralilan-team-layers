@@ -11,11 +11,7 @@ namespace PL.management
 {
     public partial class profil : System.Web.UI.Page
     {
-        kullaniciBll kullanicib = new kullaniciBll();
-        telefonBll telefonb = new telefonBll();
-        ilBll il = new ilBll();
-        ilceBll ilce = new ilceBll();
-        mahalleBll mahalle = new mahalleBll();
+
         public string name = "";
         public string rank = "";
         public string id = "";

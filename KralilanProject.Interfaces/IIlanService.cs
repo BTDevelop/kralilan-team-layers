@@ -37,11 +37,25 @@ namespace KralilanProject.Interfaces
 
         List<Ilan> GetByUserIdFaceted(int UserId);
 
+        List<IlanSayi> GetAllRegion();
+
+        List<Ilan> GetByLocationRound(int RegionId, int CityId);
+
+        List<Ilan> GetFaceted(int Index, int[] GeneralFilter, Filtre OtherFilter);
+
         int CountByStoreId(int StoreId);
+
+        int CountByUserStoreId(int UserId, int StoreId);
 
         void UpdatePicturesByAdsId(int AdsId, string Pictures);
 
         void UpdateStatus(int AdsId, int IsVerify, bool IsPass, bool IsDelete, bool IsSale);
+
+        List<Ilan> GetSitemap(int Year, int Month);
+
+        int CountLastDate();
+
+        int CountSale();
 
     }
 }

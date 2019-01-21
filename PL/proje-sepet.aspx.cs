@@ -35,7 +35,6 @@ namespace PL
             { 
                 if (!IsPostBack)
                 {
-                    dopingKategoriBll dkb = new dopingKategoriBll();
                     objDizi = (JArray)Session["showcasebasket"];
                     if (objDizi.Count <= 0)
                     {

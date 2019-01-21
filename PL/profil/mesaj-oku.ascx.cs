@@ -11,10 +11,6 @@ namespace PL.profil
 {
     public partial class mesaj_oku : System.Web.UI.UserControl
     {
-        mesajBll mesajb = new mesajBll();
-        ilanBll ilanb = new ilanBll();
-        kullaniciBll kullanicib = new kullaniciBll();
-
         public string header = "";
         public string classifiedPic = "";
         public string name ="";

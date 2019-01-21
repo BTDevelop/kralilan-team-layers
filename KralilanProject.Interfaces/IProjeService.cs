@@ -40,5 +40,6 @@ namespace KralilanProject.Interfaces
         List<IlanSayi> CountAllByRegionId();
 
         Proje GetProjectRandom(int RegionId);
+
     }
 }

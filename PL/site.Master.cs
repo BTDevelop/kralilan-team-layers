@@ -17,9 +17,6 @@ namespace PL
 {
     public partial class site : System.Web.UI.MasterPage
     {
-        mesajBll mesajb = new mesajBll();
-        bildirimBll bildirimb = new bildirimBll();
-        kullaniciBll kullanicib = new kullaniciBll();
         kullanici _kullanici;
 
         private IBildirimService _bildirimManager;
@@ -50,7 +47,7 @@ namespace PL
 
                     _kullaniciManager.UpdateBySessionInfo(_kullanici.kullaniciId, _request.Browser.Browser, _request.UserHostAddress);
                     _kullaniciManager.UpdateByOnlineStatus(_kullanici.kullaniciId, 10);
-              
+
                 }
             }
         }

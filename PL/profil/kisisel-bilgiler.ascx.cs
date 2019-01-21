@@ -17,10 +17,6 @@ namespace PL.profil
 {
     public partial class kisisel_bilgiler : System.Web.UI.UserControl
     {
-        ilceBll ilceb = new ilceBll();
-        mahalleBll mahalleb = new mahalleBll();
-        kullaniciBll kll = new kullaniciBll();
-        ilBll ilb = new ilBll();
 
         string profilePic = "";
         kullanici _kullanici;

@@ -16,9 +16,7 @@ namespace PL
 {
     public partial class ilan_doping : System.Web.UI.Page
     {
-        dopingKategoriBll dopingKtgb = new dopingKategoriBll();
         kullanici _kullanici;
-
         private IDopingKategoriService _dopingKategoriManager;
         public ilan_doping()
         {

@@ -144,7 +144,7 @@
                     <div class="post-promo text-center">
                         <h2>Listeleme Yapmak İstemiyorsan?</h2>
                         <h5>Harita ile devam et ve ilanları birebir konumlarıyla gör</h5>
-                        <a href='<%= String.Format("/haritada-ara/{0}/{1}/{2}/{3}/", BLL.PublicHelper.Tools.URLConverter(EnumHelper.GetDescription((EstateTypeString)Enum.Parse(typeof(EstateTypeString), RouteData.Values["Tur"].ToString()))), typeId, BLL.PublicHelper.Tools.URLConverter(RouteData.Values["Kategori"]), categoryId) %>' class="btn btn-lg btn-border btn-post btn-danger">Haritaya Git </a>
+                        <a href='<%= String.Format("/haritada-ara/{0}/{1}/{2}/{3}/", RouteData.Values["Tur"], typeId, BLL.PublicHelper.Tools.URLConverter(RouteData.Values["Kategori"]), categoryId) %>' class="btn btn-lg btn-border btn-post btn-danger">Haritaya Git </a>
                     </div>
                     <br />
                     <div class="category-list" id="category-list">

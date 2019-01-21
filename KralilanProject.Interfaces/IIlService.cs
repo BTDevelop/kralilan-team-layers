@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DAL;
+using KralilanProject.Entities;
 
 namespace KralilanProject.Interfaces
 {
@@ -18,5 +19,7 @@ namespace KralilanProject.Interfaces
         void Delete(iller entity);
 
         void Update(iller entity);
+
+        List<Il> GetRegions();
     }
 }

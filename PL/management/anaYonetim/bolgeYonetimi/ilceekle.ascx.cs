@@ -14,10 +14,6 @@ namespace PL.management.anaYonetim.bolgeYonetimi
 {
     public partial class ilceekle : System.Web.UI.UserControl
     {
-        ilBll il = new ilBll();
-        ilceBll ilce = new ilceBll();
-        kullaniciBll kullanicib = new kullaniciBll();
-
         private IIlceService _ilceManager;
         private IIlService _ilManager;
         public ilceekle()

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DAL.Abstract;
+using KralilanProject.Entities;
 
 namespace DAL.Concrete.LINQ
 {
@@ -44,16 +45,17 @@ namespace DAL.Concrete.LINQ
             return idc.illers.ToList();
         }
 
-        public IQueryable GetRegions()
+        public List<Il> GetRegions()
         {
             var query = from i in idc.illers
-                select new
+                select new Il
                 {
-                    i.ilId,
-                    i.ilAdi
+                   IlId = i.ilId,
+                   IlAdi = i.ilAdi,
+                   Url = KralilanProject.Services.PublicHelper.Tools.URLConverter(i.ilAdi)
                 };
 
-            return query;
+            return query.ToList();
         }
 
         public void Update(iller entity)

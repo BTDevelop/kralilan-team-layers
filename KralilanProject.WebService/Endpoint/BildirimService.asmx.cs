@@ -32,11 +32,11 @@ namespace KralilanProject.WebService.Endpoint
         }
 
         [WebMethod]
-        public string GetByUserId(int UserId)
+        public string GetByUserId(int UserId, int Index)
         {
             try
             {
-                string result = JsonConvert.SerializeObject(bildirimService.GetByUserId(UserId));
+                string result = JsonConvert.SerializeObject(bildirimService.GetByUserId(UserId, Index));
                 return result;
             }
             catch (Exception ex)

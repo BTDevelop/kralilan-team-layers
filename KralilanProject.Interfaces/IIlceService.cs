@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DAL;
+using KralilanProject.Entities;
 
 namespace KralilanProject.Interfaces
 {
@@ -19,7 +20,7 @@ namespace KralilanProject.Interfaces
 
         void Update(ilceler entity);
 
-        List<ilceler> GetByRegionId(int RegionId);
+        List<Ilce> GetByRegionId(int RegionId);
 
     }
 }

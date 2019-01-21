@@ -27,7 +27,22 @@ namespace BLL.Concrete
 
         public int CountByStoreId(int StoreId)
         {
-            throw new NotImplementedException();
+            return _ilanlarDal.CountByStoreId(StoreId);
+        }
+
+        public int CountByUserStoreId(int UserId, int StoreId)
+        {
+            return _ilanlarDal.CountByUserStoreId(UserId, StoreId);
+        }
+
+        public int CountLastDate()
+        {
+            return _ilanlarDal.CountLastDate();
+        }
+
+        public int CountSale()
+        {
+            return _ilanlarDal.CountSale();
         }
 
         public void Delete(ilan entity)
@@ -45,6 +60,11 @@ namespace BLL.Concrete
             throw new NotImplementedException();
         }
 
+        public List<IlanSayi> GetAllRegion()
+        {
+            return _ilanlarDal.GetAllRegion();
+        }
+
         public List<Ilan> GetByLastDate()
         {
            return _ilanlarDal.GetByLastDate();
@@ -53,6 +73,11 @@ namespace BLL.Concrete
         public List<Ilan> GetByLastDateFaceted(SortTypeString SortType)
         {
             throw new NotImplementedException();
+        }
+
+        public List<Ilan> GetByLocationRound(int RegionId, int CityId)
+        {
+            return _ilanlarDal.GetByLocationRound(RegionId, CityId);
         }
 
         public List<Ilan> GetBySale()
@@ -70,6 +95,11 @@ namespace BLL.Concrete
             throw new NotImplementedException();
         }
 
+        public List<Ilan> GetFaceted(int Index, int[] GeneralFilter, Filtre OtherFilter)
+        {
+            return _ilanlarDal.GetFaceted(Index, GeneralFilter, OtherFilter);
+        }
+
         public ilan GetLast()
         {
             return _ilanlarDal.GetLast();
@@ -78,6 +108,11 @@ namespace BLL.Concrete
         public ilan GetLastByUserId(int UserId)
         {
             return _ilanlarDal.GetLastByUserId(UserId);
+        }
+
+        public List<Ilan> GetSitemap(int Year, int Month)
+        {
+            return _ilanlarDal.GetSitemap(Year, Month);
         }
 
         public bool IsOwnerAds(int AdsId, int UserId, int StoreId)
