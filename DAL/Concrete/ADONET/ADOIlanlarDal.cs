@@ -129,8 +129,7 @@ namespace DAL.Concrete.ADONET
 
             conn.Open();
             var query =
-                "SELECT DISTINCT ilan.baslik, ilan.aciklama, ilan.baslangicTarihi, iller.ilAdi, ilceler.ilceAdi, mahalleler.mahalleAdi, ilan.fiyat, ilan.fiyatTurId, ilan.baslangicTarihi, ilan.ilanTurId, ilan.resim, magaza.magazaAdi FROM ilan " +
-                "INNER JOIN ozellikDegerler ON ozellikDegerler.ilanId = ilan.ilanId " +
+                "SELECT ilan.baslik, ilan.aciklama, ilan.baslangicTarihi, iller.ilAdi, ilceler.ilceAdi, mahalleler.mahalleAdi, ilan.fiyat, ilan.fiyatTurId, ilan.baslangicTarihi, ilan.ilanTurId, ilan.resim, magaza.magazaAdi FROM ilan " +
                 "INNER JOIN iller ON iller.ilId = ilan.ilId " +
                 "INNER JOIN ilceler ON ilceler.ilceId = ilan.ilceId " +
                 "INNER JOIN mahalleler ON mahalleler.mahalleId = ilan.mahalleId " +
@@ -154,6 +153,8 @@ namespace DAL.Concrete.ADONET
             //if (GeneralFilter[4] != -1) query += "AND ilan.ilanTurId =" + GeneralFilter[4] + " ";
 
             //if (GeneralFilter[5] != -1) query += "AND magaza.magazaTurId =" + GeneralFilter[5] + " ";
+
+            
 
             if (OtherFilter != null)
             {
@@ -210,6 +211,9 @@ namespace DAL.Concrete.ADONET
                     }
                 }
             }
+
+            query = query +
+                    " AND EXISTS (SELECT 1 FROM ozellikDegerler od WHERE od.ilanId = ilan.ilanId)";
 
             query = query + "ORDER BY ilan.baslangicTarihi DESC OFFSET " + (Index * 10) + " ROWS FETCH NEXT 10 ROWS ONLY;";
 

@@ -31,11 +31,13 @@ namespace PL
         private IOdemeService _odemeManager;
         private IIlService _ilManager;
         private IDopingKategoriService _dopingKategoriManager;
+        private ITelefonService _telefonManager;
         public odeme()
         {
             _odemeManager = new OdemeManager(new LTSOdemelerDal());
             _ilManager = new IlManager(new LTSIllerDal());
             _dopingKategoriManager = new DopingKategoriManager(new LTSDopingKategorilerDal());
+            _telefonManager = new TelefonManager(new LTSTelefonlarDal());
         }
 
         public JArray objDizi = new JArray();
@@ -142,8 +144,6 @@ namespace PL
                 List<BLL.ExternalClass.siparisDT> siparislist = new List<BLL.ExternalClass.siparisDT>();
                 siparislist = (List<BLL.ExternalClass.siparisDT>)toolkit.GetObjectInXml(txtstr, typeof(List<BLL.ExternalClass.siparisDT>));
 
-                odemeBll odemeb = new odemeBll();
-
                 double price = 0;
                 for (int i = 0; i < objDizi2.Count; i++)
                 {
@@ -197,7 +197,7 @@ namespace PL
                     _checkout.buyerSurname = reportSurnameVal;
                     _checkout.buyerZipCode = reportZipCodeVal;
                     _checkout.buyerIdentityNumber = reportIdentityNumVal;
-                    _checkout.buyerGSMNumber = "+90" + _kullanici.telefonlars.Where(x => x.kullaniciId == _kullanici.kullaniciId).FirstOrDefault().telefon;
+                    _checkout.buyerGSMNumber = "+90" + _telefonManager.GetAllByUserId(_kullanici.kullaniciId).FirstOrDefault().telefon;
                     _checkout.buyerEmail = _kullanici.email;
                     _checkout.buyerBasketId = order.ToString();
                     _checkout.buyerBasketCategory = "Vitrin";
@@ -263,8 +263,6 @@ namespace PL
                 txtstr = txtstr.Replace("  ", "");
                 List<BLL.ExternalClass.siparisDT> siparislist = new List<BLL.ExternalClass.siparisDT>();
                 siparislist = (List<BLL.ExternalClass.siparisDT>)toolkit.GetObjectInXml(txtstr, typeof(List<BLL.ExternalClass.siparisDT>));
-
-                odemeBll odemeb = new odemeBll();
 
                 double price = 0;
 
