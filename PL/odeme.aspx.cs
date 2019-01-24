@@ -304,55 +304,18 @@ namespace PL
 
 
             }
-
-
-        }
-
-        private static string GetMd5Hash(MD5 md5Hash, string input)
-        {
-
-            // Convert the input string to a byte array and compute the hash.
-            byte[] datamd5 = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(input));
-
-            // Create a new Stringbuilder to collect the bytes
-            // and create a string.
-            StringBuilder sBuilder = new StringBuilder();
-
-            // Loop through each byte of the hashed data 
-            // and format each one as a hexadecimal string.
-            for (int i = 0; i <= datamd5.Length - 1; i++)
-            {
-                sBuilder.Append(datamd5[i].ToString("x2"));
-            }
-
-            // Return the hexadecimal string.
-            return sBuilder.ToString();
         }
 
         protected void Devam_Click(object sender, EventArgs e)
         {
             ScriptManager.RegisterStartupScript(this, GetType(), "Show Modal Popup", "showmodalpopup1();", true);
-
-
-            //string confirmValue = Request.Form["confirm_value"];
-            //if (confirmValue == "Yes")
-            //{
-            //    this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('You clicked YES!')", true);
-            //}
-            //else
-            //{
-            //    this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('You clicked NO!')", true);
-            //}
         }
 
         protected void odemeRepeater_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
             if (e.CommandName == "Sil" && e.CommandArgument.ToString() != "")
             {
-                //odemeBll odmB = new odemeBll();
-                //odmB.delete(Convert.ToInt32(e.CommandArgument));
                 JArray objDizi2 = ((JArray)Session["showcasebasket"]);
-
                 for (int i = 0; i < objDizi2.Count; i++)
                 {
                     if (objDizi2[i]["vitrinKategori"].ToString() != "-1")

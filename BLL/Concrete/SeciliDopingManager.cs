@@ -22,7 +22,7 @@ namespace BLL.Concrete
 
         public void Add(seciliDoping entity)
         {
-            throw new NotImplementedException();
+            _seciliDopingDal.Add(entity);
         }
 
         public int CountByDopingId(int DopingId)

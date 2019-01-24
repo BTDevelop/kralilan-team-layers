@@ -103,7 +103,6 @@ namespace PL
 
                     _seciliDopingManager.Add(_seciliDoping);
 
-                    //secDopingB.insert(siparislist[i].adsid, siparislist[i].showcasecatid, DateTime.Now, DateTime.Now.AddDays(pubDays), true);
                 }
 
                 Response.Redirect("~/ilanin-basarili/");
