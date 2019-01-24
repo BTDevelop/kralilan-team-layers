@@ -44,7 +44,7 @@ namespace BLL.Concrete
 
         public kullanici GetByEmail(string Email)
         {
-            throw new NotImplementedException();
+            return _kullanicilarDal.GetByEmail(Email);
         }
 
         public kullanici GetLast()

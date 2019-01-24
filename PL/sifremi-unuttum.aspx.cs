@@ -46,7 +46,6 @@ namespace PL
                     };
 
                     _guvenlikKodManager.Add(_kod);
-                    //guvenlib.insert(_kullanici.email, GuidKey);
                     try
                     {
                         toolkit.HtmlMailSender(_kullanici.email, "~/email-temp/single-column/build.html", "Şifremi unuttum", "Şifremi unuttum", _kullanici.kullaniciAdSoyad, info, detail);
