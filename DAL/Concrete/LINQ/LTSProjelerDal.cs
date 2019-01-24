@@ -141,6 +141,8 @@ namespace DAL.Concrete.LINQ
                     IlceAdi = p.ilceler.ilceAdi
                 };
 
+            if (RegionId != -1) query = query.Where(x => x.IlId == RegionId);
+
             return query.ToList();
         }
 

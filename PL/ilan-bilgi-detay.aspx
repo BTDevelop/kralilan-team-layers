@@ -1,7 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="ilan-bilgi-detay.aspx.cs" Inherits="PL.ilan_bilgi_detay" %>
-
 <%@ Import Namespace="BLL.EnumHelper" %>
-
 <asp:Content ID="Content4" ContentPlaceHolderID="styles" runat="server">
     <meta property="og:url" content="https://www.kralilan.com/ilan/<%= BLL.PublicHelper.Tools.URLConverter(heading)%>-<%= number %>/detay" />
     <meta property="og:type" content="website" />
