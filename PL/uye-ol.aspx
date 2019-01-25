@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Üye Ol - kralilan.com" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="uye-ol.aspx.cs" Inherits="PL.uye_ol" %>
+﻿<%@ Page Title="Ücretsiz Üye Ol İlan Ver - kralilan.com" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="uye-ol.aspx.cs" Inherits="PL.uye_ol" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="styles" runat="server">
     <link rel="stylesheet" href='<%= Page.ResolveUrl("~/libraries/assets/plugins/jquery.confirm/jquery-confirm.min.css") %>' />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/css/bootstrapValidator.min.css" rel="stylesheet" />
@@ -79,12 +79,12 @@
                     <div class="reg-sidebar-inner text-center">
                         <div class="promo-text-box">
                             <i class=" icon-picture fa fa-4x icon-color-2"></i>
-                            <h3><strong>Ücretsiz ilan ver</strong></h3>
-                            <p>kralilan da alışılmışın dışında istediğin kadar ilan ver satışını gerçekleştir.</p>
+                            <h1><strong>Ücretsiz ilan ver</strong></h1>
+                            <p>kralilan da uygun fiyata istediğin kadar ilan ver satışını gerçekleştir. İlk üç ilanınız ücretsiz.</p>
                         </div>
                         <div class="promo-text-box">
                             <i class=" icon-pencil-circled fa fa-4x icon-color-1"></i>
-                            <h3><strong>İlanlarını düzenle ve yönet</strong></h3>
+                            <h2><strong>İlanlarını düzenle ve yönet</strong></h2>
                             <p>Profilinden tüm ilanlarını yönet istediğini yayınla, düzenle herşey senin elinde.</p>
                         </div>
                         <div class="promo-text-box">

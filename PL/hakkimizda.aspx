@@ -49,6 +49,11 @@
                     </div>
                     <div class="col-sm-6">
                         <img src="/libraries/images/info.png" alt="imfo" class="img-responsive">
+    <br>
+    <h1>Arama Motoru Ortağımız</h1>
+     <a style="width: 88px;height:31px;" target="_blank" href=" https://tr.flatfy.com" title="A partner of a search engine tr.flatfy.com">
+	 <img width="88" height="31" src="https://static.flatfy.com/static/spa/media/logo_black_tr.42470ede.svg" alt=" tr.flatfy.com">
+	 </a>
                     </div>
                 </div>
             </div>

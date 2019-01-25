@@ -71,9 +71,10 @@
         fbq('track', 'PageView');
     </script>
 </head>
+
 <body>
     <div class="header">
-        <header class="w3-bar w3-card w3-theme">
+        <header class="w3-bar w3-card w3-theme" style="height: 70px;">
             <a href="/" title="kralilan.com">
                 <img class="logo" src="/upload/default-images/apple-touch-icon-57-precomposed.png" alt="kralilan.com logo" />
             </a>
@@ -82,7 +83,7 @@
     <div class="w3-container">
         <div class="w3-cell-row">
             <div class="w3-theme-header">
-                <h1>En Uygun Daire İş Yeri Arsa ve Emlak İlanları Kral İlan ’da</h1>
+                <h1>Satılık Daire İşyeri Arsa Kiralık Ev ve Emlak İlanları</h1>
             </div>
         </div>
         <asp:Repeater ID="rpcategories" runat="server">
@@ -120,6 +121,17 @@
                 </div>
             </div>
         </a>
+		<hr>
+     <div style="
+    text-align: center;
+    margin-left: 10%;
+    margin-right: 10%;
+    font-weight: bold;
+">
+    <h2>Sahibinden Emlakçıdan İnşaat Firmasından</h2>
+    <h2>Belediyeden Bankadan Hazineden İcradan</h2>
+<h2>Ve Diğer Kurumlardan Uygun Emlak ilanları</h2>
+            </div>
     </div>
     <div class="footer">
         <div class="w3-cell-footer" runat="server" id="login">
@@ -251,7 +263,7 @@
             /*background-color: #16A085;*/
             color: #fff;
             text-align: center;
-            padding: 8px;
+            padding: 5px;
         }
 
             .footer a {

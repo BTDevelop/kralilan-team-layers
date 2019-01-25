@@ -10,6 +10,7 @@
                     <div class="panel panel-default">
                         <div class="panel-intro text-center">
                             <h2 class="logo-title" style="text-transform: lowercase">
+                                <!-- Original Logo will be placed here  -->
                                 <img style="padding-left: 15px; padding-top: 9px;" src="/upload/default-images/apple-touch-icon-57-precomposed.png" />
                             </h2>
                         </div>

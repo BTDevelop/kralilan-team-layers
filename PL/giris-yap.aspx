@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Giriş Yap - kralilan.com" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="giris-yap.aspx.cs" Inherits="PL.giris_yap" %>
+﻿<%@ Page Title="Ücretsiz İlan Vermek için Hemen Giriş Yap - kralilan.com" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="giris-yap.aspx.cs" Inherits="PL.giris_yap" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="main-container">
         <div class="container">
@@ -6,10 +6,9 @@
                 <div class="col-sm-5 login-box">
                     <div class="panel panel-default">
                         <div class="panel-intro text-center">
-                            <h2 class="logo-title" style="text-transform: lowercase;">
-                                <!-- Original Logo will be placed here  -->
-                                <img style="padding-left: 15px; padding-top: 9px;" src="/upload/default-images/apple-touch-icon-57-precomposed.png" />
-                            </h2>
+                             <h1 class="footer-text" style="font-size: 19px;margin-top: -40px;margin-bottom: 20px;padding-top: 20px;background-color: #16A085;color: white;">
+								Ücretsiz İlan Vermek için Giriş Yap
+                            </h1>
                         </div>
                         <div class="panel-body">
                             <div role="form">
