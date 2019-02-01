@@ -76,6 +76,9 @@
                                         <li>
                                             <a title="Projeler" href='/projeler/'>Projeler (<%= ProjeSayi %>)</a>
                                         </li>
+										<li>
+                                            <a title="Haritada Ara" href='/haritada-ara/'>Haritada Ara (Tüm İlanlar)</a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -302,6 +305,7 @@
                     </div>
                     <%--  <div id="specialwithplace2" class="text-center" runat="server">
                     </div>--%>
+					
                     <div class="col-lg-12 content-box ">
                         <div class="row row-featured">
                             <div class="col-lg-12 col-md-12 box-title ">

@@ -122,6 +122,22 @@
             </div>
         </a>
 		<hr>
+	    <a href="/haritada-ara/">
+		    <div class="w3-cell-row">
+			    <div class="w3-cell w3-cell-icon">
+				    <i class="icon-map"></i>
+			    </div>
+			    <div class="w3-cell w3-container w3-cell-title">
+				    <h2>Haritada Ara</h2>
+				    <h3>&nbsp;(Tüm İlanlar)</h3>
+				    <h4>Haritada Gerçek Konumlarıyla Ara</h4>
+			    </div>
+			    <div class="w3-cell">
+				    <i class="icon-right-open-big"></i>
+			    </div>
+		    </div>
+	    </a>
+		<hr>
      <div style="
     text-align: center;
     margin-left: 10%;
@@ -657,6 +673,11 @@
             font-size: 25px;
             color: #16A085;
         }
+		.icon-map:before{
+			content:'\e832';
+			font-size: 25px;
+            color: #16A085;
+		}
     </style>
     <script>
         if (navigator.userAgent.indexOf("Speed Insights") == -1) {
