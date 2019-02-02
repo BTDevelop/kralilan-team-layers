@@ -84,7 +84,7 @@
     <Compile Include="Concrete\VerilenReklamManager.cs" />
     <Compile Include="Concrete\ZiyaretciManager.cs" />
     <Compile Include="Concrete\ZiyaretciProjeManager.cs" />
-    <Compile Include="EncryptHelper\EncryptHelper.cs" />
+    <Compile Include="EnumHelper\EncryptHelper\EncryptHelper.cs" />
     <Compile Include="EnumHelper\EnumHelper.cs" />
     <Compile Include="ExternalClass\CategoriCS.cs" />
     <Compile Include="ExternalClass\TextItemSearchCS.cs" />

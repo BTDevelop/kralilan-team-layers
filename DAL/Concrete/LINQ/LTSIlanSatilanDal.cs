@@ -12,7 +12,6 @@ namespace DAL.Concrete.LINQ
 {
     public class LTSIlanSatilanDal : IIlanSatilanDal
     {
-
         private ilanDataContext idc = new ilanDataContext();
         private readonly int pageCount = 10;
         public static Func<ilanDataContext, IQueryable<Ilan>> GetBySaleCompiled =

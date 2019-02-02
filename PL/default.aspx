@@ -76,6 +76,9 @@
                                         <li>
                                             <a title="Projeler" href='/projeler/'>Projeler (<%= ProjeSayi %>)</a>
                                         </li>
+										<li>
+                                            <a title="Haritada Ara" href='/haritada-ara/'>Haritada Ara (Tüm İlanlar)</a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -302,6 +305,7 @@
                     </div>
                     <%--  <div id="specialwithplace2" class="text-center" runat="server">
                     </div>--%>
+					
                     <div class="col-lg-12 content-box ">
                         <div class="row row-featured">
                             <div class="col-lg-12 col-md-12 box-title ">
@@ -1008,13 +1012,13 @@
     <div class="page-bottom-info">
         <div class="page-bottom-info-inner">
             <div class="page-bottom-info-content text-center">
-                <p class="footer-text">Sahibinden Ücretsiz İlan Ver</p>
-                <a class="btn  btn-lg btn-primary-dark" href="/kayit/">
-                    <i class="icon icon-user-add"></i><span class="hide-xs color50">Hemen</span> Üye Ol </a>
-                <p style="font-size: 23px; font-weight: bold; margin-top: 15px;">
-                    Sahibinden satılık daire, kiralık ev, iş yeri, arsa, tarla ile Belediyeden, bankadan, icradan, hazineden kısacası tüm kamu kurumlarından satılık kiralık en uygun emlak ilanlarını, gerçek konum ve şekilleriyle uydu haritasından görme imkanı dünyada sadece kral ilan 'da     
-                </p>
-            </div>
+				<a class="btn  btn-lg btn-primary-dark" href="/kayit/">
+					<i class="icon icon-user-add"></i><span class="hide-xs color50">Hemen</span> Üye Ol </a>
+				<h4 class="footer-text" style="margin-top: 15px;">Sahibinden Ücretsiz İlan Ver</h4>
+				<h4 style="font-size: 23px;font-weight: bold;margin-top: 15px;line-height: 30px;">
+					Sahibinden satılık daire, kiralık ev, iş yeri, arsa, tarla ile Belediyeden, bankadan, icradan, hazineden kısacası tüm kamu kurumlarından satılık kiralık en uygun emlak ilanlarını, gerçek konum ve şekilleriyle uydu haritasından görme imkanı dünyada sadece kral ilan 'da     
+				</h4>
+			</div>
         </div>
     </div>
 </asp:Content>

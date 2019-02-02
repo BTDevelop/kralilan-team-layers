@@ -623,11 +623,6 @@ namespace DAL.Concrete.LINQ
                             double Min = -1,
                                    Max = -1;
 
-
-                    
-
-
-
                         }
                     }
                 }
