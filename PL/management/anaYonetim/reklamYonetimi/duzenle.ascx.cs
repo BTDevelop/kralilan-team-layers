@@ -178,12 +178,6 @@ namespace PL.management.anaYonetim.reklamYonetimi
                         //vRklm.update(3, vReklamId, kullaniciId, reklamAdi, reklamd.reklamId, Convert.ToInt32(il), Convert.ToDateTime(baslangicTar.ToShortDateString()), Convert.ToDateTime(bitisTar.ToShortDateString()), false, true,vReklamId+"."+fileExt, txtReklamLink.Text);
                         for (int i = 0; i < updateFiles.Count; i++)
                         {
-                            bool secili = false;
-                            if (i == 0)
-                            {
-                                secili = true;
-                            }
-
                             HttpPostedFile file = updateFiles[i];
 
                             string fileName = file.FileName;

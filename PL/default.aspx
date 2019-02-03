@@ -93,17 +93,17 @@
                                     </h3>
                                     <ul class="cat-collapse collapse in cat-id-2">
                                         <li>
-                                            <a title="Anasayfa Vitrini" href='<%= String.Format("/vitrin/{0}/{1}/", BLL.PublicHelper.Tools.URLConverter("Anasayfa"), "1") %>'>Anasayfa Vitrini <%= count(1) %></a></li>
+                                            <a title="Anasayfa Vitrini" href='<%= String.Format("/vitrin/{0}/{1}/", BLL.PublicHelper.Tools.URLConverter("Anasayfa"), "1") %>'>Anasayfa Vitrini <%= SayilarDic["Anasayfa Vitrini"] %></a></li>
                                         <li>
-                                            <a title="Arama Sonuç Vitrini" href='<%= String.Format("/vitrin/{0}/{1}/", BLL.PublicHelper.Tools.URLConverter("Arama Sonuç"), "2") %>'>Arama Sonuç Vitrini <%= count(2) %></a></li>
+                                            <a title="Arama Sonuç Vitrini" href='<%= String.Format("/vitrin/{0}/{1}/", BLL.PublicHelper.Tools.URLConverter("Arama Sonuç"), "2") %>'>Arama Sonuç Vitrini <%= SayilarDic["Arama Sonuç Vitrini"] %></a></li>
                                         <li>
-                                            <a title="Acil Acil" href='<%= String.Format("/vitrin/{0}/{1}/", BLL.PublicHelper.Tools.URLConverter("Acil Acil"), "5") %>'>Acil Acil <%= count(5) %></a></li>
+                                            <a title="Acil Acil" href='<%= String.Format("/vitrin/{0}/{1}/", BLL.PublicHelper.Tools.URLConverter("Acil Acil"), "5") %>'>Acil Acil <%= SayilarDic["Acil Acil"] %></a></li>
                                         <li>
-                                            <a title="Fiyatı Düşenler" href='<%= String.Format("/vitrin/{0}/{1}/", BLL.PublicHelper.Tools.URLConverter("Fiyatı Düşen"), "8") %>'>Fiyatı Düşen <%= count(8) %></a></li>
+                                            <a title="Fiyatı Düşenler" href='<%= String.Format("/vitrin/{0}/{1}/", BLL.PublicHelper.Tools.URLConverter("Fiyatı Düşen"), "8") %>'>Fiyatı Düşen <%= SayilarDic["Fiyatı Düşen"] %></a></li>
                                         <li>
-                                            <a title="Son 48 Saat" href='<%= String.Format("/vitrin/{0}/{1}/", BLL.PublicHelper.Tools.URLConverter("Son 48 Saat"), "48") %>'>Son 48 Saat <%= count(48) %></a></li>
+                                            <a title="Son 48 Saat" href='<%= String.Format("/vitrin/{0}/{1}/", BLL.PublicHelper.Tools.URLConverter("Son 48 Saat"), "48") %>'>Son 48 Saat <%= SayilarDic["Son 48 Saat"] %></a></li>
                                         <li>
-                                            <a title="Satılanlar" href='<%= String.Format("/vitrin/{0}/{1}/", BLL.PublicHelper.Tools.URLConverter("Satılanlar"), "50") %>'>Satılanlar <%= count(50) %></a></li>
+                                            <a title="Satılanlar" href='<%= String.Format("/vitrin/{0}/{1}/", BLL.PublicHelper.Tools.URLConverter("Satılanlar"), "50") %>'>Satılanlar <%= SayilarDic["Satılanlar"] %></a></li>
                                     </ul>
                                 </div>
                             </div>
