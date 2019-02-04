@@ -34,7 +34,7 @@ namespace PL
         {
             firmaid = Convert.ToInt32(RouteData.Values["ComNo"]);
             DAL.firmalar _firma = _firmaManager.Get(firmaid);
-            Page.Title = _firma.fadi+ " Projesi kralilan.com'da";
+            Page.Title = _firma.fadi+ " Projeleri kralilan.com'da";
 
             fadi = _firma.fadi;
             ftelefon = _firma.ftelefon;
