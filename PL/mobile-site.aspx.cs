@@ -59,8 +59,15 @@ namespace PL
                 profile.Visible = false;
             }
 
-
-            SayilarList = _ilanSayiManager.GetAllCategoriByTopCategoriId(1);
+            if (Cache["SayilarCache"] != null)
+            {
+                SayilarList = Cache["SayilarCache"] as List<IlanSayi>;
+            }
+            else
+            {
+                SayilarList = _ilanSayiManager.GetAllCategoriByTopCategoriId(1);
+                Cache.Add("SayilarCache", SayilarList, null, System.Web.Caching.Cache.NoAbsoluteExpiration, new TimeSpan(0, 30, 0), System.Web.Caching.CacheItemPriority.Default, null);
+            }
 
             rpcategories.DataSource = SayilarList;
             rpcategories.DataBind();
