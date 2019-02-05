@@ -22,6 +22,7 @@ namespace PL
 
         protected void Page_Load(object sender, EventArgs e)
         {
+			Page.MetaDescription = "E mail adresinize göndereceğiniz bağlantı ile şifrenizi güvenli bir şekilde değiştirebilirsiniz.";
             _guvenlikKodManager = new GuvenlikKodManager(new LTSGuvenlikKodlarDal());
             _kullaniciManager =new KullaniciManager(new LTSKullanicilarDal());
         }

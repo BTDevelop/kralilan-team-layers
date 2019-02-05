@@ -150,6 +150,17 @@
 			<asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
 			</asp:ContentPlaceHolder>
 			<footer>
+					<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+						<!-- vitrin -->
+						<ins class="adsbygoogle"
+							 style="display:block"
+							 data-ad-client="ca-pub-9803073452171785"
+							 data-ad-slot="8979863058"
+							 data-ad-format="auto"
+							 data-full-width-responsive="true"></ins>
+						<script>
+						(adsbygoogle = window.adsbygoogle || []).push({});
+					</script>
 				<div class="footer-content" style="border-bottom: 1px solid rgba(0,0,0,0.1); border-top: 1px solid rgba(0,0,0,0.1); font-size: 14px; padding: 40px 0; color: #333; background: #f5f5f5;">
 					<div class="container">
 						<!-- tab content -->
@@ -229,7 +240,10 @@
 									<a style="width: 88px; height: 31px;" target="_blank" href="https://emlak.mitula.com.tr/homesPartners/kralilan_tr-YkR4Pl1lE4" title="A partner of a search engine tr.mitula.com">
 										<img width="88" height="31" src="https://img.mitula.net/img/mitulagroup100x21.png" alt=" tr.mitula.com">
 									</a>
-									<a style="width: 88px; height: 31px;" target="_blank" href="https://tr.flatfy.com" title="A partner of a search engine tr.flatfy.com">
+									<a style="width: 88px; height: 31px; margin:5pc;" target="_blank" href=" https://daire.trovit.com.tr/index.php/?cod=search_homes&qalt=264&order_by=source_date&type=1&what_d=xxx" title="A partner of a search engine tr.trovit.com">
+										<span class="logo-trovit"> <svg viewBox="0 0 320 122" width="60"><path d="M127.1 38.2c-20.9 0-37.8 17.7-37.8 39.5s16.9 39.5 37.8 39.5 37.8-17.7 37.8-39.5-16.9-39.5-37.8-39.5m0 56.4c-8.9 0-16.2-7.6-16.2-16.9 0-9.3 7.3-16.9 16.2-16.9 8.9 0 16.2 7.6 16.2 16.9 0 9.3-7.3 16.9-16.2 16.9M246.3 39.7h21.1v75.9h-21.1zM245.1 16.6c0-6.5 5.3-11.7 11.7-11.7 6.5 0 11.7 5.3 11.7 11.7 0 6.5-5.3 11.7-11.7 11.7-6.4 0-11.7-5.2-11.7-11.7M300.6 57.6H315V39.7h-14.4V17.9L279.5 23v64.9c0 12 1.7 29 27.5 29 3.8 0 7.4-.4 8-.5V99.7h-5.6c-4.6 0-8.8-2.5-8.8-9.7V57.6zM26.1 57.6h14.4V39.7H26.1V17.9L5 22.9v64.9c0 12 1.7 29 27.5 29 3.8 0 7.4-.4 8-.5V99.7h-5.6c-4.7 0-8.8-2.5-8.8-9.7V57.6zM201.1 88.5l15.1-48.8h23.4L214.3 108c-2.1 5.2-7.2 9.2-13.3 9.2-6.1 0-11.1-4-13.3-9.2l-25.2-68.2H186l15.1 48.7M82.7 38.2c-17.8 0-32.3 14.5-32.3 32.3v45.1h21.1v-42c0-9.4 5.8-14.5 14.5-14.5h1.9V38.2h-5.2z"></path></svg> </span>
+									</a>
+									<a style="width: 88px; height: 31px;" target="_blank" href="https://tr.flatfy.com/search?site_id=254" title="A partner of a search engine tr.flatfy.com">
 										<img width="88" height="31" src="https://static.flatfy.com/static/spa/media/logo_black_tr.42470ede.svg" alt=" tr.flatfy.com">
 									</a>
 									<%--<img src="/libraries/images/master_card.png" alt="Master Card" />
@@ -242,6 +256,17 @@
 						</div>
 					</div>
 				</div>
+				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+						<!-- vitrin -->
+						<ins class="adsbygoogle"
+							 style="display:block"
+							 data-ad-client="ca-pub-9803073452171785"
+							 data-ad-slot="8979863058"
+							 data-ad-format="auto"
+							 data-full-width-responsive="true"></ins>
+						<script>
+						(adsbygoogle = window.adsbygoogle || []).push({});
+					</script>
 			</footer>
 		</div>
 		<a href="#" id="back-to-top" style="color: #fff;" class="fa fa-angle-up fa-4x" title="En üste git"></a>

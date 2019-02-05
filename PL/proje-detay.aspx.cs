@@ -105,8 +105,10 @@ namespace PL
                     _instplan = "afdc488e57b215a2.jpg";
 
                 Page.Title = _inproname + " Projesi kralilan.com'da";
+				Page.MetaDescription = _inproname + " Projesi ve tüm detaylarına kralilan.com'da bu sayfadan ulaşabilirisiniz.";
 
-                galery = (List<BLL.ExternalClass.resimDataType>)DAL.toolkit.GetObjectInXml(_ingalery, typeof(List<BLL.ExternalClass.resimDataType>));
+
+				galery = (List<BLL.ExternalClass.resimDataType>)DAL.toolkit.GetObjectInXml(_ingalery, typeof(List<BLL.ExternalClass.resimDataType>));
 
                 rpgalery.DataSource = galery.ToList();
                 rpgalery.DataBind();

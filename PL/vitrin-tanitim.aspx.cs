@@ -11,7 +11,7 @@ namespace PL
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-        }
+			Page.MetaDescription = "İlanlarınız vitrinlerde çok daha fazla kişi tarafından görüntülenir ve alıcısına hızlıca ulaşır. Böylece siz de en kısa sürede satar veya kiralarsınız.";
+		}
     }
 }

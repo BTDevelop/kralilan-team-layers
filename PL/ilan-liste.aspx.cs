@@ -32,8 +32,8 @@ namespace PL
         public int categoryId;
         List<CategoriCS> lstCategory = new List<CategoriCS>();
         List<TypeAds> lstType = new List<TypeAds>();
-        private string pageTitle = "";
-        private string pageMetaDesc = "ilanları ile bankadan, belediyeden, icradan, hazineden kısacası tüm kamu kurumlarından emlak ilanları kral ilan da";
+		public string pageTitle = "";
+        private string pageMetaDesc = " ilanları ile bankadan, belediyeden, icradan, hazineden kısacası tüm kamu kurumlarından emlak ilanları kral ilan da";
 
         private IOzellikService _ozellikManager;
         private IKategoriTurService _kategoriTurManager;
@@ -66,6 +66,15 @@ namespace PL
                     catname = categoryControl.kategoriAdi;
                     categoryId = categoryControl.kategoriId;
                 }
+				else{
+					urlParamCategory = RouteData.Values["Tur"].ToString().Split('-').Last() + "-" + urlParamCategory;
+					categoryControl = lstCategory.Where(x => x.kateogoriTip == urlParamCategory).FirstOrDefault();
+					if (categoryControl != null)
+					{
+						catname = categoryControl.kategoriAdi;
+						categoryId = categoryControl.kategoriId;
+					}
+				}
             }
 
             if (RouteData.Values["Tur"].ToString() != null)
@@ -165,7 +174,7 @@ namespace PL
 
                     if (value != null)
                     {
-                        pageTitle = value.TypeName + " " + pageTitle;
+                        pageTitle = pageTitle + " " + value.TypeName;
                     }
                     else
                     {
@@ -190,7 +199,7 @@ namespace PL
                                         .FirstOrDefault();
 
 
-                                    pageTitle = valueCityArea.CityArea + " " + pageTitle;
+                                    pageTitle = pageTitle + " " + valueCityArea.CityArea;
                                 }
                                 else
                                 {
@@ -200,19 +209,20 @@ namespace PL
                                         .FirstOrDefault();
 
 
-                                    pageTitle = valueCityArea.CityArea + " " + pageTitle;
+                                    pageTitle = pageTitle + " " + valueCityArea.CityArea;
                                 }
                             }
                             else
                             {
                                 string city = location.Split('-')[1];
+								//string city = location.Replace("-"," ");
 
-                                var valueCity = ilceBLL.getUTFList().Where(x => x.CityUTF == city)
+								var valueCity = ilceBLL.getUTFList().Where(x => x.CityUTF == city)
                                     .FirstOrDefault();
 
 
-                                pageTitle = valueCity.City + " " + pageTitle;
-                            }
+								pageTitle = pageTitle + " " + valueCity.City;
+							}
                         }
                         else
                         {
@@ -221,14 +231,15 @@ namespace PL
                                 .FirstOrDefault();
 
 
-                            pageTitle = valueRegion.Url + " " + pageTitle;
-                        }
+							pageTitle = pageTitle + " " + valueRegion.IlAdi;
+
+						}
                     }
                 }
             }
 
 
-            Page.Title = pageTitle + "Fiyatları ve İlanları kralilan.com'da";
+            Page.Title = pageTitle + " İlanları ve Fiyatları kralilan.com'da";
             Page.MetaDescription = pageTitle + pageMetaDesc;
 
             CreateDynamicFilterControls(categoryId.ToString());

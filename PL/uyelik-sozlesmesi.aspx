@@ -17,7 +17,7 @@
         <div class="container">
             <div class="section-content">
                 <div class="row ">
-                    <h1 class="text-center ">kralilan.com <strong>Üyelik Sözleşmesi</strong></h1>
+                    <h2 class="text-center" style="font-size:24px;">kralilan.com <strong>Üyelik Sözleşmesi</strong></h2>
                     <hr class="center-block small text-hr">
                 </div>
                 <div class="faq-content">
