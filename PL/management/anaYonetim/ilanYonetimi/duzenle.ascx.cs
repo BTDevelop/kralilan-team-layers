@@ -37,6 +37,8 @@ namespace PL.management.anaYonetim.ilanYonetimi
                     onay;
 
         public bool silindi = false;
+        public bool satildiMi = false;
+
 
         public string ctrl = "-1", mailaddress = "", status = "";
 
@@ -556,6 +558,13 @@ namespace PL.management.anaYonetim.ilanYonetimi
                     silindi = true;
 
                 }
+                else if (ctrl == "6")
+                {
+                    onay = 1;
+                    silindi = true;
+                    satildiMi = true;
+                }
+
             }
             else
             {
@@ -902,7 +911,7 @@ namespace PL.management.anaYonetim.ilanYonetimi
                 aciklama = txtCKeditorAdi.Text,
                 magazaId = Convert.ToInt32(drpKimden.SelectedValue),
                 onay = onay,
-                satildiMi = false,
+                satildiMi = satildiMi,
                 numaraYayinlansinMi = outprivacy,
                 koordinat = coordinates,
                 girilenOzellik = txtstr,

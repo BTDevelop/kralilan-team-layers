@@ -95,7 +95,7 @@ namespace PL
                 else
                 {
                     AnasayfaVitrinList = _seciliDopingManager.GetAllByDopingId(1);
-                    Cache.Add("AnasayfaVitrinCache", AnasayfaVitrinList, null, System.Web.Caching.Cache.NoAbsoluteExpiration, new TimeSpan(1, 0, 0), System.Web.Caching.CacheItemPriority.Default, null);
+                    Cache.Add("AnasayfaVitrinCache", AnasayfaVitrinList, null, System.Web.Caching.Cache.NoAbsoluteExpiration, new TimeSpan(0, 5, 0), System.Web.Caching.CacheItemPriority.Default, null);
                 }
 
                 rphomeshowcase.DataSource = AnasayfaVitrinList;
@@ -109,7 +109,7 @@ namespace PL
                 else
                 {
                     AcilVitrinList = _seciliDopingManager.GetAllByDopingId(5);
-                    Cache.Add("AcilVitrinCache", AcilVitrinList, null, System.Web.Caching.Cache.NoAbsoluteExpiration, new TimeSpan(1, 0, 0), System.Web.Caching.CacheItemPriority.Default, null);
+                    Cache.Add("AcilVitrinCache", AcilVitrinList, null, System.Web.Caching.Cache.NoAbsoluteExpiration, new TimeSpan(0, 15, 0), System.Web.Caching.CacheItemPriority.Default, null);
                 }
 
                 rpemergencyshowcase.DataSource = AcilVitrinList;
@@ -122,7 +122,7 @@ namespace PL
                 else
                 {
                     Son48List = _ilanManager.GetByLastDate();
-                    Cache.Add("Son48Cache", Son48List, null, System.Web.Caching.Cache.NoAbsoluteExpiration, new TimeSpan(0, 30, 0), System.Web.Caching.CacheItemPriority.Default, null);
+                    Cache.Add("Son48Cache", Son48List, null, System.Web.Caching.Cache.NoAbsoluteExpiration, new TimeSpan(0, 15, 0), System.Web.Caching.CacheItemPriority.Default, null);
                 }
                 
                 rplast48showcase.DataSource = Son48List;
@@ -135,7 +135,7 @@ namespace PL
                 else
                 {
                     SatilanlarList = _ilanSatilanManager.GetBySale();
-                    Cache.Add("SatilanlarCache", SatilanlarList, null, System.Web.Caching.Cache.NoAbsoluteExpiration, new TimeSpan(2, 0, 0), System.Web.Caching.CacheItemPriority.Default, null);
+                    Cache.Add("SatilanlarCache", SatilanlarList, null, System.Web.Caching.Cache.NoAbsoluteExpiration, new TimeSpan(1, 0, 0), System.Web.Caching.CacheItemPriority.Default, null);
                 }
 
                 rpsales.DataSource = SatilanlarList;
@@ -165,7 +165,7 @@ namespace PL
                     SayilarDic.Add("Fiyatı Düşen", String.Format("({0:N0})", _seciliDopingManager.CountByDopingId(8)));
                     SayilarDic.Add("Son 48 Saat", String.Format("({0:N0})", _ilanManager.CountLastDate()));
                     SayilarDic.Add("Satılanlar", String.Format("({0:N0})", _ilanSatilanManager.Count()));
-                    Cache.Add("SayilarDicCache", SayilarDic, null, System.Web.Caching.Cache.NoAbsoluteExpiration, new TimeSpan(1, 0, 0), System.Web.Caching.CacheItemPriority.Default, null);
+                    Cache.Add("SayilarDicCache", SayilarDic, null, System.Web.Caching.Cache.NoAbsoluteExpiration, new TimeSpan(0, 30, 0), System.Web.Caching.CacheItemPriority.Default, null);
                 }
             }
         }

@@ -700,8 +700,7 @@ namespace BLL
                                 ilAdi = i.iller.ilAdi,
                                 baslik = i.padi,
                                 satisTarihi1 = String.Format(" {0:dd MMMM yyyy}", i.ptarih),
-                                aciklama = @"<a class='btn btn-primary btn-xs' target='_blank' href='/proje/" + PublicHelper.Tools.URLConverter(i.padi) + "/" + i.projeid + @"/detay'>Görüntüle</a>
-                                <a class='btn btn-warning btn-xs' target='_blank' href='/management/anaYonetim/projeYonetimi/proje.aspx?page=duzenle&proje=" + i.projeid + @"'>Düzenle</a>"
+                                aciklama = String.Format("<a class='btn btn-primary btn-xs' target='_blank' href='/proje/{0}/{1}/detay'>Görüntüle</a><a class='btn btn-warning btn-xs' target='_blank' href='/management/anaYonetim/projeYonetimi/proje.aspx?page=duzenle&proje={1}'>Düzenle</a>", PublicHelper.Tools.URLConverter(i.padi),i.projeid)
                             };
 
 
