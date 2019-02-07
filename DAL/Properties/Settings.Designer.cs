@@ -26,8 +26,7 @@ namespace DAL.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=109.232.221.95;Initial Catalog=ilanDB;Persist Security Info=True;User" +
-            " ID=sa;Password=ki3847384WB343")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=ilanDB;Integrated Security=True")]
         public string ilanDBConnectionString {
             get {
                 return ((string)(this["ilanDBConnectionString"]));
