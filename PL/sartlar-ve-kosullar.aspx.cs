@@ -11,7 +11,7 @@ namespace PL
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+			Page.MetaDescription = "kralila.com u kullanma şartlarının ve koşullarının detaylarına bu sayfadan ulaşabilrisiniz.";
         }
     }
 }

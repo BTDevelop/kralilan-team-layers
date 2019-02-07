@@ -17,8 +17,9 @@
       <div class="search-row-wrapper" style="background: url('/libraries/images/bg.png') repeat left top;">
         <div class="container ">
             <div class="col-md-12">
-                <h1 class="intro-title animated fadeInDown text-center"><span class="ion ion-pause" style="margin-right: 15px;"></span><span class="text-title"><%= typename %>  <%= catname %></span></h1>
+                <h1 class="intro-title animated fadeInDown text-center"><%= pageTitle %> </h1>
             </div>
+			<%--<span class="ion ion-pause" style="margin-right: 15px;"></span><span class="text-title"><%= typename %>  <%= catname %></span>--%>
             <span style="visibility: hidden;" class="hidden-intro"><%= typename %> <%= catname %></span>
             <span style="visibility: hidden;" class="hidden-category"><%= typename %>/<%= catname %></span>
         </div>
@@ -250,7 +251,6 @@
                     $("#filtre-btn").css("width", "200px");
                     $("#filtre-btn").css("margin-left", "-7px");
                 }
-
                 if ($(window).scrollTop() - $("#filtre").height() < -531) {
                     $("#filtre-btn").css("position", "fixed");
                     $("#filtre-btn").css("z-index", "999999");

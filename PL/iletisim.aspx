@@ -43,7 +43,7 @@
             <div class="row clearfix">
                 <div class="col-md-6">
                     <div class="contact_info">
-                        <h5 class="list-title gray"><strong>İLETİŞİM</strong></h5>
+                        <h1 class="list-title gray"><strong>İLETİŞİM</strong></h1>
                         <div class="contact-info ">
                             <div class="address">
                                 <p class="p1"><strong>Ünvan:</strong> Yatırımcı Bilgi Merkezi - YABİMER</p>
@@ -120,7 +120,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="contact-form">
-                        <h5 class="list-title gray"><strong>Bİze Yazın</strong></h5>
+                        <h2 class="list-title gray"><strong>Bİze Yazın</strong></h2>
                         <div class="form-horizontal" method="post">
                             <fieldset>
                                 <div class="row">

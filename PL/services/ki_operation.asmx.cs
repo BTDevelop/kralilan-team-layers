@@ -271,8 +271,10 @@ namespace PL.Services
             }
             catch (Exception ex)
             {
-                return ex.ToString();
-            }
+				return "";
+				//return ex.ToString();
+
+			}
         }
 
         /// <summary>

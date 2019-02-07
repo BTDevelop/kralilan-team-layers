@@ -93,17 +93,17 @@
                                     </h3>
                                     <ul class="cat-collapse collapse in cat-id-2">
                                         <li>
-                                            <a title="Anasayfa Vitrini" href='<%= String.Format("/vitrin/{0}/{1}/", BLL.PublicHelper.Tools.URLConverter("Anasayfa"), "1") %>'>Anasayfa Vitrini <%= SayilarDic["Anasayfa Vitrini"] %></a></li>
+                                            <a title="Anasayfa Vitrini" href='<%= String.Format("/vitrin/{0}/{1}", BLL.PublicHelper.Tools.URLConverter("Anasayfa"), "1") %>'>Anasayfa Vitrini <%= SayilarDic["Anasayfa Vitrini"] %></a></li>
                                         <li>
-                                            <a title="Arama Sonuç Vitrini" href='<%= String.Format("/vitrin/{0}/{1}/", BLL.PublicHelper.Tools.URLConverter("Arama Sonuç"), "2") %>'>Arama Sonuç Vitrini <%= SayilarDic["Arama Sonuç Vitrini"] %></a></li>
+                                            <a title="Arama Sonuç Vitrini" href='<%= String.Format("/vitrin/{0}/{1}", BLL.PublicHelper.Tools.URLConverter("Arama Sonuç"), "2") %>'>Arama Sonuç Vitrini <%= SayilarDic["Arama Sonuç Vitrini"] %></a></li>
                                         <li>
-                                            <a title="Acil Acil" href='<%= String.Format("/vitrin/{0}/{1}/", BLL.PublicHelper.Tools.URLConverter("Acil Acil"), "5") %>'>Acil Acil <%= SayilarDic["Acil Acil"] %></a></li>
+                                            <a title="Acil Acil" href='<%= String.Format("/vitrin/{0}/{1}", BLL.PublicHelper.Tools.URLConverter("Acil Acil"), "5") %>'>Acil Acil <%= SayilarDic["Acil Acil"] %></a></li>
                                         <li>
-                                            <a title="Fiyatı Düşenler" href='<%= String.Format("/vitrin/{0}/{1}/", BLL.PublicHelper.Tools.URLConverter("Fiyatı Düşen"), "8") %>'>Fiyatı Düşen <%= SayilarDic["Fiyatı Düşen"] %></a></li>
+                                            <a title="Fiyatı Düşenler" href='<%= String.Format("/vitrin/{0}/{1}", BLL.PublicHelper.Tools.URLConverter("Fiyatı Düşen"), "8") %>'>Fiyatı Düşen <%= SayilarDic["Fiyatı Düşen"] %></a></li>
                                         <li>
-                                            <a title="Son 48 Saat" href='<%= String.Format("/vitrin/{0}/{1}/", BLL.PublicHelper.Tools.URLConverter("Son 48 Saat"), "48") %>'>Son 48 Saat <%= SayilarDic["Son 48 Saat"] %></a></li>
+                                            <a title="Son 48 Saat" href='<%= String.Format("/vitrin/{0}/{1}", BLL.PublicHelper.Tools.URLConverter("Son 48 Saat"), "48") %>'>Son 48 Saat <%= SayilarDic["Son 48 Saat"] %></a></li>
                                         <li>
-                                            <a title="Satılanlar" href='<%= String.Format("/vitrin/{0}/{1}/", BLL.PublicHelper.Tools.URLConverter("Satılanlar"), "50") %>'>Satılanlar <%= SayilarDic["Satılanlar"] %></a></li>
+                                            <a title="Satılanlar" href='<%= String.Format("/vitrin/{0}/{1}", BLL.PublicHelper.Tools.URLConverter("Satılanlar"), "50") %>'>Satılanlar <%= SayilarDic["Satılanlar"] %></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -120,7 +120,7 @@
                                 <div class="inner">
                                     <p>
                                         <span>ANASAYFA</span>
-                                        VİTRİNİ <a title="Anasayfa Vitrini" href='<%= String.Format("/vitrin/{0}/{1}/","anasayfa", "1") %>' class="sell-your-item">TÜMÜNÜ GÖSTER <i
+                                        VİTRİNİ <a title="Anasayfa Vitrini" href='<%= String.Format("/vitrin/{0}/{1}","anasayfa", "1") %>' class="sell-your-item">TÜMÜNÜ GÖSTER <i
                                             class="  icon-th-list"></i></a>
                                     </p>
                                 </div>
@@ -217,7 +217,7 @@
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="category" style="background-image: url('../libraries/images/hazineden kiralık satılık daire arsa emlak.jpg');">
-                                                <a title="Hazineden Satılık Daireler" href="/liste/satilik-daire/milli-hazineden-(satisi-devam-eden)" class="category-link">
+                                                <a title="Hazineden Satılık Daireler" href="/liste/satilik-daire/milli-hazineden-guncel" class="category-link">
                                                     <div class="category-content-1">
                                                         <h2 class="category-title">Hazineden Satılık Daire</h2>
                                                         <span class="btn btn-primary">Daireleri Gör</span>
@@ -227,7 +227,7 @@
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="category" style="background-image: url('../libraries/images/kamudan kiralık satılık daire arsa emlak.jpg');">
-                                                <a href="/liste/satilik-daire/diger-kamu-kurumlarindan" class="category-link">
+                                                <a href="/liste/satilik-daire/kamu-kurumlarindan" class="category-link">
                                                     <div class="category-content-1">
                                                         <h2 class="category-title" style="margin-top: -24px;">Kamu Kurumlarından Satılık Daire</h2>
                                                         <span class="btn btn-primary">Daireleri Gör</span>
@@ -271,7 +271,7 @@
                                 <div class="inner">
                                     <p>
                                         <span>ACİL </span>
-                                        ACİL VİTRİNİ<a title="Acil Acil" href='<%= String.Format("/vitrin/{0}/{1}/", "acil-acil", "5") %>' class="sell-your-item">TÜMÜNÜ GÖSTER <i
+                                        ACİL VİTRİNİ<a title="Acil Acil" href='<%= String.Format("/vitrin/{0}/{1}", "acil-acil", "5") %>' class="sell-your-item">TÜMÜNÜ GÖSTER <i
                                             class="  icon-th-list"></i></a>
                                     </p>
                                 </div>
@@ -305,14 +305,24 @@
                     </div>
                     <%--  <div id="specialwithplace2" class="text-center" runat="server">
                     </div>--%>
-					
+					<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+						<!-- vitrin -->
+						<ins class="adsbygoogle"
+							 style="display:block"
+							 data-ad-client="ca-pub-9803073452171785"
+							 data-ad-slot="8979863058"
+							 data-ad-format="auto"
+							 data-full-width-responsive="true"></ins>
+						<script>
+						(adsbygoogle = window.adsbygoogle || []).push({});
+					</script>
                     <div class="col-lg-12 content-box ">
                         <div class="row row-featured">
                             <div class="col-lg-12 col-md-12 box-title ">
                                 <div class="inner">
                                     <p>
                                         <span>SON </span>
-                                        48 SAAT VİTRİNİ<a title="Son 48 Saat" href='<%= String.Format("/vitrin/{0}/{1}/", BLL.PublicHelper.Tools.URLConverter("Son 48 Saat"), "48") %>' class="sell-your-item">TÜMÜNÜ GÖSTER <i
+                                        48 SAAT VİTRİNİ<a title="Son 48 Saat" href='<%= String.Format("/vitrin/{0}/{1}", BLL.PublicHelper.Tools.URLConverter("Son 48 Saat"), "48") %>' class="sell-your-item">TÜMÜNÜ GÖSTER <i
                                             class="  icon-th-list"></i></a>
                                     </p>
                                 </div>
@@ -424,7 +434,7 @@
                     <div class="inner-box relative">
                         <p class="title-2 headline" style="text-transform: uppercase">
                             SATILANLAR  
-                            <a title="Satılanlar" href='<%= String.Format("/vitrin/{0}/{1}/", BLL.PublicHelper.Tools.URLConverter("Satılanlar"), "50") %>' class="sell-your-item">TÜMÜNÜ GÖSTER <i
+                            <a title="Satılanlar" href='<%= String.Format("/vitrin/{0}/{1}", BLL.PublicHelper.Tools.URLConverter("Satılanlar"), "50") %>' class="sell-your-item">TÜMÜNÜ GÖSTER <i
                                 class="icon-th-list"></i></a>
                         </p>
                         <div class="row">
@@ -889,18 +899,18 @@
                                         <div class="footer-col">
                                             <p class="footer-title">Daire</p>
                                             <ul class="list-unstyled footer-nav">
-                                                <li><a title="Hazineden İstanbul Satılık Daire" href="/liste/satilik/1/daire/8/#/istanbul/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX1/P1b/5Y+FGqlo1TiTWD8lwOiHtgMizxJDVZ64FoCJwOiAw1SGB9ISsy2GHjbyfweoV/uZEg+GqpZC5clJ9C7dp3AXevN1+LFOR59tZ+i7myx89JWYvInKqGizijeyjveCrEIcxaQxeAAwHG+sCk6KFDqErCdb32SvdI7A9pZ56pag7qUrLim8Qwc4rPA+4mG9d4YrqL142Rv1uOepYxbrZolpwgp2OIXc=">İstanbul Satılık Daire</a></li>
-                                                <li><a title="Hazineden Ankara Satılık Daire" href="/liste/satilik/1/daire/8/#/ankara/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX18+nutJ0dNcRT2EN6glr46hNga/YH9aqblm9CoTCvskT+y2PA2HvvoL2kGVlalOGHJ55XrprlC19ApvY2NDVOFE95VCYeG0guO+QupWmsVZWzuDuShCSrDv2kjtWo2lGPoMaAwhxhHoXs+gPiIDunxjQbTMTDY8hQhnS0MrBfn8Rvr2YTKq+68bk1yGru/eT4kuNQ2sPU1iZi3IiAeNprAsJ7+59+49hag=">Ankara Satılık Daire</a></li>
-                                                <li><a title="Hazineden İzmir Satılık Daire" href="/liste/satilik/1/daire/8/#/izmir/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX1/MXGCHsdMC2WM5YB2se0IIlYAV1HxGHHZj4qkIpilNsJ16M9NHuFK9/eHTEqJkEn53g9SUy7eC5K2TiSEZqsgtPKNPTyNn5reEL+/rnvot4bm9FslQo35si5PsJ8t76YMzehLjqgaiHbQ+mHVweW3VzeFfuxCAGBjY2nS9PW/ur/uFD9yS7m+JnokxshH7T9xkF+GcO2rkJ/Qk3baSt/2URuzww6D3iOM=">İzmir Satılık Daire</a></li>
-                                                <li><a title="Hazineden Bursa Satılık Daire" href="/liste/satilik/1/daire/8/#/bursa/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX19TQTC1ts1isHJrf1BaLTxF8vVAeWMWeEcbafkgp4yMok5E/9oXmqdunxDfgYhAqqx0mvcYlmPAj+VLA3289bQI2pS7cV3mkuaJ2E0y2F0HOYQ75jZT+fVGzwd2HoiM/CxZ2JJm4+MgZJu4sqR5T01OSLGacjDxc5uPvqoxDm3296TX6fFSZPSjBBM/pZB1zVYr5T6I0b4sTNAWa+6jz/Ht4Ndw8x0ieAU=">Bursa Satılık Daire</a></li>
-                                                <li><a title="Hazineden Antalya Satılık Daire" href="/liste/satilik/1/daire/8/#/antalya/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX19uaQ8vXLIPqVrC6pKm5Zd9MZAptBiFcPgxbnYVLyba25Ix7ChzDsfxDXcXTRhbQAe/SSdiulHgdvM/DL/XxDqyRJmT9kEsuqKuSV7LYycSee9ML897mTAYwGgPt5Smh7riuyKdi1L3lFmqeTyGZEnGkpkaO7UKzejZsqMq1s1QBQj/vD0/4eOeXBCSqRMrFMSI5QEFxHdWHrV4et5BCmSJBh9WwyYoNps=">Antalya Satılık Daire</a></li>
-                                                <li><a title="Hazineden Adana Satılık Daire" href="/liste/satilik/1/daire/8/#/adana/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX19dMYlyw5qOzcJAVNrQMMr0SP7Hc7scXOVu2IdP5a0qDeodIfH73R56D8WXjHz6Qu474MlWHbLo3A3pabAoEDu8I4A9YadE9u3oOvSq1K4HkWbZmRoE4Hy0boKAD5bwmQLrlrk0uAoEyEdeMFIrUiBKe3BrauoOHlg75QH3PIzif/RPvB/2LEz7wxJP9ut0MMbRr8zkEP8J6OK7a6yWDrDu1AWs7/4wSRc=">Adana Satılık Daire</a></li>
-                                                <li><a title="Hazineden İstanbul Kiralık Daire" href="/liste/kiralik/2/daire/8/#/istanbul/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX1+/bow8PMdvG7Q1ttIxEE9SKgVU+FUuY4VvnCrEPPtxTAUXKQXyqWDPRP6aI0qtYnJofqxVieuCH3DARR9t9h86Wt0ydQCAi9vgyfJJiGBgMIxwlqW8rN8WA3+s/YziucyIo86y/pMciU5Mypm9ghofZCqiAwSuyQt0H//Um+CZ+J7Tba/awPCZfOAlBApeFEDGv7FhrmL8taWkRz+YAg2ZycVA7s9J0RU=">İstanbul Kiralık Daire</a></li>
-                                                <li><a title="Hazineden Ankara Kiralık Daire" href="/liste/kiralik/2/daire/8/#/ankara/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX19GPtUr0o5RqbwakAYuJYrSZATSqByzI6cJcwf/p1aK5dQiOQfBthSTv/em9lN6Zw420Vv9rnLinVtwrF7vq3aCEBCzbQ6uEwGBaOGE35qusJWeqAcwGxvwXBdgkBalq3NYSR03IxaQNckgQqjXBKuuMMJH3AHOyropX2ZgP29mqc3zYoJCtQsUSVES+NDmYb2Q0t3M2hSKflwLktezMk7P4uIJFPyL97w=">Ankara Kiralık Daire</a></li>
-                                                <li><a title="Hazineden İzmir Kiralık Daire" href="/liste/kiralik/2/daire/8/#/izmir/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX1/PO4oNOvwNVVLpc0ZYJOOutc8NJoTMZXuDtX2nx4cnDneZc3SQInHzVsBZ/WRx/Bl6/ZshTAd/mp47SRyw7CRTZnqOQ2nit5I4BVxHw6A8PAJmAxFnFrcKpXedgGYanQVH1TZL42Lj9d+uFTOSddtTDdqwTPD1dRSNgxaq9OgbBXV9J3fwVqk85rIF5WJjy8YZkxCM0bbUdGYFXi9vYzOTTLXxvWxNXAg=">İzmir Kiralık Daire</a></li>
-                                                <li><a title="Hazineden Bursa Kiralık Daire" href="/liste/kiralik/2/daire/8/#/bursa/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX19LnlelR4oryMbPUxMHYUWEgCjumuxk9a0NcVUCj8Q4+18DgGb5Z3vViq96simAvFuMHDI8FJ6gXL6sUfAPsZiTPbGQ8uhkpUz2ntHhLwMKsQvzmfoUtE4DiLLyxMFnq2wlHtxuNuU2H6OzViVGHxRtNnI0m+tMaLYiFBGxxXtLFVUgpWWfrHBVaCSQ6oRgaz4PQp7/NRX4pj80wo7/jLmyvci5Gmi0GDI=">Bursa Kiralık Daire</a></li>
-                                                <li><a title="Hazineden Antalya Kiralık Daire" href="/liste/kiralik/2/daire/8/#/antalya/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX1+q2qr0zFjyuSdCQMSwC4hn4R9f/Sgs/Pbga2TK0r1LhMoKnD3GwRBwOz9rRCsvHc26LIp8ABxomvN8703Rb9dsUixmgNWpZHLu4BuNdd3qDKqS+HGa4F3ab0glgC65yQlaZyvr1QqIQZtkyCUljaAgDYioEIosfe/Jzm8DTPE6oxUC9a7KeUfDJeByefNucH+U0wcIfkEMFPwsZfXDFSz2hkpvJwztD4E=">Antalya Kiralık Daire</a></li>
-                                                <li><a title="Hazineden Adana Kiralık Daire" href="/liste/kiralik/2/daire/8/#/adana/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX1+yrooRzVN0ZYRJp9v8qfC7wCC9rYcy4Lv3skmpcTRznipASYrFs9T98ueoK+RodgyL+/2rr1p3m7Rg+/1HaE841XSfbWckQyUVr7SAwgaFan6EvHRbtUbFG9Mw6IJrYSIMVT87tKHL6ukNfdcTUA/Y/TVLVNlzf24gDwSdrG5wgxy1W8qMW5P+CpkZtlUuG+BezvtNyVzvGx49yW4N+aXVx+1RBpnrmqM=">Adana Kiralık Daire</a></li>
+                                                <li><a title="Hazineden İstanbul Satılık Daire" href="/liste/satilik/1/daire/8/#/istanbul/milli-hazineden-guncel/_objectdata_U2FsdGVkX1/P1b/5Y+FGqlo1TiTWD8lwOiHtgMizxJDVZ64FoCJwOiAw1SGB9ISsy2GHjbyfweoV/uZEg+GqpZC5clJ9C7dp3AXevN1+LFOR59tZ+i7myx89JWYvInKqGizijeyjveCrEIcxaQxeAAwHG+sCk6KFDqErCdb32SvdI7A9pZ56pag7qUrLim8Qwc4rPA+4mG9d4YrqL142Rv1uOepYxbrZolpwgp2OIXc=">İstanbul Satılık Daire</a></li>
+                                                <li><a title="Hazineden Ankara Satılık Daire" href="/liste/satilik/1/daire/8/#/ankara/milli-hazineden-guncel/_objectdata_U2FsdGVkX18+nutJ0dNcRT2EN6glr46hNga/YH9aqblm9CoTCvskT+y2PA2HvvoL2kGVlalOGHJ55XrprlC19ApvY2NDVOFE95VCYeG0guO+QupWmsVZWzuDuShCSrDv2kjtWo2lGPoMaAwhxhHoXs+gPiIDunxjQbTMTDY8hQhnS0MrBfn8Rvr2YTKq+68bk1yGru/eT4kuNQ2sPU1iZi3IiAeNprAsJ7+59+49hag=">Ankara Satılık Daire</a></li>
+                                                <li><a title="Hazineden İzmir Satılık Daire" href="/liste/satilik/1/daire/8/#/izmir/milli-hazineden-guncel/_objectdata_U2FsdGVkX1/MXGCHsdMC2WM5YB2se0IIlYAV1HxGHHZj4qkIpilNsJ16M9NHuFK9/eHTEqJkEn53g9SUy7eC5K2TiSEZqsgtPKNPTyNn5reEL+/rnvot4bm9FslQo35si5PsJ8t76YMzehLjqgaiHbQ+mHVweW3VzeFfuxCAGBjY2nS9PW/ur/uFD9yS7m+JnokxshH7T9xkF+GcO2rkJ/Qk3baSt/2URuzww6D3iOM=">İzmir Satılık Daire</a></li>
+                                                <li><a title="Hazineden Bursa Satılık Daire" href="/liste/satilik/1/daire/8/#/bursa/milli-hazineden-guncel/_objectdata_U2FsdGVkX19TQTC1ts1isHJrf1BaLTxF8vVAeWMWeEcbafkgp4yMok5E/9oXmqdunxDfgYhAqqx0mvcYlmPAj+VLA3289bQI2pS7cV3mkuaJ2E0y2F0HOYQ75jZT+fVGzwd2HoiM/CxZ2JJm4+MgZJu4sqR5T01OSLGacjDxc5uPvqoxDm3296TX6fFSZPSjBBM/pZB1zVYr5T6I0b4sTNAWa+6jz/Ht4Ndw8x0ieAU=">Bursa Satılık Daire</a></li>
+                                                <li><a title="Hazineden Antalya Satılık Daire" href="/liste/satilik/1/daire/8/#/antalya/milli-hazineden-guncel/_objectdata_U2FsdGVkX19uaQ8vXLIPqVrC6pKm5Zd9MZAptBiFcPgxbnYVLyba25Ix7ChzDsfxDXcXTRhbQAe/SSdiulHgdvM/DL/XxDqyRJmT9kEsuqKuSV7LYycSee9ML897mTAYwGgPt5Smh7riuyKdi1L3lFmqeTyGZEnGkpkaO7UKzejZsqMq1s1QBQj/vD0/4eOeXBCSqRMrFMSI5QEFxHdWHrV4et5BCmSJBh9WwyYoNps=">Antalya Satılık Daire</a></li>
+                                                <li><a title="Hazineden Adana Satılık Daire" href="/liste/satilik/1/daire/8/#/adana/milli-hazineden-guncel/_objectdata_U2FsdGVkX19dMYlyw5qOzcJAVNrQMMr0SP7Hc7scXOVu2IdP5a0qDeodIfH73R56D8WXjHz6Qu474MlWHbLo3A3pabAoEDu8I4A9YadE9u3oOvSq1K4HkWbZmRoE4Hy0boKAD5bwmQLrlrk0uAoEyEdeMFIrUiBKe3BrauoOHlg75QH3PIzif/RPvB/2LEz7wxJP9ut0MMbRr8zkEP8J6OK7a6yWDrDu1AWs7/4wSRc=">Adana Satılık Daire</a></li>
+                                                <li><a title="Hazineden İstanbul Kiralık Daire" href="/liste/kiralik/2/daire/8/#/istanbul/milli-hazineden-guncel/_objectdata_U2FsdGVkX1+/bow8PMdvG7Q1ttIxEE9SKgVU+FUuY4VvnCrEPPtxTAUXKQXyqWDPRP6aI0qtYnJofqxVieuCH3DARR9t9h86Wt0ydQCAi9vgyfJJiGBgMIxwlqW8rN8WA3+s/YziucyIo86y/pMciU5Mypm9ghofZCqiAwSuyQt0H//Um+CZ+J7Tba/awPCZfOAlBApeFEDGv7FhrmL8taWkRz+YAg2ZycVA7s9J0RU=">İstanbul Kiralık Daire</a></li>
+                                                <li><a title="Hazineden Ankara Kiralık Daire" href="/liste/kiralik/2/daire/8/#/ankara/milli-hazineden-guncel/_objectdata_U2FsdGVkX19GPtUr0o5RqbwakAYuJYrSZATSqByzI6cJcwf/p1aK5dQiOQfBthSTv/em9lN6Zw420Vv9rnLinVtwrF7vq3aCEBCzbQ6uEwGBaOGE35qusJWeqAcwGxvwXBdgkBalq3NYSR03IxaQNckgQqjXBKuuMMJH3AHOyropX2ZgP29mqc3zYoJCtQsUSVES+NDmYb2Q0t3M2hSKflwLktezMk7P4uIJFPyL97w=">Ankara Kiralık Daire</a></li>
+                                                <li><a title="Hazineden İzmir Kiralık Daire" href="/liste/kiralik/2/daire/8/#/izmir/milli-hazineden-guncel/_objectdata_U2FsdGVkX1/PO4oNOvwNVVLpc0ZYJOOutc8NJoTMZXuDtX2nx4cnDneZc3SQInHzVsBZ/WRx/Bl6/ZshTAd/mp47SRyw7CRTZnqOQ2nit5I4BVxHw6A8PAJmAxFnFrcKpXedgGYanQVH1TZL42Lj9d+uFTOSddtTDdqwTPD1dRSNgxaq9OgbBXV9J3fwVqk85rIF5WJjy8YZkxCM0bbUdGYFXi9vYzOTTLXxvWxNXAg=">İzmir Kiralık Daire</a></li>
+                                                <li><a title="Hazineden Bursa Kiralık Daire" href="/liste/kiralik/2/daire/8/#/bursa/milli-hazineden-guncel/_objectdata_U2FsdGVkX19LnlelR4oryMbPUxMHYUWEgCjumuxk9a0NcVUCj8Q4+18DgGb5Z3vViq96simAvFuMHDI8FJ6gXL6sUfAPsZiTPbGQ8uhkpUz2ntHhLwMKsQvzmfoUtE4DiLLyxMFnq2wlHtxuNuU2H6OzViVGHxRtNnI0m+tMaLYiFBGxxXtLFVUgpWWfrHBVaCSQ6oRgaz4PQp7/NRX4pj80wo7/jLmyvci5Gmi0GDI=">Bursa Kiralık Daire</a></li>
+                                                <li><a title="Hazineden Antalya Kiralık Daire" href="/liste/kiralik/2/daire/8/#/antalya/milli-hazineden-guncel/_objectdata_U2FsdGVkX1+q2qr0zFjyuSdCQMSwC4hn4R9f/Sgs/Pbga2TK0r1LhMoKnD3GwRBwOz9rRCsvHc26LIp8ABxomvN8703Rb9dsUixmgNWpZHLu4BuNdd3qDKqS+HGa4F3ab0glgC65yQlaZyvr1QqIQZtkyCUljaAgDYioEIosfe/Jzm8DTPE6oxUC9a7KeUfDJeByefNucH+U0wcIfkEMFPwsZfXDFSz2hkpvJwztD4E=">Antalya Kiralık Daire</a></li>
+                                                <li><a title="Hazineden Adana Kiralık Daire" href="/liste/kiralik/2/daire/8/#/adana/milli-hazineden-guncel/_objectdata_U2FsdGVkX1+yrooRzVN0ZYRJp9v8qfC7wCC9rYcy4Lv3skmpcTRznipASYrFs9T98ueoK+RodgyL+/2rr1p3m7Rg+/1HaE841XSfbWckQyUVr7SAwgaFan6EvHRbtUbFG9Mw6IJrYSIMVT87tKHL6ukNfdcTUA/Y/TVLVNlzf24gDwSdrG5wgxy1W8qMW5P+CpkZtlUuG+BezvtNyVzvGx49yW4N+aXVx+1RBpnrmqM=">Adana Kiralık Daire</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -908,18 +918,18 @@
                                         <div class="footer-col">
                                             <p class="footer-title">İşyeri</p>
                                             <ul class="list-unstyled footer-nav">
-                                                <li><a title="Hazineden İstanbul Satılık İşyeri" href="/liste/satilik/1/isyeri/3/#/istanbul/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX18tsF+qn8c6onTSA2xVtErnZ3qYyJDME91pCPb67AsqSZ9EwGwDYeATCX7Ql+04HCCogVP6r8sJpd3vF24GISU+4RylwR7BPHqMGu4/zd0X+kpRObF+6xoV5jfPvZg+oxGM3YnwTxS6fEIwtqrLWY7VyaVxNcYTil9QzY0jmR7NDDcA/nvpWvrt">İstanbul Satılık İşyeri</a></li>
-                                                <li><a title="Hazineden Ankara Satılık İşyeri" href="/liste/satilik/1/isyeri/3/#/ankara/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX1+w6hhzT9UBpe0R4l6OB1Dv04JflQ4O2/iheQqDUmrh2rtN4VeWGPQ/jDx8+S3HNo4rtHBtLgDeRu6ioR3FaBashXZ4nt3Ss6LYwbBpFfSsXIghqNqRj9tEj6wDKrOWNyKsBzkS0YnZcR3GeNPQFBaP7WkO8Aw2nSem+/URgJjdPKIUGIk3G1uH">Ankara Satılık İşyeri</a></li>
-                                                <li><a title="Hazineden İzmir Satılık İşyeri" href="/liste/satilik/1/isyeri/3/#/izmir/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX1+eksJ2kB6gNknfrUXP39PHFXT9PRlW7XI115wh8fuv3JilkB+3wsXGfBiTz+CLn03A33uaDgqKFWQ3VR+67waNUtYsbJ0ha3N1ZqMkq+8Kw4u2r5SBSspdpDl1HKpucY1iJPlGqlEwfAW9hojEWPbYKLfF0X3Y4KnvpSb+4cGuaaw+bw6H2yuV">İzmir Satılık İşyeri</a></li>
-                                                <li><a title="Hazineden Bursa Satılık İşyeri" href="/liste/satilik/1/isyeri/3/#/bursa/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX185ojfBlZwwKPwFomii103P+pxA5+CZkkRDosG1bIq/qkaLa7TQwUzdICImQ7Nj5Nmv8LVGIDXrCp0EFHGIINnGE1LIJhBxL172JeA71BiiJMfkdARMGxuTj/QXISa/VzuW0S1C8/SIZL9uSlpxEPLvgXBj/aPJKfuQutsEaTnQMjqzYtGXYv1i">Bursa Satılık İşyeri</a></li>
-                                                <li><a title="Hazineden Antalya Satılık İşyeri" href="/liste/satilik/1/isyeri/3/#/antalya/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX1+9y3YVupGDVkBulG+2AYCcTP1LL/CwdMIRh6Vjfiek7B6B4M+eDxc17WiRrCWh6ICJ0tKcCRM1e8ilQvHoUjx84QS5xLZb5ge/GynKDFGFdelaH5L9HcDMBzC5kQnslK5Utw+cA5Eoe47HKV7fCRfR0iYgNr6HaAhGuGLqjmsg0cZdHG5Zz+Pj">Antalya Satılık İşyeri</a></li>
-                                                <li><a title="Hazineden Adana Satılık İşyeri" href="/liste/satilik/1/isyeri/3/#/adana/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX19a+xWJb1AZJQ5w/fFTE/z1XhAwyHiIe1PHDgv9SZAvX8qXHy9V48uaA7jnbhLzbPEBdQquz4+tvCwjta1Ug+F3pPMqYj77ymcdgLOdTmaOuGClgVO4rgLQsHVPSvTY9oDq/mldkLWi/ZEnZDns6/0joXP+d4L8LTsI6TixW59sK3ICUjP5Ij0O">Adana Satılık İşyeri</a></li>
-                                                <li><a title="Hazineden İstanbul Kiralık İşyeri" href="/liste/kiralik/2/isyeri/3/#/istanbul/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX19h8aOemVOKuuegUXziL1odaGJBM5lTfP30H2ekfvCRq+GHTsZyVNSj72SEA5Bm4DUvGsXO317KuQ7cryd8ZiKF0IliEITe9LfyjZ/3xsz9PW+jHrZgxhAo+kK43NyZHCccmHGlhMd3+OFUjGqD78JxUTPFWydnKyy15AMBTxSLS6qxyQdwrzkz">İstanbul Kiralık İşyeri</a></li>
-                                                <li><a title="Hazineden Ankara Kiralık İşyeri" href="/liste/kiralik/2/isyeri/3/#/ankara/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX19j5UJ/VaAnxXjFZCri8CUXByeVKL1/lW53xTESfZe/oScL/ylQlUJxa6f4YaAlGLxIhWEpIETflRPKpNAGivnJLvGHaRAp2jnuBQm/z+HcuUQ1EzBQgSq7DE5EgdkAlfFAhEyGaRRcIq6Qe8PkZI5SRpdToObjfEPNJ+8sy/pYU0UctroN8mSA">Ankara Kiralık İşyeri</a></li>
-                                                <li><a title="Hazineden İzmir Kiralık İşyeri" href="/liste/kiralik/2/isyeri/3/#/izmir/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX19K5XhyzaZPsvXLbQg75Z5C0DKSz51mGXAfqJZ4Xmqef5u8hQgNalN71mBL4ZbogT5OkYWs3l8ix9k4TUR/3EQ4CvdcPP1TuzLWNLeX8yzWuQ55DGTU6rHv/8MpLnGJqr2nGfATcDeNQ4ctsNtMIdVPk03bsYDVLUr4j6+dkxi+I4EbW2Sa8SH5">İzmir Kiralık İşyeri</a></li>
-                                                <li><a title="Hazineden Bursa Kiralık İşyeri" href="/liste/kiralik/2/isyeri/3/#/bursa/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX1+P2OfuNLDlvKt4bzy3RfKHGzcAK9jmOzUmCPSV87ZpEOP8yD88F1SidwWMfOsK8vd2cQF+KED/4ooXWmiX+lOwQOmRF52xHIc9R0xjgecsnOcnBfcIVFM5ANu7tsCreXdhskhOmDRL2NaPDnJUWgq1dMV7+HTQbrRoOUX6uS9rL4/2QL+xJyna">Bursa Kiralık İşyeri</a></li>
-                                                <li><a title="Hazineden Antalya Kiralık İşyeri" href="/liste/kiralik/2/isyeri/3/#/antalya/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX1+8Yjt5NSCC12kTo2fgza6hCPDY/Ojt7RgK3Fwp0mwO1BSO6/5ZkrJUhb76ON1osoIjy7pdP5uEmTYUBPFVQ4VRLfv+8IN44JdsS3MB1MSteFMR1fFwu4Hudn6Ip4zga4j1HXBUSn2ahqWkYjCD24wZ0rqn3hSNhkMt/1bMSm6KxPuAYQPzKHXH">Antalya Kiralık İşyeri</a></li>
-                                                <li><a title="Hazineden Adana Kiralık İşyeri" href="/liste/kiralik/2/isyeri/3/#/adana/milli-hazineden-(satisi-devam-eden)/_objectdata_U2FsdGVkX1/BW9hdmfsVExRJe6Edf8ZiLlxCMMOgCQuR3X6M0rvhSkLoISmtPCzJ+ln17IDKGyqTzFeggMX6KanylxdZJbeEoZtM5SW1CGr16p/Ryzwmtya4C91TTn+XPxW/UF69QaefB8eezS65kULaqwKpc7gzc56+m2AUx7oa+jI8OJRJk/jT2zB26WUF">Adana Kiralık İşyeri</a></li>
+                                                <li><a title="Hazineden İstanbul Satılık İşyeri" href="/liste/satilik/1/isyeri/3/#/istanbul/milli-hazineden-guncel/_objectdata_U2FsdGVkX18tsF+qn8c6onTSA2xVtErnZ3qYyJDME91pCPb67AsqSZ9EwGwDYeATCX7Ql+04HCCogVP6r8sJpd3vF24GISU+4RylwR7BPHqMGu4/zd0X+kpRObF+6xoV5jfPvZg+oxGM3YnwTxS6fEIwtqrLWY7VyaVxNcYTil9QzY0jmR7NDDcA/nvpWvrt">İstanbul Satılık İşyeri</a></li>
+                                                <li><a title="Hazineden Ankara Satılık İşyeri" href="/liste/satilik/1/isyeri/3/#/ankara/milli-hazineden-guncel/_objectdata_U2FsdGVkX1+w6hhzT9UBpe0R4l6OB1Dv04JflQ4O2/iheQqDUmrh2rtN4VeWGPQ/jDx8+S3HNo4rtHBtLgDeRu6ioR3FaBashXZ4nt3Ss6LYwbBpFfSsXIghqNqRj9tEj6wDKrOWNyKsBzkS0YnZcR3GeNPQFBaP7WkO8Aw2nSem+/URgJjdPKIUGIk3G1uH">Ankara Satılık İşyeri</a></li>
+                                                <li><a title="Hazineden İzmir Satılık İşyeri" href="/liste/satilik/1/isyeri/3/#/izmir/milli-hazineden-guncel/_objectdata_U2FsdGVkX1+eksJ2kB6gNknfrUXP39PHFXT9PRlW7XI115wh8fuv3JilkB+3wsXGfBiTz+CLn03A33uaDgqKFWQ3VR+67waNUtYsbJ0ha3N1ZqMkq+8Kw4u2r5SBSspdpDl1HKpucY1iJPlGqlEwfAW9hojEWPbYKLfF0X3Y4KnvpSb+4cGuaaw+bw6H2yuV">İzmir Satılık İşyeri</a></li>
+                                                <li><a title="Hazineden Bursa Satılık İşyeri" href="/liste/satilik/1/isyeri/3/#/bursa/milli-hazineden-guncel/_objectdata_U2FsdGVkX185ojfBlZwwKPwFomii103P+pxA5+CZkkRDosG1bIq/qkaLa7TQwUzdICImQ7Nj5Nmv8LVGIDXrCp0EFHGIINnGE1LIJhBxL172JeA71BiiJMfkdARMGxuTj/QXISa/VzuW0S1C8/SIZL9uSlpxEPLvgXBj/aPJKfuQutsEaTnQMjqzYtGXYv1i">Bursa Satılık İşyeri</a></li>
+                                                <li><a title="Hazineden Antalya Satılık İşyeri" href="/liste/satilik/1/isyeri/3/#/antalya/milli-hazineden-guncel/_objectdata_U2FsdGVkX1+9y3YVupGDVkBulG+2AYCcTP1LL/CwdMIRh6Vjfiek7B6B4M+eDxc17WiRrCWh6ICJ0tKcCRM1e8ilQvHoUjx84QS5xLZb5ge/GynKDFGFdelaH5L9HcDMBzC5kQnslK5Utw+cA5Eoe47HKV7fCRfR0iYgNr6HaAhGuGLqjmsg0cZdHG5Zz+Pj">Antalya Satılık İşyeri</a></li>
+                                                <li><a title="Hazineden Adana Satılık İşyeri" href="/liste/satilik/1/isyeri/3/#/adana/milli-hazineden-guncel/_objectdata_U2FsdGVkX19a+xWJb1AZJQ5w/fFTE/z1XhAwyHiIe1PHDgv9SZAvX8qXHy9V48uaA7jnbhLzbPEBdQquz4+tvCwjta1Ug+F3pPMqYj77ymcdgLOdTmaOuGClgVO4rgLQsHVPSvTY9oDq/mldkLWi/ZEnZDns6/0joXP+d4L8LTsI6TixW59sK3ICUjP5Ij0O">Adana Satılık İşyeri</a></li>
+                                                <li><a title="Hazineden İstanbul Kiralık İşyeri" href="/liste/kiralik/2/isyeri/3/#/istanbul/milli-hazineden-guncel/_objectdata_U2FsdGVkX19h8aOemVOKuuegUXziL1odaGJBM5lTfP30H2ekfvCRq+GHTsZyVNSj72SEA5Bm4DUvGsXO317KuQ7cryd8ZiKF0IliEITe9LfyjZ/3xsz9PW+jHrZgxhAo+kK43NyZHCccmHGlhMd3+OFUjGqD78JxUTPFWydnKyy15AMBTxSLS6qxyQdwrzkz">İstanbul Kiralık İşyeri</a></li>
+                                                <li><a title="Hazineden Ankara Kiralık İşyeri" href="/liste/kiralik/2/isyeri/3/#/ankara/milli-hazineden-guncel/_objectdata_U2FsdGVkX19j5UJ/VaAnxXjFZCri8CUXByeVKL1/lW53xTESfZe/oScL/ylQlUJxa6f4YaAlGLxIhWEpIETflRPKpNAGivnJLvGHaRAp2jnuBQm/z+HcuUQ1EzBQgSq7DE5EgdkAlfFAhEyGaRRcIq6Qe8PkZI5SRpdToObjfEPNJ+8sy/pYU0UctroN8mSA">Ankara Kiralık İşyeri</a></li>
+                                                <li><a title="Hazineden İzmir Kiralık İşyeri" href="/liste/kiralik/2/isyeri/3/#/izmir/milli-hazineden-guncel/_objectdata_U2FsdGVkX19K5XhyzaZPsvXLbQg75Z5C0DKSz51mGXAfqJZ4Xmqef5u8hQgNalN71mBL4ZbogT5OkYWs3l8ix9k4TUR/3EQ4CvdcPP1TuzLWNLeX8yzWuQ55DGTU6rHv/8MpLnGJqr2nGfATcDeNQ4ctsNtMIdVPk03bsYDVLUr4j6+dkxi+I4EbW2Sa8SH5">İzmir Kiralık İşyeri</a></li>
+                                                <li><a title="Hazineden Bursa Kiralık İşyeri" href="/liste/kiralik/2/isyeri/3/#/bursa/milli-hazineden-guncel/_objectdata_U2FsdGVkX1+P2OfuNLDlvKt4bzy3RfKHGzcAK9jmOzUmCPSV87ZpEOP8yD88F1SidwWMfOsK8vd2cQF+KED/4ooXWmiX+lOwQOmRF52xHIc9R0xjgecsnOcnBfcIVFM5ANu7tsCreXdhskhOmDRL2NaPDnJUWgq1dMV7+HTQbrRoOUX6uS9rL4/2QL+xJyna">Bursa Kiralık İşyeri</a></li>
+                                                <li><a title="Hazineden Antalya Kiralık İşyeri" href="/liste/kiralik/2/isyeri/3/#/antalya/milli-hazineden-guncel/_objectdata_U2FsdGVkX1+8Yjt5NSCC12kTo2fgza6hCPDY/Ojt7RgK3Fwp0mwO1BSO6/5ZkrJUhb76ON1osoIjy7pdP5uEmTYUBPFVQ4VRLfv+8IN44JdsS3MB1MSteFMR1fFwu4Hudn6Ip4zga4j1HXBUSn2ahqWkYjCD24wZ0rqn3hSNhkMt/1bMSm6KxPuAYQPzKHXH">Antalya Kiralık İşyeri</a></li>
+                                                <li><a title="Hazineden Adana Kiralık İşyeri" href="/liste/kiralik/2/isyeri/3/#/adana/milli-hazineden-guncel/_objectdata_U2FsdGVkX1/BW9hdmfsVExRJe6Edf8ZiLlxCMMOgCQuR3X6M0rvhSkLoISmtPCzJ+ln17IDKGyqTzFeggMX6KanylxdZJbeEoZtM5SW1CGr16p/Ryzwmtya4C91TTn+XPxW/UF69QaefB8eezS65kULaqwKpc7gzc56+m2AUx7oa+jI8OJRJk/jT2zB26WUF">Adana Kiralık İşyeri</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -927,18 +937,18 @@
                                         <div class="footer-col">
                                             <p class="footer-title">Arsa</p>
                                             <ul class="list-unstyled footer-nav">
-                                                <li><a title="Hazineden İstanbul Satılık Arsa" href="/liste/satilik-arsa/istanbul/milli-hazineden-(satisi-devam-eden)">İstanbul Satılık Arsa</a></li>
-                                                <li><a title="Hazineden Ankara Satılık Arsa" href="/liste/satilik-arsa/ankara/milli-hazineden-(satisi-devam-eden)">Ankara Satılık Arsa</a></li>
-                                                <li><a title="Hazineden İzmir Satılık Arsa" href="/liste/satilik-arsa/izmir/milli-hazineden-(satisi-devam-eden)">İzmir Satılık Arsa</a></li>
-                                                <li><a title="Hazineden Bursa Satılık Arsa" href="/liste/satilik-arsa/bursa/milli-hazineden-(satisi-devam-eden)">Bursa Satılık Arsa</a></li>
-                                                <li><a title="Hazineden Antalya Satılık Arsa" href="/liste/satilik-arsa/antalya/milli-hazineden-(satisi-devam-eden)">Antalya Satılık Arsa</a></li>
-                                                <li><a title="Hazineden Adana Satılık Arsa" href="/liste/satilik-arsa/adana/milli-hazineden-(satisi-devam-eden)">Adana Satılık Arsa</a></li>
-                                                <li><a title="Hazineden İstanbul Kiralık Arsa" href="/liste/kiralik-arsa/istanbul/milli-hazineden-(satisi-devam-eden)">İstanbul Kiralık Arsa</a></li>
-                                                <li><a title="Hazineden Ankara Kiralık Arsa" href="/liste/kiralik-arsa/ankara/milli-hazineden-(satisi-devam-eden)">Ankara Kiralık Arsa</a></li>
-                                                <li><a title="Hazineden İzmir Kiralık Arsa" href="/liste/kiralik-arsa/izmir/milli-hazineden-(satisi-devam-eden)">İzmir Kiralık Arsa</a></li>
-                                                <li><a title="Hazineden Bursa Kiralık Arsa" href="/liste/kiralik-arsa/bursa/milli-hazineden-(satisi-devam-eden)">Bursa Kiralık Arsa</a></li>
-                                                <li><a title="Hazineden Antalya Kiralık Arsa" href="/liste/kiralik-arsa/antalya/milli-hazineden-(satisi-devam-eden)">Antalya Kiralık Arsa</a></li>
-                                                <li><a title="Hazineden Adana Kiralık Arsa" href="/liste/kiralik-arsa/adana/milli-hazineden-(satisi-devam-eden)">Adana Kiralık Arsa</a></li>
+                                                <li><a title="Hazineden İstanbul Satılık Arsa" href="/liste/satilik-arsa/istanbul/milli-hazineden-guncel">İstanbul Satılık Arsa</a></li>
+                                                <li><a title="Hazineden Ankara Satılık Arsa" href="/liste/satilik-arsa/ankara/milli-hazineden-guncel">Ankara Satılık Arsa</a></li>
+                                                <li><a title="Hazineden İzmir Satılık Arsa" href="/liste/satilik-arsa/izmir/milli-hazineden-guncel">İzmir Satılık Arsa</a></li>
+                                                <li><a title="Hazineden Bursa Satılık Arsa" href="/liste/satilik-arsa/bursa/milli-hazineden-guncel">Bursa Satılık Arsa</a></li>
+                                                <li><a title="Hazineden Antalya Satılık Arsa" href="/liste/satilik-arsa/antalya/milli-hazineden-guncel">Antalya Satılık Arsa</a></li>
+                                                <li><a title="Hazineden Adana Satılık Arsa" href="/liste/satilik-arsa/adana/milli-hazineden-guncel">Adana Satılık Arsa</a></li>
+                                                <li><a title="Hazineden İstanbul Kiralık Arsa" href="/liste/kiralik-arsa/istanbul/milli-hazineden-guncel">İstanbul Kiralık Arsa</a></li>
+                                                <li><a title="Hazineden Ankara Kiralık Arsa" href="/liste/kiralik-arsa/ankara/milli-hazineden-guncel">Ankara Kiralık Arsa</a></li>
+                                                <li><a title="Hazineden İzmir Kiralık Arsa" href="/liste/kiralik-arsa/izmir/milli-hazineden-guncel">İzmir Kiralık Arsa</a></li>
+                                                <li><a title="Hazineden Bursa Kiralık Arsa" href="/liste/kiralik-arsa/bursa/milli-hazineden-guncel">Bursa Kiralık Arsa</a></li>
+                                                <li><a title="Hazineden Antalya Kiralık Arsa" href="/liste/kiralik-arsa/antalya/milli-hazineden-guncel">Antalya Kiralık Arsa</a></li>
+                                                <li><a title="Hazineden Adana Kiralık Arsa" href="/liste/kiralik-arsa/adana/milli-hazineden-guncel">Adana Kiralık Arsa</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -946,18 +956,18 @@
                                         <div class="footer-col">
                                             <p class="footer-title">Bina</p>
                                             <ul class="list-unstyled footer-nav">
-                                                <li><a title="Hazineden İstanbul Satılık Bina" href="/liste/satilik-bina/istanbul/milli-hazineden-(satisi-devam-eden)">İstanbul Satılık Bina</a></li>
-                                                <li><a title="Hazineden Ankara Satılık Bina" href="/liste/satilik-bina/ankara/milli-hazineden-(satisi-devam-eden)">Ankara Satılık Bina</a></li>
-                                                <li><a title="Hazineden İzmir Satılık Bina" href="/liste/satilik-bina/izmir/milli-hazineden-(satisi-devam-eden)">İzmir Satılık Bina</a></li>
-                                                <li><a title="Hazineden Bursa Satılık Bina" href="/liste/satilik-bina/bursa/milli-hazineden-(satisi-devam-eden)">Bursa Satılık Bina</a></li>
-                                                <li><a title="Hazineden Antalya Satılık Bina" href="/liste/satilik-bina/antalya/milli-hazineden-(satisi-devam-eden)">Antalya Satılık Bina</a></li>
-                                                <li><a title="Hazineden Adana Satılık Bina" href="/liste/satilik-bina/adana/milli-hazineden-(satisi-devam-eden)">Adana Satılık Bina</a></li>
-                                                <li><a title="Hazineden İstanbul Kiralık Bina" href="/liste/kiralik-bina/istanbul/milli-hazineden-(satisi-devam-eden)">İstanbul Kiralık Bina</a></li>
-                                                <li><a title="Hazineden Ankara Kiralık Bina" href="/liste/kiralik-bina/ankara/milli-hazineden-(satisi-devam-eden)">Ankara Kiralık Bina</a></li>
-                                                <li><a title="Hazineden İzmir Kiralık Bina" href="/liste/kiralik-bina/izmir/milli-hazineden-(satisi-devam-eden)">İzmir Kiralık Bina</a></li>
-                                                <li><a title="Hazineden Bursa Kiralık Bina" href="/liste/kiralik-bina/bursa/milli-hazineden-(satisi-devam-eden)">Bursa Kiralık Bina</a></li>
-                                                <li><a title="Hazineden Antalya Kiralık Bina" href="/liste/kiralik-bina/antalya/milli-hazineden-(satisi-devam-eden)">Antalya Kiralık Bina</a></li>
-                                                <li><a title="Hazineden Adana Kiralık Bina" href="/liste/kiralik-bina/adana/milli-hazineden-(satisi-devam-eden)">Adana Kiralık Bina</a></li>
+                                                <li><a title="Hazineden İstanbul Satılık Bina" href="/liste/satilik-bina/istanbul/milli-hazineden-guncel">İstanbul Satılık Bina</a></li>
+                                                <li><a title="Hazineden Ankara Satılık Bina" href="/liste/satilik-bina/ankara/milli-hazineden-guncel">Ankara Satılık Bina</a></li>
+                                                <li><a title="Hazineden İzmir Satılık Bina" href="/liste/satilik-bina/izmir/milli-hazineden-guncel">İzmir Satılık Bina</a></li>
+                                                <li><a title="Hazineden Bursa Satılık Bina" href="/liste/satilik-bina/bursa/milli-hazineden-guncel">Bursa Satılık Bina</a></li>
+                                                <li><a title="Hazineden Antalya Satılık Bina" href="/liste/satilik-bina/antalya/milli-hazineden-guncel">Antalya Satılık Bina</a></li>
+                                                <li><a title="Hazineden Adana Satılık Bina" href="/liste/satilik-bina/adana/milli-hazineden-guncel">Adana Satılık Bina</a></li>
+                                                <li><a title="Hazineden İstanbul Kiralık Bina" href="/liste/kiralik-bina/istanbul/milli-hazineden-guncel">İstanbul Kiralık Bina</a></li>
+                                                <li><a title="Hazineden Ankara Kiralık Bina" href="/liste/kiralik-bina/ankara/milli-hazineden-guncel">Ankara Kiralık Bina</a></li>
+                                                <li><a title="Hazineden İzmir Kiralık Bina" href="/liste/kiralik-bina/izmir/milli-hazineden-guncel">İzmir Kiralık Bina</a></li>
+                                                <li><a title="Hazineden Bursa Kiralık Bina" href="/liste/kiralik-bina/bursa/milli-hazineden-guncel">Bursa Kiralık Bina</a></li>
+                                                <li><a title="Hazineden Antalya Kiralık Bina" href="/liste/kiralik-bina/antalya/milli-hazineden-guncel">Antalya Kiralık Bina</a></li>
+                                                <li><a title="Hazineden Adana Kiralık Bina" href="/liste/kiralik-bina/adana/milli-hazineden-guncel">Adana Kiralık Bina</a></li>
                                             </ul>
                                         </div>
                                     </div>

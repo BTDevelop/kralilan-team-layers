@@ -11,7 +11,7 @@ namespace PL
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+			Page.MetaDescription = "Kralilan hakkında sıkça sorulan sorulara bu sayfadan cevap bulabilirsiniz.";
         }
     }
 }

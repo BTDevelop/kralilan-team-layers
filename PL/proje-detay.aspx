@@ -21,7 +21,7 @@
                     <div class="col-md-12">
                         <a href="/projeler/" class="back-to-listings"></a>
                         <div class="property-title">
-                            <h2><%= _inproname %> <span class="property-badge">Proje</span></h2>
+                            <h1><%= _inproname %> <span class="property-badge">Proje</span></h1>
                             <span>
                                 <a href="#location" class="listing-address">
                                     <i class="fa fa-map-marker"></i>

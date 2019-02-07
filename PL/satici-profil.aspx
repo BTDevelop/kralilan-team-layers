@@ -57,8 +57,8 @@
                                         <img src="/upload/<%= thmbUserProfile %>" class="img-responsive thumbnail" alt="<%= userName %>" />
                                     </a>
                                 </div>
-                                <h3 class="no-margin no-padding link-color ">
-                                    <%= userName %></h3>
+                                <h1 class="no-margin no-padding link-color " style="font-size: 24px;">
+                                    <%= userName %></h1>
                                 <div class="user-ads-action">
 
                                     <button class="btn followButton" rel="6">Takip Et</button>

@@ -61,7 +61,7 @@
                                         <img src="/upload/estate-company/<%= flogo %>" class="img-responsive thumbnail" alt="<%= fadi %>" />
                                     </a>
                                 </div>
-                                <h3 class="no-margin no-padding link-color "><%= fadi %></h3>
+                                <h1 class="no-margin no-padding link-color "><%= fadi %></h1>
                                 <div class="seller-social-list">
                                     <br />
                                     <br />

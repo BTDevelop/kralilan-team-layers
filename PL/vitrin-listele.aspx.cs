@@ -72,8 +72,9 @@ namespace PL
                     intro.Attributes["style"] = "background: url('/libraries/images/bg.png')";
                 }
                 Page.Title = showcasename + " İlanları İçin kralilan.com";
+				Page.MetaDescription = showcasename + "İlanları İçin kralilan.com. Siz de İlanlarınızı bu vitrinlerde paylaşıp daha çok görülmesini sağlayabilirisiniz.";
 
-            }
+			}
         }
 
         public string count(int opt)
