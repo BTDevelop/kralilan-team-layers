@@ -60,6 +60,7 @@ namespace PL
         private IKullaniciService _kullaniciManager;
         private IMagazaService _magazaManager;
         private IIlanService _ilanManager;
+        private IIlanSatilanService _ilanSatilanManager;
         public ilan_bilgi_detay()
         {
             _projeManager = new ProjeManager(new LTSProjelerDal());
@@ -74,14 +75,54 @@ namespace PL
             _kullaniciManager = new KullaniciManager(new LTSKullanicilarDal());
             _magazaManager = new MagazaManager(new LTSMagazalarDal());
             _ilanManager = new IlanManager(new LTSIlanlarDal());
+            _ilanSatilanManager = new IlanSatilanManager(new LTSIlanSatilanDal());
         }
 
         protected override void OnInit(EventArgs e)
         {
-            _ilan = _ilanManager.Get(Convert.ToInt32(RouteData.Values["IlanNo"]));
+            int urlIlanId = Convert.ToInt32(RouteData.Values["IlanNo"]);
+            _ilan = _ilanManager.Get(urlIlanId);
             if (_ilan == null || _ilan.silindiMi == true)
             {
-                Response.Redirect("~/");
+                var satilan = _ilanSatilanManager.Get(urlIlanId);
+                if (satilan != null)
+                {
+                    _ilan = new ilan
+                    {
+                        ilanId = satilan.ilanId,
+                        satildiMi = satilan.satildiMi,
+                        aciklama = satilan.aciklama,
+                        baslangicTarihi = satilan.baslangicTarihi,
+                        baslik = satilan.baslik,
+                        bitisTarihi = satilan.bitisTarihi,
+                        fiyat = satilan.fiyat,
+                        fiyatTurId = satilan.fiyatTurId,
+                        fiyatiDustu = satilan.fiyatiDustu,
+                        girilenOzellik = satilan.girilenOzellik,
+                        ilId = satilan.ilId,
+                        ilceId = satilan.ilceId,
+                        ilanTurId = satilan.ilanTurId,
+                        ilat = satilan.ilat,
+                        ilng = satilan.ilng,
+                        kategoriId = satilan.kategoriId,
+                        koordinat = satilan.koordinat,
+                        kullaniciId = satilan.kullaniciId,
+                        magazaId = satilan.magazaId,
+                        mahalleId = satilan.mahalleId,
+                        onay = satilan.onay,
+                        numaraYayinlansinMi = satilan.numaraYayinlansinMi,
+                        pasifMi = satilan.pasifMi,
+                        resim = satilan.resim,
+                        silindiMi = satilan.silindiMi,
+                        ziyaretci = satilan.ziyaretci,
+                        secilenOzellik = satilan.secilenOzellik,
+                        
+                    };
+                }
+                else
+                {
+                    Response.Redirect("~/");
+                }
             }
 
             CreateDynamicControls();
@@ -256,7 +297,7 @@ namespace PL
                     if (!String.IsNullOrEmpty(RouteData.Values["IlanNo"].ToString()))
                     {
                         int ilanId = Convert.ToInt32(RouteData.Values["IlanNo"].ToString());
-                        ilan iln = _ilanManager.Get(ilanId);
+                        ilan iln = _ilan;
 
                         txtlist = (List<girilenDataType>)toolkit.GetObjectInXml(iln.girilenOzellik, typeof(List<girilenDataType>));
                         slctlist = (List<secilenDataType>)toolkit.GetObjectInXml(iln.secilenOzellik, typeof(List<secilenDataType>));

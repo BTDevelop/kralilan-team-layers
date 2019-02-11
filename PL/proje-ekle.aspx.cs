@@ -502,7 +502,10 @@ namespace PL
                 pozellik = slctstr,
                 pvaziyetplan = null,
                 pkullanicid = kullaniciId,
-                pfirmaid = firmaid
+                pfirmaid = firmaid,
+                ponay = false,
+                psilindmi = false,
+                psatistami = true
             };
             _projeManager.Add((_proje));
             
@@ -672,6 +675,7 @@ namespace PL
 
             DAL.projeler _projeLast = new DAL.projeler
             {
+                projeid = projed.projeid,
                 pgaleri = picstr,
                 pkatplan = plnstr,
                 pvaziyetplan = stimage

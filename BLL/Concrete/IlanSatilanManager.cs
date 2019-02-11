@@ -36,7 +36,7 @@ namespace BLL.Concrete
 
         public ilanSatilan Get(int Id)
         {
-            throw new NotImplementedException();
+            return _ilanSatilanDal.Get(Id);
         }
 
         public List<ilanSatilan> GetAll()

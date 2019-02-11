@@ -568,9 +568,9 @@
         function getCoords(_inadsid, opt) {
             jQuery.ajax({
                 type: "POST",
-                url: "/services/ki_operation.asmx/getDetailAds",
+                url: "/endpoint/ilanservice.asmx/GetCoordinatesById",
                 dataType: "json",
-                data: "{ inadsid:'" + _inadsid + "'" + ", opt:'" + opt + "'}",
+                data: "{ Id:'" + _inadsid + "'}",
                 contentType: "application/json; charset=utf-8",
                 success: function (data) {
                     var poly = "";
