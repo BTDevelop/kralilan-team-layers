@@ -810,7 +810,7 @@ namespace PL.management.anaYonetim.projeYonetimi
                         projeid = _inprojeid,
                         ponay = true,
                         psilindmi = false,
-                        psatistami = false
+                        psatistami = true
                     };
 
                     _projeManager.UpdateStatus(_projeStatus);
