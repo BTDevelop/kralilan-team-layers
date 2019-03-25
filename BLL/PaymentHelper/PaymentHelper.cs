@@ -8,14 +8,18 @@ namespace BLL.PaymentHelper
 {
     public class PaymentHelper
     {
-       
 
+        private IPayment payment;
 
+        public void PaymentTo(IPayment payment)
+        {
+            this.payment = payment;
+        }
 
-
-
-
-
+        public object CheckoutForm()
+        {
+            return this.payment.CheckoutForm();
+        }
 
     }
 }

@@ -29,5 +29,7 @@ namespace DAL.Abstract
 
         IQueryable GetAllLast();
 
+        void UpdateJetonByUserId(int UserId, int JetonCount);
+
     }
 }

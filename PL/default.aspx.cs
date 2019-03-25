@@ -50,6 +50,7 @@ namespace PL
         private IIlanService _ilanManager;
         private ISeciliDopingService _seciliDopingManager;
         private IIlanSatilanService _ilanSatilanManager;
+        private IZiyaretciProjeService _ziyaretciProjeManager;
         public _default()
         {
             _ilanSayiManager = new IlanSayiManager(new LTSIlanSayilarDal());
@@ -57,6 +58,7 @@ namespace PL
             _ilanManager = new IlanManager(new LTSIlanlarDal());
             _seciliDopingManager = new SeciliDopingManager(new LTSSeciliDopinglerDal());
             _ilanSatilanManager = new IlanSatilanManager(new LTSIlanSatilanDal());
+            _ziyaretciProjeManager = new ZiyaretciProjeManager(new LTSZiyaretcilerProjeDal());
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -150,6 +152,14 @@ namespace PL
                     ProjectPlace = txtlist.Where(x => x.ozellikId == 8756).FirstOrDefault().deger;
                     ProjectEstateCount = txtlist.Where(x => x.ozellikId == 8757).FirstOrDefault().deger;
                     ProjectDate = txtlist.Where(x => x.ozellikId == 8758).FirstOrDefault().deger;
+                    ziyaretproje ziyaretciProje = new ziyaretproje
+                    {
+                        gpid = ProjeView.ProjeId,
+                        gip = Request.UserHostAddress,
+                        gtarih = DateTime.Now,
+                        gtip = false
+                    };
+                    _ziyaretciProjeManager.Add(ziyaretciProje);
                 }
 
 

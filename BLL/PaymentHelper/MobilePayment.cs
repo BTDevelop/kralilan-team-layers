@@ -22,6 +22,11 @@ namespace BLL.PaymentHelper
         public string successUrl { get; set; }
         public string price { get; set; }
 
+        public object CheckoutForm()
+        {
+            throw new NotImplementedException();
+        }
+
         public void Pay()
         {
             string cumulateData = _id + _service + _category + order + product + price + successUrl + failureUrl + _secretkey;

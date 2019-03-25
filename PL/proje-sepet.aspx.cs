@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BLL.Concrete;
+using BLL.PaymentHelper;
 using DAL.Concrete.LINQ;
 using KralilanProject.Interfaces;
 
@@ -21,10 +22,12 @@ namespace PL
         kullanici _kullanici;
 
         private IOdemeService _odemeManager;
+        private IIlService _ilManager;
 
         public proje_sepet()
         {
             _odemeManager = new OdemeManager(new LTSOdemelerDal());
+            _ilManager = new IlManager(new LTSIllerDal());
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -74,6 +77,13 @@ namespace PL
 
             if (Request.Form["optionsRadios"] == "1")
             {
+                string reportNameVal = reportName.Value;
+                string reportSurnameVal = reportSurname.Value;
+                string reportIdentityNumVal = reportIdentityNum.Value;
+                int billingProvince = Convert.ToInt32(Request.Form["location5"]);
+                string billingAdressVal = billingAddress.Value;
+                string reportZipCodeVal = reportZipCode.Value;
+
                 string txtstr = DAL.toolkit.GetXmlDataInObject(siparisler);
                 txtstr = txtstr.Replace("\r\n", "").Trim();
                 txtstr = txtstr.Replace("  ", "");
@@ -89,16 +99,6 @@ namespace PL
                 }
 
                 int kullaniciId = _kullanici.kullaniciId;
-                //odemeb.insert(
-                //      kullaniciId,
-                //      price,
-                //      20,
-                //      1,
-                //      "",
-                //      false,
-                //      txtstr
-                //      );
-
                 DAL.odeme odeme = new DAL.odeme
                 {
                     kullaniciId = kullaniciId,
@@ -115,47 +115,43 @@ namespace PL
                 DAL.odeme _odeme = _odemeManager.GetLast();
                 int order = _odeme.odemeId;
 
+                HttpRequest _request = base.Request;
 
-                //DAL.toolkit.VirtualPosPayment(this.Context, order, price, "dfdsfsd", "sdsadasd");
+                PaymentHelper paymentHelper = new PaymentHelper();;
 
+                try
+                {
+                    StrategyIyzicoCheckoutForm iyzicoPayment = new StrategyIyzicoCheckoutForm();
+
+                    iyzicoPayment.buyerId = _kullanici.kullaniciId.ToString();
+                    iyzicoPayment.buyerIp = _request.UserHostAddress;
+                    iyzicoPayment.buyerName = reportNameVal;
+                    iyzicoPayment.buyerAddress = billingAdressVal;
+                    iyzicoPayment.buyerCity = _ilManager.Get(billingProvince).ilAdi;
+                    iyzicoPayment.buyerBasketName = "Proje";
+                    iyzicoPayment.buyerBasketPrice = price.ToString();
+                    iyzicoPayment.price = price.ToString();
+                    iyzicoPayment.paidPrice = price.ToString();
+                    iyzicoPayment.conversationId = "75436915264";
+                    iyzicoPayment.buyerSurname = reportSurnameVal;
+                    iyzicoPayment.buyerZipCode = reportZipCodeVal;
+                    iyzicoPayment.buyerIdentityNumber = reportIdentityNumVal;
+                    iyzicoPayment.buyerGSMNumber = "+90" + _kullanici.telefonlars.Where(x => x.kullaniciId == _kullanici.kullaniciId).FirstOrDefault().telefon;
+                    iyzicoPayment.buyerEmail = _kullanici.email;
+                    iyzicoPayment.buyerBasketId = order.ToString();
+                    iyzicoPayment.buyerBasketCategory = "Proje";
+                    iyzicoPayment.callbackUrl = "https://www.kralilan.com/projeler/odeme";
+
+                    Session["CheckoutContext"] = iyzicoPayment;
+                    Response.Redirect("~/projeler/odeme/");
+
+                }
+                catch (Exception ex)
+                {
+
+                    throw ex;
+                }
             }
-
-            //else if (Request.Form["optionsRadios"] == "2")
-            //{
-
-            //    string txtstr = DAL.toolkit.GetXmlDataInObject(siparisler);
-            //    txtstr = txtstr.Replace("\r\n", "").Trim();
-            //    txtstr = txtstr.Replace("  ", "");
-            //    List<BLL.deff.siparisDT> siparislist = new List<BLL.deff.siparisDT>();
-            //    siparislist = (List<BLL.deff.siparisDT>)DAL.toolkit.GetObjectInXml(txtstr, typeof(List<BLL.deff.siparisDT>));
-
-            //    odemeBll odemeb = new odemeBll();
-
-            //    int kullaniciId = ((kullanici)Session["unique-site-user"]).kullaniciId;
-            //    odemeb.insert(
-            //          kullaniciId,
-            //          -1,
-            //          10,
-            //          2,
-            //          "",
-            //          false,
-            //          txtstr
-            //          );
-
-            //    DAL.odeme _odeme = odemeb.LastPayment();
-            //    int order = _odeme.odemeId;
-            //    double price = 0;
-
-            //    for (int i = 0; i < objDizi2.Count; i++)
-            //    {
-            //        price += Convert.ToDouble(objDizi2[i]["tutar"]);
-            //    }
-
-            //    DAL.toolkit.MobilePayment(this.Context, order.ToString(), "vitrin" , price.ToString("F2", CultureInfo.InvariantCulture), "dfdsfsd", "sdsadasd");
-
-
-
-            //}
             else if (Request.Form["optionsRadios"] == "3")
             {
 
@@ -174,19 +170,7 @@ namespace PL
                     price += Convert.ToDouble(objDizi2[i]["tutar"]);
                 }
 
-
-                //int kullaniciId = ((kullanici)Session["unique-site-user"]).kullaniciId;
                 int kullaniciId = _kullanici.kullaniciId;
-                //odemeb.insert(
-                //      kullaniciId,
-                //      price,
-                //      20,
-                //      3,
-                //      "",
-                //      false,
-                //      txtstr
-                //      );
-
                 DAL.odeme odeme = new DAL.odeme
                 {
                     kullaniciId = kullaniciId,
@@ -200,19 +184,14 @@ namespace PL
 
                 _odemeManager.Add(odeme);
 
-
-
+                Response.Redirect("~/projeler/basarili/");
             }
-
-
-            Response.Redirect("~/projeler/basarili/");
         }
 
 
         protected void Devam_Click(object sender, EventArgs e)
         {
             ScriptManager.RegisterStartupScript(this, GetType(), "Show Modal Popup", "showmodalpopup1();", true);
-
         }
 
 

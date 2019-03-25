@@ -240,6 +240,14 @@ namespace DAL
 			}
 		}
 		
+		public System.Data.Linq.Table<ilanBakilanlar> ilanBakilanlars
+		{
+			get
+			{
+				return this.GetTable<ilanBakilanlar>();
+			}
+		}
+		
 		public System.Data.Linq.Table<ilanFavori> ilanFavoris
 		{
 			get
@@ -405,14 +413,6 @@ namespace DAL
 			get
 			{
 				return this.GetTable<mesajlar>();
-			}
-		}
-		
-		public System.Data.Linq.Table<mesajtelefon> mesajtelefons
-		{
-			get
-			{
-				return this.GetTable<mesajtelefon>();
 			}
 		}
 		
@@ -2346,7 +2346,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_baslik", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_baslik", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
 		public string baslik
 		{
 			get
@@ -2386,7 +2386,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_baslangicTarihi", DbType="Date NOT NULL")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_baslangicTarihi", DbType="DateTime NOT NULL")]
 		public System.DateTime baslangicTarihi
 		{
 			get
@@ -2406,7 +2406,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitisTarihi", DbType="Date")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitisTarihi", DbType="DateTime")]
 		public System.Nullable<System.DateTime> bitisTarihi
 		{
 			get
@@ -3057,6 +3057,51 @@ namespace DAL
 		{
 			this.SendPropertyChanging();
 			entity.ilan = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ilanBakilanlar")]
+	public partial class ilanBakilanlar
+	{
+		
+		private System.Nullable<int> _ilanId;
+		
+		private System.Nullable<int> _kullaniciId;
+		
+		public ilanBakilanlar()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ilanId", DbType="Int")]
+		public System.Nullable<int> ilanId
+		{
+			get
+			{
+				return this._ilanId;
+			}
+			set
+			{
+				if ((this._ilanId != value))
+				{
+					this._ilanId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_kullaniciId", DbType="Int")]
+		public System.Nullable<int> kullaniciId
+		{
+			get
+			{
+				return this._kullaniciId;
+			}
+			set
+			{
+				if ((this._kullaniciId != value))
+				{
+					this._kullaniciId = value;
+				}
+			}
 		}
 	}
 	
@@ -9720,51 +9765,6 @@ namespace DAL
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.mesajtelefon")]
-	public partial class mesajtelefon
-	{
-		
-		private System.Nullable<int> _mesajtelefonId;
-		
-		private string _mesajtelefon1;
-		
-		public mesajtelefon()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_mesajtelefonId", DbType="Int")]
-		public System.Nullable<int> mesajtelefonId
-		{
-			get
-			{
-				return this._mesajtelefonId;
-			}
-			set
-			{
-				if ((this._mesajtelefonId != value))
-				{
-					this._mesajtelefonId = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="mesajtelefon", Storage="_mesajtelefon1", DbType="NVarChar(11)")]
-		public string mesajtelefon1
-		{
-			get
-			{
-				return this._mesajtelefon1;
-			}
-			set
-			{
-				if ((this._mesajtelefon1 != value))
-				{
-					this._mesajtelefon1 = value;
-				}
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.odeme")]
 	public partial class odeme : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -10436,9 +10436,9 @@ namespace DAL
 		
 		private System.Nullable<bool> _psatistami;
 		
-		private System.Nullable<bool> _ponay;
+		private bool _ponay;
 		
-		private System.Nullable<bool> _psilindmi;
+		private bool _psilindmi;
 		
 		private System.Nullable<int> _pkullanicid;
 		
@@ -10496,9 +10496,9 @@ namespace DAL
     partial void OnptarihChanged();
     partial void OnpsatistamiChanging(System.Nullable<bool> value);
     partial void OnpsatistamiChanged();
-    partial void OnponayChanging(System.Nullable<bool> value);
+    partial void OnponayChanging(bool value);
     partial void OnponayChanged();
-    partial void OnpsilindmiChanging(System.Nullable<bool> value);
+    partial void OnpsilindmiChanging(bool value);
     partial void OnpsilindmiChanged();
     partial void OnpkullanicidChanging(System.Nullable<int> value);
     partial void OnpkullanicidChanged();
@@ -10945,8 +10945,8 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ponay", DbType="Bit")]
-		public System.Nullable<bool> ponay
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ponay", DbType="Bit NOT NULL")]
+		public bool ponay
 		{
 			get
 			{
@@ -10965,8 +10965,8 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_psilindmi", DbType="Bit")]
-		public System.Nullable<bool> psilindmi
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_psilindmi", DbType="Bit NOT NULL")]
+		public bool psilindmi
 		{
 			get
 			{
@@ -11826,7 +11826,7 @@ namespace DAL
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vergiDaireId", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vergiDaireId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int vergiDaireId
 		{
 			get
@@ -12407,7 +12407,7 @@ namespace DAL
 		
 		private System.Nullable<int> _ilanId;
 		
-		private System.DateTime _sonGirisTarihi;
+		private System.Nullable<System.DateTime> _sonGirisTarihi;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -12419,7 +12419,7 @@ namespace DAL
     partial void OnipAdresChanged();
     partial void OnilanIdChanging(System.Nullable<int> value);
     partial void OnilanIdChanged();
-    partial void OnsonGirisTarihiChanging(System.DateTime value);
+    partial void OnsonGirisTarihiChanging(System.Nullable<System.DateTime> value);
     partial void OnsonGirisTarihiChanged();
     #endregion
 		
@@ -12488,8 +12488,8 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sonGirisTarihi", DbType="Date NOT NULL")]
-		public System.DateTime sonGirisTarihi
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sonGirisTarihi", DbType="Date")]
+		public System.Nullable<System.DateTime> sonGirisTarihi
 		{
 			get
 			{

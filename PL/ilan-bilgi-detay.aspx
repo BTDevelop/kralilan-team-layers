@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="ilan-bilgi-detay.aspx.cs" Inherits="PL.ilan_bilgi_detay" %>
+
 <%@ Import Namespace="BLL.EnumHelper" %>
 <asp:Content ID="Content4" ContentPlaceHolderID="styles" runat="server">
     <meta property="og:url" content="https://www.kralilan.com/ilan/<%= BLL.PublicHelper.Tools.URLConverter(heading)%>-<%= number %>/detay" />
@@ -19,6 +20,16 @@
     <link href="/libraries/assets/css/owl.carousel.css" rel="stylesheet" />
     <link href="/libraries/assets/css/owl.theme.css" rel="stylesheet" />
     <style>
+        body.modal-open .background-container {
+            -webkit-filter: blur(10px);
+            -moz-filter: blur(10px);
+            -o-filter: blur(10px);
+            -ms-filter: blur(10px);
+            filter: blur(10px);
+            filter: url("https://gist.githubusercontent.com/amitabhaghosh197/b7865b409e835b5a43b5/raw/1a255b551091924971e7dee8935fd38a7fdf7311/blur".svg#blur);
+            filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius='4');
+        }
+
         .box-title {
             padding: 0px;
             border: 0px;
@@ -49,13 +60,14 @@
             }
         }
 
-        /*-webkit-print-color-adjust: exact;*/
+        /*-w
+    print-color-adjust: exact;*/
     </style>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="metalog" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="intro" id="intro" runat="server" style="background: url('/libraries/images/bg_3.png') repeat left top; height: 105px;">
+    <div class="intro background-container" id="intro" runat="server" style="background: url('/libraries/images/bg_3.png') repeat left top; height: 105px;">
         <div class="dtable hw100">
             <div class="dtable-cell hw100">
                 <div class="container text-center">
@@ -65,7 +77,7 @@
         </div>
     </div>
     <div class="main-container">
-        <div class="container">
+        <div class="container background-container">
             <%--<ol class="breadcrumb pull-left">
                 <li><a href="#"><i class="icon-home fa"></i></a></li>
                 <li><a href="category.html">All Ads</a></li>
@@ -76,7 +88,7 @@
                 <%--   <a href="#"><i class="fa fa-angle-double-left"></i>Arama sonuçlarına geri dön</a> --%>
             </div>
         </div>
-        <div class="container">
+        <div class="container background-container">
             <div class="row">
                 <div class="col-lg-12 page-content col-thin-right">
                     <div class=" text-center" runat="server" id="ProjeBox">
@@ -236,6 +248,7 @@
                                     </div>
                                     <div class="user-ads-action">
                                         <a class="btn btn-success btn-block" style="background-color: #16A085" href="<%= link %>"><i class=" icon-docs"></i>Tüm İlanları</a>
+                                        <a class="btn btn-info btn-block" Visible="False" runat="server" id="infoModal" href="#informationAdvertiser" data-toggle="modal"><i class="icon-info"></i>Bilgi Al/Teklif Ver</a>
                                         <a class="btn btn-danger btn-block" href="#contactAdvertiser" data-toggle="modal" runat="server" id="messageAuth"><i class=" icon-mail-2"></i>Mesaj Gönder</a>
                                         <a class="btn btn-danger btn-block" onclick="showmodalpopup2();" runat="server" id="messageNonAuth"><i class=" icon-mail-2"></i>Mesaj Gönder</a>
                                         <a class="btn btn-default btn-block" href="<%= link %>"><i class=" icon-plus"></i>Takip Et</a>
@@ -265,6 +278,26 @@
                                     </p>
                                 </div>
                             </div>
+                        </div>
+                        <div>
+                            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                            <!-- Kralilan Detay Banner(300x200) -->
+                            <ins class="adsbygoogle"
+                                style="display: inline-block; width: 300px; height: 250px"
+                                data-ad-client="ca-pub-9803073452171785"
+                                data-ad-slot="8350973367"></ins>
+                            <script>
+                                (adsbygoogle = window.adsbygoogle || []).push({});
+                            </script>
+                            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                            <!-- Kralilan Detay Banner(300x200) -->
+                            <ins class="adsbygoogle"
+                                style="display: inline-block; width: 300px; height: 250px"
+                                data-ad-client="ca-pub-9803073452171785"
+                                data-ad-slot="8350973367"></ins>
+                            <script>
+                                (adsbygoogle = window.adsbygoogle || []).push({});
+                            </script>
                         </div>
                     </aside>
                 </div>
@@ -348,6 +381,71 @@
             </div>
         </div>
     </div>
+<div class="modal fade" id="informationAdvertiser" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"><i class=" icon-info"></i>Bilgi Almak/Teklif Vermek İstiyorum</h4>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span><span
+                            class="sr-only">Close</span></button>
+                </div>
+                <div class="modal-body">
+                    <div role="form">
+                        <div class="form-group">
+                            <label for="recipient-name" class="control-label">Ad Soyad:</label>
+                            <input class="form-control required" id="infoName" placeholder="Ad Soyad" runat="server"
+                                data-placement="top" data-trigger="manual"
+                                data-content="En az 3 karakter girilmelidir."
+                                type="text" />
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient-name" class="control-label">TC Kimlik Numarası:</label>
+                            <input class="form-control required" id="infoIdentity" runat="server" placeholder="TC Kimlik Numarası"
+                                   data-placement="top" data-trigger="manual"
+                                   data-content="En az 3 karakter girilmelidir."
+                                   type="text" />
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient-name" class="control-label">Telefon:</label>
+                            <input class="form-control required" id="infoPhone" placeholder="999 999 9999" runat="server" data-inputmask='"mask": "(999) 999-9999"' data-mask
+                                   data-placement="top" data-trigger="manual"
+                                   data-content="En az 3 karakter girilmelidir."
+                                   type="text" />
+                        </div>
+                        <div class="form-group">
+                            <label for="sender-email" class="control-label">E-Posta Adresi:</label>
+                            <input id="infoEposta" type="text"
+                                data-content="Doğru bir mail adresi giriniz." data-trigger="manual" runat="server" 
+                                data-placement="top" placeholder="e-Posta" class="form-control email" />
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="control-label">İrtibat Adresi:</label>
+                            <textarea class="form-control" id="infoAddress" placeholder="Adresinizi buraya yaz.."
+                                data-placement="top" data-trigger="manual"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient-name" class="control-label">Teklif Bedeli:</label>
+                            <input class="form-control required" id="infoOffer" runat="server" placeholder="1000"
+                                   data-placement="top" data-trigger="manual"
+                                   data-content="En az 3 karakter girilmelidir."
+                                   type="text" />
+                        </div>
+                        <div class="form-group">    
+                            <p class="help-block pull-left text-danger hide" id="form-error">
+                                &nbsp; The form is not
+							valid.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">İptal</button>
+                    <button type="submit" class="btn btn-success pull-right" runat="server" onserverclick="Unnamed_ServerClick">Gönder!</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="modal fade" id="contactAdvertiser" tabindex="-1" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -377,7 +475,7 @@
                             <textarea class="form-control" id="message-text" placeholder="Mesajını buraya yaz.."
                                 data-placement="top" data-trigger="manual"></textarea>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group">    
                             <p class="help-block pull-left text-danger hide" id="form-error">
                                 &nbsp; The form is not
 							valid.
@@ -404,6 +502,53 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="creditAds" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12 ml-auto">
+                                <div class="reg-sidebar-inner text-center">
+                                    <div class="promo-text-box">
+                                        <i class=" icon-cancel fa fa-4x icon-color-3"></i>
+                                        <h3><strong>Bu ilanı görmek için jeton almalısınız!!!</strong></h3>
+                                        <p>
+                                            kralilan.com'da satılan kategorisindeki ilanları görebilmek için jetonunuz olmalı, hemen şimdi jeton alarak bu ilana gözat.                          
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 ml-auto">
+                                <div class="reg-sidebar-inner text-center">
+                                    <div class="promo-text-box">
+                                        <i class=" icon-certificate-1 fa fa-4x icon-color-2"></i>
+                                        <h3><strong>Jeton Almak İstiyorum</strong></h3>
+                                        <p>
+                                            kralilan.com'da jeton alarak satılan ilanların detaylı bilgilerine istediğin yerden ulaşabilirsin.                         
+                                        </p>
+                                        <a href="/jeton-al" type="button" class="btn btn-info">Devam Et</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 ml-auto">
+                                <div class="reg-sidebar-inner text-center">
+                                    <div class="promo-text-box">
+                                        <i class=" icon-home fa fa-4x icon-color-1"></i>
+                                        <h3><strong>Anasayfaya Devam Etmek İstiyorum</strong></h3>
+                                        <p>
+                                            kralilan.com'da ki diğer ilanlara ulaşmak için anasayfaya git.                        
+                                        </p>
+                                        <a href="/" type="button" class="btn btn-default">Devam Et</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="scripts" runat="server">
     <script src='<%= Page.ResolveUrl("~/libraries/assets/js/owl.carousel.min.js") %>'></script>
@@ -412,6 +557,8 @@
     <script src='<%= Page.ResolveUrl("~/libraries/assets/plugins/iCheck/icheck.min.js") %>'></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.4/jquery.lazy.min.js"></script>
     <script src='<%= Page.ResolveUrl("~/libraries/assets/plugins/jquery.confirm/jquery-confirm.min.js") %>'></script>
+<%--    <script src="/management/plugins/input-mask/jquery.inputmask.js"></script>
+    <script src="/management/plugins/input-mask/jquery.inputmask.extensions.js"></script>--%>
     <script type="text/javascript">
         function showmodalpopup() {
             $.dialog({
@@ -643,6 +790,22 @@
             if (!results[2]) return '';
             return decodeURIComponent(results[2].replace(/\+/g, " "));
         }
+
+
+        function ShowCreditUserAds() {
+            $('#creditAds').modal({
+                backdrop: 'static',
+                keyboard: false
+            });
+
+            $("body").toggleClass("dialogIsOpen");
+
+        }
+
+        function NonShowCreditUserAds() {
+            $('#creditAds').modal("hide");
+        }
+
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDFMOi-Vi2hXZROzNxUjmg9keIYxvsyuxM&callback=initMap" async="async" defer="defer"></script>
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58c17f0bb3be1504"></script>

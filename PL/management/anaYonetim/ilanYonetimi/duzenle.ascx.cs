@@ -561,7 +561,7 @@ namespace PL.management.anaYonetim.ilanYonetimi
                 else if (ctrl == "6")
                 {
                     onay = 1;
-                    silindi = true;
+                    silindi = false;
                     satildiMi = true;
                 }
 

@@ -178,5 +178,15 @@ namespace DAL.Concrete.LINQ
                 idc.SubmitChanges();
             }
         }
+
+        public void UpdateJetonByUserId(int UserId, int JetonCount)
+        {
+            var value = idc.kullanicis.Where(x => x.kullaniciId == UserId).FirstOrDefault();
+            if (value != null)
+            {
+                value.kredi = JetonCount;
+                idc.SubmitChanges();
+            }
+        }
     }
 }

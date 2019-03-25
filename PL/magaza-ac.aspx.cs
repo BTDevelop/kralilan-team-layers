@@ -19,7 +19,7 @@ namespace PL
     public partial class magaza_ac : System.Web.UI.Page
     {
 
-      
+
         public string stdThreePriceText = "";
         public string stdSixPriceText = "";
         public string stdTwelvePriceText = "";
@@ -306,6 +306,7 @@ namespace PL
                                 _checkout.buyerEmail = _kullanici.email;
                                 _checkout.buyerBasketId = order.ToString();
                                 _checkout.buyerBasketCategory = "Mağaza";
+                                _checkout.callbackUrl = "https://www.kralilan.com/yeni-magaza-odeme";
 
                                 Session["CheckoutContext"] = _checkout;
 
@@ -367,9 +368,8 @@ namespace PL
             }
             else
             {
-
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "none", "ShowStoreUserModal();", true);
             }
-
         }
     }
 }

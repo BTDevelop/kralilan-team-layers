@@ -138,17 +138,6 @@
 		    </div>
 	    </a>
 		<hr>
-     <%--<div style="
-    text-align: center;
-    margin-left: 10%;
-    margin-right: 10%;
-    font-weight: bold;
-">
-    <h2>Sahibinden Emlakçıdan İnşaat Firmasından</h2>
-    <h2>Belediyeden Bankadan Hazineden İcradan</h2>
-<h2>Ve Diğer Kurumlardan Uygun Emlak ilanları</h2>
-            </div>--%>
-		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><!-- esnek --><ins class="adsbygoogle"     style="display:block"     data-ad-client="ca-pub-9803073452171785"     data-ad-slot="8979863058"     data-ad-format="auto"     data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
     <div class="footer">
         <div class="w3-cell-footer" runat="server" id="login">

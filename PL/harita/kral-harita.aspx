@@ -320,27 +320,32 @@
         });
 
         var map;
-        var _listtype = 1;
+        var listType = 1;
         var _lefttype = 1;
 
         $("#allads").on("click", function () {
-            _listtype = 1;
+            listType = 1;
+            ClickEventFilterButton();
         });
 
         $("#emerads").on("click", function () {
-            _listtype = 2;
+            listType = 2;
+            ClickEventFilterButton();
         });
 
         $("#actualads").on("click", function () {
-            _listtype = 3;
+            listType = 3;
+            ClickEventFilterButton();
         });
 
         $("#soldads").on("click", function () {
-            _listtype = 4;
+            listType = 4;
+            ClickEventFilterButton();
         });
 
         $("#project").on("click", function () {
             _lefttype = 2;
+            ClickEventFilterButton();
         });
 
         google.load('visualization', '1.0');
@@ -376,7 +381,6 @@
                 contentType: "application/json; charset=utf-8",
                 success: function (data) {
                     var d = JSON.parse(data.d);
-
                     if (opt == 1) {
                         $("#slctprovi").append("<option value='-1' selected='selected'>Seçiniz</option>");
                         for (var i = 0; i < d.length; i++) {
@@ -408,37 +412,21 @@
                         }
                         $("slctneig").val(0);
                     }
-
                 },
                 error: function (e) {
-
+                    console.log(e);
                 }
-
             });
         }
 
-        function getParameterByName(name, url) {
-            if (!url) {
-                url = window.location.href;
-            }
-            name = name.replace(/[\[\]]/g, "\\$&");
-            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-                results = regex.exec(url);
-            if (!results) return null;
-            if (!results[2]) return '';
-            return decodeURIComponent(results[2].replace(/\+/g, " "));
-        }
-
-        var aramaStr = "";
-
-        function clickFilterButton() {
+        function ClickEventFilterButton() {
             pageIndex = 0;
             _control = 0;
             getListFiltre();
 
         }
 
-        function getValueAtIndex(index) {
+        function GetValueAtIndex(index) {
             var str = window.location.href;
             return str.split("/")[index];
         }
@@ -465,8 +453,8 @@
                 tarihAralik = -1;
             }
 
-            var catId = getValueAtIndex(7);
-            var turId = getValueAtIndex(5);
+            var catId = GetValueAtIndex(7);
+            var turId = GetValueAtIndex(5);
             if (catId == null) {
                 catId = -1;
             }
@@ -609,7 +597,7 @@
         }
 
         $("#filter").click(function () {
-            clickFilterButton();
+            ClickEventFilterButton();
         });
 
         function projectDT() {
@@ -864,13 +852,16 @@
                                 dataid = dat.Id;
                             }
 
-                            var infW = new google.maps.InfoWindow({
-                                pixelOffset: new google.maps.Size(100, 100),
+                            var locationInfoWindow = new google.maps.InfoWindow({
+                                pixelOffset: new google.maps.Size(50, 50),
                                 content: contentString,
                                 maxWidth: 125
                             });
 
-                            google.maps.event.addListener(infW, 'domready', function () {
+                            console.log(locationInfoWindow);
+                            console.log("---------------------------");
+
+                            google.maps.event.addListener(locationInfoWindow, 'domready', function () {
                                 var iwOuter = $('.gm-style-iw');
                                 var iwBackground = iwOuter.prev();
                                 iwBackground.children(':nth-child(2)').css({ 'display': 'none' });//infowindow u kapsayan alanları gösterme
@@ -878,12 +869,11 @@
                                 iwOuter.css({ "background-color": "#000080", "padding": "10px 10px", "color": "#fff", "border-radius": "4px", "text-align": "center" });// açılan alanın css şekillendirmesi
                                 var iwCloseBtn = iwOuter.next();
                                 var arrow = iwOuter.prev();
+                                console.log(arrow);
                                 arrow.css("display", "none");// arrow görünmesin
                                 iwCloseBtn.css({ "display": 'none' });//kapat butonu görünmesin
                             });
 
-
-                            infW.setContent(contentString);
                             var city = new google.maps.Polygon({
                                 paths: newCoordinates,
                                 strokeColor: "#000000",
@@ -892,10 +882,8 @@
                                 fillColor: "#C1CDCD",
                                 fillOpacity: 0.5,
                                 datac: dat,
-                                data: infW,
+                                data: locationInfoWindow,
                             });
-
-                            //var cityCenter = polygonCenter(city);
 
                             if (centerLoc) {
                                 var centerCalc = (new google.maps.LatLng(centerLoc.split(',')[0], centerLoc.split(',')[1]));
@@ -904,8 +892,6 @@
                             else {
                                 city.set('datalng', newCoordinates[0][0]);
                             }
-
-                            // alert(polygonCenter(city)[0]);
 
                             google.maps.event.addListener(city, 'mouseover', function (event) {
                                 if (this.datac != slctdCity) {
@@ -941,9 +927,7 @@
                                     this.data.close();
                                     var itemCity = $("#slctprovi").val(slctdCity.Id).attr("selected", true);
                                     $("#slctprovi").change();
-                                    //getListFiltre(true);
                                     google.maps.event.trigger(map, 'zoom_changed');
-                                    //clickFilterButton();
                                 }
                             });
 
@@ -1039,30 +1023,8 @@
 
                             if (dt[j].koordinat != null) {
 
-                                var coordinates = [];
-                                var coords;
-
-                                try {
-                                    coords = JSON.parse(dt[j].koordinat);
-                                }
-                                catch (err) {
-                                    throw "devam";
-                                }
-
-                                coords = coords["coordinates"][0][0];
-
-                                for (var i = 0; i < coords.length; i++) {
-                                    coordinates.push({ lat: coords[i][1], lng: coords[i][0] });
-                                }
-
-                                if (dt[j].guncelMi) {
-                                    bordercolor = "#000000";
-                                }
-                                else {
-                                    bordercolor = "#FFFFFF";
-                                }
-
-                                if (_listtype == 1) {
+                                
+                                if (listType == 1) {
 
                                     var appndix = "<li>" +
 		                                    "<a href='/ilan/" + trConverter(dt[j].baslik) + "-" + dt[j].ilanId + "/detay' class='blank' target='_blank'>" +
@@ -1076,12 +1038,12 @@
 			                               "</div>" +
 		                                "</a>" +
 	                                "</li>";
-
+                                    CretePolygonWithMarker(dt[j]);
                                     $("#addswrap").append(appndix);
                                 }
 
 
-                                if (_listtype == 2) {
+                                if (listType == 2) {
                                     if (dt[j].acilMi) {
                                         var appndix = "<li>" +
                                                 "<a href='/ilan/" + trConverter(dt[j].baslik) + "-" + dt[j].ilanId + "/detay' class='blank' target='_blank'>" +
@@ -1095,12 +1057,13 @@
                                                "</div>" +
                                             "</a>" +
                                         "</li>";
+                                        CretePolygonWithMarker(dt[j]);
 
                                         $("#emerwrap").append(appndix);
                                     }
                                 }
 
-                                if (_listtype == 3) {
+                                if (listType == 3) {
                                     if (dt[j].guncelMi) {
                                         var appndix = "<li>" +
                                                 "<a href='/ilan/" + trConverter(dt[j].baslik) + "-" + dt[j].ilanId + "/detay' class='blank' target='_blank'>" +
@@ -1114,12 +1077,13 @@
                                                "</div>" +
                                             "</a>" +
                                         "</li>";
+                                        CretePolygonWithMarker(dt[j]);
 
                                         $("#actualwrap").append(appndix);
                                     }
                                 }
 
-                                if (_listtype == 4) {
+                                if (listType == 4) {
                                     if (dt[j].satildi) {
                                         var appndix = "<li>" +
                                                 "<a href='/ilan/" + trConverter(dt[j].baslik) + "-" + dt[j].ilanId + "/detay' class='blank' target='_blank'>" +
@@ -1133,90 +1097,13 @@
                                                "</div>" +
                                             "</a>" +
                                         "</li>";
+                                        CretePolygonWithMarker(dt[j]);
 
                                         $("#soldwrap").append(appndix);
                                     }
                                 }
 
-                                color = colorGive(dt[j].magazaTurId);
-
-                                if (dt[j].magazaId == 100001342) {
-                                    markertype = '/libraries/images/marker/is-bankasi.png';
-                                }
-                                else {
-                                    markertype = markerTypeGive(dt[j].magazaTurId);
-                                }
-
-                                poly = new google.maps.Polygon({
-                                    paths: coordinates,
-                                    strokeColor: bordercolor,
-                                    strokeOpacity: 0.8,
-                                    strokeWeight: 3,
-                                    fillColor: color,
-                                    fillOpacity: 0.35
-                                });
-
-                                poly.setMap(map);
-                                overlays.push(poly);
-
-                                var markerPosition = { lat: coordinates[0]["lat"], lng: coordinates[0]["lng"] };
-
-
-                                var marker = new google.maps.Marker({
-                                    icon: markertype,
-                                    position: markerPosition,
-                                    animation: google.maps.Animation.DROP,
-                                    map: map,
-                                    title: dt[j].baslik
-                                });
-
-                                if (dt[j].acilMi) {
-                                    marker.setAnimation(google.maps.Animation.BOUNCE);
-                                }
-
-
-                                markers.push(marker);
-                                markerConn(marker);
-
-                                //getUrlConverter(dt[j].baslik);
-
-                                var contentString = '<div id="info-container">' +
-                                  '<a href="/ilan/' + trConverter(dt[j].baslik) + '-' + dt[j].ilanId + '/detay" target="_blank" style="color:#111">' +
-                                  '<div class="info-content">' +
-                                    '<div class="info-left"><img src="/upload/ilan/' + dt[j].resim + '" alt=""><div class="list-btn">No: ' + dt[j].ilanId + '</div></div>' +
-                                    '<div class="info-right">' +
-                                    '<div class="info-baslik">' + dt[j].baslik + '</div>' +
-                                    '<div class="info-price">' + dt[j].fiyatTurId + '' + " " + '' + dt[j].fiyat + '</span></div>' +
-                                    '<div class="info-detay"><span class="list-btn">' + dt[j].baslangicTarihi.toString().split("T")[0] + '</span></div>' +
-                                  '</div>' +
-                                  '</a>'
-                                '</div>';
-
-                                var infoWindow = new google.maps.InfoWindow({});
-
-                                google.maps.event.addListener(infoWindow, 'domready', function () {
-                                    var iwOuter = $('.gm-style-iw');
-                                    var iwBackground = iwOuter.prev();
-                                    iwBackground.children(':nth-child(2)').css({ 'display': 'none' });
-                                    iwBackground.children(':nth-child(4)').css({ 'display': 'none' });
-                                    var iwCloseBtn = iwOuter.next();
-                                    var width = $("body").width();
-                                    if (width < 795) {
-                                        iwCloseBtn.css({ opacity: '1', right: '30px', top: '20px' });
-                                    } else {
-                                        iwCloseBtn.css({ opacity: '1', right: '55px', top: '20px' });
-                                    }
-
-                                    var arrow = iwOuter.prev();
-
-                                    arrow.css("display", "none");// arrow görünmesin
-                                    iwCloseBtn.mouseout(function () {
-                                        $(this).css({ opacity: '0.5', 'background-color': '#E74C3C' });
-                                    });
-                                });
-
-
-                                polyConn(poly, infoWindow, contentString);
+                                
 
                             }
                         }
@@ -1234,6 +1121,108 @@
                 $("#tablebdy").empty();
             }
 
+        }
+
+        function CretePolygonWithMarker(estateInfo) {
+
+            var coordinates = [];
+            var coords;
+
+            try {
+                coords = JSON.parse(estateInfo.koordinat);
+            }
+            catch (err) {
+                throw "e";
+            }
+
+            coords = coords["coordinates"][0][0];
+
+            for (var i = 0; i < coords.length; i++) {
+                coordinates.push({ lat: coords[i][1], lng: coords[i][0] });
+            }
+
+            color = colorGive(estateInfo.magazaTurId);
+
+            if (estateInfo.magazaId == 100001342) {
+                markertype = '/libraries/images/marker/is-bankasi.png';
+            }
+            else {
+                markertype = markerTypeGive(estateInfo.magazaTurId);
+            }
+
+            if (estateInfo.guncelMi) {
+                bordercolor = "#000000";
+            }
+            else {
+                bordercolor = "#FFFFFF";
+            }
+
+            poly = new google.maps.Polygon({
+                paths: coordinates,
+                strokeColor: bordercolor,
+                strokeOpacity: 0.8,
+                strokeWeight: 3,
+                fillColor: color,
+                fillOpacity: 0.35
+            });
+
+            poly.setMap(map);
+            overlays.push(poly);
+
+            var markerPosition = { lat: coordinates[0]["lat"], lng: coordinates[0]["lng"] };
+
+            var marker = new google.maps.Marker({
+                icon: markertype,
+                position: markerPosition,
+                animation: google.maps.Animation.DROP,
+                map: map,
+                title: estateInfo.baslik
+            });
+
+            if (estateInfo.acilMi) {
+                marker.setAnimation(google.maps.Animation.BOUNCE);
+            }
+
+            markers.push(marker);
+            markerConn(marker);
+
+            var contentString = '<div id="info-container">' +
+              '<a href="/ilan/' + trConverter(estateInfo.baslik) + '-' + estateInfo.ilanId + '/detay" target="_blank" style="color:#111">' +
+              '<div class="info-content">' +
+                '<div class="info-left"><img src="/upload/ilan/' + estateInfo.resim + '" alt=""><div class="list-btn">No: ' + estateInfo.ilanId + '</div></div>' +
+                '<div class="info-right">' +
+                '<div class="info-baslik">' + estateInfo.baslik + '</div>' +
+                '<div class="info-price">' + estateInfo.fiyatTurId + '' + " " + '' + estateInfo.fiyat + '</span></div>' +
+                '<div class="info-detay"><span class="list-btn">' + estateInfo.baslangicTarihi.toString().split("T")[0] + '</span></div>' +
+              '</div>' +
+              '</a>'
+            '</div>';
+
+            var infoWindow = new google.maps.InfoWindow({});
+
+            google.maps.event.addListener(infoWindow, 'domready', function () {
+                var iwOuter = $('.gm-style-iw');
+                var iwBackground = iwOuter.prev();
+                iwBackground.children(':nth-child(2)').css({ 'display': 'none' });
+                iwBackground.children(':nth-child(4)').css({ 'display': 'none' });
+                var iwCloseBtn = iwOuter.next();
+                var width = $("body").width();
+                if (width < 795) {
+                    iwCloseBtn.css({ opacity: '1', right: '30px', top: '20px' });
+                } else {
+                    iwCloseBtn.css({ opacity: '1', right: '55px', top: '20px' });
+                }
+
+                var arrow = iwOuter.prev();                  
+                arrow.css("display", "none");// arrow görünmesin
+
+                iwCloseBtn.mouseout(function () {
+                    $(this).css({ opacity: '0.5', 'background-color': '#E74C3C' });
+                });
+            });
+
+
+            polyConn(poly, infoWindow, contentString);
         }
 
         function urlConverter(_income) {
@@ -1348,7 +1337,7 @@
         }
 
         $("#filter").click(function () {
-            clickFilterButton();
+            ClickEventFilterButton();
         });
 
         function trConverter(text) {
@@ -1394,12 +1383,6 @@
         //}
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAS1wH5TdTQ8gbD5zB6Ghi2hN4BpkkbJ5M&callback=initMap" async="async" defer="defer"></script>
-    <!-- Start Alexa Certify Javascript -->
-    <script type="text/javascript">
-        _atrk_opts = { atrk_acct: "SAVTo1IWhd10uG", domain: "kralilan.com", dynamic: true };
-        (function () { var as = document.createElement('script'); as.type = 'text/javascript'; as.async = true; as.src = "https://d31qbv1cthcecs.cloudfront.net/atrk.js"; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(as, s); })();
-    </script>
-    <noscript><img src="https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=SAVTo1IWhd10uG" style="display:none" height="1" width="1" alt="" /></noscript>
-    <!-- End Alexa Certify Javascript -->
+
 </body>
 </html>

@@ -38,5 +38,8 @@ namespace KralilanProject.Interfaces
         IQueryable GetOnline();
 
         IQueryable GetAllLast();
+
+        void UpdateJetonByUserId(int UserId, int JetonCount);
+
     }
 }

@@ -63,6 +63,7 @@
     <Compile Include="Abstract\IDopingKategorilerDal.cs" />
     <Compile Include="Abstract\IFirmalarDal.cs" />
     <Compile Include="Abstract\IGuvenlikKodlarDal.cs" />
+    <Compile Include="Abstract\IIlanBakilanlarDal.cs" />
     <Compile Include="Abstract\IIlanSatilanDal.cs" />
     <Compile Include="Abstract\IIlanSayilarDal.cs" />
     <Compile Include="Abstract\IIllerDal.cs" />
@@ -98,6 +99,7 @@
     <Compile Include="Concrete\LINQ\LTSDopingKategorilerDal.cs" />
     <Compile Include="Concrete\LINQ\LTSFirmalarDal.cs" />
     <Compile Include="Concrete\LINQ\LTSGuvenlikKodlarDal.cs" />
+    <Compile Include="Concrete\LINQ\LTSIlanBakilanlarDal.cs" />
     <Compile Include="Concrete\LINQ\LTSIlanlarDal.cs" />
     <Compile Include="Concrete\LINQ\LTSIlanFavorilerDal.cs" />
     <Compile Include="Concrete\LINQ\LTSIlanSatilanDal.cs" />

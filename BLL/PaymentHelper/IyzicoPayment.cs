@@ -12,10 +12,12 @@ namespace BLL.PaymentHelper
     public class IyzicoPayment : IPayment
     {
 
-        private readonly string _apikey = "wyBxkxcGMxMdemTzA26k7reEBxyfuS6A";
-        private readonly string _secretkey = "jUqowI6O3zEQVNm2ZIo6H5nU5QKUWzxn";
-        private readonly string _baseurl = "https://api.iyzipay.com";
+        public readonly string _apikey = "wyBxkxcGMxMdemTzA26k7reEBxyfuS6A";
+        public readonly string _secretkey = "jUqowI6O3zEQVNm2ZIo6H5nU5QKUWzxn";
+        public readonly string _baseurl = "https://api.iyzipay.com";
 
+
+        public string callbackUrl { get; set; }      
         public string buyerId { get; set; }
         public string buyerName { get; set; }
         public string buyerSurname { get; set; }
@@ -35,7 +37,7 @@ namespace BLL.PaymentHelper
         public string conversationId { get; set; }
         public List<BasketItem> basketItems { get; set; }
 
-        public CheckoutFormInitialize initializeCheckoutBuilder()
+        public object CheckoutForm()
         {
             CreateCheckoutFormInitializeRequest request = new CreateCheckoutFormInitializeRequest();
             request.Locale = Locale.TR.ToString();
@@ -45,7 +47,7 @@ namespace BLL.PaymentHelper
             request.Currency = Currency.TRY.ToString();
             request.BasketId = buyerBasketId;
             request.PaymentGroup = PaymentGroup.PRODUCT.ToString();
-            request.CallbackUrl = "https://www.kralilan.com/yeni-magaza-odeme/";
+            request.CallbackUrl = callbackUrl;
 
             List<int> enabledInstallments = new List<int>();
             enabledInstallments.Add(2);
@@ -96,63 +98,9 @@ namespace BLL.PaymentHelper
             return checkoutFormInitialize;
         }
 
-
-        public CheckoutFormInitialize initializeCheckoutBuilderForm()
-        {
-            CreateCheckoutFormInitializeRequest request = new CreateCheckoutFormInitializeRequest();
-            request.Locale = Locale.TR.ToString();
-            request.ConversationId = conversationId;
-            request.Price = price;
-            request.PaidPrice = paidPrice;
-            request.Currency = Currency.TRY.ToString();
-            request.BasketId = buyerBasketId;
-            request.PaymentGroup = PaymentGroup.PRODUCT.ToString();
-            request.CallbackUrl = "https://www.kralilan.com/odeme-formu/";
-
-            List<int> enabledInstallments = new List<int>();
-            enabledInstallments.Add(2);
-            enabledInstallments.Add(3);
-            enabledInstallments.Add(6);
-            enabledInstallments.Add(9);
-            request.EnabledInstallments = enabledInstallments;
-
-            Buyer buyer = new Buyer();
-            buyer.Id = buyerId;
-            buyer.Name = buyerName;
-            buyer.Surname = buyerSurname;
-            buyer.GsmNumber = buyerGSMNumber;
-            buyer.Email = buyerEmail;
-            buyer.IdentityNumber = buyerIdentityNumber;
-            buyer.RegistrationAddress = buyerAddress;
-            buyer.Ip = buyerIp;
-            buyer.City = buyerCity;
-            buyer.Country = "Turkey";
-            buyer.ZipCode = buyerZipCode;
-            request.Buyer = buyer;
-
-            Address billingAddress = new Address();
-            billingAddress.ContactName = buyerName;
-            billingAddress.City = buyerCity;
-            billingAddress.Country = "Turkey";
-            billingAddress.Description = buyerAddress;
-            billingAddress.ZipCode = buyerZipCode;
-            request.BillingAddress = billingAddress;
-
-            request.BasketItems = basketItems;
-
-            Options options = new Options();
-            options.ApiKey = _apikey;
-            options.SecretKey = _secretkey;
-            options.BaseUrl = _baseurl;
-
-            CheckoutFormInitialize checkoutFormInitialize = CheckoutFormInitialize.Create(request, options);
-
-            return checkoutFormInitialize;
-        }
-
         public void Pay()
         {
-            throw new NotImplementedException();
+         
         }
     }
 }

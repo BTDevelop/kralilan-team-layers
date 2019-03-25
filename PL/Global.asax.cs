@@ -45,7 +45,8 @@ namespace PL
             RouteTable.Routes.Add("haritam", new Route("haritada-ara/", new PageRouteHandler("~/harita/kral-harita.aspx")));
             RouteTable.Routes.Add("firma", new Route("projeler/firma/{ComNo}/{Com}", new PageRouteHandler("~/proje-firma.aspx")));
             RouteTable.Routes.Add("projedetay", new Route("proje/{ProName}/{ProNo}/detay", new PageRouteHandler("~/proje-detay.aspx")));
-            RouteTable.Routes.Add("projeodeme", new Route("projeler/odeme/", new PageRouteHandler("~/proje-sepet.aspx")));
+            RouteTable.Routes.Add("projesepet", new Route("projeler/sepet/", new PageRouteHandler("~/proje-sepet.aspx")));
+            RouteTable.Routes.Add("projeodeme", new Route("projeler/odeme/", new PageRouteHandler("~/proje-odeme.aspx")));
             RouteTable.Routes.Add("projeekle", new Route("projeler/ekle/", new PageRouteHandler("~/proje-ekle.aspx")));
             RouteTable.Routes.Add("projebasarili", new Route("projeler/basarili/", new PageRouteHandler("~/proje-basarili.aspx")));
             RouteTable.Routes.Add("projeler", new Route("projeler/", new PageRouteHandler("~/projeler.aspx")));
@@ -55,6 +56,10 @@ namespace PL
             RouteTable.Routes.Add("kurumsalsozlesme", new Route("kurumsal-uyelik-sozlesme/", new PageRouteHandler("~/kurumsal-sozlesme.aspx")));
             RouteTable.Routes.Add("iyziodeme", new Route("odeme-formu/", new PageRouteHandler("~/iyzi-odeme.aspx")));
             RouteTable.Routes.Add("mobile", new Route("mobile/", new PageRouteHandler("~/mobile-site.aspx")));
+            RouteTable.Routes.Add("kurusal", new Route("jeton-al/", new PageRouteHandler("~/kurus-al.aspx")));
+            RouteTable.Routes.Add("genelodeme", new Route("odeme/", new PageRouteHandler("~/genel-odeme.aspx")));
+            RouteTable.Routes.Add("ucretsizilan", new Route("ucretsiz-ilan-ver/", new PageRouteHandler("~/ucretsiz-ilan-ver.aspx")));
+
         }
 
         public void RegisterRoutes(System.Web.Routing.RouteCollection routes)

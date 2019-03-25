@@ -91,5 +91,10 @@ namespace BLL.Concrete
         {
             _kullanicilarDal.UpdateBySessionInfo(UserId, Browser, IPAddress);
         }
+
+        public void UpdateJetonByUserId(int UserId, int JetonCount)
+        {
+            _kullanicilarDal.UpdateJetonByUserId(UserId, JetonCount);
+        }
     }
 }

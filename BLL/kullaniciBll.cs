@@ -16,7 +16,7 @@ namespace BLL
     public class kullaniciBll
     {
         Formatter.Formatter formatter = new Formatter.Formatter();
-
+        ilanDataContext idc = new ilanDataContext();
         //public void delete(int _inuserid)
         //{
         //    throw new NotImplementedException();
@@ -206,20 +206,19 @@ namespace BLL
 
         public bool getUserLoginOn(string _inUserName, string _inPassword)
         {
-            using (ilanDataContext idc = new ilanDataContext())
+
+            var value = idc.kullanicis.Where(q => q.email == _inUserName && q.sifre == _inPassword && (q.rol == 1 || q.rol == 2 || q.rol == 3) & q.silindiMi == false).FirstOrDefault();
+            if (value != null)
             {
-                var value = idc.kullanicis.Where(q => q.email == _inUserName && q.sifre == _inPassword && (q.rol == 1 || q.rol == 2 || q.rol == 3) & q.silindiMi == false).FirstOrDefault();
-                if (value != null)
-                {
-                    FormsAuthentication.SetAuthCookie(value.kullaniciId.ToString(), false);
-                    getUsersBlock(value.kullaniciId, true);
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                FormsAuthentication.SetAuthCookie(value.kullaniciId.ToString(), false);
+                getUsersBlock(value.kullaniciId, true);
+                return true;
             }
+            else
+            {
+                return false;
+            }
+
         }
 
         public static Dictionary<int, kullanici> usersDic = new Dictionary<int, kullanici>();
@@ -227,75 +226,73 @@ namespace BLL
         public static kullanici getUsersBlock(int _inUserId = -1, bool _inRefresher = false)
         {
             kullanici memoryBlock = null;
-            using (ilanDataContext idc = new ilanDataContext())
+            ilanDataContext idc = new ilanDataContext();
+            if (_inUserId == -1)
             {
-                if (_inUserId == -1)
+                if (String.IsNullOrEmpty(HttpContext.Current.User.Identity.Name) == false)
                 {
-                    if (String.IsNullOrEmpty(HttpContext.Current.User.Identity.Name) == false)
+                    _inUserId = Convert.ToInt32(HttpContext.Current.User.Identity.Name);
+                    if (usersDic.TryGetValue(_inUserId, out memoryBlock) == true && _inRefresher == false)
                     {
-                        _inUserId = Convert.ToInt32(HttpContext.Current.User.Identity.Name);
-                        if (usersDic.TryGetValue(_inUserId, out memoryBlock) == true && _inRefresher == false)
-                        {
-                            return memoryBlock;
-                        }
-                        else
-                        {
-                            var value = idc.kullanicis.Where(q => q.kullaniciId == _inUserId).FirstOrDefault();
-                            if (value != null)
-                            {
-                                if (_inRefresher == true) usersDic.Remove(_inUserId);
-                                usersDic.Add(_inUserId, value);
-                                memoryBlock = value;
-                                return memoryBlock;
-                            }
-                            else
-                            {
-                                return null;
-                            }
-                        }
-
-                    }
-                    else
-                    {
-                        return null;
-                    }
-                }
-                else
-                {
-                    var value = idc.kullanicis.Where(q => q.kullaniciId == _inUserId).FirstOrDefault();
-                    if (value != null)
-                    {
-                        if (_inRefresher == true) usersDic.Remove(_inUserId);
-                        usersDic.Add(_inUserId, value);
-                        memoryBlock = value;
                         return memoryBlock;
                     }
                     else
                     {
-                        return null;
-
+                        var value = idc.kullanicis.Where(q => q.kullaniciId == _inUserId).FirstOrDefault();
+                        if (value != null)
+                        {
+                            if (_inRefresher == true) usersDic.Remove(_inUserId);
+                            usersDic.Add(_inUserId, value);
+                            memoryBlock = value;
+                            return memoryBlock;
+                        }
+                        else
+                        {
+                            return null;
+                        }
                     }
+
+                }
+                else
+                {
+                    return null;
                 }
             }
+            else
+            {
+                var value = idc.kullanicis.Where(q => q.kullaniciId == _inUserId).FirstOrDefault();
+                if (value != null)
+                {
+                    if (_inRefresher == true) usersDic.Remove(_inUserId);
+                    usersDic.Add(_inUserId, value);
+                    memoryBlock = value;
+                    return memoryBlock;
+                }
+                else
+                {
+                    return null;
+
+                }
+            }
+
         }
 
         public bool getUserAppLoginOn(string _inUserName, string _inPassword)
         {
-            using (ilanDataContext idc = new ilanDataContext())
-            {
-                var query = idc.kullanicis.Where(q => q.email == _inUserName && q.sifre == _inPassword && (q.rol == 1 || q.rol == 2 || q.rol == 3 || q.rol == 4) && q.silindiMi == false).FirstOrDefault();
-                if (query != null)
-                {
-                    FormsAuthentication.SetAuthCookie(query.kullaniciId.ToString(), false);
-                    getUsersBlock(query.kullaniciId, true);
-                    return true;
-                }
 
-                else
-                {
-                    return false;
-                }
+            var query = idc.kullanicis.Where(q => q.email == _inUserName && q.sifre == _inPassword && (q.rol == 1 || q.rol == 2 || q.rol == 3 || q.rol == 4) && q.silindiMi == false).FirstOrDefault();
+            if (query != null)
+            {
+                FormsAuthentication.SetAuthCookie(query.kullaniciId.ToString(), false);
+                getUsersBlock(query.kullaniciId, true);
+                return true;
             }
+
+            else
+            {
+                return false;
+            }
+
         }
 
         //public void updateByManager(int _inUserId, string _inUserName, string _inPassword, string _inEmail, int _inRank, bool _inDeleted)
@@ -334,27 +331,26 @@ namespace BLL
         /// <returns></returns>
         public string getOnlineUsers(int _index, int _inCount)
         {
-            using (ilanDataContext idc = new ilanDataContext())
-            {
-                var query = from k in idc.kullanicis.Where(k => k.silindiMi == false && DateTime.Compare(Convert.ToDateTime(k.online), DateTime.Now) > 0)
-                            select new
-                            {
-                                k.kullaniciId,
-                                k.kullaniciAdSoyad,
-                                k.sonGirisTarihi,
-                                k.ipAdres,
-                                k.online,
-                                cevrimIci = k.online.Value.AddMinutes(-10)
-                            };
+
+            var query = from k in idc.kullanicis.Where(k => k.silindiMi == false && DateTime.Compare(Convert.ToDateTime(k.online), DateTime.Now) > 0)
+                        select new
+                        {
+                            k.kullaniciId,
+                            k.kullaniciAdSoyad,
+                            k.sonGirisTarihi,
+                            k.ipAdres,
+                            k.online,
+                            cevrimIci = k.online.Value.AddMinutes(-10)
+                        };
 
 
-                query = query.OrderByDescending(x => x.sonGirisTarihi).OrderBy(x => x.kullaniciId).Skip(_inCount * (_index)).Take(_inCount);
+            query = query.OrderByDescending(x => x.sonGirisTarihi).OrderBy(x => x.kullaniciId).Skip(_inCount * (_index)).Take(_inCount);
 
-                JsonFormat jsonFormat = new JsonFormat();
-                formatter.FormatTo(jsonFormat);
-                formatter.rawData = query.ToList();
-                return formatter.Format();
-            }
+            JsonFormat jsonFormat = new JsonFormat();
+            formatter.FormatTo(jsonFormat);
+            formatter.rawData = query.ToList();
+            return formatter.Format();
+
         }
 
         /// <summary>
@@ -368,25 +364,24 @@ namespace BLL
 
         public string getLastRecorUsers(int _index, int _inCount)
         {
-            using (ilanDataContext idc = new ilanDataContext())
-            {
-                var query = from i in idc.kullanicis.Where(k => k.silindiMi == false && k.rol == 4)
-                    select new
-                    {
-                        i.kullaniciId,
-                        i.kullaniciAdSoyad,
-                        i.telefonlars.Where(t => t.telefonTur == 1).FirstOrDefault().telefon,
-                        i.email,
-                        i.sonGirisTarihi,
-                        tarihFormat = String.Format(" {0:dd MMMM yyyy}", i.sonGirisTarihi)
-                    };
-                query = query.OrderByDescending(x => x.kullaniciId).Skip(_index).Take(_inCount);
 
-                JsonFormat jsonFormat = new JsonFormat();
-                formatter.FormatTo(jsonFormat);
-                formatter.rawData = query.ToList();
-                return formatter.Format();
-            }
+            var query = from i in idc.kullanicis.Where(k => k.silindiMi == false && k.rol == 4)
+                        select new
+                        {
+                            i.kullaniciId,
+                            i.kullaniciAdSoyad,
+                            i.telefonlars.Where(t => t.telefonTur == 1).FirstOrDefault().telefon,
+                            i.email,
+                            i.sonGirisTarihi,
+                            tarihFormat = String.Format(" {0:dd MMMM yyyy}", i.sonGirisTarihi)
+                        };
+            query = query.OrderByDescending(x => x.kullaniciId).Skip(_index).Take(_inCount);
+
+            JsonFormat jsonFormat = new JsonFormat();
+            formatter.FormatTo(jsonFormat);
+            formatter.rawData = query.ToList();
+            return formatter.Format();
+
         }
 
         public class KullaniciType
@@ -407,39 +402,38 @@ namespace BLL
 
         public object getUsersJDatatables(int _index, int _inCount, int _inRole, string _inSearch, string _inEcho)
         {
-            using (ilanDataContext idc = new ilanDataContext())
-            {
-                var query = from i in idc.kullanicis.Where(k => k.silindiMi == false & k.rol == _inRole)
-                            select new KullaniciType
-                            {
 
-                                kullaniciId = i.kullaniciId,
-                                kullaniciAdSoyad = i.kullaniciAdSoyad,
-                                profilResim = i.telefonlars.Where(t => t.telefonTur == 1).FirstOrDefault().telefon,
-                                email = i.email,
-                                sonGirisTarihi = String.Format(" {0:dd MMMM yyyy}", i.sonGirisTarihi),
-                                sifre = @"<a href='/satici-profil.aspx?seller=" + i.kullaniciId + @"' class='btn btn-primary btn-xs'>Görüntüle</a>
+            var query = from i in idc.kullanicis.Where(k => k.silindiMi == false & k.rol == _inRole)
+                        select new KullaniciType
+                        {
+
+                            kullaniciId = i.kullaniciId,
+                            kullaniciAdSoyad = i.kullaniciAdSoyad,
+                            profilResim = i.telefonlars.Where(t => t.telefonTur == 1).FirstOrDefault().telefon,
+                            email = i.email,
+                            sonGirisTarihi = String.Format(" {0:dd MMMM yyyy}", i.sonGirisTarihi),
+                            sifre = @"<a href='/satici-profil.aspx?seller=" + i.kullaniciId + @"' class='btn btn-primary btn-xs'>Görüntüle</a>
                                                 <a href = '/management/anaYonetim/kullaniciYonetimi/kullanici.aspx?page=duzenle&user=" + i.kullaniciId + @"' class='btn btn-warning btn-xs'>Düzenle</a>
                                                 <a href = '/management/anaYonetim/kullaniciYonetimi/kullanici.aspx?page=listele&dlt=" + i.kullaniciId + @"'  class='btn btn-danger btn-xs' >Sil</a>"
-                            };
+                        };
 
-                if (String.IsNullOrEmpty(_inSearch) == false) query = query.Where(x => x.kullaniciAdSoyad.IndexOf(_inSearch) != -1);
+            if (String.IsNullOrEmpty(_inSearch) == false) query = query.Where(x => x.kullaniciAdSoyad.IndexOf(_inSearch) != -1);
 
-                int totalCount = query.Count();
-                int filteredCount = query.Count();
-                query = query.OrderByDescending(x => x.kullaniciId).Skip(_index).Take(_inCount);
+            int totalCount = query.Count();
+            int filteredCount = query.Count();
+            query = query.OrderByDescending(x => x.kullaniciId).Skip(_index).Take(_inCount);
 
 
-                var cmd = new
-                {
-                    draw = _inEcho,
-                    recordsTotal = totalCount,
-                    recordsFiltered = filteredCount,
-                    data = query.ToList()
-                };
+            var cmd = new
+            {
+                draw = _inEcho,
+                recordsTotal = totalCount,
+                recordsFiltered = filteredCount,
+                data = query.ToList()
+            };
 
-                return cmd;
-            }
+            return cmd;
         }
+
     }
 }

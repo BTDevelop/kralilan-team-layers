@@ -1938,10 +1938,10 @@ namespace BLL
             }
 
             if (kullaniciId != -1) query = query.Where(q => q.kullaniciId == kullaniciId);
+            
+            if (resimsizMi != -1) query = query.Where(q => q.resim.IndexOf("</resimDataType>") == -1 || q.resim.Equals(string.Empty));
 
-            if (resimsizMi != -1) query = query.Where(q => q.resim.IndexOf("_1.") == -1);
-
-            if (koordinatsizMi != -1) query = query.Where(q => q.koordinat == null);
+            if (koordinatsizMi != -1) query = query.Where(q => q.koordinat == null || q.koordinat.Equals(string.Empty));
 
             if (kategoriId != -1)
             {
@@ -2300,7 +2300,7 @@ namespace BLL
                              });
 
 
-                if (_inDateRange == 1) query = query.Where(q => q.baslangicTarihi == DateTime.Now);
+                if (_inDateRange == 1) query = query.Where(q => q.baslangicTarihi.Day == DateTime.Now.Day && q.baslangicTarihi.Month == DateTime.Now.Month && q.baslangicTarihi.Year == DateTime.Now.Year);
 
                 else if (_inDateRange == 2) query = query.Where(q => q.baslangicTarihi >= DateTime.Now.Subtract(new TimeSpan(3, 0, 0, 0, 0)));
 

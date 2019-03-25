@@ -158,6 +158,7 @@
     <Content Include="Endpoint\SeciliDopingService.asmx" />
     <Content Include="Endpoint\VergiDaireService.asmx" />
     <Content Include="eposta-aktivasyon.aspx" />
+    <Content Include="genel-odeme.aspx" />
     <Content Include="giris-yap.aspx" />
     <Content Include="Global.asax" />
     <Content Include="hakkimizda.aspx" />
@@ -176,9 +177,10 @@
     <Content Include="kategori-sec.aspx" />
     <Content Include="kategori-secimi.aspx" />
     <Content Include="kategoriler.aspx" />
-    <Content Include="kredi-al.aspx" />
+    <Content Include="kurus-al.aspx" />
     <Content Include="kurumsal-sozlesme.aspx" />
     <Content Include="kurumsal-yazdir.aspx" />
+    <Content Include="kurus-odeme.aspx" />
     <Content Include="liste-test.aspx" />
     <Content Include="magaza-ac.aspx" />
     <Content Include="magaza-basarili.aspx" />
@@ -291,6 +293,7 @@
     <Content Include="proje-detay.aspx" />
     <Content Include="proje-ekle.aspx" />
     <Content Include="proje-firma.aspx" />
+    <Content Include="proje-odeme.aspx" />
     <Content Include="proje-onizle.aspx" />
     <Content Include="proje-sepet.aspx" />
     <Content Include="projeler-filtrele.aspx" />
@@ -314,6 +317,7 @@
     <Content Include="sysLogin\syslogin.aspx" />
     <Content Include="management\admin.Master" />
     <Content Include="sysLogin\yonlendir.aspx" />
+    <Content Include="ucretsiz-ilan-ver.aspx" />
     <Content Include="uyelik-sozlesmesi.aspx" />
     <Content Include="vitrin-tanitim.aspx" />
     <Content Include="kategori-test.aspx" />
@@ -436,6 +440,13 @@
     </Compile>
     <Compile Include="eposta-aktivasyon.aspx.designer.cs">
       <DependentUpon>eposta-aktivasyon.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="genel-odeme.aspx.cs">
+      <DependentUpon>genel-odeme.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="genel-odeme.aspx.designer.cs">
+      <DependentUpon>genel-odeme.aspx</DependentUpon>
     </Compile>
     <Compile Include="general-upload.ashx.cs">
       <DependentUpon>general-upload.ashx</DependentUpon>
@@ -563,12 +574,12 @@
     <Compile Include="kategoriler.aspx.designer.cs">
       <DependentUpon>kategoriler.aspx</DependentUpon>
     </Compile>
-    <Compile Include="kredi-al.aspx.cs">
-      <DependentUpon>kredi-al.aspx</DependentUpon>
+    <Compile Include="kurus-al.aspx.cs">
+      <DependentUpon>kurus-al.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="kredi-al.aspx.designer.cs">
-      <DependentUpon>kredi-al.aspx</DependentUpon>
+    <Compile Include="kurus-al.aspx.designer.cs">
+      <DependentUpon>kurus-al.aspx</DependentUpon>
     </Compile>
     <Compile Include="kurumsal-sozlesme.aspx.cs">
       <DependentUpon>kurumsal-sozlesme.aspx</DependentUpon>
@@ -583,6 +594,13 @@
     </Compile>
     <Compile Include="kurumsal-yazdir.aspx.designer.cs">
       <DependentUpon>kurumsal-yazdir.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="kurus-odeme.aspx.cs">
+      <DependentUpon>kurus-odeme.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="kurus-odeme.aspx.designer.cs">
+      <DependentUpon>kurus-odeme.aspx</DependentUpon>
     </Compile>
     <Compile Include="liste-test.aspx.cs">
       <DependentUpon>liste-test.aspx</DependentUpon>
@@ -1371,6 +1389,13 @@
     <Compile Include="proje-firma.aspx.designer.cs">
       <DependentUpon>proje-firma.aspx</DependentUpon>
     </Compile>
+    <Compile Include="proje-odeme.aspx.cs">
+      <DependentUpon>proje-odeme.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="proje-odeme.aspx.designer.cs">
+      <DependentUpon>proje-odeme.aspx</DependentUpon>
+    </Compile>
     <Compile Include="proje-onizle.aspx.cs">
       <DependentUpon>proje-onizle.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1476,6 +1501,13 @@
     </Compile>
     <Compile Include="sysLogin\yonlendir.aspx.designer.cs">
       <DependentUpon>yonlendir.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ucretsiz-ilan-ver.aspx.cs">
+      <DependentUpon>ucretsiz-ilan-ver.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ucretsiz-ilan-ver.aspx.designer.cs">
+      <DependentUpon>ucretsiz-ilan-ver.aspx</DependentUpon>
     </Compile>
     <Compile Include="upload.ashx.cs">
       <DependentUpon>upload.ashx</DependentUpon>

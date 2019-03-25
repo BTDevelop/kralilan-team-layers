@@ -694,7 +694,7 @@ namespace PL
             JObject obj = new JObject();
             obj.Add("islemId", 20);
             obj.Add("siparis", "Proje Sayfası");
-            obj.Add("tutar", 2500);
+            obj.Add("tutar", 5900);
             obj.Add("vitrinKategori", null);
             obj.Add("primarykey", DateTime.Now.ToString());
 
@@ -704,12 +704,12 @@ namespace PL
             {
                 adsid = projed.projeid,
                 optid = 20,
-                price = 2500
+                price = 5900
             };
 
             siparis.Add(siparisdata);
             Session["showcasebasket"] = objDizi;
-            Response.Redirect("~/projeler/odeme/");
+            Response.Redirect("~/projeler/sepet/");
         }
     }
 }
