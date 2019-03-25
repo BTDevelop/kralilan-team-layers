@@ -337,6 +337,9 @@
                                             <input value="5" type="radio" name="ctrlselect" class="ctrlselect" />
                                             Silindi Olarak İşaretle</label><br />
                                         <label>
+											<input value="6" type="radio" name="ctrlselect" class="ctrlselect" />
+                                            Satıldı Olarak İşaretle</label><br />
+                                        <label>
                                             <input value="-1" type="radio" name="ctrlselect" class="ctrlselect" />
                                             Seçim Yok</label><br />
                                     </div>

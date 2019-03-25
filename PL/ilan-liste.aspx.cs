@@ -174,7 +174,7 @@ namespace PL
 
                     if (value != null)
                     {
-                        pageTitle = pageTitle + " " + value.TypeName;
+                        pageTitle = value.TypeName + " " + pageTitle;
                     }
                     else
                     {

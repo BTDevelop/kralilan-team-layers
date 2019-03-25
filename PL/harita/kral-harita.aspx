@@ -1200,9 +1200,9 @@
                                     iwBackground.children(':nth-child(2)').css({ 'display': 'none' });
                                     iwBackground.children(':nth-child(4)').css({ 'display': 'none' });
                                     var iwCloseBtn = iwOuter.next();
-                                    var width = $("body").width();
+									var width = $("body").width();
                                     if (width < 795) {
-                                        iwCloseBtn.css({ opacity: '1', right: '30px', top: '20px' });
+                                        iwCloseBtn.css({ opacity: '1', right: '30px', top: '20px', 'z-index':'100' });
                                     } else {
                                         iwCloseBtn.css({ opacity: '1', right: '55px', top: '20px' });
                                     }
