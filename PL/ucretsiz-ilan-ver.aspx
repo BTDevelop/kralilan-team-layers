@@ -42,6 +42,7 @@
 							<li>	Mobil tablet ve bilgisayardan Hızlı ilan verme avantajını görün. </li>
 							<li>	365 gün ücretsiz ilan süresi ile aynı ilanı defalarca vermekten kurtulun.</li>
 							<li>	Çok Uygun fiyatlarla Joker ilan sahibi olun ve daha fazla görüntülenin.</li>
+							<li>    Sadece 5 dakikada ücretsiz ve güvenilir ilan verin.  </li>
 
 
 						</div>
