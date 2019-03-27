@@ -314,6 +314,7 @@
     <Content Include="sysLogin\syslogin.aspx" />
     <Content Include="management\admin.Master" />
     <Content Include="sysLogin\yonlendir.aspx" />
+    <Content Include="ucretsiz-ilan-ver.aspx" />
     <Content Include="uyelik-sozlesmesi.aspx" />
     <Content Include="vitrin-tanitim.aspx" />
     <Content Include="kategori-test.aspx" />
@@ -1476,6 +1477,13 @@
     </Compile>
     <Compile Include="sysLogin\yonlendir.aspx.designer.cs">
       <DependentUpon>yonlendir.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ucretsiz-ilan-ver.aspx.cs">
+      <DependentUpon>ucretsiz-ilan-ver.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ucretsiz-ilan-ver.aspx.designer.cs">
+      <DependentUpon>ucretsiz-ilan-ver.aspx</DependentUpon>
     </Compile>
     <Compile Include="upload.ashx.cs">
       <DependentUpon>upload.ashx</DependentUpon>
