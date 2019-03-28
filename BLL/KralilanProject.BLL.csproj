@@ -57,6 +57,7 @@
     <Compile Include="Concrete\DopingManager.cs" />
     <Compile Include="Concrete\FirmaManager.cs" />
     <Compile Include="Concrete\GuvenlikKodManager.cs" />
+    <Compile Include="Concrete\IlanBakilanManager.cs" />
     <Compile Include="Concrete\IlanFavoriManager.cs" />
     <Compile Include="Concrete\IlanManager.cs" />
     <Compile Include="Concrete\IlanSatilanManager.cs" />

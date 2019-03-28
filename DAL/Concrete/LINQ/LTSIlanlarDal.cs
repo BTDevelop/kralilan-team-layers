@@ -114,7 +114,7 @@ namespace DAL.Concrete.LINQ
                 value.baslangicTarihi = entity.baslangicTarihi;
                 value.bitisTarihi = entity.bitisTarihi;
                 if (entity.onay != -1) value.onay = entity.onay;
-                value.satildiMi = entity.satildiMi;
+                value.satildiMi = false;
                 value.numaraYayinlansinMi = entity.numaraYayinlansinMi;
                 if (!String.IsNullOrEmpty(entity.koordinat)) value.koordinat = entity.koordinat;
                 if (!String.IsNullOrEmpty(entity.girilenOzellik)) value.girilenOzellik = entity.girilenOzellik;

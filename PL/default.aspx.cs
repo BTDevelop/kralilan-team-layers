@@ -50,6 +50,7 @@ namespace PL
         private IIlanService _ilanManager;
         private ISeciliDopingService _seciliDopingManager;
         private IIlanSatilanService _ilanSatilanManager;
+        private IZiyaretciProjeService _ziyaretciProjeManager;
         public _default()
         {
             _ilanSayiManager = new IlanSayiManager(new LTSIlanSayilarDal());
@@ -57,6 +58,7 @@ namespace PL
             _ilanManager = new IlanManager(new LTSIlanlarDal());
             _seciliDopingManager = new SeciliDopingManager(new LTSSeciliDopinglerDal());
             _ilanSatilanManager = new IlanSatilanManager(new LTSIlanSatilanDal());
+            _ziyaretciProjeManager = new ZiyaretciProjeManager(new LTSZiyaretcilerProjeDal());
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -88,86 +90,94 @@ namespace PL
                 rpcategories.DataSource = SayilarList;
                 rpcategories.DataBind();
 
-				if (Cache["AnasayfaVitrinCache"] != null)
-				{
-					AnasayfaVitrinList = Cache["AnasayfaVitrinCache"] as List<Ilan>;
-				}
-				else
-				{
-					AnasayfaVitrinList = _seciliDopingManager.GetAllByDopingId(1);
-					Cache.Add("AnasayfaVitrinCache", AnasayfaVitrinList, null, System.Web.Caching.Cache.NoAbsoluteExpiration, new TimeSpan(0, 5, 0), System.Web.Caching.CacheItemPriority.Default, null);
-				}
+                if (Cache["AnasayfaVitrinCache"] != null)
+                {
+                    AnasayfaVitrinList = Cache["AnasayfaVitrinCache"] as List<Ilan>;
+                }
+                else
+                {
+                    AnasayfaVitrinList = _seciliDopingManager.GetAllByDopingId(1);
+                    Cache.Add("AnasayfaVitrinCache", AnasayfaVitrinList, null, System.Web.Caching.Cache.NoAbsoluteExpiration, new TimeSpan(0, 5, 0), System.Web.Caching.CacheItemPriority.Default, null);
+                }
 
-				rphomeshowcase.DataSource = AnasayfaVitrinList;
-				rphomeshowcase.DataBind();
-
-
-				if (Cache["AcilVitrinCache"] != null)
-				{
-					AcilVitrinList = Cache["AcilVitrinCache"] as List<Ilan>;
-				}
-				else
-				{
-					AcilVitrinList = _seciliDopingManager.GetAllByDopingId(5);
-					Cache.Add("AcilVitrinCache", AcilVitrinList, null, System.Web.Caching.Cache.NoAbsoluteExpiration, new TimeSpan(0, 15, 0), System.Web.Caching.CacheItemPriority.Default, null);
-				}
-
-				rpemergencyshowcase.DataSource = AcilVitrinList;
-				rpemergencyshowcase.DataBind();
-
-				if (Cache["Son48Cache"] != null)
-				{
-					Son48List = Cache["Son48Cache"] as List<Ilan>;
-				}
-				else
-				{
-					Son48List = _ilanManager.GetByLastDate();
-					Cache.Add("Son48Cache", Son48List, null, System.Web.Caching.Cache.NoAbsoluteExpiration, new TimeSpan(0, 15, 0), System.Web.Caching.CacheItemPriority.Default, null);
-				}
-
-				rplast48showcase.DataSource = Son48List;
-				rplast48showcase.DataBind();
-
-				if (Cache["SatilanlarCache"] != null)
-				{
-					SatilanlarList = Cache["SatilanlarCache"] as List<Ilan>;
-				}
-				else
-				{
-					SatilanlarList = _ilanSatilanManager.GetBySale();
-					Cache.Add("SatilanlarCache", SatilanlarList, null, System.Web.Caching.Cache.NoAbsoluteExpiration, new TimeSpan(1, 0, 0), System.Web.Caching.CacheItemPriority.Default, null);
-				}
-
-				rpsales.DataSource = SatilanlarList;
-				rpsales.DataBind();
+                rphomeshowcase.DataSource = AnasayfaVitrinList;
+                rphomeshowcase.DataBind();
 
 
-				ProjeView = _projeManager.GetProjectRandom(-1);
-				if (ProjeView != null)
-				{
-					List<girilenDataType> txtlist = new List<girilenDataType>();
-					txtlist = (List<girilenDataType>)toolkit.GetObjectInXml(ProjeView.ProjeBilgiler, typeof(List<girilenDataType>));
-					ProjectPlace = txtlist.Where(x => x.ozellikId == 8756).FirstOrDefault().deger;
-					ProjectEstateCount = txtlist.Where(x => x.ozellikId == 8757).FirstOrDefault().deger;
-					ProjectDate = txtlist.Where(x => x.ozellikId == 8758).FirstOrDefault().deger;
-				}
+                if (Cache["AcilVitrinCache"] != null)
+                {
+                    AcilVitrinList = Cache["AcilVitrinCache"] as List<Ilan>;
+                }
+                else
+                {
+                    AcilVitrinList = _seciliDopingManager.GetAllByDopingId(5);
+                    Cache.Add("AcilVitrinCache", AcilVitrinList, null, System.Web.Caching.Cache.NoAbsoluteExpiration, new TimeSpan(0, 15, 0), System.Web.Caching.CacheItemPriority.Default, null);
+                }
+
+                rpemergencyshowcase.DataSource = AcilVitrinList;
+                rpemergencyshowcase.DataBind();
+
+                if (Cache["Son48Cache"] != null)
+                {
+                    Son48List = Cache["Son48Cache"] as List<Ilan>;
+                }
+                else
+                {
+                    Son48List = _ilanManager.GetByLastDate();
+                    Cache.Add("Son48Cache", Son48List, null, System.Web.Caching.Cache.NoAbsoluteExpiration, new TimeSpan(0, 15, 0), System.Web.Caching.CacheItemPriority.Default, null);
+                }
+                
+                rplast48showcase.DataSource = Son48List;
+                rplast48showcase.DataBind();
+
+                if (Cache["SatilanlarCache"] != null)
+                {
+                    SatilanlarList = Cache["SatilanlarCache"] as List<Ilan>;
+                }
+                else
+                {
+                    SatilanlarList = _ilanSatilanManager.GetBySale();
+                    Cache.Add("SatilanlarCache", SatilanlarList, null, System.Web.Caching.Cache.NoAbsoluteExpiration, new TimeSpan(1, 0, 0), System.Web.Caching.CacheItemPriority.Default, null);
+                }
+
+                rpsales.DataSource = SatilanlarList;
+                rpsales.DataBind();
 
 
-				if (Cache["SayilarDicCache"] != null)
-				{
-					SayilarDic = Cache["SayilarDicCache"] as Dictionary<string, string>;
-				}
-				else
-				{
-					SayilarDic.Add("Anasayfa Vitrini", String.Format("({0:N0})", _seciliDopingManager.CountByDopingId(1)));
-					SayilarDic.Add("Arama Sonuç Vitrini", String.Format("({0:N0})", _seciliDopingManager.CountByDopingId(2)));
-					SayilarDic.Add("Acil Acil", String.Format("({0:N0})", _seciliDopingManager.CountByDopingId(5)));
-					SayilarDic.Add("Fiyatı Düşen", String.Format("({0:N0})", _seciliDopingManager.CountByDopingId(8)));
-					SayilarDic.Add("Son 48 Saat", String.Format("({0:N0})", _ilanManager.CountLastDate()));
-					SayilarDic.Add("Satılanlar", String.Format("({0:N0})", _ilanSatilanManager.Count()));
-					Cache.Add("SayilarDicCache", SayilarDic, null, System.Web.Caching.Cache.NoAbsoluteExpiration, new TimeSpan(0, 30, 0), System.Web.Caching.CacheItemPriority.Default, null);
-				}
-			}
+                ProjeView = _projeManager.GetProjectRandom(-1);
+                if (ProjeView != null)
+                {
+                    List<girilenDataType> txtlist = new List<girilenDataType>();
+                    txtlist = (List<girilenDataType>)toolkit.GetObjectInXml(ProjeView.ProjeBilgiler, typeof(List<girilenDataType>));
+                    ProjectPlace = txtlist.Where(x => x.ozellikId == 8756).FirstOrDefault().deger;
+                    ProjectEstateCount = txtlist.Where(x => x.ozellikId == 8757).FirstOrDefault().deger;
+                    ProjectDate = txtlist.Where(x => x.ozellikId == 8758).FirstOrDefault().deger;
+                    ziyaretproje ziyaretciProje = new ziyaretproje
+                    {
+                        gpid = ProjeView.ProjeId,
+                        gip = Request.UserHostAddress,
+                        gtarih = DateTime.Now,
+                        gtip = false
+                    };
+                    _ziyaretciProjeManager.Add(ziyaretciProje);
+                }
+
+
+                if (Cache["SayilarDicCache"] != null)
+                {
+                    SayilarDic = Cache["SayilarDicCache"] as Dictionary<string, string>;
+                }
+                else
+                {
+                    SayilarDic.Add("Anasayfa Vitrini", String.Format("({0:N0})", _seciliDopingManager.CountByDopingId(1)));
+                    SayilarDic.Add("Arama Sonuç Vitrini", String.Format("({0:N0})", _seciliDopingManager.CountByDopingId(2)));
+                    SayilarDic.Add("Acil Acil", String.Format("({0:N0})", _seciliDopingManager.CountByDopingId(5)));
+                    SayilarDic.Add("Fiyatı Düşen", String.Format("({0:N0})", _seciliDopingManager.CountByDopingId(8)));
+                    SayilarDic.Add("Son 48 Saat", String.Format("({0:N0})", _ilanManager.CountLastDate()));
+                    SayilarDic.Add("Satılanlar", String.Format("({0:N0})", _ilanSatilanManager.Count()));
+                    Cache.Add("SayilarDicCache", SayilarDic, null, System.Web.Caching.Cache.NoAbsoluteExpiration, new TimeSpan(0, 30, 0), System.Web.Caching.CacheItemPriority.Default, null);
+                }
+            }
         }
 
         public string ParsePictures(string picturesStr)

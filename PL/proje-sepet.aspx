@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="Sipariş Onayla - kralilan.com" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="proje-sepet.aspx.cs" Inherits="PL.proje_sepet" %>
+
 <asp:Content ID="Content3" ContentPlaceHolderID="styles" runat="server">
     <link rel="stylesheet" href='<%= Page.ResolveUrl("~/libraries/assets/plugins/jquery.confirm/jquery-confirm.min.css") %>' />
     <style>
@@ -456,7 +457,7 @@
 
                                                                     <div class="form-group">
                                                                         <table class="table table-hover checkboxtable">
-                                                                            <%--     <tr>
+                                                                            <tr>
                                                                                 <td>
                                                                                     <div class="radio">
                                                                                         <label>
@@ -469,8 +470,7 @@
                                                                                 <td>
                                                                                     <p>kralilan.com sanal posu üzerinden işlemini gerçekleştir.</p>
                                                                                 </td>
-                                                                            </tr>--%>
-
+                                                                            </tr>
                                                                             <tr>
                                                                                 <td>
                                                                                     <div class="radio">
@@ -504,7 +504,57 @@
                                                                         </table>
                                                                     </div>
                                                                 </div>
+                                                                <%--                                                                <div class="well">--%>
+                                                                <h3><i class="icon-credit-card "></i>Fatura Bilgileri
+                                                                </h3>
+                                                                <p>
+                                                                    Fatura işlemleri için alanlar doldurulması gereklidir.                                        
+                                                                </p>
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label" for="reportName">İsim</label>
+                                                                    <div class="col-md-8">
+                                                                        <input id="reportName" name="reportName" placeholder="İsim"
+                                                                            class="form-control input-md" required="required" type="text" runat="server" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label" for="reportSurname">Soyisim</label>
+                                                                    <div class="col-md-8">
+                                                                        <input id="reportSurname" name="reportSurname" placeholder="Soyisim"
+                                                                            class="form-control input-md" required="required" type="text" runat="server" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label" for="reportIdentityNum">TC Kimlik Numarası</label>
+                                                                    <div class="col-md-8">
+                                                                        <input id="reportIdentityNum" name="reportIdentityNum" placeholder="TC Kimlik Numarası"
+                                                                            class="form-control input-md" required="required" type="text" runat="server" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label">İl</label>
+                                                                    <div class="col-md-8">
+                                                                        <select class="form-control slctprovireport" required="required" name="location5" id="location5">
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label" for="reportZipCode">Posta Kodu</label>
+                                                                    <div class="col-md-8">
+                                                                        <input id="reportZipCode" name="reportZipCode" placeholder="Posta Kodu"
+                                                                            class="form-control input-md" required="required" type="text" runat="server" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label" for="textarea">Adres</label>
+                                                                    <div class="col-md-8">
+                                                                        <textarea class="form-control" id="billingAddress" required="required" placeholder="Adres" name="billingAddress" runat="server"></textarea>
+                                                                    </div>
+                                                                </div>
+                                                                <%--                                                                </div>--%>
                                                                 <div class="col-xs-3 col-xs-offset-9">
+                                                                    <br/>
+                                                                    <br/>
                                                                     <label style="float: right; font-size: 15px;">Toplam Tutar: <span id="toplamTutar" style="font-size: 16px; font-weight: bold; margin-left: 10px;"></span></label>
                                                                 </div>
                                                                 <script type="text/javascript">
@@ -554,7 +604,47 @@
             $('#myModal').dialog('open');
         };
 
+        function GetLocation(proid, distid, opt) {
+            jQuery.ajax({
+                type: "POST",
+                url: "/endpoint/locationservice.asmx/GetLocation",
+                dataType: "json",
+                data: "{ RegionId:'" + proid + "'" + ", CityId:'" + distid + "'}",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    var d = JSON.parse(data.d);
+                    if (opt == 1) {
+
+                        $(".slctprovireport").append("<option value='-1' selected='selected'>Seçiniz</option>");
+                        for (var i = 0; i < d.length; i++) {
+                            var appnd = "<option value='" + d[i].IlId + "'>" + d[i].IlAdi + "</option>";
+                            $(".slctprovireport").append(appnd);
+
+                        }
+                    }
+
+                    if (opt == 2) {
+                        $(".slctdist").append("<option value='-1' selected='selected'>Seçiniz</option>");
+                        for (var i = 0; i < d.length; i++) {
+                            var appnd = "<option value='" + d[i].IlceId + "'>" + d[i].IlceAdi + "</option>";
+                            $(".slctdist").append(appnd);
+
+                        }
+                    }
+                },
+                error: function (e) {
+
+                }
+            });
+        }
+
+
         $(document).ready(function () {
+            try {
+                GetLocation(-1, -1, 1);
+            } catch (e) {
+                console.log(e);
+            } 
 
             //Initialize tooltips
             $('.nav-tabs > li a[title]').tooltip();

@@ -45,6 +45,7 @@
     <Compile Include="IDopingService.cs" />
     <Compile Include="IFirmaService.cs" />
     <Compile Include="IGuvenlikKodService.cs" />
+    <Compile Include="IIlanBakilanService.cs" />
     <Compile Include="IIlanFavoriService.cs" />
     <Compile Include="IIlanSatilanService.cs" />
     <Compile Include="IIlanSayiService.cs" />

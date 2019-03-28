@@ -37,9 +37,10 @@ namespace PL.management.anaYonetim.ilanYonetimi
                     onay;
 
         public bool silindi = false;
-		public bool satildiMi = false;
+        public bool satildiMi = false;
 
-		public string ctrl = "-1", mailaddress = "", status = "";
+
+        public string ctrl = "-1", mailaddress = "", status = "";
 
         private ITelefonService _telefonManager;
         private IOzellikService _ozellikManager;
@@ -531,7 +532,7 @@ namespace PL.management.anaYonetim.ilanYonetimi
                 {
                     onay = 1;
                     silindi = false;
-					satildiMi = false;
+
                 }
                 else if (ctrl == "2")
                 {
@@ -555,14 +556,16 @@ namespace PL.management.anaYonetim.ilanYonetimi
                 {
                     onay = 0;
                     silindi = true;
+
                 }
-				else if (ctrl == "6")
-				{
-					onay = 1;
-					silindi = false;
-					satildiMi = true;
-				}
-			}
+                else if (ctrl == "6")
+                {
+                    onay = 1;
+                    silindi = false;
+                    satildiMi = true;
+                }
+
+            }
             else
             {
                 onay = iln.onay;

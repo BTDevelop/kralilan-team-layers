@@ -60,6 +60,9 @@ namespace PL
         private IKullaniciService _kullaniciManager;
         private IMagazaService _magazaManager;
         private IIlanService _ilanManager;
+        private IIlanSatilanService _ilanSatilanManager;
+        private IZiyaretciProjeService _ziyaretciProjeManager;
+        private IIlanBakilanService _ilanBakilanManager;
         public ilan_bilgi_detay()
         {
             _projeManager = new ProjeManager(new LTSProjelerDal());
@@ -74,14 +77,148 @@ namespace PL
             _kullaniciManager = new KullaniciManager(new LTSKullanicilarDal());
             _magazaManager = new MagazaManager(new LTSMagazalarDal());
             _ilanManager = new IlanManager(new LTSIlanlarDal());
+            _ilanSatilanManager = new IlanSatilanManager(new LTSIlanSatilanDal());
+            _ziyaretciProjeManager = new ZiyaretciProjeManager(new LTSZiyaretcilerProjeDal());
+            _ilanBakilanManager = new IlanBakilanManager(new LTSIlanBakilanlarDal());
         }
 
         protected override void OnInit(EventArgs e)
         {
-            _ilan = _ilanManager.Get(Convert.ToInt32(RouteData.Values["IlanNo"]));
+            _kullanici = kullaniciBll.getUsersBlock();
+
+            int urlIlanId = Convert.ToInt32(RouteData.Values["IlanNo"]);
+            _ilan = _ilanManager.Get(urlIlanId);
             if (_ilan == null || _ilan.silindiMi == true)
             {
-                Response.Redirect("~/");
+                var satilan = _ilanSatilanManager.Get(urlIlanId);
+                if (satilan != null)
+                {
+                    if (_kullanici != null)
+                    {
+                        if (_kullanici.rol < 4 || _kullanici.kredi > 0)
+                        {
+                            if (_kullanici.kredi > 0)
+                            {
+                                var value = _ilanBakilanManager.GetByAdsUserId(satilan.ilanId, _kullanici.kullaniciId);
+                                if (value == null)
+                                {
+                                    _ilanBakilanManager.Add(new ilanBakilanlar { kullaniciId = _kullanici.kullaniciId, ilanId = satilan.ilanId });
+                                    _kullaniciManager.UpdateJetonByUserId(_kullanici.kullaniciId, Convert.ToInt32(_kullanici.kredi--));
+                                }
+                            }
+
+                            _ilan = new ilan
+                            {
+                                ilanId = satilan.ilanId,
+                                satildiMi = satilan.satildiMi,
+                                aciklama = satilan.aciklama,
+                                baslangicTarihi = satilan.baslangicTarihi,
+                                baslik = satilan.baslik,
+                                bitisTarihi = satilan.bitisTarihi,
+                                fiyat = satilan.fiyat,
+                                fiyatTurId = satilan.fiyatTurId,
+                                fiyatiDustu = satilan.fiyatiDustu,
+                                girilenOzellik = satilan.girilenOzellik,
+                                ilId = satilan.ilId,
+                                ilceId = satilan.ilceId,
+                                ilanTurId = satilan.ilanTurId,
+                                ilat = satilan.ilat,
+                                ilng = satilan.ilng,
+                                kategoriId = satilan.kategoriId,
+                                koordinat = satilan.koordinat,
+                                kullaniciId = satilan.kullaniciId,
+                                magazaId = satilan.magazaId,
+                                mahalleId = satilan.mahalleId,
+                                onay = satilan.onay,
+                                numaraYayinlansinMi = satilan.numaraYayinlansinMi,
+                                pasifMi = satilan.pasifMi,
+                                resim = satilan.resim,
+                                silindiMi = satilan.silindiMi,
+                                ziyaretci = satilan.ziyaretci,
+                                secilenOzellik = satilan.secilenOzellik,
+
+                            };
+                        }
+                        else
+                        {
+                            _ilan = new ilan
+                            {
+                                ilanId = satilan.ilanId,
+                                satildiMi = satilan.satildiMi,
+                                aciklama = "Açıklama Gizlendi.",
+                                baslangicTarihi = satilan.baslangicTarihi,
+                                baslik = "Başlık Gizlendi.",
+                                bitisTarihi = satilan.bitisTarihi,
+                                fiyat = 0,
+                                fiyatTurId = satilan.fiyatTurId,
+                                fiyatiDustu = satilan.fiyatiDustu,
+                                girilenOzellik = satilan.girilenOzellik,
+                                ilId = satilan.ilId,
+                                ilceId = satilan.ilceId,
+                                ilanTurId = satilan.ilanTurId,
+                                ilat = satilan.ilat,
+                                ilng = satilan.ilng,
+                                kategoriId = satilan.kategoriId,
+                                koordinat = satilan.koordinat,
+                                kullaniciId = satilan.kullaniciId,
+                                magazaId = satilan.magazaId,
+                                mahalleId = satilan.mahalleId,
+                                onay = satilan.onay,
+                                numaraYayinlansinMi = false,
+                                pasifMi = satilan.pasifMi,
+                                resim = satilan.resim,
+                                silindiMi = satilan.silindiMi,
+                                ziyaretci = satilan.ziyaretci,
+                                secilenOzellik = satilan.secilenOzellik,
+
+                            };
+
+                            ScriptManager.RegisterStartupScript(this, this.GetType(), "none", "ShowCreditUserAds();", true);
+
+                        }
+                    }
+                    else
+                    {
+                        _ilan = new ilan
+                        {
+                            ilanId = satilan.ilanId,
+                            satildiMi = satilan.satildiMi,
+                            aciklama = "Açıklama Gizlendi.",
+                            baslangicTarihi = satilan.baslangicTarihi,
+                            baslik = "Başlık Gizlendi.",
+                            bitisTarihi = satilan.bitisTarihi,
+                            fiyat = 0,
+                            fiyatTurId = satilan.fiyatTurId,
+                            fiyatiDustu = satilan.fiyatiDustu,
+                            girilenOzellik = satilan.girilenOzellik,
+                            ilId = satilan.ilId,
+                            ilceId = satilan.ilceId,
+                            ilanTurId = satilan.ilanTurId,
+                            ilat = satilan.ilat,
+                            ilng = satilan.ilng,
+                            kategoriId = satilan.kategoriId,
+                            koordinat = satilan.koordinat,
+                            kullaniciId = satilan.kullaniciId,
+                            magazaId = satilan.magazaId,
+                            mahalleId = satilan.mahalleId,
+                            onay = satilan.onay,
+                            numaraYayinlansinMi = false,
+                            pasifMi = satilan.pasifMi,
+                            resim = satilan.resim,
+                            silindiMi = satilan.silindiMi,
+                            ziyaretci = satilan.ziyaretci,
+                            secilenOzellik = satilan.secilenOzellik,
+
+                        };
+
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "none", "ShowCreditUserAds();", true);
+
+                    }
+                }
+                else
+                {
+                    Response.Redirect("~/");
+                }
             }
 
             CreateDynamicControls();
@@ -140,7 +277,6 @@ namespace PL
             }
 
 
-            _kullanici = kullaniciBll.getUsersBlock();
             messageAuth.Visible = false;
             messageNonAuth.Visible = true;
 
@@ -198,6 +334,10 @@ namespace PL
                     messageNonAuth.Visible = false;
                 }
 
+                if (whoFromId == 5)
+                {
+                    infoModal.Visible = true;
+                }
             }
 
             if (_ilan.numaraYayinlansinMi == true)
@@ -210,11 +350,19 @@ namespace PL
             if (ProjeView != null)
             {
                 List<girilenDataType> txtlist = new List<girilenDataType>();
-                txtlist = (List<girilenDataType>) toolkit.GetObjectInXml(ProjeView.ProjeBilgiler,
+                txtlist = (List<girilenDataType>)toolkit.GetObjectInXml(ProjeView.ProjeBilgiler,
                     typeof(List<girilenDataType>));
                 ProjectPlace = txtlist.Where(x => x.ozellikId == 8756).FirstOrDefault().deger;
                 ProjectEstateCount = txtlist.Where(x => x.ozellikId == 8757).FirstOrDefault().deger;
                 ProjectDate = txtlist.Where(x => x.ozellikId == 8758).FirstOrDefault().deger;
+                ziyaretproje ziyaretciProje = new ziyaretproje
+                {
+                    gpid = ProjeView.ProjeId,
+                    gip = Request.UserHostAddress,
+                    gtarih = DateTime.Now,
+                    gtip = false
+                };
+                _ziyaretciProjeManager.Add(ziyaretciProje);
             }
             else ProjeBox.Visible = false;
 
@@ -222,7 +370,7 @@ namespace PL
             BakilanlarList = _ilanManager.GetByLocationRound(_ilan.ilId, _ilan.ilceId);
             rpNearPosition.DataSource = BakilanlarList;
             rpNearPosition.DataBind();
-            
+
 
             Page.Title = provName + " " + districtName + " " + fromWho + " " + adsType + " #" + adsId;
             Page.MetaDescription = provName + " " + districtName + " " + neighName + " " + fromWho + " " + adsType + String.Format(" {0:N0}", _ilan.fiyat) + " TL " + "ilan detay ve iletişim bilgileri için tıklayın kralilan.com #" + number;
@@ -256,7 +404,7 @@ namespace PL
                     if (!String.IsNullOrEmpty(RouteData.Values["IlanNo"].ToString()))
                     {
                         int ilanId = Convert.ToInt32(RouteData.Values["IlanNo"].ToString());
-                        ilan iln = _ilanManager.Get(ilanId);
+                        ilan iln = _ilan;
 
                         txtlist = (List<girilenDataType>)toolkit.GetObjectInXml(iln.girilenOzellik, typeof(List<girilenDataType>));
                         slctlist = (List<secilenDataType>)toolkit.GetObjectInXml(iln.secilenOzellik, typeof(List<secilenDataType>));
@@ -387,7 +535,7 @@ namespace PL
                 {
                     classifiedURI = "https://www.kralilan.com/ilan/" + Tools.URLConverter(heading) + "/" + adsId + "/" + "detay";
                     string userMail = _kullaniciManager.Get(kullaniciId).email;
-                    toolkit.HtmlMailMessageSender(userMail, senderEmail.Value, "~/email-temp/three-cols-images/build.html", location + "İlanı için 1 e-posta alındı.", location + "İlanınız için 1 mesaj alındı.", heading, price, "Burak Tahtacıoğlu", "Mesaj", location, "https://www.kralilan.com/upload/ilan/" + postResim, classifiedURI);
+                    toolkit.HtmlMailMessageSender(userMail, senderEmail.Value, "~/email-temp/three-cols-images/build.html", location + "İlanı için 1 e-posta alındı.", location + "İlanınız için 1 mesaj alındı.", heading, price, _kullanici.kullaniciAdSoyad, "Mesaj", location, "https://www.kralilan.com/upload/ilan/" + postResim, classifiedURI);
                     ScriptManager.RegisterStartupScript(this, GetType(), "Show Modal Popup", "showmodalpopup();", true);
                 }
             }
@@ -397,6 +545,24 @@ namespace PL
                 throw;
             }
         }
+
+        protected void InformationMail_ServerClick(object sender, EventArgs e)
+        {
+            try
+            {
+                classifiedURI = "https://www.kralilan.com/ilan/" + Tools.URLConverter(heading) + "/" + adsId + "/" + "detay";
+                string userOffer = "<b>Teklif Veren Adı</b> " + infoName + "<br/>" + "<b>Teklif Veren Eposta</b> " + infoEposta + "<br/>" + "<b>Teklif Veren TCKN</b> " + infoIdentity + "<br/>" + "<b>Teklif Veren Telefonu</b> " + infoPhone +
+                                   "<br/>" + "<b>Teklif Veren Teklifi</b>" + infoOffer;
+                toolkit.HtmlMailMessageSender("info@kralilan.com", senderEmail.Value, "~/email-temp/three-cols-images/build.html", location + "İlan için teklif e-postası alındı.", location + "İlan için teklif mesajı alındı.", heading, price, "Kralilan", userOffer, location, "https://www.kralilan.com/upload/ilan/" + postResim, classifiedURI);
+                ScriptManager.RegisterStartupScript(this, GetType(), "Show Modal Popup", "showmodalpopup();", true);
+            }
+            catch (Exception)
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "Show Modal Popup", "showmodalpopup1();", true);
+                throw;
+            }
+        }
+
 
         public string ParsePictures(string picturesStr)
         {

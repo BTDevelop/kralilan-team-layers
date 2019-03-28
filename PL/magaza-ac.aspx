@@ -550,21 +550,72 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="storeUserModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12 ml-auto">
+                                <div class="reg-sidebar-inner text-center">
+                                    <div class="promo-text-box">
+                                        <i class=" icon-cancel fa fa-4x icon-color-3"></i>
+                                        <h3><strong>İşlem yaptığınız kullanıcı daha önce başka bir mağaza atanmış!!!</strong></h3>
+                                        <p>
+                                            kralilan.com'da her kullanıcı farklı mağazalara atanmalıdır. Başka bir hesap açarak tekrar deneyiniz.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 ml-auto">
+                                <div class="reg-sidebar-inner text-center">
+                                    <div class="promo-text-box">
+                                        <i class=" icon-home fa fa-4x icon-color-1"></i>
+                                        <h3><strong>Anasayfaya Devam Etmek İstiyorum</strong></h3>
+                                        <p>
+                                            kralilan.com'da ki diğer ilanlara ulaşmak için anasayfaya git.                        
+                                        </p>
+                                        <a href="/" type="button" class="btn btn-default">Devam Et</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="scripts" runat="server">
     <script src="/libraries/assets/js/fileinput.min.js" type="text/javascript"></script>
     <script src="/management/plugins/input-mask/jquery.inputmask.js"></script>
     <script src="/management/plugins/input-mask/jquery.inputmask.extensions.js"></script>
     <script>
+
+        function ShowStoreUserModal() {
+            $('#storeUserModal').modal({
+                backdrop: 'static',
+                keyboard: false
+            });
+
+            $("body").toggleClass("dialogIsOpen");
+
+        }
+
+        function NonShowStoreUserModal() {
+            $('#storeUserModal').modal("hide");
+        }
+
+
         $(document).on('click', '#close-preview', function () {
             $('.image-preview').popover('hide');
             $('.image-preview').hover(
                 function () {
                     $('.image-preview').popover('show');
                 },
-                 function () {
-                     $('.image-preview').popover('hide');
-                 }
+                function () {
+                    $('.image-preview').popover('hide');
+                }
             );
         });
 

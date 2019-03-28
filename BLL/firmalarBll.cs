@@ -182,11 +182,8 @@ namespace BLL
                                 baslik = i.feposta,
                                 ilAdi = i.ftelefon,
                                 baslangicTarihi = Convert.ToDateTime(i.ftarih),
-								aciklama = String.Format("<a class='btn btn-primary btn-xs' target='_blank' href='/projeler/firma/{0}/{1}'>Görüntüle</a><a class='btn btn-warning btn-xs' target='_blank' href='/management/anaYonetim/projeYonetimi/proje.aspx?page=firma-duzenle&firma={0}'>Düzenle</a>", i.firmaid, PublicHelper.Tools.URLConverter(i.fadi))
-
-								//aciklama = @"<a class='btn btn-primary btn-xs' target='_blank' href='/projeler/firma/" + i.firmaid + "/" + PublicHelper.Tools.URLConverter(i.fadi) + @"/'>Görüntüle</a>
-								//<a class='btn btn-warning btn-xs' target='_blank' href='/management/anaYonetim/projeYonetimi/proje.aspx?page=firma-duzenle&firma=" + i.firmaid + @"'>Düzenle</a>"
-							};
+                                aciklama = String.Format("<a class='btn btn-primary btn-xs' target='_blank' href='/projeler/firma/{0}/{1}'>Görüntüle</a><a class='btn btn-warning btn-xs' target='_blank' href='/management/anaYonetim/projeYonetimi/proje.aspx?page=firma-duzenle&firma={0}'>Düzenle</a>", i.firmaid, PublicHelper.Tools.URLConverter(i.fadi))
+                            };
 
 
                 if (!String.IsNullOrEmpty(_inCompanyId)) query = query.Where(q => q.resim.ToString() == _inCompanyId);

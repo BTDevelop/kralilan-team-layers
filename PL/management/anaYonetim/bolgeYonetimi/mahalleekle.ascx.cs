@@ -21,6 +21,7 @@ namespace PL.management.anaYonetim.bolgeYonetimi
         {
             _mahalleManager = new MahalleManager(new LTSMahallelerDal());
             _ilManager = new IlManager(new LTSIllerDal());
+            _ilceManager = new IlceManager(new LTSIlcelerDal());
         }
 
         protected void Page_Load(object sender, EventArgs e)

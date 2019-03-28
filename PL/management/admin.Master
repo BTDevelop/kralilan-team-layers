@@ -592,6 +592,7 @@
                     contentType: "application/json; charset=utf-8",
                     success: function (idata) {
                         cdata = idata.d;
+                        console.log(cdata);
                         if(_indtrange==1)
                         {
                             todaycnt=cdata;

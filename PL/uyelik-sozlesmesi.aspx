@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="Üyelik Sözleşmesi - kralilan.com" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="uyelik-sozlesmesi.aspx.cs" Inherits="PL.uyelik_sozlesmesi" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="intro-inner">
         <div class="about-intro" style="box-shadow: inset 250px 250px 250px 450px rgba(0, 0, 128, 0.54); background: url(../libraries/images/bg2.jpg) no-repeat center; background-size: cover;">
             <div class="dtable hw100">

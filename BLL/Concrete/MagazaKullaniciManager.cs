@@ -21,7 +21,7 @@ namespace BLL.Concrete
 
         public void Add(magazaKullanici entity)
         {
-            throw new NotImplementedException();
+            _magazaKullanicilarDal.Add(entity);
         }
 
         public int Count(int StoreId)

@@ -98,12 +98,12 @@ namespace BLL.Concrete
 
         public void Update(projeler entity)
         {
-            throw new NotImplementedException();
+            _projeDal.Update(entity);
         }
 
         public void UpdateLast(projeler entity)
         {
-            throw new NotImplementedException();
+            _projeDal.UpdateLast(entity);
         }
 
         public void UpdateStatus(projeler entity)

@@ -26,6 +26,8 @@ namespace PL.Endpoint
     {
         private IIlanService _ilanManager = new IlanManager(new LTSIlanlarDal());
         private IIlanService _ilanAdoManager = new IlanManager(new ADOIlanlarDal());
+        private IIlanSatilanService _ilanSatilanManager = new IlanSatilanManager(new LTSIlanSatilanDal());
+
         [WebMethod]
         public string Get(int Id)
         {
@@ -48,6 +50,19 @@ namespace PL.Endpoint
             string a = JsonConvert.SerializeObject(_ilanAdoManager.GetFaceted(Index, _generalFilter, _otherFilter));
 
             return a;
+        }
+
+        [WebMethod]
+        public string GetCoordinatesById(int Id)
+        {
+            var ads = _ilanManager.Get(Id);
+            if (ads == null)
+            {
+                var adsSale = _ilanSatilanManager.Get(Id);
+                return adsSale.koordinat;
+            }
+
+            return ads.koordinat;
         }
     }
 }

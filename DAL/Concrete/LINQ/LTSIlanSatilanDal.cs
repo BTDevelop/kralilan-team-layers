@@ -38,7 +38,8 @@ namespace DAL.Concrete.LINQ
 
         public ilanSatilan Get(int Id)
         {
-            throw new NotImplementedException();
+           var value = idc.ilanSatilans.Where(x => x.ilanId == Id).SingleOrDefault();
+           return value;
         }
 
         public List<ilanSatilan> GetAll()

@@ -1,4 +1,5 @@
-﻿<%@ Page Title="ücretsiz ilan ver, sahibinden ücretsiz ilan ver, emlak ilan ver" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="ucretsiz-ilan-ver.aspx.cs" Inherits="PL.ucretsiz_ilan_ver" %>
+﻿<%@ Page Title="Ücretsiz ilan ver, Sahibinden ücretsiz ilan ver, Emlak ilan ver" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="ucretsiz-ilan-ver.aspx.cs" Inherits="PL.ucretsiz_ilan_ver" %>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 	<div class="intro-inner">
 		<div class="about-intro" style="box-shadow: inset 250px 250px 250px 450px rgba(0, 0, 128, 0.54); background: url(/libraries/images/bg2.jpg) no-repeat center; background-size: cover;">
@@ -17,9 +18,9 @@
 		<div class="container">
 			<div class="section-content">
 				<div class="row ">
-					<h2 class="text-center title-1">Ücretsiz İlan Verme Hakkında </h2>
+					<h1 class="text-center title-1">NASIL ÜCRETSİZ İLAN VERİLİR? </h1>
 					<hr class="center-block small text-hr">
-					<div class="col-sm-7">
+					<div class="col-sm-6">
 						<div class="text-content has-lead-para text-left">
 							<p class="lead">
 								<b>Ücretsiz ilan verme</b> avantajıyla ilanınızı tüm dünyaya duyurmanın tam zamanı.
@@ -43,12 +44,10 @@
 							<li>	365 gün ücretsiz ilan süresi ile aynı ilanı defalarca vermekten kurtulun.</li>
 							<li>	Çok Uygun fiyatlarla Joker ilan sahibi olun ve daha fazla görüntülenin.</li>
 							<li>    Sadece 5 dakikada ücretsiz ve güvenilir ilan verin.  </li>
-
-
 						</div>
 					</div>
-					<div class="col-sm-5">
-						<img src="/libraries/images/ucretsiz-ilan-ver.png" alt="Ücretsiz İlan Ver" class="img-responsive">
+					<div class="col-sm-6">
+						<img src="/libraries/images/ucretsiz-ilan-ver.png" alt="imfo" class="img-responsive">
 					</div>
 				</div>
 			</div>
@@ -80,7 +79,7 @@
 						<h3 class="title-4">AKLINDAKİ İLANI HEMEN BUL</h3>
 						<p>
 							kralilan.com'a has özellikleri kullanarak ihtiyacına uygun ilanı hemen bul satıcıyla görüş anlaş.
-
+                       
 						</p>
 					</div>
 				</div>
@@ -98,3 +97,4 @@
 		</div>
 	</div>
 </asp:Content>
+

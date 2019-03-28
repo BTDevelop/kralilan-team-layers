@@ -98,7 +98,7 @@ namespace PL.management.anaYonetim.magazaYonetimi
                     }
 
                     drpVergi.DataSource = _vergiDaireManager.GetByRegionId(Convert.ToInt32(drpIl.SelectedValue));
-                    drpVergi.DataTextField = "vergiDairesi";
+                    drpVergi.DataTextField = "VergiDaireAdi";
                     drpVergi.DataValueField = "vergiDaireId";
                     drpVergi.DataBind();
 

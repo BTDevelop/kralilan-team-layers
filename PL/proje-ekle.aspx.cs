@@ -502,7 +502,10 @@ namespace PL
                 pozellik = slctstr,
                 pvaziyetplan = null,
                 pkullanicid = kullaniciId,
-                pfirmaid = firmaid
+                pfirmaid = firmaid,
+                ponay = false,
+                psilindmi = false,
+                psatistami = true
             };
             _projeManager.Add((_proje));
             
@@ -672,6 +675,7 @@ namespace PL
 
             DAL.projeler _projeLast = new DAL.projeler
             {
+                projeid = projed.projeid,
                 pgaleri = picstr,
                 pkatplan = plnstr,
                 pvaziyetplan = stimage
@@ -690,7 +694,7 @@ namespace PL
             JObject obj = new JObject();
             obj.Add("islemId", 20);
             obj.Add("siparis", "Proje Sayfası");
-            obj.Add("tutar", 2500);
+            obj.Add("tutar", 5900);
             obj.Add("vitrinKategori", null);
             obj.Add("primarykey", DateTime.Now.ToString());
 
@@ -700,12 +704,12 @@ namespace PL
             {
                 adsid = projed.projeid,
                 optid = 20,
-                price = 2500
+                price = 5900
             };
 
             siparis.Add(siparisdata);
             Session["showcasebasket"] = objDizi;
-            Response.Redirect("~/projeler/odeme/");
+            Response.Redirect("~/projeler/sepet/");
         }
     }
 }

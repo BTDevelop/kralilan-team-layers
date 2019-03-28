@@ -32,6 +32,7 @@ namespace DAL
         public string paidPrice { get; set; }
         public string conversationId { get; set; }
         public List<BasketItem> basketItems { get; set; }
+        public string callbackUrl { get; set; }
 
         public CheckoutFormInitialize initializeCheckoutBuilder()
         {
@@ -43,7 +44,8 @@ namespace DAL
             request.Currency = Currency.TRY.ToString();
             request.BasketId = buyerBasketId;
             request.PaymentGroup = PaymentGroup.PRODUCT.ToString();
-            request.CallbackUrl = "https://www.kralilan.com/yeni-magaza-odeme/";
+            request.CallbackUrl = callbackUrl;
+            //"https://www.kralilan.com/yeni-magaza-odeme/"
 
             List<int> enabledInstallments = new List<int>();
             enabledInstallments.Add(2);

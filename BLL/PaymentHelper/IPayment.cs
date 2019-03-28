@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace BLL.PaymentHelper
 {
-    interface IPayment
+    public interface IPayment
     {
         void Pay();
+
+        object CheckoutForm();
     }
 }
