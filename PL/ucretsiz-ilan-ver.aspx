@@ -20,7 +20,7 @@
 				<div class="row ">
 					<h1 class="text-center title-1">NASIL ÜCRETSİZ İLAN VERİLİR? </h1>
 					<hr class="center-block small text-hr">
-					<div class="col-sm-6">
+					<div class="col-sm-6"> 
 						<div class="text-content has-lead-para text-left">
 							<p class="lead">
 								<b>Ücretsiz ilan verme</b> avantajıyla ilanınızı tüm dünyaya duyurmanın tam zamanı.
