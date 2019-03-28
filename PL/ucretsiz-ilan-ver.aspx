@@ -69,7 +69,7 @@
 						<h3 class="title-4">ÜCRETSİZ İLANLAR VER</h3>
 						<p>
 							kralilan.com'da her kategoriden ilan vermek tamamen ücretsiz herşey senin elinden yayınla paylaş satış yap.
-                       
+                        
 						</p>
 					</div>
 				</div>
