@@ -49,7 +49,7 @@
 					<div class="col-sm-6">
 						<img src="/libraries/images/ucretsiz-ilan-ver.png" alt="imfo" class="img-responsive">
 					</div>
-				</div>
+				</div> 
 			</div>
 		</div>
 	</div>
