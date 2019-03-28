@@ -12,7 +12,7 @@
 			</div>
 		</div>
 		<!--/.about-intro -->
-	</div>
+	</div> 
 	<!-- /.intro-inner -->
 	<div class="main-container inner-page">
 		<div class="container">
