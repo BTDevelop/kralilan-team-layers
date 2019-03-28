@@ -45,7 +45,7 @@
 							<li>	Çok Uygun fiyatlarla Joker ilan sahibi olun ve daha fazla görüntülenin.</li>
 							<li>    Sadece 5 dakikada ücretsiz ve güvenilir ilan verin.  </li>
 						</div>
-					</div>
+					</div> 
 					<div class="col-sm-6">
 						<img src="/libraries/images/ucretsiz-ilan-ver.png" alt="imfo" class="img-responsive">
 					</div>
