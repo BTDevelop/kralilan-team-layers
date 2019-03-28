@@ -23,36 +23,41 @@
 					<div class="col-sm-6">
 						<div class="text-content has-lead-para text-left">
 							<p class="lead">
-                                Ücretsiz ilan verme avantajıyla ilanınızı tüm dünyaya duyurmanın tam zamanı. Sahibinden ücretsiz ilan sitemizi kullanarak Satılık kiralık devren ve Günlük Kiralık ilanlarınızı; daire işyeri arsa bina ve tüm emlak kategorilerinde verebilirsiniz.
+								<b>Ücretsiz ilan verme</b> avantajıyla ilanınızı tüm dünyaya duyurmanın tam zamanı.
+								<br /><br /> 
+								<b>Sahibinden ücretsiz ilan</b> sitemizi kullanarak Satılık kiralık devren ve
+								<br />
+								Günlük Kiralık ilanlarınızı; daire işyeri arsa bina ve tüm emlak kategorilerinde verebilirsiniz.
+								<br />
+								<br />
+								Türkiye’nin her yerinden emlak ilanlarının tek bir yerde buluştuğu bu platform
+								<br />
+								sayesinde <b>sahibinden ücretsiz üye olup, ücretsiz ilan verme </b>deneyimini yaşayın.
+                                <br />
+								<br />
+								Mevzu ücretsiz ilansa kralilan.com size yeter.
+							</p>
 
-                                Türkiye’nin her yerinden emlak ilanlarının tek bir yerde buluştuğu bu platform sayesinde sahibinden ücretsiz üye olup, ücretsiz ilan verme deneyimini yaşayın.
-                                <br/>Mevzu ücretsiz ilansa kralilan.com size yeter.
-							</p>
-							<p class="lead">
-                                Sitemizin Avantajlarından Faydalanın;
-                               
-						
-								<br />
-								1- Her yıl 3 ücretsiz ilan verme hakkınız olsun.
-                               
-								<br />
-								2- Mobil tablet ve bilgisayardan Hızlı ilan verme avantajını görün.
-                               
-								<br />
-								3- 365 gün ücretsiz ilan süresi ile aynı ilanı defalarca vermekten kurtulun.
-                               
-								<br />
-								4- Çok Uygun fiyatlarla Joker ilan sahibi olun ve daha fazla görüntülenin.
-                           
-							</p>
+							<ul>Sitemizin Avantajlarından Faydalanın; </ul>
+							<li>	Her yıl 3 <b>ücretsiz ilan verme </b>hakkınız olsun. </li>
+							<li>	Mobil tablet ve bilgisayardan Hızlı ilan verme avantajını görün. </li>
+							<li>	365 gün ücretsiz ilan süresi ile aynı ilanı defalarca vermekten kurtulun.</li>
+							<li>	Çok Uygun fiyatlarla Joker ilan sahibi olun ve daha fazla görüntülenin.</li>
+							<li>    Sadece 5 dakikada ücretsiz ve güvenilir ilan verin.  </li>
 						</div>
 					</div>
 					<div class="col-sm-6">
-						<img src="/libraries/images/info.png" alt="imfo" class="img-responsive">
+						<img src="/libraries/images/ucretsiz-ilan-ver.png" alt="imfo" class="img-responsive">
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
+	<!-- /.main-container -->
+	<div class="page-bottom-info-content text-center">
+		<a class="btn  btn-lg btn-primary-dark" href="/kayit/">
+			<i class="icon icon-user-add"></i><span class="hide-xs color50">Hemen</span> Üye Ol </a>
+		<h4 class="footer-text" style="margin-top: 10px;">Sahibinden Ücretsiz İlan Ver</h4>
 	</div>
 	<!-- /.main-container -->
 	<div class="parallaxbox about-parallax-bottom" style="box-shadow: inset 250px 250px 250px 450px rgba(0, 0, 128, 0.54);">
