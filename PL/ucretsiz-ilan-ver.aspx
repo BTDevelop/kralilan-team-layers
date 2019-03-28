@@ -18,7 +18,7 @@
 		<div class="container">
 			<div class="section-content">
 				<div class="row ">
-					<h1 class="text-center title-1">NASIL ÜCRETSİZ İLAN VERİLİR? </h1>
+					<h1 class="text-center title-1">Ücretsiz ilan Verme Hakkında </h1>
 					<hr class="center-block small text-hr">
 					<div class="col-sm-6"> 
 						<div class="text-content has-lead-para text-left">
@@ -57,7 +57,7 @@
 	<div class="page-bottom-info-content text-center">
 		<a class="btn  btn-lg btn-primary-dark" href="/kayit/">
 			<i class="icon icon-user-add"></i><span class="hide-xs color50">Hemen</span> Üye Ol </a>
-		<h4 class="footer-text" style="margin-top: 10px;">Sahibinden Ücretsiz İlan Ver</h4>
+		<h3 class="footer-text" style="margin-top: 10px;">Sahibinden Ücretsiz İlan Ver</h3>
 	</div>
 	<!-- /.main-container -->
 	<div class="parallaxbox about-parallax-bottom" style="box-shadow: inset 250px 250px 250px 450px rgba(0, 0, 128, 0.54);">
