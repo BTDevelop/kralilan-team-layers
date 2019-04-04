@@ -47,7 +47,7 @@
 						</div>
 					</div> 
 					<div class="col-sm-6">
-						<img src="/libraries/images/ucretsiz-ilan-ver.png" alt="imfo" class="img-responsive">
+						<img src="/libraries/images/ucretsiz-ilan-ver.png" alt="info" class="img-responsive">
 					</div>
 				</div> 
 			</div>
