@@ -17,22 +17,22 @@
     <section class="content">
         <script type="text/javascript" class="init">
 
-            var data = getParameterByName("user");
-            $(document).ready(function () {
-                $('#example').DataTable({
-                    columns: [
-                 { "data": "kullaniciId" },
-                 { "data": "kullaniciAdSoyad" },
-                 { "data": "profilResim" },
-                 { "data": "email" },
-                 { "data": "sonGirisTarihi" },
-                 { "data": "sifre" }
-                    ],
-                    processing: true,
-                    serverSide: true,
-                    sAjaxSource: "/services/ki_ai.ashx?data=userdata",
-                    fnServerParams: function (aoData) {
-                        aoData.push({ "name": "_income", "value": data });
+            var data = getParameterByName("user"); // kullanicinin gönderdiği userden sonraki değeri data ya alındı
+            $(document).ready(function () {                                                         //
+                $('#example').DataTable({                                                           // 
+                    columns: [																		//
+                 { "data": "kullaniciId" },															//   JQUERY 
+                 { "data": "kullaniciAdSoyad" },													//	DATATABLES 
+                 { "data": "profilResim" },															//	YÖNTEMİ
+                 { "data": "email" },																//
+                 { "data": "sonGirisTarihi" },														//
+                 { "data": "sifre" }																//
+                    ],																				//
+                    processing: true,																//
+                    serverSide: true,																//
+                    sAjaxSource: "/services/ki_ai.ashx?data=userdata",	        					//bunu sor eski yeni sürüm farkını kaldırmak mı ? 
+                    fnServerParams: function (aoData) {												//
+                        aoData.push({ "name": "_income", "value": data }); // birden fazla değer getirmek için 
                     },
                     sServerMethod: "post"
 

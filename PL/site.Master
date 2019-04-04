@@ -31,21 +31,21 @@
 	<script>
 		var OneSignal = window.OneSignal || [];
 		OneSignal.push(
-        ["init", {
-        	appId: "d30b7b05-a644-4aa3-ac59-534eca6fcfac",
-        	welcomeNotification: {
-        		"title": "Kral Ýlan",
-        		"message": "Teþekkürler!"
-        	},
-        	autoRegister: false,
-        	notifyButton: {
-        		enable: false,
-        	}
-        }],
-        function () {
-        	OneSignal.registerForPushNotifications()
-        }
-        );
+			["init", {
+				appId: "d30b7b05-a644-4aa3-ac59-534eca6fcfac",
+				welcomeNotification: {
+					"title": "Kral Ýlan",
+					"message": "Teþekkürler!"
+				},
+				autoRegister: false,
+				notifyButton: {
+					enable: false,
+				}
+			}],
+			function () {
+				OneSignal.registerForPushNotifications()
+			}
+		);
 	</script>
 	<script async="async" src="https://www.googletagmanager.com/gtag/js?id=AW-781913905"></script>
 	<script>
@@ -59,14 +59,14 @@
 		!function (f, b, e, v, n, t, s) {
 			if (f.fbq) return; n = f.fbq = function () {
 				n.callMethod ?
-                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+					n.callMethod.apply(n, arguments) : n.queue.push(arguments)
 			};
 			if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
 			n.queue = []; t = b.createElement(e); t.async = !0;
 			t.src = v; s = b.getElementsByTagName(e)[0];
 			s.parentNode.insertBefore(t, s)
 		}(window, document, 'script',
-        'https://connect.facebook.net/en_US/fbevents.js');
+			'https://connect.facebook.net/en_US/fbevents.js');
 		fbq('init', '1930191430395114');
 		fbq('track', 'PageView');
 	</script>
@@ -86,7 +86,7 @@
 	<form runat="server" id="form1">
 		<div id="wrapper">
 			<div class="header">
-				<nav class="navbar navbar-site navbar-default" role="navigation">
+				<nav class="navbar navbar-site navbar-default navbar-fixed-top" role="navigation">
 					<div class="container">
 						<div class="navbar-header">
 							<button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
@@ -176,7 +176,7 @@
 										<li><a title="Þartlar ve Koþullar" href="/sartlar-ve-kosullar/">Þartlar ve Koþullar </a></li>
 										<li><a title="Sýkça Sorulan Sorular" href="/sss/">Sýkça Sorulan Sorular </a></li>
 										<li><a title="Üyelik Sözleþmesi" href="/uyelik-sozlesmesi/">Üyelik Sözleþmesi </a></li>
-                                        <li><a title="Ücretsiz Ýlan Ver" href="/ucretsiz-ilan-ver">Ücretsiz Ýlan Ver </a></li>
+										<li><a title="Ücretsiz Ýlan Ver" href="/ucretsiz-ilan-ver">Ücretsiz Ýlan Ver </a></li>
 									</ul>
 								</div>
 							</div>
@@ -230,8 +230,11 @@
 									<a style="width: 88px; height: 31px;" target="_blank" href="https://emlak.mitula.com.tr/homesPartners/kralilan_tr-YkR4Pl1lE4" title="A partner of a search engine tr.mitula.com">
 										<img width="88" height="31" src="https://img.mitula.net/img/mitulagroup100x21.png" alt=" tr.mitula.com">
 									</a>
-									<a style="width: 88px; height: 31px; margin:5pc;" target="_blank" href=" https://daire.trovit.com.tr/index.php/?cod=search_homes&qalt=264&order_by=source_date&type=1&what_d=xxx" title="A partner of a search engine tr.trovit.com">
-										<span class="logo-trovit"> <svg viewBox="0 0 320 122" width="60"><path d="M127.1 38.2c-20.9 0-37.8 17.7-37.8 39.5s16.9 39.5 37.8 39.5 37.8-17.7 37.8-39.5-16.9-39.5-37.8-39.5m0 56.4c-8.9 0-16.2-7.6-16.2-16.9 0-9.3 7.3-16.9 16.2-16.9 8.9 0 16.2 7.6 16.2 16.9 0 9.3-7.3 16.9-16.2 16.9M246.3 39.7h21.1v75.9h-21.1zM245.1 16.6c0-6.5 5.3-11.7 11.7-11.7 6.5 0 11.7 5.3 11.7 11.7 0 6.5-5.3 11.7-11.7 11.7-6.4 0-11.7-5.2-11.7-11.7M300.6 57.6H315V39.7h-14.4V17.9L279.5 23v64.9c0 12 1.7 29 27.5 29 3.8 0 7.4-.4 8-.5V99.7h-5.6c-4.6 0-8.8-2.5-8.8-9.7V57.6zM26.1 57.6h14.4V39.7H26.1V17.9L5 22.9v64.9c0 12 1.7 29 27.5 29 3.8 0 7.4-.4 8-.5V99.7h-5.6c-4.7 0-8.8-2.5-8.8-9.7V57.6zM201.1 88.5l15.1-48.8h23.4L214.3 108c-2.1 5.2-7.2 9.2-13.3 9.2-6.1 0-11.1-4-13.3-9.2l-25.2-68.2H186l15.1 48.7M82.7 38.2c-17.8 0-32.3 14.5-32.3 32.3v45.1h21.1v-42c0-9.4 5.8-14.5 14.5-14.5h1.9V38.2h-5.2z"></path></svg> </span>
+									<a style="width: 88px; height: 31px; margin: 5pc;" target="_blank" href=" https://daire.trovit.com.tr/index.php/?cod=search_homes&qalt=264&order_by=source_date&type=1&what_d=xxx" title="A partner of a search engine tr.trovit.com">
+										<span class="logo-trovit">
+											<svg viewBox="0 0 320 122" width="60">
+												<path d="M127.1 38.2c-20.9 0-37.8 17.7-37.8 39.5s16.9 39.5 37.8 39.5 37.8-17.7 37.8-39.5-16.9-39.5-37.8-39.5m0 56.4c-8.9 0-16.2-7.6-16.2-16.9 0-9.3 7.3-16.9 16.2-16.9 8.9 0 16.2 7.6 16.2 16.9 0 9.3-7.3 16.9-16.2 16.9M246.3 39.7h21.1v75.9h-21.1zM245.1 16.6c0-6.5 5.3-11.7 11.7-11.7 6.5 0 11.7 5.3 11.7 11.7 0 6.5-5.3 11.7-11.7 11.7-6.4 0-11.7-5.2-11.7-11.7M300.6 57.6H315V39.7h-14.4V17.9L279.5 23v64.9c0 12 1.7 29 27.5 29 3.8 0 7.4-.4 8-.5V99.7h-5.6c-4.6 0-8.8-2.5-8.8-9.7V57.6zM26.1 57.6h14.4V39.7H26.1V17.9L5 22.9v64.9c0 12 1.7 29 27.5 29 3.8 0 7.4-.4 8-.5V99.7h-5.6c-4.7 0-8.8-2.5-8.8-9.7V57.6zM201.1 88.5l15.1-48.8h23.4L214.3 108c-2.1 5.2-7.2 9.2-13.3 9.2-6.1 0-11.1-4-13.3-9.2l-25.2-68.2H186l15.1 48.7M82.7 38.2c-17.8 0-32.3 14.5-32.3 32.3v45.1h21.1v-42c0-9.4 5.8-14.5 14.5-14.5h1.9V38.2h-5.2z"></path></svg>
+										</span>
 									</a>
 									<a style="width: 88px; height: 31px;" target="_blank" href="https://tr.flatfy.com/search?site_id=254" title="A partner of a search engine tr.flatfy.com">
 										<img width="88" height="31" src="https://static.flatfy.com/static/spa/media/logo_black_tr.42470ede.svg" alt=" tr.flatfy.com">
@@ -241,6 +244,7 @@
 								</div>
 								<div class="copy-info text-center">
 									© 2016 kral ilan markasý Yatýrýmcý Bilgi Merkezi - YABÝMER'in tescilli markasýdýr. Tüm haklarý saklýdýr.										
+							
 								</div>
 							</div>
 						</div>
@@ -269,7 +273,7 @@
 					i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
 						(i[r].q = i[r].q || []).push(arguments)
 					}, i[r].l = 1 * new Date(); a = s.createElement(o),
-                    m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+						m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
 				})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 				ga('create', 'UA-83917838-1', 'auto');
 				ga('send', 'pageview', { 'page': location.pathname + location.search + location.hash });
