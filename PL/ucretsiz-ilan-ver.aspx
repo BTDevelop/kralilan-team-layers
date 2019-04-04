@@ -47,7 +47,7 @@
 						</div>
 					</div> 
 					<div class="col-sm-6">
-						<img src="/libraries/images/ucretsiz-ilan-ver.png" alt="sahibinden ücretsiz ilan ver" class="img-responsive">
+						<img src="/libraries/images/ucretsiz-ilan-ver-sahibinden-ucretsiz-ilan-ver.png" alt="ücretsiz ilan ver sahibinden ücretsiz ilan ver" class="img-responsive">
 					</div>
 				</div> 
 			</div>
