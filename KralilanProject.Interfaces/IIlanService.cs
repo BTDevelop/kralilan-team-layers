@@ -57,5 +57,7 @@ namespace KralilanProject.Interfaces
 
         int CountSale();
 
+        bool IsUserAdsLimitless(int UserId);
+
     }
 }

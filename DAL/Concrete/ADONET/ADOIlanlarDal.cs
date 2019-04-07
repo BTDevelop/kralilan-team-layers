@@ -247,5 +247,10 @@ namespace DAL.Concrete.ADONET
 
             return TumIlanlar;
         }
+
+        public bool IsUserAdsLimitless(int UserId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

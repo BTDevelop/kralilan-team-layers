@@ -103,6 +103,83 @@
         else if (shwcase == 50)
             opt = 3;
 
+        function GetAdsFaceted(index, opt, tur, istop, clear) {
+            pageIsRefresh = false;
+            if (clear == false) {
+                if (sonistek == index) return;
+            }
+
+            var result = "";
+            sonistek = index;
+            jQuery.ajax({
+                type: "POST",
+                url: "/endpoint/ilanservice.asmx/GetBySaleFaceted",
+                dataType: "json",
+                data: "{ Index:'" + index + "'}",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    edata = data.d;
+
+                    var dataArr = JSON.parse(edata);
+                    result = "";
+                    for(var i = 0; i < dataArr.length; i++) {
+                        var text, parser, xmlDoc;
+
+                        text = dataArr[i].Resimler;
+                        parser = new DOMParser();
+                        xmlDoc = parser.parseFromString(text, "text/xml");
+                        var resim = "noImage.jpg";
+                        var str = "";
+                        if (xmlDoc.getElementsByTagName("resimDataType")[0]) {
+                            resim = xmlDoc.getElementsByTagName("resim")[0].childNodes[0];
+                        }
+
+                        result += '<div class="item-list">\
+                                        <div class="col-sm-2 no-padding photobox">\
+                                            <div><a href="/ilan/'+ dataArr[i].Url +'-'+ dataArr[i].IlanId +'/detay"\
+                                                    title="' + dataArr[i].Baslik + '">\
+                                                        <img\
+                                                            class="thumbnail no-margin" src="/upload/ilan/thmb_' + resim.data + '"\
+                                                            alt="' + dataArr[i].Baslik + '"></a>\
+                                            </div>\
+                                        </div>\
+                                        <div class="col-sm-7 add-desc-box">\
+                                            <div class="add-details">\
+                                                <h5 class="add-title">\
+                                                <a href="/ilan/' + dataArr[i].Url + '-' + dataArr[i].IlanId + '/detay"\
+                                                        title="' + dataArr[i].Baslik + '">' + dataArr[i].Baslik + '</a></h5>\
+                                                <span class="info-row"><span\
+                                                        class="date"><i class="icon-clock"></i>' + dataArr[i].BaslangicTarihi + '</span> - <span\
+                                                            class="category">' + dataArr[i].EmlakTipi + ' ' + dataArr[i].KategoriAdi + '</span><span\
+                                                                class="item-location"><i class="icon-location-2"></i>&nbsp;' + dataArr[i].IlAdi + ' / ' + dataArr[i].IlceAdi + ' / ' + dataArr[i].MahalleAdi + '</span>\
+                                                </span>\
+                                            </div>\
+                                        </div>\
+                                        <div class="col-sm-3 text-right price-box">\
+                                            <h2 class="item-price">' + dataArr[i].FiyatTipi + ' ' + dataArr[i].Fiyat + '</h2>\
+                                        </div>\
+                                    </div>';
+                    }
+              
+                    if (istop == true) {
+                        $("#addswrap").prepend(result);
+                    } else {
+                        $("#addswrap").append(result);
+                    }
+                    pageIsRefresh = true;
+                },
+                error: function (e) {
+                    var s;
+                    s = e;
+                    pageIsRefresh = true;
+                }
+            });
+            if (clear == true) {
+                $("#addswrap").empty();
+            }
+        }
+
+
         function GetIlan(index, count, opt, tur, istop, clear) {
             pageIsRefresh = false;
             if (clear == false) {
@@ -180,8 +257,12 @@
         }
 
         jQuery(document).ready(function () {
-           
-            GetIlan(pageIndex, 10, opt, list_kind, false, true);
+
+            if (shwcase == 50) {
+                GetAdsFaceted(pageIndex, opt, list_kind, false, true);
+            } else {
+                GetIlan(pageIndex, 10, opt, list_kind, false, true);
+            }
 
         })
 
@@ -189,7 +270,11 @@
             if ($(window).scrollTop() + $(window).height() > $("#pagecontent").height() - 50)
                 if (pageIsRefresh == true) {
                     pageIndex++;
-                    GetIlan(pageIndex, 10, opt, list_kind, false, false);
+                    if (shwcase == 50) {
+                        GetAdsFaceted(pageIndex, opt, list_kind, false, false);
+                    } else {
+                        GetIlan(pageIndex, 10, opt, list_kind, false, false);
+                    }
                 }
 
         })
@@ -200,7 +285,11 @@
 
         function liste_sifirlama() {
             pageIndex = 0;
-            GetIlan(pageIndex, 10, opt, list_kind, false, true);
+            if (shwcase == 50) {
+                GetAdsFaceted(pageIndex, opt, list_kind, false, true);
+            } else {
+                GetIlan(pageIndex, 10, opt, list_kind, false, true);
+            }
         }
 
         $(document).ajaxStart(function () {

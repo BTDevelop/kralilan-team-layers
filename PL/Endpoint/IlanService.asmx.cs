@@ -7,6 +7,7 @@ using BLL.Concrete;
 using BLL.ExternalClass;
 using DAL.Concrete.ADONET;
 using DAL.Concrete.LINQ;
+using DAL.Enums;
 using KralilanProject.Entities;
 using KralilanProject.Interfaces;
 using Newtonsoft.Json;
@@ -50,6 +51,13 @@ namespace PL.Endpoint
             string a = JsonConvert.SerializeObject(_ilanAdoManager.GetFaceted(Index, _generalFilter, _otherFilter));
 
             return a;
+        }
+
+        [WebMethod]
+        public string GetBySaleFaceted(int Index)
+        {
+            var result = JsonConvert.SerializeObject(_ilanSatilanManager.GetBySaleFaceted(Index, SortTypeString.IdDesc));
+            return result;
         }
 
         [WebMethod]
