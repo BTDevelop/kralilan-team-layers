@@ -45,5 +45,8 @@ namespace DAL.Abstract
         void UpdatePicturesByAdsId(int AdsId, string Pictures);
 
         void UpdateStatus(int AdsId, int IsVerify, bool IsPass, bool IsDelete, bool IsSale);
+
+        bool IsUserAdsLimitless(int UserId);
+
     }
 }
