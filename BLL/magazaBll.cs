@@ -247,7 +247,7 @@ namespace BLL
                 int filterCount = query.Count();
                 string payStatusStr = "";
                 query = query.OrderByDescending(x => x.magazaId).Skip(_index).Take(_inCount);
-                
+                ;
                 List<magaza> list = new List<magaza>();
                 var data = query.ToList();
                 odeme paymentObject = new odeme();

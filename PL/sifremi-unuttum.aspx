@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="main-container">
         <div class="container">
-            <div class="row"> 
+            <div class="row">
                 <div class="col-sm-5 login-box">
                     <div class="panel panel-default">
                          <!--<div class="panel-intro text-center">                            <h2 class="logo-title" style="text-transform: lowercase">                                Original Logo will be placed here                                  <img style="padding-left: 15px; padding-top: 9px;" src="/upload/default-images/apple-touch-icon-57-precomposed.png" />                            </h2>                        </div>-->	                    <div class="panel-intro text-center">		                    <h1 class="footer-text" style="font-size: 19px;margin-top: -40px;margin-bottom: 20px;padding-top: 20px;background-color: #16A085;color: white;">Yeni Şifre Al</h1>	                    </div>

@@ -120,11 +120,6 @@ namespace BLL.Concrete
             return _ilanlarDal.IsOwnerAds(AdsId, UserId, StoreId);
         }
 
-        public bool IsUserAdsLimitless(int UserId)
-        {
-            return _ilanlarDal.IsUserAdsLimitless(UserId);
-        }
-
         public void Update(ilan entity)
         {
            _ilanlarDal.Update(entity);

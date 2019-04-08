@@ -13,7 +13,7 @@
     <!-- Main content -->
     <section class="content">
        <script type="text/javascript" class="init">
-            var data = getParameterByName("type"); // type=1,2.3.4.5.6... type dan sonra hangi sayı varsa onu data değerine atıyor
+            var data = getParameterByName("type");
             $(document).ready(function () {
                 $('#example').DataTable({
                     columns: [
@@ -47,12 +47,12 @@
                //}).draw();
             });
 
-            function getParameterByName(name, url) { // JQUERY kullanmadan sorgu dizisi değerlerini almak için kullanılan script yada sayfa kontrolü ?  sadece 6 değerini döndürür // foreach kullanıldığı yer? 
+            function getParameterByName(name, url) {
                 if (!url) {
                     url = window.location.href;
                 }
                 name = name.replace(/[\[\]]/g, "\\$&");
-                var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"), 
+                var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
                     results = regex.exec(url);
                 if (!results) return null;
                 if (!results[2]) return '';
