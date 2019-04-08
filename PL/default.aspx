@@ -344,8 +344,7 @@
                                                 <a href='<%# String.Format("/ilan/{0}-{1}/detay", BLL.PublicHelper.Tools.URLConverter(Eval("Baslik")), Eval("IlanId")) %>'
                                                     title='<%# Eval("Baslik") %>'>
                                                     <span class="item-carousel-thumb">
-														 
-                                                         <img src="/libraries/images/loadingv.gif" data-src="upload/ilan/thmb_<%# ParsePictures(Eval("Resimler").ToString()) %>" class="img-responsive lazy" width="120" height="80" alt="<%# Eval("Baslik") %>" />
+                                                        <img src="/libraries/images/loadingv.gif" data-src="upload/ilan/thmb_<%# ParsePictures(Eval("Resimler").ToString()) %>" class="img-responsive lazy" width="120" height="80" alt="<%# Eval("Baslik") %>" />
                                                     </span>
                                                     <span class="item-name"><%# Eval("Baslik") %> </span>
                                                 </a>

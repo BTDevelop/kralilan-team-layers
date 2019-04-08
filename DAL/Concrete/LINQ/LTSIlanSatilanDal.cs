@@ -89,10 +89,6 @@ namespace DAL.Concrete.LINQ
 
             else if (SortTypeString.PriceAsc == SortType) query = query.OrderBy(x => x.FiyatNumeric).Skip(pageCount * (Index)).Take(pageCount);
 
-            else if (SortTypeString.IdDesc == SortType) query = query.OrderByDescending(x => x.IlanId).Skip(pageCount * (Index)).Take(pageCount);
-
-            else if (SortTypeString.IdAsc == SortType) query = query.OrderBy(x => x.IlanId).Skip(pageCount * (Index)).Take(pageCount);
-
             return query.ToList();
         }
 

@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
-<<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+<%--    <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
     <script>
         $(function () {
@@ -18,7 +18,7 @@
                 "autoWidth": false
             });
         });
-    </script>
+    </script>--%>
          <style>
         .table td {
             vertical-align: middle !important;

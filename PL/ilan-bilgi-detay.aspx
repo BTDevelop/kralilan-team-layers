@@ -441,7 +441,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">İptal</button>
-                    <button type="submit" class="btn btn-success pull-right" runat="server" onserverclick="InformationMail_ServerClick">Gönder!</button>
+                    <button type="submit" class="btn btn-success pull-right" runat="server" onserverclick="Unnamed_ServerClick">Gönder!</button>
                 </div>
             </div>
         </div>
@@ -578,20 +578,6 @@
             $.dialog({
                 title: 'Bilgilendirme',
                 content: 'Mesaj gönderebilmek için lütfen giriş yapınız.'
-            });
-        };
-
-        function showSuccess() {
-            $.dialog({
-                title: 'Bilgilendirme',
-                content: 'İşlem başarılı bir şekilde gerçekleşti.'
-            });
-        };
-
-        function showFailure() {
-            $.dialog({
-                title: 'Bilgilendirme',
-                content: 'İşlem başarısız lütfen daha sonra tekrar deneyiniz.'
             });
         };
 
