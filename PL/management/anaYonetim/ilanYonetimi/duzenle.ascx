@@ -353,7 +353,16 @@
                                     <input type="text" class="form-control" name="subject" placeholder="Konu">
                                 </div>
                                 <div>
-                                    <textarea class="textarea" name="message" placeholder="Mesaj" style="width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                                    <textarea class="textarea" name="message" placeholder="Mesaj" style="width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
+											Merhabalar; 
+İlanınız yayınlanmıştır. Aşağıdaki linkten takip edebilirsiniz
+
+İlanınızı sosyal medyadan da paylaşarak binlerce kişiye ulaşmak ve daha hızlı satmak için hemen aşağıdaki linke tıklayıp ve paylaşın lütfen.
+
+Ayrıca ana sayfa vitrini, kategori vitrini, acil vitrini gibi seçeneklerden uygun fiyatlara yararlanabilirsiniz. Böylece daha fazla alıcıya ulaşarak, satışınızı hızlandırabilirsiniz. 
+											İyi Günler Dileriz…
+
+                                    </textarea>
                                 </div>
                                 <div>
                                     <button class="pull-right btn btn-default" id="sendEmail" runat="server" onserverclick="sendEmail_ServerClick">Gönder <i class="fa fa-arrow-circle-right"></i></button>
