@@ -551,15 +551,15 @@ namespace PL
             try
             {
                 classifiedURI = "https://www.kralilan.com/ilan/" + Tools.URLConverter(heading) + "/" + adsId + "/" + "detay";
-                string userOffer = "<b>Teklif Veren Adı</b> " + infoName.Value + "<br/>" + "<b>Teklif Veren Eposta</b> " + infoEposta.Value + "<br/>" + "<b>Teklif Veren TCKN</b> " + infoIdentity.Value + "<br/>" + "<b>Teklif Veren Telefonu</b> " + infoPhone.Value +
-                                   "<br/>" + "<b>Teklif Veren Teklifi</b>" + infoOffer.Value;
-                toolkit.HtmlMailMessageSender("info@kralilan.com", infoEposta.Value , "~/email-temp/three-cols-images/build.html", location + "İlan için teklif e-postası alındı.", location + "İlan için teklif mesajı alındı.", heading, price, "Kralilan", userOffer, location, "https://www.kralilan.com/upload/ilan/" + postResim, classifiedURI);
-                ScriptManager.RegisterStartupScript(this, GetType(), "Show Modal Popup", "showSuccess();", true);
+                string userOffer = "<b>Teklif Veren Adı</b> " + infoName + "<br/>" + "<b>Teklif Veren Eposta</b> " + infoEposta + "<br/>" + "<b>Teklif Veren TCKN</b> " + infoIdentity + "<br/>" + "<b>Teklif Veren Telefonu</b> " + infoPhone +
+                                   "<br/>" + "<b>Teklif Veren Teklifi</b>" + infoOffer;
+                toolkit.HtmlMailMessageSender("info@kralilan.com", senderEmail.Value, "~/email-temp/three-cols-images/build.html", location + "İlan için teklif e-postası alındı.", location + "İlan için teklif mesajı alındı.", heading, price, "Kralilan", userOffer, location, "https://www.kralilan.com/upload/ilan/" + postResim, classifiedURI);
+                ScriptManager.RegisterStartupScript(this, GetType(), "Show Modal Popup", "showmodalpopup();", true);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                ScriptManager.RegisterStartupScript(this, GetType(), "Show Modal Popup", "showFailure();", true);
-                Console.WriteLine(ex);
+                ScriptManager.RegisterStartupScript(this, GetType(), "Show Modal Popup", "showmodalpopup1();", true);
+                throw;
             }
         }
 

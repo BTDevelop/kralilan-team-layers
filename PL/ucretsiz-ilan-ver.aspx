@@ -18,7 +18,7 @@
 		<div class="container">
 			<div class="section-content">
 				<div class="row ">
-					<h1 class="text-center title-1">Ücretsiz ilan Verme Hakkında </h1>
+					<h2 class="text-center title-1">Ücretsiz ilan Verme Hakkında </h2>
 					<hr class="center-block small text-hr">
 					<div class="col-sm-6"> 
 						<div class="text-content has-lead-para text-left">
@@ -33,7 +33,7 @@
 								Türkiye’nin her yerinden emlak ilanlarının tek bir yerde buluştuğu bu platform
 								<br />
 								sayesinde <b>sahibinden ücretsiz üye olup, ücretsiz ilan verme </b>deneyimini yaşayın.
-                                <br />
+                                <br /> 
 								<br />
 								Mevzu ücretsiz ilansa kralilan.com size yeter.
 							</p>
@@ -47,7 +47,7 @@
 						</div>
 					</div> 
 					<div class="col-sm-6">
-						<img src="/libraries/images/ucretsiz-ilan-ver.png" alt="info" class="img-responsive">
+						<img src="/libraries/images/ucretsiz-ilan-ver-sahibinden-ucretsiz-ilan-ver.png" alt="ücretsiz ilan ver sahibinden ücretsiz ilan ver" class="img-responsive">
 					</div>
 				</div> 
 			</div>

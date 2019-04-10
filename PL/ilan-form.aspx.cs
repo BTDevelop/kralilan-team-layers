@@ -305,11 +305,7 @@ namespace PL
             {
                 if (!IsPostBack)
                 {
-
-                    if (_kullanici.rol > 3 && _ilanManager.IsUserAdsLimitless(_kullanici.kullaniciId) && _magazaKullaniciManager.Get(_kullanici.kullaniciId) == null)
-                    {
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "none", "ShowUserAds();", true);
-                    }
+                    //ScriptManager.RegisterStartupScript(this, this.GetType(), "none", "ShowUserAds();", true);
 
                     geciciIlanId = DateTime.Now.Ticks.ToString();
                     txtgecici.Value = geciciIlanId;

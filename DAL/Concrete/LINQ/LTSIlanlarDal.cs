@@ -16,7 +16,7 @@ namespace DAL.Concrete.LINQ
     public class LTSIlanlarDal : IIlanlarDal
     {
         private ilanDataContext idc = new ilanDataContext();
-        private readonly int pageIndex = 0, pageCount = 10, adsLimit = 3;
+        private readonly int pageIndex = 0, pageCount = 10;
 
         public static Func<ilanDataContext, IQueryable<Ilan>> GetByLastDateCompiled =
             CompiledQuery.Compile((ilanDataContext iDc) =>
@@ -631,12 +631,6 @@ namespace DAL.Concrete.LINQ
             }
 
             return null;
-        }
-
-        public bool IsUserAdsLimitless(int UserId)
-        {
-            var value = idc.ilans.Count(x => x.kullaniciId == UserId);
-            return value > adsLimit;
         }
     }
 }
