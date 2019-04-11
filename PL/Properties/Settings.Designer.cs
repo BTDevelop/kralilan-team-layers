@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DAL.Properties {
+namespace PL.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -25,12 +25,10 @@ namespace DAL.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=109.232.221.95;Initial Catalog=ilanDB;User ID=sa;Password=ki3847384WB" +
-            "343")]
-        public string ilanDBConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Setting {
             get {
-                return ((string)(this["ilanDBConnectionString"]));
+                return ((string)(this["Setting"]));
             }
         }
     }

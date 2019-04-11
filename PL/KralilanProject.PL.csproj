@@ -332,6 +332,10 @@
     <Content Include="services\ki_ai.ashx" />
     <Content Include="services\ki-generalupload.ashx" />
     <Content Include="site.Master" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1425,6 +1429,11 @@
       <DependentUpon>projeler.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="sartlar-ve-kosullar.aspx.cs">
       <DependentUpon>sartlar-ve-kosullar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
