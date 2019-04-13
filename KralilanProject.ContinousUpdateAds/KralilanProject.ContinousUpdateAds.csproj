@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1760DEEF-0C8C-4553-B2F4-C41D952718B0}</ProjectGuid>
+    <ProjectGuid>{EBFBE981-9DF7-40B8-8ED5-AD716BC91946}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>KralilanProject.WindowsService</RootNamespace>
-    <AssemblyName>KralilanProject.WindowsService</AssemblyName>
+    <RootNamespace>KralilanProject.ContinousUpdateAds</RootNamespace>
+    <AssemblyName>KralilanProject.ContinousUpdateAds</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -34,7 +34,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,11 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Service1.cs">
+    <Compile Include="BankAdsUpdateService.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Service1.Designer.cs">
-      <DependentUpon>Service1.cs</DependentUpon>
+      <DependentUpon>BankAdsUpdateService.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

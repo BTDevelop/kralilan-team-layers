@@ -5,7 +5,7 @@ using System.ServiceProcess;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KralilanProject.WindowsService
+namespace KralilanProject.ContinousUpdateAds
 {
     static class Program
     {

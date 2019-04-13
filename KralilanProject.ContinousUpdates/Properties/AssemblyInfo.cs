@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("KralilanProject.WindowsService")]
+[assembly: AssemblyTitle("KralilanProject.ContinousUpdates")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("KralilanProject.WindowsService")]
+[assembly: AssemblyProduct("KralilanProject.ContinousUpdates")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("1760deef-0c8c-4553-b2f4-c41d952718b0")]
+[assembly: Guid("a0258feb-e1dc-45b3-a2b7-1c57a80e06df")]
 
 // Version information for an assembly consists of the following four values:
 //

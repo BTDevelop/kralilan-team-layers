@@ -1,6 +1,6 @@
-﻿namespace KralilanProject.WindowsService
+﻿namespace KralilanProject.ContinousUpdateAds
 {
-    partial class Service1
+    partial class BankAdsUpdateService
     {
         /// <summary> 
         /// Required designer variable.

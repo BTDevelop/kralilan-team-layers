@@ -19,6 +19,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KralilanProject.Entities", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KralilanProject.CrossCuttingConcerns", "KralilanProject.CrossCuttingConcerns\KralilanProject.CrossCuttingConcerns.csproj", "{DCD59A54-CCF3-4DAA-9C4A-3BFC112A9474}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "KralilanProject.WinServices", "KralilanProject.WinServices", "{B6408F7E-C60C-4840-BC57-BA8C4C998E72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KralilanProject.ContinousUpdates", "KralilanProject.ContinousUpdates\KralilanProject.ContinousUpdates.csproj", "{A0258FEB-E1DC-45B3-A2B7-1C57A80E06DF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,9 +61,16 @@ Global
 		{DCD59A54-CCF3-4DAA-9C4A-3BFC112A9474}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DCD59A54-CCF3-4DAA-9C4A-3BFC112A9474}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DCD59A54-CCF3-4DAA-9C4A-3BFC112A9474}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0258FEB-E1DC-45B3-A2B7-1C57A80E06DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0258FEB-E1DC-45B3-A2B7-1C57A80E06DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0258FEB-E1DC-45B3-A2B7-1C57A80E06DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0258FEB-E1DC-45B3-A2B7-1C57A80E06DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A0258FEB-E1DC-45B3-A2B7-1C57A80E06DF} = {B6408F7E-C60C-4840-BC57-BA8C4C998E72}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C4CE337D-03A7-4899-A67F-E08B440181F4}
