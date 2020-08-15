@@ -690,7 +690,7 @@ function getListFilterWithAjax(income, intext, index, count, opt, type, clear, i
 
             var dataArr = JSON.parse(edata);
             result = "";
-            for(var i = 0; i < dataArr.length; i++) {
+             for(var i = 0; i < dataArr.length; i++) {
                 var text, parser, xmlDoc;
 
                 text = dataArr[i].Resimler;

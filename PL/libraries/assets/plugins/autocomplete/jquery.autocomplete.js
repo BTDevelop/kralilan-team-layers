@@ -432,9 +432,10 @@
                     return;
             }
 
-            if(that.el.val()[0] == 'i') that.el.val(that.el.val().replace('i', 'İ'));
-            if(that.el.val()[0] == 'ı') that.el.val(that.el.val().replace('ı', 'I'));
+            if(that.el.val()[0] == 'i') that.el.val(that.el.val().replace('i', 'İ'))
+            if(that.el.val()[0] == 'ı') that.el.val(that.el.val().replace('ı', 'I'))
 
+            console.log(that.el.val().replace('i', 'İ'));
             clearInterval(that.onChangeInterval);
 
             if (that.currentValue !== that.el.val()) {

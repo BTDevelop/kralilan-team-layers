@@ -30,8 +30,7 @@
         .select2-container--default .select2-results__option--highlighted[aria-selected] {
             background-color: #16A085;
             color: white;
-        }
-
+        }
 
  .table td {
             vertical-align: middle !important;
@@ -69,64 +68,62 @@
 
             table.dataTable thead th.sorting_desc:after {
                 content: "\f0dd";
-            }
-
-            #filtre{position:relative;}
+            }
 
             @media screen and (max-width: 992px) {
-		          #filtre-btn { 
-		          	            position: fixed;
-					            bottom: -15px;
-					            left: -251px;
-					            width: 250px;
-					            border-style: solid;
-                                border-width: 20px;
-                                border-color: #FFFFFF;
-                                    z-index: 999999;
-				
-		                      }
-            }
+               #filtre-btn {
+                             position: fixed;
+                       bottom: -15px;
+                       left: -251px;
+                       width: 250px;
+                       border-style: solid;
+                                 border-width: 20px;
+                                 border-color: #FFFFFF;
+                                     z-index: 999999;
 
-              @media screen and (min-width: 1281px) {
-		          #filtre-btn { 
-		          	            position: fixed;
-					            bottom: -15px;
-					            margin-left: -22px;
-					            width: 230px;
-					            border-style: solid;
-                                border-width: 15px;
-                                border-color: #FFFFFF;
-                                    z-index: 999999;
-				
-		                      }
-            }
+                           }
+           }
 
-            @media screen and (min-width:1025px) { 
-				 #filtre-btn { 
-	          	            position: fixed;
-				            bottom: -15px;
-				            margin-left: -22px;
-				            width: 230px;
-				            border-style: solid;
+
+
+        @media screen and (min-width: 1281px) {
+          #filtre-btn {
+                        position: fixed;
+                  bottom: -15px;
+                  margin-left: -22px;
+                  width: 230px;
+                  border-style: solid;
                             border-width: 15px;
                             border-color: #FFFFFF;
                                 z-index: 999999;
-			
-	                      }
-             }
 
-             @media screen and (min-width:961px)  {  
-             	#filtre-btn { 
-	          	            position: fixed;
-				            bottom: -15px;
-				            margin-left: -22px;
-				            width: 230px;
-				            border-style: solid;
-                            border-width: 15px;
-                            border-color: #FFFFFF;
-                                z-index: 999999;
-			
-	                      }
-	        }
+                      }
+        }
 
-      
+        @media screen and (min-width:1025px) {
+          #filtre-btn {
+                      position: fixed;
+                bottom: -15px;
+                margin-left: -22px;
+                width: 230px;
+                border-style: solid;
+                        border-width: 15px;
+                        border-color: #FFFFFF;
+                            z-index: 999999;
+
+                    }
+         }
+
+         @media screen and (min-width:961px)  {
+          #filtre-btn {
+                      position: fixed;
+                bottom: -15px;
+                margin-left: -22px;
+                width: 230px;
+                border-style: solid;
+                        border-width: 15px;
+                        border-color: #FFFFFF;
+                            z-index: 999999;
+
+                    }
+      }

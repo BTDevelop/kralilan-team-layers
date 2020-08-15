@@ -69,7 +69,7 @@ a:hover{text-decoration: none;}
 .list-2 li a div .list-price{font-size: 14px;color:#000080;font-weight: 700;padding-top: 5px;display: block;}
 .list-2 li a span i{margin-right: 3px;color: #515050;font-size: 14px;}
 .list-btn{background-color: #eee;border:1px solid #ccc;padding: 1px 3px;margin-right: 2px;}
-/*#marker-tooltip { display: none;position:absolute;background-color: rgba(176,21,0,0.8);padding: 3px 6px;color: #fff;border-radius: 4px;}*/
+#marker-tooltip { display: none;position:absolute;background-color: rgba(176,21,0,0.8);padding: 3px 6px;color: #fff;border-radius: 4px;}
 .gm-style-iw {max-width: 350px !important;top: 15px !important;left: 0px !important;background-color: #fff;box-shadow: 0 1px 6px rgba(178, 178, 178, 0.6);border-radius: 3px;}
 .gm-style-iw div{width:100%;}
 .gm-style-iw div.info-content{width:100%;}
@@ -113,8 +113,8 @@ a:hover{text-decoration: none;}
     text-align:center;
 }
 
-
-        /*.gm-style-iw {
+ 
+        .gm-style-iw {
             -webkit-animation-name: _ibani_5955;
             -webkit-animation-duration: 0.5s;
             -webkit-animation-iteration-count: 1;
@@ -158,48 +158,4 @@ a:hover{text-decoration: none;}
             to {
                 -webkit-transform: scale(1);
             }
-        }*//*.gm-style-iw {
-            -webkit-animation-name: _ibani_5955;
-            -webkit-animation-duration: 0.5s;
-            -webkit-animation-iteration-count: 1;
         }
-
-        @-webkit-keyframes _ibani_5955 {
-            from {
-                -webkit-transform: scale(0);
-            }
-
-            50% {
-                -webkit-transform: scale(1.2);
-            }
-
-            90% {
-                -webkit-transform: scale(0.95);
-            }
-
-            to {
-                -webkit-transform: scale(1);
-            }
-        }
-        .gm-style-iw {
-            -webkit-animation-duration: 0.5s;
-            -webkit-animation-iteration-count: 1;
-        }
-
-        @-webkit-keyframes _ibani_5955 {
-            from {
-                -webkit-transform: scale(0);
-            }
-
-            50% {
-                -webkit-transform: scale(1.2);
-            }
-
-            90% {
-                -webkit-transform: scale(0.95);
-            }
-
-            to {
-                -webkit-transform: scale(1);
-            }
-        }*/

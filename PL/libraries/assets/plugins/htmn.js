@@ -34,13 +34,14 @@ $(document).ready(function(){
 
 	if(width<769){
 		$('.left-list').css('left','-'+leftwidth+'px');
-	    $('#filtre-btn').css('left','-'+leftwidth+'px');
 		$('.slide-a-left').addClass('kapali');
 		$('.slide-a-left').css('left','0');
 		$('.right-list').css('right','-'+rightwidth+'px');
 		$('.slide-a-right').addClass('kapali');
 		$('.slide-a-right').css('right','0');
 		$("#legend").css("bottom","-"+legend+"px");
+        $('#filtre-btn').css('left','-'+leftwidth+'px');
+
 	}
 
 	$("#legend #open-legend span").on("click",function(){
@@ -68,13 +69,11 @@ $(document).ready(function(){
 			$(this).animate({"left":leftwidth},"fast");
 			$('.left-list').animate({"left":"0"},"fast");
 			$('#filtre-btn').animate({"left":"0"},"fast");
-
 		}else{
 			$(this).addClass('kapali');
 			$(this).animate({"left":"0"},"fast");
 			$('.left-list').animate({"left":"-"+leftwidth},"fast");
 			$('#filtre-btn').animate({"left":"-"+leftwidth},"fast");
-
 		}
 	});
 
@@ -85,7 +84,6 @@ $(document).ready(function(){
 				$('.slide-a-left').animate({"left":"0"},"fast");
 				$('.left-list').animate({"left":"-"+leftwidth},"fast");
 			    $('#filtre-btn').animate({"left":"-"+leftwidth},"fast");
-
 			}
 		}
 		if($(this).hasClass('kapali')){
@@ -113,7 +111,6 @@ $(window).resize(function(){
 	if(width<769){
 		$('.left-list').css('left','-'+leftwidth+'px');
 		$('#filtre-btn').css('left','-'+leftwidth+'px');
-
 		$('.slide-a-left').addClass('kapali');
 		$('.slide-a-left').css('left','0');
 		$('.right-list').css('right','-'+rightwidth+'px');
